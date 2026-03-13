@@ -4,6 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Verge – Die App für echte Begegnung</title>
+<!-- Open Graph / WhatsApp Preview -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://playverge.app/">
+<meta property="og:title" content="Verge – Die App für echte Begegnung">
+<meta property="og:description" content="Spielerisch fängt es an. Wie weit es geht, entscheidet ihr.">
+<meta property="og:image" content="https://playverge.app/LogoFinal_mit_Hintergrund.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Verge – Die App für echte Begegnung">
+<meta name="twitter:description" content="Spielerisch fängt es an. Wie weit es geht, entscheidet ihr.">
+<meta name="twitter:image" content="https://playverge.app/LogoFinal_mit_Hintergrund.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -227,7 +237,7 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
       <div class="ci-left"><div class="ci-num" style="color:rgba(46,196,182,.35)">01</div></div>
       <div class="ci-body">
         <p class="ci-tag" style="color:var(--a1)">Host</p>
-        <p class="ci-text" id="t-c1"><strong>Der Host setzt den Rahmen.</strong> Was für den Abend möglich ist – und was nicht.</p>
+        <p class="ci-text" id="t-c1"><strong>Der/Die Host setzt den Rahmen.</strong> Was für den Abend möglich ist – und was nicht.</p>
       </div>
     </div>
     <div class="ci">
@@ -249,13 +259,13 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
 
 <footer>
   <div class="foot-links">
-    <a href="mailto:info@playverge.app">info@playverge.app</a>
+    <a href="/cdn-cgi/l/email-protection#5b32353d341b2b373a222d3e293c3e753a2b2b"><span class="__cf_email__" data-cfemail="1b72757d745b6b777a626d7e697c7e357a6b6b">[email&#160;protected]</span></a>
     <a href="privacy.html" id="t-privacy">Imprint &amp; Privacy Policy</a>
   </div>
   <p class="copy">&copy; 2026 Verge</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const T={
   de:{
     navtag:"Demnächst verfügbar",
@@ -266,7 +276,7 @@ const T={
     aboutLabel:"Was ist Verge?",
     aboutText:"Verge funktioniert auf eurer WG-Party genauso wie in eurem Kinky-Kreis. Das Spiel passt sich an, so dass ihr es nicht müsst. Fünf Phasen führen euch so weit ihr möchtet.",
     consentLabel:"Drei Schichten Consent",consentSub:"Ihr entscheidet selbst.<br>Immer. Jede Person für sich.",
-    c1:"<strong>Der Host setzt den Rahmen.</strong> Was für den Abend möglich ist – und was nicht.",
+    c1:"<strong>Der/Die Host setzt den Rahmen.</strong> Was für den Abend möglich ist – und was nicht.",
     c2:"<strong>Ihr setzt eure eigenen Grenzen.</strong> Unabhängig vom Rest der Gruppe.",
     c3:"<strong>Wenn ihr euch kennengelernt habt,</strong> entscheidet ihr bei jeder Person einzeln, wie intim es wirklich werden darf. Oder ob es spielerisch bleibt.",
     privacy:"Imprint &amp; Privacy Policy"
@@ -490,10 +500,4 @@ function frame(){
     }
   }
   // ── 5. Dots ────────────────────────────────────────────────────────────────
-  for(const p of pos){
-    let dotAlpha=0.06;
-    for(const bc of bandCentres){
-      const dd=Math.sqrt((p.x-bc.x)**2+(p.y-bc.y)**2);
-      if(dd<blobInfluence*0.8) dotAlpha+=(1-dd/(blobInfluence*0.8))*0.12;
-    }
-    dotAlpha=Math.min(0.20,dotAlpha)
+  for(cons
