@@ -88,7 +88,8 @@ nav{position:relative;display:flex;align-items:center;justify-content:center;pad
 .about-right{padding:72px 0 72px 64px}
 /* Cormorant für Pull-Quote */
 .about-pull{font-family:"Cormorant Garamond",serif;font-size:clamp(20px,2.6vw,30px);font-weight:400;font-style:italic;line-height:1.62;color:rgba(242,242,242,.62);margin-bottom:52px}
-.phases{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-start}
+.phases{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.phases-row{display:flex;gap:6px}
 .pill{font-family:"Inter",sans-serif;font-size:8px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;padding:7px 15px;border:1px solid rgba(255,255,255,.07);transition:border-color .2s}
 
 /* ── CONSENT ── */
@@ -123,7 +124,7 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
 @media(max-width:900px){
   .site,footer{padding-left:24px;padding-right:24px}
   .logo img{height:auto;width:55vw;max-width:260px}
-  .phases{justify-content:center}
+  .phases{align-items:center}
   .hero{grid-template-columns:1fr;min-height:auto}
   .hero-left{padding:60px 0 52px;border-right:none;border-bottom:1px solid var(--rule)}
   .hero-right{padding:52px 0 60px}
@@ -201,11 +202,15 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
     <div class="about-right">
       <p class="about-pull" id="t-about-text">Verge funktioniert auf eurer WG-Party genauso wie in eurem Kinky-Kreis. Das Spiel passt sich an, so dass ihr es nicht müsst. Fünf Phasen führen euch so weit ihr möchtet.</p>
       <div class="phases">
-        <span class="pill" style="color:var(--a1);border-color:rgba(46,196,182,.2)">Spielerisch</span>
-        <span class="pill" style="color:var(--a2);border-color:rgba(58,134,255,.2)">Persönlich</span>
-        <span class="pill" style="color:var(--a3);border-color:rgba(123,97,255,.2)">Nah</span>
-        <span class="pill" style="color:var(--a4);border-color:rgba(255,107,107,.2)">Intim</span>
-        <span class="pill" style="color:var(--a5);border-color:rgba(255,59,48,.2)">Intensiv</span>
+        <div class="phases-row">
+          <span class="pill" style="color:var(--a1);border-color:rgba(46,196,182,.2)">Spielerisch</span>
+          <span class="pill" style="color:var(--a2);border-color:rgba(58,134,255,.2)">Persönlich</span>
+          <span class="pill" style="color:var(--a3);border-color:rgba(123,97,255,.2)">Nah</span>
+        </div>
+        <div class="phases-row">
+          <span class="pill" style="color:var(--a4);border-color:rgba(255,107,107,.2)">Intim</span>
+          <span class="pill" style="color:var(--a5);border-color:rgba(255,59,48,.2)">Intensiv</span>
+        </div>
       </div>
     </div>
   </div>
