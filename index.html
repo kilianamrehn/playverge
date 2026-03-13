@@ -88,7 +88,7 @@ nav{position:relative;display:flex;align-items:center;justify-content:center;pad
 .about-right{padding:72px 0 72px 64px}
 /* Cormorant für Pull-Quote */
 .about-pull{font-family:"Cormorant Garamond",serif;font-size:clamp(20px,2.6vw,30px);font-weight:400;font-style:italic;line-height:1.62;color:rgba(242,242,242,.62);margin-bottom:52px}
-.phases{display:flex;flex-wrap:wrap;gap:6px}
+.phases{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-start}
 .pill{font-family:"Inter",sans-serif;font-size:8px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;padding:7px 15px;border:1px solid rgba(255,255,255,.07);transition:border-color .2s}
 
 /* ── CONSENT ── */
@@ -123,6 +123,7 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
 @media(max-width:900px){
   .site,footer{padding-left:24px;padding-right:24px}
   .logo img{height:auto;width:55vw;max-width:260px}
+  .phases{justify-content:center}
   .hero{grid-template-columns:1fr;min-height:auto}
   .hero-left{padding:60px 0 52px;border-right:none;border-bottom:1px solid var(--rule)}
   .hero-right{padding:52px 0 60px}
@@ -198,7 +199,7 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
   <div class="about-sec">
     <div class="about-left"><p class="sec-label" id="t-about-label">Was ist Verge?</p></div>
     <div class="about-right">
-      <p class="about-pull" id="t-about-text">Verge funktioniert in der WG-Runde genauso wie auf der Kinkyparty – weil das Spiel sich anpasst, nicht ihr. Fünf Phasen führen euch von spielerisch bis körperlich intim. So weit ihr möchtet.</p>
+      <p class="about-pull" id="t-about-text">Verge funktioniert auf eurer WG-Party genauso wie in eurem Kinky-Kreis. Das Spiel passt sich an, so dass ihr es nicht müsst. Fünf Phasen führen euch so weit ihr möchtet.</p>
       <div class="phases">
         <span class="pill" style="color:var(--a1);border-color:rgba(46,196,182,.2)">Spielerisch</span>
         <span class="pill" style="color:var(--a2);border-color:rgba(58,134,255,.2)">Persönlich</span>
@@ -218,21 +219,21 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
     </div>
 
     <div class="ci">
-      <div class="ci-left"><div class="ci-num" style="color:rgba(46,196,182,.1)">01</div></div>
+      <div class="ci-left"><div class="ci-num" style="color:rgba(46,196,182,.35)">01</div></div>
       <div class="ci-body">
         <p class="ci-tag" style="color:var(--a1)">Host</p>
         <p class="ci-text" id="t-c1"><strong>Der Host setzt den Rahmen.</strong> Was für den Abend möglich ist – und was nicht.</p>
       </div>
     </div>
     <div class="ci">
-      <div class="ci-left"><div class="ci-num" style="color:rgba(58,134,255,.1)">02</div></div>
+      <div class="ci-left"><div class="ci-num" style="color:rgba(58,134,255,.35)">02</div></div>
       <div class="ci-body">
         <p class="ci-tag" style="color:var(--a2)">Du</p>
         <p class="ci-text" id="t-c2"><strong>Ihr setzt eure eigenen Grenzen.</strong> Unabhängig vom Rest der Gruppe.</p>
       </div>
     </div>
     <div class="ci">
-      <div class="ci-left"><div class="ci-num" style="color:rgba(123,97,255,.1)">03</div></div>
+      <div class="ci-left"><div class="ci-num" style="color:rgba(123,97,255,.35)">03</div></div>
       <div class="ci-body">
         <p class="ci-tag" style="color:var(--a3)">Ihr</p>
         <p class="ci-text" id="t-c3"><strong>Wenn ihr euch kennengelernt habt,</strong> entscheidet ihr bei jeder Person einzeln, wie intim es wirklich werden darf. Oder ob es spielerisch bleibt.</p>
@@ -258,7 +259,7 @@ const T={
     label:"Sei beim Start dabei!",btn:"Benachrichtigen",placeholder:"deine@email.de",
     note:"Kein Spam. Nur der Launch.",success:"✦ Wir melden uns.",
     aboutLabel:"Was ist Verge?",
-    aboutText:"Verge funktioniert in der WG-Runde genauso wie auf der Kinkyparty – weil das Spiel sich anpasst, nicht ihr. Fünf Phasen führen euch von spielerisch bis körperlich intim. So weit ihr möchtet.",
+    aboutText:"Verge funktioniert auf eurer WG-Party genauso wie in eurem Kinky-Kreis. Das Spiel passt sich an, so dass ihr es nicht müsst. Fünf Phasen führen euch so weit ihr möchtet.",
     consentLabel:"Drei Schichten Consent",consentSub:"Ihr entscheidet selbst.<br>Immer. Jede Person für sich.",
     c1:"<strong>Der Host setzt den Rahmen.</strong> Was für den Abend möglich ist – und was nicht.",
     c2:"<strong>Ihr setzt eure eigenen Grenzen.</strong> Unabhängig vom Rest der Gruppe.",
@@ -272,7 +273,7 @@ const T={
     label:"Be there from day one",btn:"Notify me",placeholder:"your@email.com",
     note:"No spam. Just the launch.",success:"✦ We'll be in touch.",
     aboutLabel:"What is Verge?",
-    aboutText:"Verge works at a friends' gathering just as well as at a kinky party – because the game adapts, not you. Five phases take you from playful to physically intimate. As far as you want.",
+    aboutText:"Verge works at your house party just as well as in your kinky circle. The game adapts so you don't have to. Five phases take you as far as you want.",
     consentLabel:"Three Layers of Consent",consentSub:"You decide for yourselves.<br>Always. Each person individually.",
     c1:"<strong>The host sets the frame.</strong> What's on the table for the evening – and what isn't.",
     c2:"<strong>You set your own limits.</strong> Independently of the rest of the group.",
