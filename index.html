@@ -259,13 +259,13 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
 
 <footer>
   <div class="foot-links">
-    <a href="mailto:info@playverge.app">info@playverge.app</a>
+    <a href="/cdn-cgi/l/email-protection#a3cacdc5cce3d3cfc2dad5c6d1c4c68dc2d3d3"><span class="__cf_email__" data-cfemail="432a2d252c03332f223a35263124266d223333">[email&#160;protected]</span></a>
     <a href="privacy.html" id="t-privacy">Imprint &amp; Privacy Policy</a>
   </div>
   <p class="copy">&copy; 2026 Verge</p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const T={
   de:{
     navtag:"Demnächst verfügbar",
@@ -499,5 +499,26 @@ function frame(){
       }
     }
   }
+
   // ── 5. Dots ────────────────────────────────────────────────────────────────
-  for(cons
+  for(const p of pos){
+    let da=0.06;
+    for(const bc of bandCentres){
+      const bd=Math.sqrt((p.x-bc.x)**2+(p.y-bc.y)**2);
+      if(bd<blobInfluence*0.8) da+=(1-bd/(blobInfluence*0.8))*0.12;
+    }
+    da=Math.min(0.20,da);
+    ctx.beginPath();ctx.arc(p.x,p.y,1.2,0,Math.PI*2);
+    ctx.fillStyle=rgba(brightDot,da);ctx.fill();
+  }
+
+  requestAnimationFrame(frame);
+}
+
+window.addEventListener("resize",resize);
+resize();
+requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
