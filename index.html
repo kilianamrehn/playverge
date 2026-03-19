@@ -160,7 +160,7 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
 /* ── KARTEN-SLIDER ── */
 @media(min-width:901px){
   .hero{grid-template-columns:1fr 280px 320px !important}
-  .cards-col{padding:80px 0 80px 48px;border-right:1px solid var(--rule);display:flex;flex-direction:column;justify-content:center}
+  .cards-col{padding:80px 32px;border-right:1px solid var(--rule);display:flex;flex-direction:column;justify-content:center;align-items:center}
   .hero-right{padding:80px 0 80px 44px !important}
 }
 @media(max-width:900px){
@@ -169,8 +169,11 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
 .cards-col{animation:up .8s cubic-bezier(.16,1,.3,1) .12s both}
 .card-label{font-family:"Inter",sans-serif;font-size:8px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--ink2);margin-bottom:16px;opacity:.55;transition:color .4s}
 .card-img-wrap{position:relative;width:100%;aspect-ratio:9/16;overflow:hidden;background:#111}
-.card-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .45s}
-.card-img.active{opacity:1}
+.card-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .35s cubic-bezier(.25,.46,.45,.94),opacity .35s;will-change:transform;opacity:1}
+.card-img.pos-current{transform:translateX(0)}
+.card-img.pos-prev{transform:translateX(-100%)}
+.card-img.pos-next{transform:translateX(100%)}
+.card-img.pos-hidden{transform:translateX(100%);opacity:0}
 .card-controls{display:flex;align-items:center;justify-content:space-between;margin-top:16px}
 .card-dots{display:flex;gap:5px;flex-wrap:wrap;max-width:160px}
 .card-dot{width:5px;height:5px;border-radius:50%;background:rgba(242,242,242,.15);border:none;padding:0;cursor:pointer;transition:background .3s,transform .3s}
@@ -181,11 +184,11 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
 .card-progress{height:1px;background:var(--rule);margin-top:14px;overflow:hidden}
 .card-bar{height:100%;width:0%;transition:width 4.5s linear}
 
-.card-img-wrap{overflow:visible !important}
-.card-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:10;background:rgba(10,10,10,.6);border:1px solid rgba(242,242,242,.15);color:var(--ink);width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:13px;transition:all .2s;backdrop-filter:blur(4px)}
-.card-arrow:hover{background:rgba(10,10,10,.85);border-color:rgba(242,242,242,.35)}
-.card-arrow-left{left:-42px}
-.card-arrow-right{right:-42px}
+.card-img-wrap{overflow:hidden}
+.card-arrow{position:absolute;top:33%;z-index:10;background:none;border:none;color:rgba(255,255,255,0.22);width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px;transition:all .2s}
+.card-arrow:hover{color:rgba(255,255,255,0.6)}
+.card-arrow-left{left:8px}
+.card-arrow-right{right:8px}
 </style>
 </head>
 <body>
@@ -419,13 +422,28 @@ function cBuildDots() {
   });
 }
 
-function cShow(idx) {
-  // Alte Karte ausblenden
-  document.querySelectorAll('.card-img').forEach(img => img.classList.remove('active'));
-  // Neue Karte einblenden
+function cShow(idx, dir) {
+  const prevIdx = cIdx;
   cIdx = ((idx % CARD_DATA.length) + CARD_DATA.length) % CARD_DATA.length;
-  const img = document.getElementById('card-img-' + cIdx);
-  if (img) img.classList.add('active');
+  const imgs = document.querySelectorAll('.card-img');
+  // Positioniere alle Karten
+  imgs.forEach((img, i) => {
+    img.style.transform = '';
+    if (i === cIdx) {
+      img.style.transform = 'translateX(0)';
+      img.style.zIndex = '2';
+      img.style.opacity = '1';
+    } else {
+      img.style.transform = 'translateX(100%)';
+      img.style.zIndex = '1';
+      img.style.opacity = '1';
+    }
+  });
+  // Vorherige Karte rausschieben
+  const prevImg = document.getElementById('card-img-' + prevIdx);
+  if (prevImg && prevIdx !== cIdx) {
+    prevImg.style.transform = dir === 'prev' ? 'translateX(100%)' : 'translateX(-100%)';
+  }
   // Label + Farbe
   const lbl = document.getElementById('card-phase-label');
   if (lbl) { lbl.textContent = CARD_DATA[cIdx].label; lbl.style.color = CARD_DATA[cIdx].color; }
@@ -447,18 +465,66 @@ function cShow(idx) {
   cTimer = setTimeout(() => cShow(cIdx + 1), C_DURATION);
 }
 
-function cardNext() { cShow(cIdx + 1); }
-function cardPrev() { cShow(cIdx - 1); }
+function cardNext() { cShow(cIdx + 1, "next"); }
+function cardPrev() { cShow(cIdx - 1, "prev"); }
 
-// Touch/Swipe support
+// Drag-to-swipe
 (function(){
-  let sx = 0;
-  const el = document.querySelector('.card-img-wrap');
-  if (!el) return;
-  el.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
-  el.addEventListener('touchend', e => {
-    const dx = e.changedTouches[0].clientX - sx;
-    if (Math.abs(dx) > 40) dx < 0 ? cardNext() : cardPrev();
+  const wrap = document.querySelector('.card-img-wrap');
+  if (!wrap) return;
+  let startX = 0, currentX = 0, dragging = false;
+
+  function getImgs() { return wrap.querySelectorAll('.card-img'); }
+
+  function applyDrag(dx) {
+    const imgs = getImgs();
+    const cur  = imgs[cIdx];
+    const next = imgs[((cIdx + 1) % CARD_DATA.length)];
+    const prev = imgs[((cIdx - 1 + CARD_DATA.length) % CARD_DATA.length)];
+    if (cur)  cur.style.transform  = `translateX(${dx}px)`;
+    if (dx < 0 && next) next.style.transform = `translateX(calc(100% + ${dx}px))`;
+    if (dx > 0 && prev) prev.style.transform = `translateX(calc(-100% + ${dx}px))`;
+  }
+
+  function resetDrag() {
+    getImgs().forEach(img => { img.style.transform = ''; img.style.transition = ''; });
+  }
+
+  // Mouse
+  wrap.addEventListener('mousedown', e => {
+    dragging = true; startX = e.clientX; currentX = 0;
+    wrap.style.cursor = 'grabbing';
+    getImgs().forEach(img => img.style.transition = 'none');
+  });
+  window.addEventListener('mousemove', e => {
+    if (!dragging) return;
+    currentX = e.clientX - startX;
+    applyDrag(currentX);
+  });
+  window.addEventListener('mouseup', () => {
+    if (!dragging) return;
+    dragging = false;
+    wrap.style.cursor = '';
+    getImgs().forEach(img => img.style.transition = '');
+    if (currentX < -60) cShow(cIdx + 1, "next");
+    else if (currentX > 60) cShow(cIdx - 1, "prev");
+    else resetDrag();
+  });
+
+  // Touch
+  wrap.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX; currentX = 0;
+    getImgs().forEach(img => img.style.transition = 'none');
+  }, { passive: true });
+  wrap.addEventListener('touchmove', e => {
+    currentX = e.touches[0].clientX - startX;
+    applyDrag(currentX);
+  }, { passive: true });
+  wrap.addEventListener('touchend', () => {
+    getImgs().forEach(img => img.style.transition = '');
+    if (currentX < -60) cShow(cIdx + 1, "next");
+    else if (currentX > 60) cShow(cIdx - 1, "prev");
+    else resetDrag();
   });
 })();
 
