@@ -138,6 +138,7 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
   .hero{grid-template-columns:1fr;min-height:auto}
   .hero-left{padding:60px 0 52px;border-right:none;border-bottom:1px solid var(--rule)}
   .hero-right{padding:52px 0 60px}
+  .cards-col{order:1}
   .about-sec,.consent-top{grid-template-columns:1fr}
   .about-left,.ctop-left{border-right:none;padding-right:0;padding-bottom:0}
   .about-right,.ctop-right{padding-left:0;padding-top:24px}
@@ -155,6 +156,35 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
   .nav-label{display:none}
   .lang{top:22px;right:24px}
 }
+
+/* ── KARTEN-SLIDER ── */
+@media(min-width:901px){
+  .hero{grid-template-columns:1fr 280px 320px !important}
+  .cards-col{padding:80px 0 80px 48px;border-right:1px solid var(--rule);display:flex;flex-direction:column;justify-content:center}
+  .hero-right{padding:80px 0 80px 44px !important}
+}
+@media(max-width:900px){
+  .cards-col{padding:44px 0;border-bottom:1px solid var(--rule)}
+}
+.cards-col{animation:up .8s cubic-bezier(.16,1,.3,1) .12s both}
+.card-label{font-family:"Inter",sans-serif;font-size:8px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--ink2);margin-bottom:16px;opacity:.55;transition:color .4s}
+.card-img-wrap{position:relative;width:100%;aspect-ratio:9/16;overflow:hidden;background:#111}
+.card-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .45s}
+.card-img.active{opacity:1}
+.card-controls{display:flex;align-items:center;justify-content:space-between;margin-top:16px}
+.card-dots{display:flex;gap:5px;flex-wrap:wrap;max-width:160px}
+.card-dot{width:5px;height:5px;border-radius:50%;background:rgba(242,242,242,.15);border:none;padding:0;cursor:pointer;transition:background .3s,transform .3s}
+.card-dot.active{transform:scale(1.5)}
+.card-nav{display:flex;gap:6px}
+.card-btn{background:none;border:1px solid var(--rule);color:var(--ink2);width:30px;height:30px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:13px;transition:all .2s}
+.card-btn:hover{border-color:rgba(242,242,242,.3);color:var(--ink)}
+.card-progress{height:1px;background:var(--rule);margin-top:14px;overflow:hidden}
+.card-bar{height:100%;width:0%;transition:width 4.5s linear}
+
+.card-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:10;background:rgba(10,10,10,.55);border:1px solid rgba(242,242,242,.12);color:var(--ink);width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;transition:all .2s;backdrop-filter:blur(4px)}
+.card-arrow:hover{background:rgba(10,10,10,.8);border-color:rgba(242,242,242,.3)}
+.card-arrow-left{left:10px}
+.card-arrow-right{right:10px}
 </style>
 </head>
 <body>
@@ -182,6 +212,28 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
         </h1>
       </div>
       <p class="hero-copy" id="t-sub">Verge bringt Menschen zusammen.<br><strong>Neugierig, offen, mit Herz.</strong><br>Fünf Phasen. Ein Consent-System.</p>
+    </div>
+
+    <div class="cards-col">
+      <p class="card-label" id="card-phase-label">Spielerisch</p>
+      <div class="card-img-wrap" style="position:relative">
+        <button class="card-arrow card-arrow-left" onclick="cardPrev()">&#8592;</button>
+        <button class="card-arrow card-arrow-right" onclick="cardNext()">&#8594;</button>
+        <img class="card-img active" id="card-img-0"  src="card-01.jpg" alt="Verge Karte 1">
+        <img class="card-img"        id="card-img-1"  src="card-02.jpg" alt="Verge Karte 2">
+        <img class="card-img"        id="card-img-2"  src="card-03.jpg" alt="Verge Karte 3">
+        <img class="card-img"        id="card-img-3"  src="card-04.jpg" alt="Verge Karte 4">
+        <img class="card-img"        id="card-img-4"  src="card-05.jpg" alt="Verge Karte 5">
+        <img class="card-img"        id="card-img-5"  src="card-06.jpg" alt="Verge Karte 6">
+        <img class="card-img"        id="card-img-6"  src="card-07.jpg" alt="Verge Karte 7">
+        <img class="card-img"        id="card-img-7"  src="card-08.jpg" alt="Verge Karte 8">
+        <img class="card-img"        id="card-img-8"  src="card-09.jpg" alt="Verge Karte 9">
+        <img class="card-img"        id="card-img-9"  src="card-10.jpg" alt="Verge Karte 10">
+      </div>
+      <div class="card-progress"><div class="card-bar" id="card-bar"></div></div>
+      <div class="card-controls">
+        <div class="card-dots" id="card-dots"></div>
+      </div>
     </div>
 
     <div class="hero-right">
@@ -259,13 +311,13 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
 
 <footer>
   <div class="foot-links">
-    <a href="mailto:info@playverge.app">info@playverge.app</a>
+    <a href="/cdn-cgi/l/email-protection#264f48404966564a475f504354414308475656"><span class="__cf_email__" data-cfemail="e881868e87a8988489919e8d9a8f8dc6899898">[email&#160;protected]</span></a>
     <a href="privacy.html" id="t-privacy">Imprint &amp; Privacy Policy</a>
   </div>
   <p class="copy">&copy; 2026 Verge</p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const T={
   de:{
     navtag:"Demnächst verfügbar",
@@ -332,6 +384,87 @@ function handleSignup(){
   });
 }
 document.getElementById("email-input").addEventListener("keydown",e=>{if(e.key==="Enter")handleSignup();});
+
+// ── KARTEN-SLIDER ────────────────────────────────────────────────────────────
+// Phasen-Labels und -Farben für jede Karte (card-01.jpg bis card-10.jpg)
+// Einfach hier anpassen wenn du andere Karten einbaust:
+const CARD_DATA = [
+  { label: 'Spielerisch', color: '#2ec4b6' },
+  { label: 'Spielerisch', color: '#2ec4b6' },
+  { label: 'Pers\u00f6nlich',  color: '#3a86ff' },
+  { label: 'Pers\u00f6nlich',  color: '#3a86ff' },
+  { label: 'Nah',         color: '#7b61ff' },
+  { label: 'Nah',         color: '#7b61ff' },
+  { label: 'Intim',       color: '#ff6b6b' },
+  { label: 'Intim',       color: '#ff6b6b' },
+  { label: 'Enthemmt',    color: '#ff3b30' },
+  { label: 'Enthemmt',    color: '#ff3b30' },
+];
+
+let cIdx = 0;
+let cTimer = null;
+const C_DURATION = 5000;
+
+function cBuildDots() {
+  const wrap = document.getElementById('card-dots');
+  if (!wrap) return;
+  wrap.innerHTML = '';
+  CARD_DATA.forEach((d, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'card-dot' + (i === cIdx ? ' active' : '');
+    btn.style.background = i === cIdx ? d.color : 'rgba(242,242,242,.15)';
+    btn.onclick = () => cShow(i);
+    wrap.appendChild(btn);
+  });
+}
+
+function cShow(idx) {
+  // Alte Karte ausblenden
+  document.querySelectorAll('.card-img').forEach(img => img.classList.remove('active'));
+  // Neue Karte einblenden
+  cIdx = ((idx % CARD_DATA.length) + CARD_DATA.length) % CARD_DATA.length;
+  const img = document.getElementById('card-img-' + cIdx);
+  if (img) img.classList.add('active');
+  // Label + Farbe
+  const lbl = document.getElementById('card-phase-label');
+  if (lbl) { lbl.textContent = CARD_DATA[cIdx].label; lbl.style.color = CARD_DATA[cIdx].color; }
+  // Dots
+  cBuildDots();
+  // Progress bar reset
+  const bar = document.getElementById('card-bar');
+  if (bar) {
+    bar.style.transition = 'none';
+    bar.style.width = '0%';
+    bar.style.background = CARD_DATA[cIdx].color;
+    setTimeout(() => {
+      bar.style.transition = 'width ' + C_DURATION + 'ms linear';
+      bar.style.width = '100%';
+    }, 30);
+  }
+  // Auto-advance timer
+  clearTimeout(cTimer);
+  cTimer = setTimeout(() => cShow(cIdx + 1), C_DURATION);
+}
+
+function cardNext() { cShow(cIdx + 1); }
+function cardPrev() { cShow(cIdx - 1); }
+
+// Touch/Swipe support
+(function(){
+  let sx = 0;
+  const el = document.querySelector('.card-img-wrap');
+  if (!el) return;
+  el.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
+  el.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - sx;
+    if (Math.abs(dx) > 40) dx < 0 ? cardNext() : cardPrev();
+  });
+})();
+
+// Start
+cBuildDots();
+cShow(0);
+
 </script>
 
 <script>
@@ -508,17 +641,4 @@ function frame(){
       if(bd<blobInfluence*0.8) da+=(1-bd/(blobInfluence*0.8))*0.12;
     }
     da=Math.min(0.20,da);
-    ctx.beginPath();ctx.arc(p.x,p.y,1.2,0,Math.PI*2);
-    ctx.fillStyle=rgba(brightDot,da);ctx.fill();
-  }
-
-  requestAnimationFrame(frame);
-}
-
-window.addEventListener("resize",resize);
-resize();
-requestAnimationFrame(frame);
-})();
-</script>
-</body>
-</html>
+    ctx.beginPat
