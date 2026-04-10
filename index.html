@@ -732,4 +732,19 @@ function frame(){
       if(bd<blobInfluence*0.8) da+=(1-bd/(blobInfluence*0.8))*0.12;
     }
     da=Math.min(0.20,da);
-    ctx.beginPa
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,1.5,0,Math.PI*2);
+    ctx.fillStyle=rgba(brightDot,da);
+    ctx.fill();
+  }
+
+  requestAnimationFrame(frame);
+}
+
+resize();
+window.addEventListener('resize',resize);
+requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
