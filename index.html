@@ -33,8 +33,7 @@
 html,body{width:100%;min-height:100%;background:var(--bg);color:var(--ink);overflow-x:hidden}
 body{font-family:"Inter",sans-serif;font-weight:300}
 #c{position:fixed;inset:0;z-index:0;pointer-events:none}
-body::before{content:'';position:fixed;inset:0;z-index:2;pointer-events:none;opacity:.55;mix-blend-mode:overlay;
-  background-image:url("grain.png");background-size:256px 256px;background-repeat:repeat}
+#grain{position:fixed;inset:0;z-index:1;pointer-events:none;mix-blend-mode:overlay;opacity:.10}
 
 /* lang */
 .lang{position:fixed;top:28px;right:32px;z-index:300;display:flex;border:1px solid var(--rule);overflow:hidden}
@@ -202,6 +201,7 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
 </head>
 <body>
 <canvas id="c"></canvas>
+<canvas id="grain"></canvas>
 
 <div class="lang">
   <button id="btn-de" class="active" onclick="setLang('de')">DE</button>
@@ -556,6 +556,54 @@ function cardPrev() { cShow(cIdx - 1, "prev"); }
 cBuildDots();
 cShow(0);
 
+</script>
+
+<script>
+// VERGE Filmkorn-Animation - live grain via canvas
+// 20 FPS throttle, 256x256 offscreen noise, skaliert auf Viewport
+(function(){
+  const grain = document.getElementById('grain');
+  if(!grain) return;
+  const gctx = grain.getContext('2d');
+  gctx.imageSmoothingEnabled = true;
+
+  const N = 256;
+  const noise = document.createElement('canvas');
+  noise.width = noise.height = N;
+  const nctx = noise.getContext('2d');
+
+  function resize(){
+    grain.width = window.innerWidth;
+    grain.height = window.innerHeight;
+    gctx.imageSmoothingEnabled = true;
+  }
+
+  function renderNoise(){
+    const img = nctx.createImageData(N, N);
+    const d = img.data;
+    for(let i=0; i<d.length; i+=4){
+      const v = 128 + (Math.random() - 0.5) * 200;
+      d[i] = d[i+1] = d[i+2] = v;
+      d[i+3] = 255;
+    }
+    nctx.putImageData(img, 0, 0);
+    gctx.clearRect(0, 0, grain.width, grain.height);
+    gctx.drawImage(noise, 0, 0, grain.width, grain.height);
+  }
+
+  let last = 0;
+  function loop(now){
+    if(now - last > 50){
+      renderNoise();
+      last = now;
+    }
+    requestAnimationFrame(loop);
+  }
+
+  resize();
+  window.addEventListener('resize', resize);
+  requestAnimationFrame(loop);
+})();
 </script>
 
 <script>
