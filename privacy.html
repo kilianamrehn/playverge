@@ -9,8 +9,11 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--bg:#1A1A1A;--text:#F0F0F0;--dim:#888;--a1:#2EC4B6;--a2:#3A86FF;--border:#2A2A2A}
-html{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.75}
-body{max-width:720px;margin:0 auto;padding:48px 24px 80px}
+html,body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.75}
+.wrap{position:relative;z-index:10;max-width:720px;margin:0 auto;padding:48px 24px 80px}
+#c{position:fixed;inset:0;z-index:0;pointer-events:none}
+body::before{content:'';position:fixed;inset:0;z-index:2;pointer-events:none;opacity:.55;mix-blend-mode:overlay;
+  background-image:url("grain.png");background-size:256px 256px;background-repeat:repeat}
 .back{display:inline-flex;align-items:center;gap:8px;color:var(--a1);text-decoration:none;
   font-size:13px;letter-spacing:.04em;margin-bottom:52px;opacity:.8;transition:opacity .2s}
 .back:hover{opacity:1}
@@ -48,6 +51,10 @@ hr{border:none;border-top:1px solid var(--border);margin:52px 0}
 </style>
 </head>
 <body>
+
+<canvas id="c"></canvas>
+
+<div class="wrap">
 
 <a href="index.html" class="back">Zur&uuml;ck zur Startseite</a>
 
@@ -110,9 +117,10 @@ J&uuml;licher Str. 24<br>
 <p>Diese Website erhebt nur dann personenbezogene Daten, wenn du aktiv etwas eingibst. Beim Besuch der Seite werden keine Tracking-Cookies gesetzt und kein Analytics-Dienst eingebunden.</p>
 <p><strong>Waitlist-Anmeldung:</strong> Wenn du dich f&uuml;r die Waitlist eintr&auml;gst, wird deine E-Mail-Adresse gespeichert. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung).</p>
 
-<h2>3. E-Mail-Versand &ndash; Brevo</h2>
-<p>F&uuml;r den Versand unserer E-Mails nutzen wir den Dienst Brevo (Sendinblue GmbH, K&ouml;penicker Str. 126, 10179 Berlin, Deutschland). Brevo ist DSGVO-konform und verarbeitet Daten auf Servern in der EU.</p>
+<h2>3. Newsletter- und Waitlist-E-Mails &ndash; Brevo</h2>
+<p>F&uuml;r den Versand unserer Newsletter- und Waitlist-E-Mails nutzen wir den Dienst Brevo (Sendinblue GmbH, K&ouml;penicker Str. 126, 10179 Berlin, Deutschland). Brevo ist DSGVO-konform und verarbeitet Daten auf Servern in der EU.</p>
 <p>Deine E-Mail-Adresse wird ausschlie&szlig;lich f&uuml;r Kommunikation rund um Verge verwendet und nicht an Dritte weitergegeben. Du kannst dich jederzeit &uuml;ber den Abmeldelink in unseren E-Mails oder per E-Mail an <a href="mailto:info@playverge.app">info@playverge.app</a> abmelden.</p>
+<p>Individuelle E-Mail-Korrespondenz (etwa deine Anfragen an <a href="mailto:info@playverge.app">info@playverge.app</a> und unsere Antworten darauf) l&auml;uft nicht &uuml;ber Brevo, sondern &uuml;ber unseren eigenen Mailanbieter.</p>
 <p>Datenschutzerkl&auml;rung von Brevo: <a href="https://www.brevo.com/de/legal/privacypolicy/" target="_blank" rel="noopener">brevo.com/de/legal/privacypolicy</a></p>
 
 <h2>4. Double-Opt-In</h2>
@@ -161,6 +169,81 @@ J&uuml;licher Str. 24<br>
 
 <h2>13. &Auml;nderungen</h2>
 <p>Wir behalten uns vor, diese Datenschutzerkl&auml;rung bei Bedarf zu aktualisieren. Die jeweils aktuelle Fassung ist auf dieser Seite abrufbar.</p>
+
+</section>
+
+<hr>
+
+<section id="agb">
+<h1>Allgemeine Gesch&auml;ftsbedingungen</h1>
+<p>Stand: April 2026</p>
+
+<h2>1. Geltungsbereich und Vertragspartner</h2>
+<p>Diese Allgemeinen Gesch&auml;ftsbedingungen (AGB) regeln die Nutzung der mobilen App <strong>Verge</strong> (nachfolgend &bdquo;App&ldquo;) sowie den Erwerb kostenpflichtiger Inhalte innerhalb der App. Anbieter der App ist Kilian Amrehn, J&uuml;licher Str. 24, 50674 K&ouml;ln (siehe Impressum). Mit dem Download und der Nutzung der App akzeptierst du diese AGB. Du bist Verbraucher im Sinne des &sect; 13 BGB, sofern du die App zu Zwecken nutzt, die &uuml;berwiegend weder deiner gewerblichen noch deiner selbstst&auml;ndigen beruflichen T&auml;tigkeit zugerechnet werden k&ouml;nnen.</p>
+
+<h2>2. Vertragsgegenstand</h2>
+<p>Verge ist ein Gruppenkartenspiel, das Gespr&auml;che und Interaktionen zwischen Spielenden anregt. Die App bietet eine kostenlose Grundversion mit einer begrenzten Auswahl an Karten und Funktionen.</p>
+<p>Erweiterte Inhalte und Funktionen sind &uuml;ber folgende kostenpflichtige Angebote verf&uuml;gbar:</p>
+<ul>
+  <li><strong>Verge Pro</strong> &ndash; einmaliger Kauf, dauerhafte Freischaltung des erweiterten Kartendecks. Keine Laufzeit, keine automatische Verl&auml;ngerung.</li>
+  <li><strong>Verge Unlimited</strong> (zuk&uuml;nftig geplant) &ndash; Abonnement mit automatischer Verl&auml;ngerung. Details zu Laufzeit, Preis und Umfang werden vor Kauf im App Store angezeigt.</li>
+</ul>
+
+<h2>3. Vertragsschluss bei In-App-K&auml;ufen</h2>
+<p>Kostenpflichtige Inhalte werden ausschlie&szlig;lich &uuml;ber die Zahlungsabwicklung des jeweiligen App Stores (Apple App Store oder Google Play Store) erworben. Der Vertrag kommt mit Best&auml;tigung des Kaufs durch den App Store zustande. Es gelten zus&auml;tzlich die Nutzungsbedingungen des jeweiligen Stores.</p>
+
+<h2>4. Preise und Zahlung</h2>
+<p>Die aktuellen Preise werden dir vor dem Kauf im App Store angezeigt. Die Zahlung erfolgt ausschlie&szlig;lich &uuml;ber das im jeweiligen App Store hinterlegte Zahlungsmittel. Wir selbst erhalten keine Zahlungs- oder Kreditkarteninformationen.</p>
+
+<h2>5. Verge Pro (Einmalkauf)</h2>
+<p>Mit dem einmaligen Erwerb von Verge Pro erh&auml;ltst du dauerhaft Zugriff auf die freigeschalteten Inhalte auf allen Ger&auml;ten, die mit deiner Apple ID bzw. deinem Google-Konto verkn&uuml;pft sind. Es entstehen keine Folgekosten und keine automatische Verl&auml;ngerung.</p>
+<p>Solltest du die App auf einem neuen Ger&auml;t installieren oder den Kauf versehentlich wiederholen wollen, kannst du &uuml;ber die Funktion &bdquo;Eink&auml;ufe wiederherstellen&ldquo; in den App-Einstellungen deine bisherigen K&auml;ufe ohne zus&auml;tzliche Kosten erneut aktivieren.</p>
+
+<h2>6. Verge Unlimited (Abonnement, zuk&uuml;nftig)</h2>
+<p>Sobald Verge Unlimited als Abonnement verf&uuml;gbar ist, gilt erg&auml;nzend: Abonnements verl&auml;ngern sich automatisch um den jeweils gew&auml;hlten Zeitraum, sofern sie nicht mindestens 24 Stunden vor Ablauf der aktuellen Periode gek&uuml;ndigt werden. Die K&uuml;ndigung erfolgt direkt &uuml;ber die Abo-Verwaltung im jeweiligen App Store (Apple ID bzw. Google-Konto), nicht &uuml;ber uns. Die konkreten Konditionen (Laufzeit, Preis, Kontingent) werden dir vor Abschluss im App Store angezeigt.</p>
+
+<h2>7. Widerrufsrecht</h2>
+<p>Du hast grunds&auml;tzlich das Recht, einen Vertrag &uuml;ber digitale Inhalte innerhalb von 14 Tagen ohne Angabe von Gr&uuml;nden zu widerrufen. Das Widerrufsrecht erlischt vorzeitig, sobald wir mit der Ausf&uuml;hrung des Vertrages begonnen haben, nachdem du ausdr&uuml;cklich zugestimmt hast, dass wir damit vor Ablauf der Widerrufsfrist beginnen, und deine Kenntnis davon best&auml;tigt hast, dass du durch deine Zustimmung mit Beginn der Ausf&uuml;hrung des Vertrages dein Widerrufsrecht verlierst (&sect; 356 Abs. 5 BGB). Da die Freischaltung von Verge Pro sowie von Abo-Inhalten unmittelbar nach Kauf erfolgt, erlischt das Widerrufsrecht in der Regel mit Abschluss der Transaktion.</p>
+<p>R&uuml;ckerstattungsanfragen sind direkt an den jeweiligen App Store zu richten: Apple (<a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>) bzw. Google Play (<a href="https://support.google.com/googleplay" target="_blank" rel="noopener">support.google.com/googleplay</a>).</p>
+
+<h2>8. Mindestalter</h2>
+<p>Die App ist ausschlie&szlig;lich f&uuml;r Personen ab 18 Jahren bestimmt. Mit der Nutzung der App sowie mit jedem Kauf kostenpflichtiger Inhalte best&auml;tigst du, dass du mindestens 18 Jahre alt bist. Minderj&auml;hrigen ist die Nutzung untersagt. Bei begr&uuml;ndeten Zweifeln an der Volljährigkeit behalten wir uns vor, den Zugang zur App oder zu kostenpflichtigen Inhalten einzuschr&auml;nken.</p>
+
+<h2>9. Nutzungsrechte</h2>
+<p>Wir r&auml;umen dir ein einfaches, nicht ausschlie&szlig;liches, nicht &uuml;bertragbares Recht zur pers&ouml;nlichen Nutzung der App auf deinen Ger&auml;ten ein. Eine kommerzielle Nutzung, Weitergabe, Ver&auml;nderung oder Ver&ouml;ffentlichung von Spielinhalten (insbesondere Karten) ist ohne schriftliche Zustimmung nicht gestattet.</p>
+
+<h2>10. Verantwortung der Nutzenden</h2>
+<p>Verge ist ein Spiel, das auf freiwilliger Teilnahme und gegenseitigem Einverst&auml;ndnis basiert. Du bist selbst daf&uuml;r verantwortlich, w&auml;hrend des Spiels respektvoll mit anderen Spielenden umzugehen und deine eigenen Grenzen sowie die der anderen zu respektieren. Die in der App vorgesehenen Consent-Mechanismen sind eine Hilfe, ersetzen aber nicht das eigene Urteilsverm&ouml;gen und die eigene Verantwortung.</p>
+
+<h2>11. Spielinhalt und Eigenverantwortung</h2>
+<p>Die in der App enthaltenen Fragen, Aufgaben und Karteninhalte sind als spielerische Impulse gedacht. Sie stellen keine Empfehlungen, Anweisungen oder medizinischen, therapeutischen, psychologischen oder sexuellen Ratschl&auml;ge dar. Ob, wann und wie du und deine Mitspielenden einzelnen Karten folgt, liegt ausschlie&szlig;lich in eurer eigenen Entscheidung und Verantwortung.</p>
+<p>Wir &uuml;bernehmen keine Gew&auml;hr daf&uuml;r, dass das Spiel zu bestimmten zwischenmenschlichen Ergebnissen, positiven Erfahrungen oder Ver&auml;nderungen in Beziehungen f&uuml;hrt. Jede Interaktion zwischen Spielenden erfolgt freiwillig und auf eigene Verantwortung. Eine Haftung f&uuml;r emotionale, psychische oder k&ouml;rperliche Folgen, die durch die Teilnahme am Spiel oder die Umsetzung einzelner Karten entstehen, ist ausgeschlossen, soweit nicht zwingende gesetzliche Bestimmungen entgegenstehen (siehe auch &sect;14 Haftung).</p>
+
+<h2>12. Verf&uuml;gbarkeit</h2>
+<p>Wir bem&uuml;hen uns um eine m&ouml;glichst unterbrechungsfreie Verf&uuml;gbarkeit der App. Eine hundertprozentige Verf&uuml;gbarkeit k&ouml;nnen wir technisch nicht garantieren. Wartungsarbeiten, Updates oder St&ouml;rungen k&ouml;nnen zu vor&uuml;bergehenden Einschr&auml;nkungen f&uuml;hren.</p>
+
+<h2>13. Gew&auml;hrleistung und Updates</h2>
+<p>F&uuml;r digitale Produkte gelten die gesetzlichen Gew&auml;hrleistungsvorschriften der &sect;&sect; 327 ff. BGB. Zeigt sich innerhalb eines Jahres nach Bereitstellung eines kostenpflichtigen Inhalts ein Mangel, wird vermutet, dass der Mangel bereits zum Zeitpunkt der Bereitstellung vorlag, es sei denn, diese Vermutung ist mit der Art des digitalen Produkts oder des Mangels unvereinbar (&sect; 327k BGB).</p>
+<p>Wir stellen Aktualisierungen der App bereit, die f&uuml;r den Erhalt der Vertragsm&auml;&szlig;igkeit erforderlich sind, einschlie&szlig;lich Sicherheitsupdates, und informieren dich in geeigneter Weise &uuml;ber deren Verf&uuml;gbarkeit. Die Installation von Updates obliegt dir; ein Vers&auml;umnis bei der Installation kann zu Funktionsverlusten f&uuml;hren und schlie&szlig;t Gew&auml;hrleistungsrechte insoweit aus, als der Mangel dadurch entstanden ist.</p>
+<p>Kompatibilit&auml;tsvoraussetzungen (unterst&uuml;tzte Betriebssysteme und Mindestversionen) werden im jeweiligen App Store angegeben. Eine Gew&auml;hrleistung f&uuml;r das Funktionieren der App au&szlig;erhalb dieser Umgebungen wird nicht &uuml;bernommen.</p>
+
+<h2>14. Haftung</h2>
+<p>Wir haften uneingeschr&auml;nkt f&uuml;r Sch&auml;den aus der Verletzung des Lebens, des K&ouml;rpers oder der Gesundheit sowie bei Vorsatz und grober Fahrl&auml;ssigkeit. Bei leichter Fahrl&auml;ssigkeit haften wir nur bei Verletzung wesentlicher Vertragspflichten, und zwar begrenzt auf den typischerweise vorhersehbaren Schaden. Eine weitergehende Haftung ist ausgeschlossen.</p>
+
+<h2>15. Datenschutz</h2>
+<p>Informationen zur Verarbeitung deiner personenbezogenen Daten findest du in unserer <a href="#datenschutz">Datenschutzerkl&auml;rung</a>.</p>
+
+<h2>16. &Auml;nderungen der AGB</h2>
+<p>Wir behalten uns vor, diese AGB bei Bedarf zu aktualisieren, insbesondere bei Einf&uuml;hrung neuer Funktionen oder Kaufoptionen oder bei &Auml;nderungen der Rechtslage. &Auml;nderungen werden rechtzeitig angek&uuml;ndigt. Die jeweils aktuelle Fassung ist auf dieser Seite abrufbar.</p>
+
+<h2>17. Anwendbares Recht und Gerichtsstand</h2>
+<p>Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts. F&uuml;r Verbraucher mit Wohnsitz in der EU gelten zus&auml;tzlich die zwingenden Verbraucherschutzvorschriften ihres Wohnsitzlandes. Gerichtsstand f&uuml;r Kaufleute ist K&ouml;ln.</p>
+
+<h2>18. Streitbeilegung</h2>
+<p>Hinweise zur Online-Streitbeilegung findest du im Impressum. Wir sind nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+
+<h2>19. Salvatorische Klausel</h2>
+<p>Sollte eine Bestimmung dieser AGB unwirksam sein oder werden, bleibt die Wirksamkeit der &uuml;brigen Bestimmungen unber&uuml;hrt. Die unwirksame Regelung wird durch eine solche ersetzt, die dem wirtschaftlichen Zweck der unwirksamen Bestimmung am n&auml;chsten kommt.</p>
 
 </section>
 </div>
@@ -216,9 +299,10 @@ J&uuml;licher Str. 24<br>
 <p>This website only collects personal data when you actively provide it. No tracking cookies are set and no analytics services are integrated when you visit the site.</p>
 <p><strong>Waitlist sign-up:</strong> If you sign up for the waitlist, your email address is stored. Legal basis: Art. 6 para. 1 lit. a GDPR (consent).</p>
 
-<h2>3. Email Service &ndash; Brevo</h2>
-<p>We use Brevo (Sendinblue GmbH, K&ouml;penicker Str. 126, 10179 Berlin, Germany) to send our emails. Brevo is GDPR-compliant and processes data on servers within the EU.</p>
+<h2>3. Newsletter and Waitlist Emails &ndash; Brevo</h2>
+<p>We use Brevo (Sendinblue GmbH, K&ouml;penicker Str. 126, 10179 Berlin, Germany) to send our newsletter and waitlist emails. Brevo is GDPR-compliant and processes data on servers within the EU.</p>
 <p>Your email address is used solely for communication about Verge and is not shared with third parties. You can unsubscribe at any time via the unsubscribe link in our emails or by emailing <a href="mailto:info@playverge.app">info@playverge.app</a>.</p>
+<p>Individual email correspondence (such as your inquiries to <a href="mailto:info@playverge.app">info@playverge.app</a> and our replies) does not go through Brevo but through our own email provider.</p>
 <p>Brevo privacy policy: <a href="https://www.brevo.com/legal/privacypolicy/" target="_blank" rel="noopener">brevo.com/legal/privacypolicy</a></p>
 
 <h2>4. Double Opt-In</h2>
@@ -269,9 +353,86 @@ J&uuml;licher Str. 24<br>
 <p>We reserve the right to update this privacy policy as needed. The current version is always available on this page.</p>
 
 </section>
+
+<hr>
+
+<section>
+<h1>Terms of Service</h1>
+<p>Last updated: April 2026</p>
+
+<h2>1. Scope and Contracting Parties</h2>
+<p>These Terms of Service govern the use of the mobile application <strong>Verge</strong> (hereinafter &ldquo;the App&rdquo;) and the purchase of paid content within the App. The provider of the App is Kilian Amrehn, J&uuml;licher Str. 24, 50674 Cologne, Germany (see Legal Notice). By downloading and using the App, you accept these Terms. You are considered a consumer within the meaning of &sect; 13 German Civil Code (BGB) if you use the App for purposes that are predominantly outside your trade, business or profession.</p>
+
+<h2>2. Subject Matter</h2>
+<p>Verge is a group card game designed to spark conversations and interactions between players. The App offers a free base version with a limited selection of cards and features.</p>
+<p>Additional content and features are available through the following paid options:</p>
+<ul>
+  <li><strong>Verge Pro</strong> &ndash; one-time purchase, permanent unlock of the extended card deck. No subscription term, no automatic renewal.</li>
+  <li><strong>Verge Unlimited</strong> (planned for the future) &ndash; subscription with automatic renewal. Details on term, price and scope will be shown in the app store before purchase.</li>
+</ul>
+
+<h2>3. Contract Conclusion for In-App Purchases</h2>
+<p>Paid content is purchased exclusively through the payment system of the respective app store (Apple App Store or Google Play Store). The contract is concluded upon confirmation of the purchase by the app store. The terms of the respective app store apply in addition to these Terms.</p>
+
+<h2>4. Prices and Payment</h2>
+<p>Current prices are displayed to you in the app store before purchase. Payment is processed solely via the payment method stored in the respective app store. We ourselves do not receive any payment or credit card information.</p>
+
+<h2>5. Verge Pro (One-Time Purchase)</h2>
+<p>With the one-time purchase of Verge Pro, you receive permanent access to the unlocked content on all devices linked to your Apple ID or Google account. There are no follow-up charges and no automatic renewal.</p>
+<p>If you install the App on a new device or accidentally try to repurchase, you can use the &ldquo;Restore Purchases&rdquo; function in the app settings to reactivate your previous purchases at no extra cost.</p>
+
+<h2>6. Verge Unlimited (Subscription, Planned)</h2>
+<p>Once Verge Unlimited becomes available as a subscription, the following applies in addition: Subscriptions automatically renew for the selected period unless cancelled at least 24 hours before the end of the current period. Cancellations must be made directly through the subscription management of the respective app store (Apple ID or Google Account), not through us. The specific conditions (term, price, scope) will be displayed in the app store before purchase.</p>
+
+<h2>7. Right of Withdrawal</h2>
+<p>You have the right to withdraw from a contract for digital content within 14 days without giving reasons. The right of withdrawal expires prematurely as soon as we have begun performance of the contract after you have expressly agreed to us beginning before the expiry of the withdrawal period and have confirmed your awareness that, by giving your consent to the start of performance, you will lose your right of withdrawal (&sect; 356 para. 5 BGB). Since the activation of Verge Pro and subscription content occurs immediately upon purchase, the right of withdrawal typically expires with the completion of the transaction.</p>
+<p>Refund requests must be directed to the respective app store: Apple (<a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>) or Google Play (<a href="https://support.google.com/googleplay" target="_blank" rel="noopener">support.google.com/googleplay</a>).</p>
+
+<h2>8. Minimum Age</h2>
+<p>The App is intended exclusively for users aged 18 and over. By using the App and by making any purchase of paid content, you confirm that you are at least 18 years old. Use by minors is prohibited. If we have reasonable doubts about your age, we reserve the right to restrict access to the App or to paid content.</p>
+
+<h2>9. Usage Rights</h2>
+<p>We grant you a simple, non-exclusive, non-transferable right to use the App personally on your devices. Commercial use, distribution, modification or publication of game content (in particular cards) is not permitted without our written consent.</p>
+
+<h2>10. User Responsibility</h2>
+<p>Verge is a game based on voluntary participation and mutual consent. You are personally responsible for engaging respectfully with other players during the game and for respecting your own boundaries as well as those of others. The consent mechanisms provided in the App are a supporting tool and do not replace your own judgement and responsibility.</p>
+
+<h2>11. Game Content and Personal Responsibility</h2>
+<p>The questions, prompts and card content in the App are intended as playful impulses. They do not constitute recommendations, instructions or medical, therapeutic, psychological or sexual advice. Whether, when and how you and your fellow players follow individual cards is your own decision and sole responsibility.</p>
+<p>We make no guarantee that the game will lead to specific interpersonal outcomes, positive experiences or changes in relationships. Any interaction between players is voluntary and at your own risk. Liability for emotional, psychological or physical consequences arising from participation in the game or from following individual cards is excluded, unless mandatory legal provisions require otherwise (see also &sect;14 Liability).</p>
+
+<h2>12. Availability</h2>
+<p>We strive to ensure that the App is available with as few interruptions as possible. We cannot technically guarantee one hundred percent availability. Maintenance, updates or disruptions may lead to temporary limitations.</p>
+
+<h2>13. Warranty and Updates</h2>
+<p>The statutory warranty provisions of &sect;&sect; 327 et seq. German Civil Code (BGB) apply to digital products. If a defect becomes apparent within one year of the provision of paid content, it is presumed that the defect already existed at the time of provision, unless this presumption is incompatible with the nature of the digital product or the defect (&sect; 327k BGB).</p>
+<p>We provide updates to the App that are necessary to maintain contractual conformity, including security updates, and will inform you appropriately of their availability. Installation of updates is your responsibility; failure to install may lead to loss of functionality and excludes warranty rights to the extent that the defect was caused thereby.</p>
+<p>Compatibility requirements (supported operating systems and minimum versions) are stated in the respective app store. No warranty is provided for the functioning of the App outside these environments.</p>
+
+<h2>14. Liability</h2>
+<p>We are fully liable for damage arising from injury to life, body or health, as well as for intent and gross negligence. In the case of slight negligence, we are only liable in the event of a breach of essential contractual obligations, and in such cases only for damage typically foreseeable at the time of contract conclusion. Any further liability is excluded.</p>
+
+<h2>15. Data Protection</h2>
+<p>For information on the processing of your personal data, please see our <a href="#datenschutz">Privacy Policy</a>.</p>
+
+<h2>16. Changes to These Terms</h2>
+<p>We reserve the right to update these Terms as needed, in particular when introducing new features or purchase options or in response to changes in the legal framework. Changes will be announced in good time. The current version is always available on this page.</p>
+
+<h2>17. Applicable Law and Jurisdiction</h2>
+<p>German law applies to the exclusion of the UN Convention on Contracts for the International Sale of Goods. For consumers residing in the EU, the mandatory consumer protection provisions of their country of residence apply in addition. For merchants, the place of jurisdiction is Cologne, Germany.</p>
+
+<h2>18. Dispute Resolution</h2>
+<p>Information on online dispute resolution can be found in the Legal Notice. We are not obliged to participate in dispute resolution proceedings before a consumer arbitration board.</p>
+
+<h2>19. Severability</h2>
+<p>If any provision of these Terms is or becomes invalid, the validity of the remaining provisions shall remain unaffected. The invalid provision shall be replaced by one that comes closest to the economic purpose of the invalid provision.</p>
+
+</section>
 </div>
 
 <div class="footer">Verge &middot; info@playverge.app &middot; playverge.app</div>
+
+</div>
 
 <script>
 function setLang(l){
@@ -283,6 +444,195 @@ function setLang(l){
   });
   document.documentElement.lang=l;
 }
+</script>
+
+<script>
+// VERGE Ambientbackground v5 — JS port (exact match to Flutter widget)
+// 45 nodes, seed 4919, half-speed movement, blob-influence on lines
+(function(){
+const canvas=document.getElementById("c"),ctx=canvas.getContext("2d");
+
+// Phase accent + background colours — exact Flutter values
+const PA=[[46,196,182],[58,134,255],[123,97,255],[255,107,107],[255,59,48]];
+const PB=[[26,94,84],[31,64,112],[58,51,112],[112,56,56],[112,34,30]];
+const CMS=120000; // 120s ping-pong cycle
+
+// Seeded RNG matching Flutter's Random(4919)
+function srng(seed){
+  // LCG that closely mirrors Dart's Random seeding behaviour for layout
+  let s=seed|0;
+  return()=>{s=(Math.imul(s,1664525)+1013904223)|0;return(s>>>0)/4294967296;};
+}
+
+let nodes=null,lw=0,lh=0;
+
+// 45 nodes, seed 4919 — matches Flutter _generateNodes
+function gen(w,h){
+  const r=srng(4919),ns=[];
+  for(let i=0;i<45;i++) ns.push({
+    bx:r()*w, by:r()*h,
+    fx:0.1+r()*0.3, fy:0.1+r()*0.3,
+    ax:12+r()*30,   ay:12+r()*30,
+    px:r()*Math.PI*2, py:r()*Math.PI*2
+  });
+  return ns;
+}
+
+const pp =t=>t<=.5?t*2:2-t*2;
+const l3 =(a,b,f)=>[a[0]+(b[0]-a[0])*f,a[1]+(b[1]-a[1])*f,a[2]+(b[2]-a[2])*f];
+const rgba=(c,a)=>`rgba(${c[0]|0},${c[1]|0},${c[2]|0},${a.toFixed(4)})`;
+
+function gc(p,pos){
+  const x=((pos%1)+1)%1,s=x*5,i=Math.floor(s)%5;
+  return l3(p[i],p[(i+1)%5],s-Math.floor(s));
+}
+
+// HSL helpers for brightening — matches Flutter HSLColor shift
+function rgbToHsl(r,g,b){
+  r/=255;g/=255;b/=255;
+  const mx=Math.max(r,g,b),mn=Math.min(r,g,b),d=mx-mn;
+  let h=0,s=0,l=(mx+mn)/2;
+  if(d){
+    s=d/(1-Math.abs(2*l-1));
+    if(mx===r) h=((g-b)/d+6)%6;
+    else if(mx===g) h=(b-r)/d+2;
+    else h=(r-g)/d+4;
+    h/=6;
+  }
+  return[h,s,l];
+}
+function hslToRgb(h,s,l){
+  const c=(1-Math.abs(2*l-1))*s,x=c*(1-Math.abs((h*6)%2-1)),m=l-c/2;
+  let r=0,g=0,b=0;
+  if(h<1/6)[r,g,b]=[c,x,0];
+  else if(h<2/6)[r,g,b]=[x,c,0];
+  else if(h<3/6)[r,g,b]=[0,c,x];
+  else if(h<4/6)[r,g,b]=[0,x,c];
+  else if(h<5/6)[r,g,b]=[x,0,c];
+  else[r,g,b]=[c,0,x];
+  return[Math.round((r+m)*255),Math.round((g+m)*255),Math.round((b+m)*255)];
+}
+function brighten(c,lAdd,sScale){
+  const[h,s,l]=rgbToHsl(c[0],c[1],c[2]);
+  return hslToRgb(h, Math.min(1,s*sScale), Math.min(0.95,l+lAdd));
+}
+// Darken for BG blend — matches Flutter _darken(phaseBG, 0.60)
+function darken(c,amt){
+  const[h,s,l]=rgbToHsl(c[0],c[1],c[2]);
+  return hslToRgb(h,s,Math.max(0,l-amt));
+}
+
+function drawBand(cx,cy,rw,rh,c,op){
+  ctx.save();
+  ctx.translate(cx,cy);
+  ctx.scale(1,rh/rw);
+  const g=ctx.createRadialGradient(0,0,0,0,0,rw);
+  g.addColorStop(0,  rgba(c,op));
+  g.addColorStop(0.6,rgba(c,op*0.4));
+  g.addColorStop(1,  rgba(c,0));
+  ctx.beginPath();ctx.arc(0,0,rw,0,Math.PI*2);
+  ctx.fillStyle=g;ctx.fill();
+  ctx.restore();
+}
+
+function resize(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
+
+function frame(){
+  const w=canvas.width,h=canvas.height;
+  if(!w||!h){requestAnimationFrame(frame);return;}
+  if(!nodes||Math.abs(w-lw)>2||Math.abs(h-lh)>2){nodes=gen(w,h);lw=w;lh=h;}
+
+  const now=Date.now();
+  const cp   = pp((now%CMS)/CMS);           // colour position 0–1 ping-pong
+  const rawT = (now%3600000)/1000.0;
+  const t    = rawT*0.5*0.4;               // v5: half speed, then ×0.4 to match Flutter scale
+
+  const mx=Math.max(w,h);
+
+  // ── 1. Background ─────────────────────────────────────────────────────────
+  const phaseBG  = gc(PB,cp);
+  const baseBG   = [26,26,26];
+  const darkBG   = darken(phaseBG, 0.60);   // Flutter _darken(phaseBG, 0.60)
+  // Flutter: Color.lerp(baseBG, darkenedPhase, 0.4)
+  const blendBG  = l3(baseBG, darkBG, 0.4);
+  ctx.fillStyle=rgba(blendBG,1);
+  ctx.fillRect(0,0,w,h);
+
+  // ── 2. Aurora bands (exact Flutter positions + opacities) ─────────────────
+  const ac0=gc(PA,cp), ac1=gc(PA,cp+.20), ac2=gc(PA,cp+.40), ac3=gc(PA,cp+.60);
+  drawBand(w*(0.30+0.35*Math.sin(t*0.08)),       h*0.30, w*0.45, h*0.55, ac0, 0.25);
+  drawBand(w*(0.65+0.30*Math.sin(t*0.06+1.5)),   h*0.25, w*0.40, h*0.60, ac1, 0.20);
+  drawBand(w*(0.50+0.25*Math.cos(t*0.09+3.0)),   h*0.40, w*0.35, h*0.50, ac2, 0.15);
+  drawBand(w*(0.45+0.20*Math.sin(t*0.12+2.0)),   h*0.75, w*0.50, h*0.30, ac3, 0.12);
+
+  // ── 3. Depth shadow (bottom-centre, matches Flutter RadialGradient) ────────
+  const vg=ctx.createRadialGradient(w*.5,h*.85,0,w*.5,h*.85,mx*0.45);
+  vg.addColorStop(0,"rgba(0,0,0,0.20)");
+  vg.addColorStop(1,"rgba(0,0,0,0)");
+  ctx.fillStyle=vg;ctx.fillRect(0,0,w,h);
+
+  // ── 4. Line network ────────────────────────────────────────────────────────
+  const pos=nodes.map(n=>({
+    x:n.bx+Math.sin(t*n.fx+n.px)*n.ax,
+    y:n.by+Math.cos(t*n.fy+n.py)*n.ay
+  }));
+
+  const curAccent   = gc(PA,cp);
+  const brightLine  = brighten(curAccent, 0.35, 0.70);   // Flutter: +0.35L, ×0.7S
+  const brightDot   = brighten(curAccent, 0.40, 1.00);   // Flutter: +0.40L
+
+  const connDist      = mx*0.22;   // Flutter connectionDist = maxDim * 0.22
+  const blobInfluence = mx*0.28;   // Flutter blobInfluenceRadius = maxDim * 0.28
+
+  // Band centres for blob-influence calculation
+  const bandCentres=[
+    {x:w*(0.30+0.35*Math.sin(t*0.08)),      y:h*0.30},
+    {x:w*(0.65+0.30*Math.sin(t*0.06+1.5)),  y:h*0.25},
+    {x:w*(0.50+0.25*Math.cos(t*0.09+3.0)),  y:h*0.40},
+    {x:w*(0.45+0.20*Math.sin(t*0.12+2.0)),  y:h*0.75},
+  ];
+
+  ctx.lineWidth=0.7;
+  for(let i=0;i<pos.length;i++){
+    for(let j=i+1;j<pos.length;j++){
+      const dx=pos[j].x-pos[i].x, dy=pos[j].y-pos[i].y;
+      const d=Math.sqrt(dx*dx+dy*dy);
+      if(d<connDist){
+        let alpha=(1-d/connDist)*0.08;
+        // blob influence on lines
+        const mx2=(pos[i].x+pos[j].x)*0.5, my2=(pos[i].y+pos[j].y)*0.5;
+        for(const bc of bandCentres){
+          const bd=Math.sqrt((mx2-bc.x)**2+(my2-bc.y)**2);
+          if(bd<blobInfluence) alpha+=(1-bd/blobInfluence)*0.07;
+        }
+        alpha=Math.min(0.15,alpha);
+        ctx.beginPath();ctx.moveTo(pos[i].x,pos[i].y);ctx.lineTo(pos[j].x,pos[j].y);
+        ctx.strokeStyle=rgba(brightLine,alpha);ctx.stroke();
+      }
+    }
+  }
+
+  // ── 5. Dots ────────────────────────────────────────────────────────────────
+  for(const p of pos){
+    let da=0.06;
+    for(const bc of bandCentres){
+      const bd=Math.sqrt((p.x-bc.x)**2+(p.y-bc.y)**2);
+      if(bd<blobInfluence*0.8) da+=(1-bd/(blobInfluence*0.8))*0.12;
+    }
+    da=Math.min(0.20,da);
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,1.5,0,Math.PI*2);
+    ctx.fillStyle=rgba(brightDot,da);
+    ctx.fill();
+  }
+
+  requestAnimationFrame(frame);
+}
+
+resize();
+window.addEventListener('resize',resize);
+requestAnimationFrame(frame);
+})();
 </script>
 </body>
 </html>
