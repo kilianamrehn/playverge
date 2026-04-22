@@ -12,7 +12,6 @@
 html,body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.75}
 .wrap{position:relative;z-index:10;max-width:720px;margin:0 auto;padding:48px 24px 80px}
 #c{position:fixed;inset:0;z-index:0;pointer-events:none}
-#grain{position:fixed;inset:0;z-index:1;pointer-events:none;mix-blend-mode:overlay;opacity:.10}
 .back{display:inline-flex;align-items:center;gap:8px;color:var(--a1);text-decoration:none;
   font-size:13px;letter-spacing:.04em;margin-bottom:52px;opacity:.8;transition:opacity .2s}
 .back:hover{opacity:1}
@@ -52,7 +51,6 @@ hr{border:none;border-top:1px solid var(--border);margin:52px 0}
 <body>
 
 <canvas id="c"></canvas>
-<canvas id="grain"></canvas>
 
 <div class="wrap">
 
@@ -447,140 +445,216 @@ function setLang(l){
 </script>
 
 <script>
-// VERGE Filmkorn-Animation - live grain via canvas
-// 20 FPS throttle, 256x256 offscreen noise, skaliert auf Viewport
-(function(){
-  const grain = document.getElementById('grain');
-  if(!grain) return;
-  const gctx = grain.getContext('2d');
-  gctx.imageSmoothingEnabled = true;
-
-  const N = 256;
-  const noise = document.createElement('canvas');
-  noise.width = noise.height = N;
-  const nctx = noise.getContext('2d');
-
-  function resize(){
-    grain.width = window.innerWidth;
-    grain.height = window.innerHeight;
-    gctx.imageSmoothingEnabled = true;
-  }
-
-  function renderNoise(){
-    const img = nctx.createImageData(N, N);
-    const d = img.data;
-    for(let i=0; i<d.length; i+=4){
-      const v = 128 + (Math.random() - 0.5) * 200;
-      d[i] = d[i+1] = d[i+2] = v;
-      d[i+3] = 255;
-    }
-    nctx.putImageData(img, 0, 0);
-    gctx.clearRect(0, 0, grain.width, grain.height);
-    gctx.drawImage(noise, 0, 0, grain.width, grain.height);
-  }
-
-  let last = 0;
-  function loop(now){
-    if(now - last > 50){
-      renderNoise();
-      last = now;
-    }
-    requestAnimationFrame(loop);
-  }
-
-  resize();
-  window.addEventListener('resize', resize);
-  requestAnimationFrame(loop);
-})();
-</script>
-
-<script>
-// VERGE Ambientbackground v5 — JS port (exact match to Flutter widget)
-// 45 nodes, seed 4919, half-speed movement, blob-influence on lines
+// VERGE AnalogAmbientBackground — JS port of Flutter widget (AnalogAmbientBackground v4)
+// 8 Blobs in 3 Tiefenschichten (Base/Accent/Highlight) mit Phasen-Offsets 0/0.10/0.20
+// 1000 statische Dust-Partikel auf Offscreen-Canvas (nur bei Resize neu gerendert)
+// 120s Ping-Pong-Farbzyklus, feste Epoche fuer Konsistenz zwischen Sessions
 (function(){
 const canvas=document.getElementById("c"),ctx=canvas.getContext("2d");
 
-// Phase accent + background colours — exact Flutter values
-const PA=[[46,196,182],[58,134,255],[123,97,255],[255,107,107],[255,59,48]];
-const PB=[[26,94,84],[31,64,112],[58,51,112],[112,56,56],[112,34,30]];
-const CMS=120000; // 120s ping-pong cycle
+// 5 Paletten, je 4 Stufen [darkest, dark, mid, light]
+const PALETTES=[
+  [[12,38,35],[22,70,63],[38,128,118],[95,160,152]],
+  [[8,18,42],[12,58,115],[50,100,175],[120,155,200]],
+  [[20,12,42],[40,28,115],[90,75,175],[145,135,195]],
+  [[42,15,15],[100,30,30],[175,85,80],[205,140,135]],
+  [[38,8,6],[90,22,18],[165,55,45],[195,110,100]]
+];
 
-// Seeded RNG matching Flutter's Random(4919)
-function srng(seed){
-  // LCG that closely mirrors Dart's Random seeding behaviour for layout
-  let s=seed|0;
-  return()=>{s=(Math.imul(s,1664525)+1013904223)|0;return(s>>>0)/4294967296;};
+// 8 Blobs: [bx, by, ax, ay, fx, fy, px, py, rf, co, colorIdx]
+const SEEDS=[
+  [0.22,0.18,55,65,0.55,0.45,0.0,1.5,0.92,0.58,0],
+  [0.78,0.78,60,58,0.50,0.65,2.0,0.3,0.88,0.55,0],
+  [0.50,0.50,70,60,0.48,0.52,3.2,2.8,0.95,0.45,0],
+  [0.45,0.30,55,52,0.80,0.65,3.5,2.0,0.55,0.82,1],
+  [0.72,0.42,48,55,0.72,0.88,4.5,1.0,0.50,0.78,1],
+  [0.28,0.68,52,48,0.88,0.55,1.5,3.5,0.48,0.80,1],
+  [0.50,0.28,35,42,1.05,1.10,5.5,4.0,0.30,0.90,2],
+  [0.25,0.52,32,38,1.20,0.95,0.5,5.5,0.26,0.92,2]
+];
+
+const CYCLE_MS=120000;
+const EPOCH_MS=1735689600000;
+const ACCENT_OFFSET=0.10;
+const HIGHLIGHT_OFFSET=0.20;
+const DUST_DENSITY=1000;
+const DUST_BRIGHTNESS=0.50;
+const DUST_CHAOS=0.60;
+
+// Offscreen canvas fuer Dust-Layer (statisch, nur bei Resize neu rendern)
+const dustCanvas=document.createElement("canvas");
+const dctx=dustCanvas.getContext("2d");
+
+let dust=[],lw=0,lh=0;
+
+// Utils
+const clamp=(v,lo,hi)=>Math.max(lo,Math.min(hi,v));
+const lerpRgb=(a,b,t)=>[
+  Math.round(clamp(a[0]+(b[0]-a[0])*t,0,255)),
+  Math.round(clamp(a[1]+(b[1]-a[1])*t,0,255)),
+  Math.round(clamp(a[2]+(b[2]-a[2])*t,0,255))
+];
+const rgba=(c,a)=>`rgba(${c[0]},${c[1]},${c[2]},${a.toFixed(4)})`;
+const smoothPingPong=t=>(1-Math.cos(t*Math.PI*2))/2;
+
+function getPaletteAt(cyclePos){
+  let p=cyclePos-Math.floor(cyclePos);
+  if(p<0)p+=1;
+  const scaled=p*4;
+  const idx=Math.min(Math.floor(scaled),3);
+  const frac=scaled-idx;
+  const cur=PALETTES[idx],nxt=PALETTES[idx+1];
+  return[
+    lerpRgb(cur[0],nxt[0],frac),
+    lerpRgb(cur[1],nxt[1],frac),
+    lerpRgb(cur[2],nxt[2],frac),
+    lerpRgb(cur[3],nxt[3],frac)
+  ];
 }
 
-let nodes=null,lw=0,lh=0;
-
-// 45 nodes, seed 4919 — matches Flutter _generateNodes
-function gen(w,h){
-  const r=srng(4919),ns=[];
-  for(let i=0;i<45;i++) ns.push({
-    bx:r()*w, by:r()*h,
-    fx:0.1+r()*0.3, fy:0.1+r()*0.3,
-    ax:12+r()*30,   ay:12+r()*30,
-    px:r()*Math.PI*2, py:r()*Math.PI*2
-  });
-  return ns;
-}
-
-const pp =t=>t<=.5?t*2:2-t*2;
-const l3 =(a,b,f)=>[a[0]+(b[0]-a[0])*f,a[1]+(b[1]-a[1])*f,a[2]+(b[2]-a[2])*f];
-const rgba=(c,a)=>`rgba(${c[0]|0},${c[1]|0},${c[2]|0},${a.toFixed(4)})`;
-
-function gc(p,pos){
-  const x=((pos%1)+1)%1,s=x*5,i=Math.floor(s)%5;
-  return l3(p[i],p[(i+1)%5],s-Math.floor(s));
-}
-
-// HSL helpers for brightening — matches Flutter HSLColor shift
-function rgbToHsl(r,g,b){
-  r/=255;g/=255;b/=255;
-  const mx=Math.max(r,g,b),mn=Math.min(r,g,b),d=mx-mn;
-  let h=0,s=0,l=(mx+mn)/2;
-  if(d){
-    s=d/(1-Math.abs(2*l-1));
-    if(mx===r) h=((g-b)/d+6)%6;
-    else if(mx===g) h=(b-r)/d+2;
-    else h=(r-g)/d+4;
-    h/=6;
+// Dust-Generation (matched Flutter _regenerateDust)
+function regenerateDust(){
+  const zoneCount=3+Math.floor(Math.random()*3);
+  const zones=[];
+  for(let i=0;i<zoneCount;i++){
+    zones.push({
+      cx:Math.random(),
+      cy:Math.random(),
+      radius:0.12+Math.random()*0.35,
+      densityMultiplier:0.3+Math.random()*2.5,
+      character:Math.floor(Math.random()*4)
+    });
   }
-  return[h,s,l];
-}
-function hslToRgb(h,s,l){
-  const c=(1-Math.abs(2*l-1))*s,x=c*(1-Math.abs((h*6)%2-1)),m=l-c/2;
-  let r=0,g=0,b=0;
-  if(h<1/6)[r,g,b]=[c,x,0];
-  else if(h<2/6)[r,g,b]=[x,c,0];
-  else if(h<3/6)[r,g,b]=[0,c,x];
-  else if(h<4/6)[r,g,b]=[0,x,c];
-  else if(h<5/6)[r,g,b]=[x,0,c];
-  else[r,g,b]=[c,0,x];
-  return[Math.round((r+m)*255),Math.round((g+m)*255),Math.round((b+m)*255)];
-}
-function brighten(c,lAdd,sScale){
-  const[h,s,l]=rgbToHsl(c[0],c[1],c[2]);
-  return hslToRgb(h, Math.min(1,s*sScale), Math.min(0.95,l+lAdd));
-}
-// Darken for BG blend — matches Flutter _darken(phaseBG, 0.60)
-function darken(c,amt){
-  const[h,s,l]=rgbToHsl(c[0],c[1],c[2]);
-  return hslToRgb(h,s,Math.max(0,l-amt));
+
+  const particles=[];
+  for(let i=0;i<DUST_DENSITY;i++){
+    const useZone=Math.random()<DUST_CHAOS;
+    let px,py,zone=null,character=3;
+
+    if(useZone&&zones.length>0){
+      let totalWeight=0;
+      for(const z of zones)totalWeight+=z.densityMultiplier;
+      let pick=Math.random()*totalWeight;
+      zone=zones[0];
+      for(const z of zones){
+        pick-=z.densityMultiplier;
+        if(pick<=0){zone=z;break;}
+      }
+      const theta=Math.random()*Math.PI*2;
+      const r=Math.pow(Math.random(),0.7)*zone.radius;
+      px=zone.cx+Math.cos(theta)*r;
+      py=zone.cy+Math.sin(theta)*r;
+      character=zone.character;
+    }else{
+      px=Math.random();
+      py=Math.random();
+    }
+
+    if(px<-0.05||px>1.05||py<-0.05||py>1.05)continue;
+
+    const alphaVar=0.4+Math.random()*0.6;
+    let alpha=DUST_BRIGHTNESS*alphaVar*0.6;
+    if(zone){
+      const dx=px-zone.cx,dy=py-zone.cy;
+      const d=Math.sqrt(dx*dx+dy*dy);
+      const zoneFalloff=clamp(1-(d/zone.radius)*0.3,0.3,1.0);
+      alpha*=zoneFalloff;
+    }
+
+    particles.push({
+      nx:px,ny:py,alpha:alpha,
+      angle:Math.random()*Math.PI*2,
+      character:character,
+      typeRoll:Math.random(),
+      sizeRoll:Math.random(),
+      lengthRoll:Math.random(),
+      curveRoll:Math.random()-0.5,
+      gapRoll:Math.random()
+    });
+  }
+  dust=particles;
 }
 
-function drawBand(cx,cy,rw,rh,c,op){
-  ctx.save();
-  ctx.translate(cx,cy);
-  ctx.scale(1,rh/rw);
-  const g=ctx.createRadialGradient(0,0,0,0,0,rw);
-  g.addColorStop(0,  rgba(c,op));
-  g.addColorStop(0.6,rgba(c,op*0.4));
-  g.addColorStop(1,  rgba(c,0));
-  ctx.beginPath();ctx.arc(0,0,rw,0,Math.PI*2);
-  ctx.fillStyle=g;ctx.fill();
-  ctx.restore();
+function drawStroke(c,x,y,cos,sin,length,alpha,strokeWidth){
+  c.strokeStyle=`rgba(255,255,255,${clamp(alpha,0,1).toFixed(4)})`;
+  c.lineWidth=strokeWidth;
+  c.beginPath();
+  c.moveTo(x-cos*length*0.5,y-sin*length*0.5);
+  c.lineTo(x+cos*length*0.5,y+sin*length*0.5);
+  c.stroke();
+}
+
+function drawCurve(c,x,y,cos,sin,length,curveAmount,alpha,strokeWidth){
+  const perpCos=-sin,perpSin=cos;
+  c.strokeStyle=`rgba(255,255,255,${clamp(alpha,0,1).toFixed(4)})`;
+  c.lineWidth=strokeWidth;
+  c.beginPath();
+  c.moveTo(x-cos*length*0.5,y-sin*length*0.5);
+  c.quadraticCurveTo(
+    x+perpCos*curveAmount,
+    y+perpSin*curveAmount,
+    x+cos*length*0.5,
+    y+sin*length*0.5
+  );
+  c.stroke();
+}
+
+function drawDoubleStroke(c,x,y,cos,sin,length,gap,alpha,strokeWidth){
+  const perpCos=-sin,perpSin=cos;
+  drawStroke(c,x+perpCos*gap,y+perpSin*gap,cos,sin,length,alpha,strokeWidth);
+  drawStroke(c,x-perpCos*gap,y-perpSin*gap,cos,sin,length,alpha,strokeWidth);
+}
+
+// Rendert Dust einmal auf Offscreen-Canvas (statisch)
+function renderDustLayer(w,h){
+  dustCanvas.width=w;
+  dustCanvas.height=h;
+  dctx.clearRect(0,0,w,h);
+  dctx.lineCap="round";
+
+  for(const p of dust){
+    const x=p.nx*w,y=p.ny*h;
+    const cos=Math.cos(p.angle),sin=Math.sin(p.angle);
+    const alpha=clamp(p.alpha,0,1);
+
+    let typeRoll=p.typeRoll;
+    if(p.character===0)typeRoll=typeRoll*0.6;
+    else if(p.character===1)typeRoll=0.3+typeRoll*0.5;
+    else if(p.character===2)typeRoll=0.65+typeRoll*0.35;
+
+    if(typeRoll<0.30){
+      let radius;
+      if(p.sizeRoll<0.6)radius=0.5;
+      else if(p.sizeRoll<0.9)radius=0.8;
+      else radius=1.2;
+      dctx.fillStyle=`rgba(255,255,255,${alpha.toFixed(4)})`;
+      dctx.beginPath();
+      dctx.arc(x,y,radius,0,Math.PI*2);
+      dctx.fill();
+    }else if(typeRoll<0.50){
+      const length=2+p.lengthRoll*2;
+      drawStroke(dctx,x,y,cos,sin,length,alpha*0.9,0.6);
+    }else if(typeRoll<0.65){
+      const length=4+p.lengthRoll*4;
+      drawStroke(dctx,x,y,cos,sin,length,alpha*0.8,0.5);
+    }else if(typeRoll<0.78){
+      const length=5+p.lengthRoll*5;
+      drawCurve(dctx,x,y,cos,sin,length,p.curveRoll*4,alpha*0.75,0.5);
+    }else if(typeRoll<0.88){
+      const length=10+p.lengthRoll*10;
+      drawStroke(dctx,x,y,cos,sin,length,alpha*0.6,0.4);
+    }else if(typeRoll<0.95){
+      const length=8+p.lengthRoll*7;
+      drawCurve(dctx,x,y,cos,sin,length,p.curveRoll*6,alpha*0.65,0.4);
+    }else if(typeRoll<0.98){
+      const length=3+p.lengthRoll*3;
+      const gap=1+p.gapRoll*1;
+      drawDoubleStroke(dctx,x,y,cos,sin,length,gap,alpha*0.7,0.4);
+    }else{
+      const length=25+p.lengthRoll*15;
+      drawStroke(dctx,x,y,cos,sin,length,alpha*0.4,0.3);
+    }
+  }
 }
 
 function resize(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
@@ -588,98 +662,74 @@ function resize(){canvas.width=window.innerWidth;canvas.height=window.innerHeigh
 function frame(){
   const w=canvas.width,h=canvas.height;
   if(!w||!h){requestAnimationFrame(frame);return;}
-  if(!nodes||Math.abs(w-lw)>2||Math.abs(h-lh)>2){nodes=gen(w,h);lw=w;lh=h;}
 
-  const now=Date.now();
-  const cp   = pp((now%CMS)/CMS);           // colour position 0–1 ping-pong
-  const rawT = (now%3600000)/1000.0;
-  const t    = rawT*0.5*0.4;               // v5: half speed, then ×0.4 to match Flutter scale
+  // Dust bei Resize neu rendern
+  if(Math.abs(w-lw)>2||Math.abs(h-lh)>2){
+    renderDustLayer(w,h);
+    lw=w;lh=h;
+  }
 
-  const mx=Math.max(w,h);
+  const nowMs=Date.now();
+  const cycleValue=(nowMs%CYCLE_MS)/CYCLE_MS;
 
-  // ── 1. Background ─────────────────────────────────────────────────────────
-  const phaseBG  = gc(PB,cp);
-  const baseBG   = [26,26,26];
-  const darkBG   = darken(phaseBG, 0.60);   // Flutter _darken(phaseBG, 0.60)
-  // Flutter: Color.lerp(baseBG, darkenedPhase, 0.4)
-  const blendBG  = l3(baseBG, darkBG, 0.4);
-  ctx.fillStyle=rgba(blendBG,1);
+  // Drei Schichten, drei Phasen: Base synchron, Accent/Highlight zeitlich versetzt
+  const basePos=smoothPingPong(cycleValue);
+  const accentPos=smoothPingPong(((cycleValue+ACCENT_OFFSET)%1+1)%1);
+  const highlightPos=smoothPingPong(((cycleValue+HIGHLIGHT_OFFSET)%1+1)%1);
+
+  const basePalette=getPaletteAt(basePos);
+  const accentPalette=getPaletteAt(accentPos);
+  const highlightPalette=getPaletteAt(highlightPos);
+
+  const rawTime=(nowMs-EPOCH_MS)/1000.0;
+  const ts=rawTime*0.07;
+
+  // BG aus Base-Palette (dunkelste Stufe)
+  ctx.fillStyle=rgba(basePalette[0],1);
   ctx.fillRect(0,0,w,h);
 
-  // ── 2. Aurora bands (exact Flutter positions + opacities) ─────────────────
-  const ac0=gc(PA,cp), ac1=gc(PA,cp+.20), ac2=gc(PA,cp+.40), ac3=gc(PA,cp+.60);
-  drawBand(w*(0.30+0.35*Math.sin(t*0.08)),       h*0.30, w*0.45, h*0.55, ac0, 0.25);
-  drawBand(w*(0.65+0.30*Math.sin(t*0.06+1.5)),   h*0.25, w*0.40, h*0.60, ac1, 0.20);
-  drawBand(w*(0.50+0.25*Math.cos(t*0.09+3.0)),   h*0.40, w*0.35, h*0.50, ac2, 0.15);
-  drawBand(w*(0.45+0.20*Math.sin(t*0.12+2.0)),   h*0.75, w*0.50, h*0.30, ac3, 0.12);
+  // 8 Blobs
+  for(const s of SEEDS){
+    const bx=s[0],by=s[1],ax=s[2],ay=s[3];
+    const fx=s[4],fy=s[5],px=s[6],py=s[7];
+    const rf=s[8],co=s[9];
+    const colorIdx=s[10]|0;
 
-  // ── 3. Depth shadow (bottom-centre, matches Flutter RadialGradient) ────────
-  const vg=ctx.createRadialGradient(w*.5,h*.85,0,w*.5,h*.85,mx*0.45);
-  vg.addColorStop(0,"rgba(0,0,0,0.20)");
-  vg.addColorStop(1,"rgba(0,0,0,0)");
-  ctx.fillStyle=vg;ctx.fillRect(0,0,w,h);
+    const x=w*bx+Math.sin(ts*fx+px)*ax;
+    const y=h*by+Math.cos(ts*fy+py)*ay;
+    const r=w*rf+Math.sin(ts*0.9+px)*10;
 
-  // ── 4. Line network ────────────────────────────────────────────────────────
-  const pos=nodes.map(n=>({
-    x:n.bx+Math.sin(t*n.fx+n.px)*n.ax,
-    y:n.by+Math.cos(t*n.fy+n.py)*n.ay
-  }));
+    // Schicht-Palette: Dunkel aus Base, Mittel aus Accent, Hell aus Highlight
+    let color;
+    if(colorIdx===0)color=basePalette[1];
+    else if(colorIdx===1)color=accentPalette[2];
+    else color=highlightPalette[3];
 
-  const curAccent   = gc(PA,cp);
-  const brightLine  = brighten(curAccent, 0.35, 0.70);   // Flutter: +0.35L, ×0.7S
-  const brightDot   = brighten(curAccent, 0.40, 1.00);   // Flutter: +0.40L
-
-  const connDist      = mx*0.22;   // Flutter connectionDist = maxDim * 0.22
-  const blobInfluence = mx*0.28;   // Flutter blobInfluenceRadius = maxDim * 0.28
-
-  // Band centres for blob-influence calculation
-  const bandCentres=[
-    {x:w*(0.30+0.35*Math.sin(t*0.08)),      y:h*0.30},
-    {x:w*(0.65+0.30*Math.sin(t*0.06+1.5)),  y:h*0.25},
-    {x:w*(0.50+0.25*Math.cos(t*0.09+3.0)),  y:h*0.40},
-    {x:w*(0.45+0.20*Math.sin(t*0.12+2.0)),  y:h*0.75},
-  ];
-
-  ctx.lineWidth=0.7;
-  for(let i=0;i<pos.length;i++){
-    for(let j=i+1;j<pos.length;j++){
-      const dx=pos[j].x-pos[i].x, dy=pos[j].y-pos[i].y;
-      const d=Math.sqrt(dx*dx+dy*dy);
-      if(d<connDist){
-        let alpha=(1-d/connDist)*0.08;
-        // blob influence on lines
-        const mx2=(pos[i].x+pos[j].x)*0.5, my2=(pos[i].y+pos[j].y)*0.5;
-        for(const bc of bandCentres){
-          const bd=Math.sqrt((mx2-bc.x)**2+(my2-bc.y)**2);
-          if(bd<blobInfluence) alpha+=(1-bd/blobInfluence)*0.07;
-        }
-        alpha=Math.min(0.15,alpha);
-        ctx.beginPath();ctx.moveTo(pos[i].x,pos[i].y);ctx.lineTo(pos[j].x,pos[j].y);
-        ctx.strokeStyle=rgba(brightLine,alpha);ctx.stroke();
-      }
-    }
+    const g=ctx.createRadialGradient(x,y,0,x,y,r);
+    g.addColorStop(0,rgba(color,co));
+    g.addColorStop(0.35,rgba(color,co*0.65));
+    g.addColorStop(0.75,rgba(color,co*0.18));
+    g.addColorStop(1,rgba(color,0));
+    ctx.fillStyle=g;
+    ctx.fillRect(0,0,w,h);
   }
 
-  // ── 5. Dots ────────────────────────────────────────────────────────────────
-  for(const p of pos){
-    let da=0.06;
-    for(const bc of bandCentres){
-      const bd=Math.sqrt((p.x-bc.x)**2+(p.y-bc.y)**2);
-      if(bd<blobInfluence*0.8) da+=(1-bd/(blobInfluence*0.8))*0.12;
-    }
-    da=Math.min(0.20,da);
-    ctx.beginPath();
-    ctx.arc(p.x,p.y,1.5,0,Math.PI*2);
-    ctx.fillStyle=rgba(brightDot,da);
-    ctx.fill();
-  }
+  // Dust-Layer (statisches Offscreen-Canvas)
+  ctx.drawImage(dustCanvas,0,0);
 
   requestAnimationFrame(frame);
 }
 
+regenerateDust();
 resize();
-window.addEventListener('resize',resize);
+window.addEventListener("resize",resize);
 requestAnimationFrame(frame);
+
+// Analog-Scan-Effekt: Dust alle 5s neu wuerfeln (wie ein neues eingescanntes Bild)
+setInterval(()=>{
+  regenerateDust();
+  if(canvas.width>0&&canvas.height>0)renderDustLayer(canvas.width,canvas.height);
+},5000);
 })();
 </script>
 </body>
