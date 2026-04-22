@@ -555,6 +555,33 @@ function cardLabel(d) { return (typeof lang !== 'undefined' && lang === 'en') ? 
   }
 })();
 
+// ── Joker-Video iOS-Fallback ─────────────────────────────────────────────────
+// Wenn Safari das Video nicht autoplay'd (Low-Power-Modus, strikte Medien-
+// Policy, schwaches Netz), zeigt iOS einen nativen Play-Button-Overlay ueber
+// dem Poster-Bild. Das wirkt unsauber. Statt dessen ersetzen wir das Video
+// nach 1.2s durch ein reines <img>-Element mit dem Poster, wenn es bis dahin
+// nicht spielt. Aus User-Sicht ein bewusstes Standbild statt abgewuergter Player.
+(function jokerVideoFallback(){
+  const videos = document.querySelectorAll('video[data-joker-video]');
+  videos.forEach(v => {
+    // Explizit play() triggern (manche iOS-Versionen brauchen das zusaetzlich
+    // zum autoplay-Attribut)
+    const p = v.play();
+    if (p !== undefined) { p.catch(()=>{}); }
+
+    setTimeout(() => {
+      // paused == true oder readyState < 3 -> Video laeuft nicht sauber
+      if (v.paused || v.readyState < 3) {
+        const img = document.createElement('img');
+        img.src = v.getAttribute('poster') || 'joker.jpg';
+        img.alt = '';
+        img.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;pointer-events:none';
+        v.replaceWith(img);
+      }
+    }, 1200);
+  });
+})();
+
 // ── Slider v2 ────────────────────────────────────────────────────────────────
 // Pointer Events (unifiziert Maus/Touch/Stylus) + setPointerCapture (fixt Drag-Leak
 // wenn Maus außerhalb des Fensters losgelassen wird). 3-Kartenmodell:
@@ -980,7 +1007,7 @@ setInterval(()=>{
 </script>
 <!-- ── JOKER-KARTENZIEHER ── -->
 <div class="joker-card" id="joker-card" role="button" tabindex="0" aria-label="Zieh eine Karte">
-  <video autoplay loop muted playsinline poster="joker.jpg">
+  <video autoplay loop muted playsinline disablepictureinpicture disableremoteplayback preload="auto" poster="joker.jpg" data-joker-video="corner">
     <source src="joker.mp4" type="video/mp4">
     <img src="joker.jpg" alt="">
   </video>
@@ -994,7 +1021,7 @@ setInterval(()=>{
     <button class="draw-close" id="draw-close" aria-label="Karte schließen">×</button>
     <div class="draw-card-inner">
       <div class="draw-face draw-face-back">
-        <video autoplay loop muted playsinline poster="joker.jpg">
+        <video autoplay loop muted playsinline disablepictureinpicture disableremoteplayback preload="auto" poster="joker.jpg" data-joker-video="back">
           <source src="joker.mp4" type="video/mp4">
           <img src="joker.jpg" alt="">
         </video>
