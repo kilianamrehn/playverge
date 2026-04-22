@@ -23,7 +23,7 @@
   --bg2:#222222;
   --ink:#f2f2f2;
   --ink2:#b3b3b3;
-  --rule:rgba(242,242,242,0.08);
+  --rule:rgba(242,242,242,0.04);
   --a1:#2ec4b6;
   --a2:#3a86ff;
   --a3:#7b61ff;
@@ -33,7 +33,6 @@
 html,body{width:100%;min-height:100%;background:var(--bg);color:var(--ink);overflow-x:hidden}
 body{font-family:"Inter",sans-serif;font-weight:300}
 #c{position:fixed;inset:0;z-index:0;pointer-events:none}
-#grain{position:fixed;inset:0;z-index:1;pointer-events:none;mix-blend-mode:overlay;opacity:.04}
 
 /* lang */
 .lang{position:fixed;top:28px;right:32px;z-index:300;display:flex;border:1px solid var(--rule);overflow:hidden}
@@ -54,7 +53,7 @@ nav{position:relative;display:flex;align-items:center;justify-content:center;pad
 /* ── HERO ── */
 .hero{display:grid;grid-template-columns:1fr 320px;border-bottom:1px solid var(--rule);min-height:auto;align-items:stretch}
 
-.hero-left{padding:60px 40px 60px 0;border-right:1px solid var(--rule);display:flex;flex-direction:column;justify-content:flex-start}
+.hero-left{padding:60px 40px 60px 0;display:flex;flex-direction:column;justify-content:flex-start}
 
 .eyebrow{font-family:"Inter",sans-serif;font-size:9px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:var(--ink2);margin-bottom:44px;animation:up .8s cubic-bezier(.16,1,.3,1) .05s both}
 
@@ -91,10 +90,10 @@ nav{position:relative;display:flex;align-items:center;justify-content:center;pad
 .badge-text-main{font-size:11px;font-weight:500;color:#d0d0d0}
 
 /* ── ABOUT ── */
-.about-sec{display:grid;grid-template-columns:240px 1fr;border-bottom:1px solid var(--rule)}
-.about-left{padding:72px 56px 72px 0;border-right:1px solid var(--rule)}
+.about-sec{display:block;border-bottom:1px solid var(--rule);padding:72px 0}
+.about-left{padding:0 0 24px 0}
 .sec-label{font-family:"Inter",sans-serif;font-size:9px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--ink2)}
-.about-right{padding:72px 0 72px 64px}
+.about-right{padding:0}
 /* Cormorant für Pull-Quote */
 .about-pull{font-family:"Cormorant Garamond",serif;font-size:clamp(20px,2.6vw,30px);font-weight:400;font-style:italic;line-height:1.62;color:rgba(242,242,242,.62);margin-bottom:52px}
 .phases{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
@@ -103,22 +102,23 @@ nav{position:relative;display:flex;align-items:center;justify-content:center;pad
 
 /* ── CONSENT ── */
 .consent-sec{border-bottom:1px solid var(--rule)}
-.consent-top{display:grid;grid-template-columns:240px 1fr;border-bottom:1px solid var(--rule)}
-.ctop-left{padding:64px 56px 64px 0;border-right:1px solid var(--rule)}
-.ctop-right{padding:64px 0 64px 64px;display:flex;align-items:flex-end}
+.consent-top{display:block;padding:72px 0 48px}
+.ctop-left{padding:0 0 18px 0}
+.ctop-right{padding:0}
 /* Cormorant für Statement */
-.consent-big{font-family:"Cormorant Garamond",serif;font-size:clamp(24px,2.8vw,36px);font-weight:300;font-style:italic;line-height:1.45;color:rgba(242,242,242,.42)}
+.consent-big{font-family:"Cormorant Garamond",serif;font-size:clamp(24px,2.8vw,36px);font-weight:300;font-style:italic;line-height:1.45;color:rgba(242,242,242,.62)}
 
-/* Consent-Zeilen: Zahl links | Tag + Text rechts */
-.ci{display:grid;grid-template-columns:240px 1fr;border-bottom:1px solid var(--rule)}
-.ci:last-child{border-bottom:none}
-.ci-left{padding:52px 56px 52px 0;border-right:1px solid var(--rule);display:flex;align-items:center}
-/* Cormorant für Zahlen */
-.ci-num{font-family:"Cormorant Garamond",serif;font-size:clamp(72px,9vw,110px);font-weight:600;line-height:1;letter-spacing:-.04em}
-.ci-body{padding:52px 0 52px 64px}
+/* Consent-Block: 5 Items zusammen in einem leicht abgesetzten Panel, keine internen Trennlinien */
+.ci-grid{padding:0 0 72px 0}
+.ci{display:grid;grid-template-columns:140px 1fr;align-items:flex-start;padding:28px 0;gap:0}
+.ci:first-child{padding-top:8px}
+.ci-left{display:flex;align-items:center;justify-content:flex-start}
+/* Cormorant für Zahlen - etwas kleiner, dichter Block */
+.ci-num{font-family:"Cormorant Garamond",serif;font-size:clamp(60px,7vw,88px);font-weight:600;line-height:1;letter-spacing:-.04em}
+.ci-body{padding:8px 0 0 0}
 /* Inter für Tag */
-.ci-tag{font-family:"Inter",sans-serif;font-size:9px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;margin-bottom:18px}
-.ci-text{font-family:"Inter",sans-serif;font-size:13px;font-weight:300;line-height:1.9;color:var(--ink2);max-width:520px}
+.ci-tag{font-family:"Inter",sans-serif;font-size:9px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;margin-bottom:12px}
+.ci-text{font-family:"Inter",sans-serif;font-size:14px;font-weight:300;line-height:1.75;color:var(--ink2);max-width:560px}
 .ci-text strong{color:var(--ink);font-weight:400}
 
 /* footer */
@@ -127,6 +127,10 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
 .foot-links a{color:var(--ink2);font-family:"Inter",sans-serif;font-size:8px;font-weight:300;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:color .2s;opacity:.5}
 .foot-links a:hover{color:var(--ink);opacity:1}
 .copy{font-family:"Inter",sans-serif;font-size:8px;font-weight:300;letter-spacing:.1em;text-transform:uppercase;color:rgba(242,242,242,.15)}
+
+/* ── WARME KÜCHE (Atem-Element zwischen Hero und About) ── */
+.warm-kitchen{padding:96px 0 96px;border-bottom:1px solid var(--rule);text-align:center;animation:up .8s cubic-bezier(.16,1,.3,1) .2s both}
+.wk-quote{font-family:"Cormorant Garamond",serif;font-size:clamp(28px,4vw,48px);font-weight:400;font-style:italic;line-height:1.3;color:rgba(242,242,242,.78);letter-spacing:-.01em}
 
 @keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
 
@@ -147,15 +151,13 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
   .hero-left{padding:60px 0 52px;border-right:none;border-bottom:1px solid var(--rule)}
   .hero-right{padding:52px 0 60px}
   .cards-col{order:1}
-  .about-sec,.consent-top{grid-template-columns:1fr}
-  .about-left,.ctop-left{border-right:none;padding-right:0;padding-bottom:0}
-  .about-right,.ctop-right{padding-left:0;padding-top:24px}
+  .about-sec{padding:48px 0}
   .badges{flex-direction:row}
   .badge{flex:1}
   /* Consent items auf Mobile: flex-row, Zahl + Text nebeneinander */
-  .ci{display:flex;flex-direction:row;align-items:flex-start;padding:28px 0;gap:20px}
-  .ci-left{padding:0;border-right:none;border-bottom:none;flex-shrink:0;width:56px;display:flex;align-items:flex-start}
-  .ci-num{font-size:48px;line-height:1;opacity:.55}
+  .ci{display:flex;flex-direction:row;align-items:flex-start;padding:24px 0;gap:20px}
+  .ci-left{padding:0;flex-shrink:0;width:52px;display:flex;align-items:flex-start}
+  .ci-num{font-size:44px;line-height:1;opacity:.55}
   .ci-body{padding:4px 0 0;flex:1}
   .ci-tag{margin-bottom:10px}
 }
@@ -167,8 +169,8 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
 
 /* ── KARTEN-SLIDER ── */
 @media(min-width:901px){
-  .hero{grid-template-columns:380px 480px 320px !important}
-  .cards-col{padding:80px 16px;border-right:1px solid var(--rule);display:flex;flex-direction:column;justify-content:center;align-items:center}
+  .hero{grid-template-columns:1fr 480px 1fr !important}
+  .cards-col{padding:80px 16px;display:flex;flex-direction:column;justify-content:center;align-items:center}
   .hero-right{padding:80px 0 80px 44px !important}
 }
 @media(max-width:900px){
@@ -176,32 +178,67 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
 }
 .cards-col{animation:up .8s cubic-bezier(.16,1,.3,1) .12s both}
 .card-label{font-family:"Inter",sans-serif;font-size:8px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--ink2);margin-bottom:16px;opacity:.55;transition:color .4s}
-.card-img-wrap{position:relative;width:100%;aspect-ratio:9/16;overflow:hidden;background:#111}
-.card-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .35s cubic-bezier(.25,.46,.45,.94),opacity .35s;will-change:transform;opacity:1}
-.card-img.pos-current{transform:translateX(0)}
-.card-img.pos-prev{transform:translateX(-100%)}
-.card-img.pos-next{transform:translateX(100%)}
-.card-img.pos-hidden{transform:translateX(100%);opacity:0}
-.card-controls{display:flex;align-items:center;justify-content:space-between;margin-top:16px}
-.card-dots{display:flex;gap:5px;flex-wrap:wrap;max-width:160px}
+.card-img-wrap{position:relative;width:100%;aspect-ratio:9/16;overflow:hidden;background:#111;touch-action:pan-y;cursor:grab}
+.card-img-wrap.is-dragging{cursor:grabbing}
+/* 3-Kartenmodell: nur prev/current/next werden positioniert. Default: rechts außerhalb, versteckt. */
+.card-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:translateX(100%);opacity:0;transition:transform .42s cubic-bezier(.22,.61,.36,1),opacity .42s cubic-bezier(.22,.61,.36,1);will-change:transform,opacity;pointer-events:none;user-select:none;-webkit-user-drag:none}
+.card-img.is-prev{transform:translateX(-100%);opacity:1}
+.card-img.is-current{transform:translateX(0);opacity:1}
+.card-img.is-next{transform:translateX(100%);opacity:1}
+.card-img-wrap.is-dragging .card-img{transition:none}
+.card-controls{display:flex;align-items:center;justify-content:center;margin-top:16px}
+.card-dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
 .card-dot{width:5px;height:5px;border-radius:50%;background:rgba(242,242,242,.15);border:none;padding:0;cursor:pointer;transition:background .3s,transform .3s}
-.card-dot.active{transform:scale(1.5)}
-.card-nav{display:flex;gap:6px}
-.card-btn{background:none;border:1px solid var(--rule);color:var(--ink2);width:30px;height:30px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:13px;transition:all .2s}
-.card-btn:hover{border-color:rgba(242,242,242,.3);color:var(--ink)}
-.card-progress{height:1px;background:var(--rule);margin-top:14px;overflow:hidden}
-.card-bar{height:100%;width:0%;transition:width 4.5s linear}
-
-.card-img-wrap{overflow:hidden}
-.card-arrow{position:absolute;top:5%;z-index:10;background:none;border:none;color:rgba(255,255,255,0.25);width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px;transition:all .2s}
+.card-dot.active{transform:scale(1.6)}
+.card-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:10;background:none;border:none;color:rgba(255,255,255,0.25);width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px;transition:color .2s}
 .card-arrow:hover{color:rgba(255,255,255,0.6)}
 .card-arrow-left{left:8px}
 .card-arrow-right{right:8px}
+
+/* ── JOKER-KARTENZIEHER ── */
+/* Die Joker-Karte unten rechts: Video-Loop als Karten-Rückseite */
+.joker-card{position:fixed;bottom:28px;right:28px;z-index:200;width:100px;aspect-ratio:9/16;cursor:pointer;background:#000;border:1px solid rgba(242,242,242,.12);border-radius:8px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.6),0 0 0 0 rgba(46,196,182,0);animation:jokerFloat 4s ease-in-out infinite,jokerEnter 1.2s cubic-bezier(.16,1,.3,1) both;transition:transform .3s ease,box-shadow .3s ease,opacity .5s ease}
+.joker-card:hover{transform:translateY(-4px) scale(1.04);box-shadow:0 12px 40px rgba(0,0,0,.7),0 0 20px rgba(46,196,182,.15)}
+.joker-card video,.joker-card img{width:100%;height:100%;object-fit:contain;display:block;pointer-events:none;background:#000}
+.joker-card-label{position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);font-family:"Inter",sans-serif;font-size:8px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--ink2);opacity:.55;white-space:nowrap;pointer-events:none;transition:opacity .3s}
+.joker-card:hover + .joker-card-label-wrap .joker-card-label,.joker-card.hovered .joker-card-label{opacity:.9}
+.joker-card-label-wrap{position:fixed;bottom:8px;right:0;width:168px;z-index:199;text-align:center;pointer-events:none}
+.joker-card-label-wrap .joker-card-label{position:static;transform:none;display:inline-block}
+.joker-card.is-hidden{opacity:0;pointer-events:none;transform:scale(.8) translateY(20px)}
+.joker-card-label-wrap.is-hidden{opacity:0;transition:opacity .5s}
+@keyframes jokerFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes jokerEnter{from{opacity:0;transform:scale(.6) translateY(40px) rotate(-8deg)}to{opacity:1;transform:scale(1) translateY(0) rotate(0)}}
+
+/* Overlay für die gezogene Karte */
+.draw-overlay{position:fixed;inset:0;z-index:500;background:rgba(0,0,0,0);display:flex;align-items:center;justify-content:center;padding:40px 24px;pointer-events:none;opacity:0;transition:background .5s ease,opacity .3s ease}
+.draw-overlay.is-open{pointer-events:auto;opacity:1;background:rgba(0,0,0,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+
+/* Gezogene Karte - 9:16 Format, Flip über perspective */
+.draw-card{--dcw:min(320px,80vw,45vh);position:relative;width:var(--dcw);height:calc(var(--dcw) * 16 / 9);flex-shrink:0;perspective:1200px;transform:scale(.3);opacity:0;transition:transform .6s cubic-bezier(.16,1,.3,1),opacity .4s ease}
+.draw-overlay.is-open .draw-card{transform:scale(1);opacity:1}
+.draw-card-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform 1.1s cubic-bezier(.55,.05,.22,.98)}
+.draw-card.is-flipped .draw-card-inner{transform:rotateY(180deg)}
+.draw-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:12px;overflow:hidden;background:#0a0a0a;border:1px solid rgba(242,242,242,.1);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.draw-face-back{display:flex;align-items:center;justify-content:center}
+.draw-face-back video,.draw-face-back img{width:100%;height:100%;object-fit:cover;display:block}
+.draw-face-front{transform:rotateY(180deg);display:flex;flex-direction:column;justify-content:center;align-items:center;padding:48px 36px;background:#0a0a0a;position:relative}
+/* Subtiler Film-Grain-Overlay fuer Analog-Feel (matched den Hintergrund der Website) */
+.draw-face-front::after{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.08) 1px,transparent 1px);background-size:3px 3px;pointer-events:none;opacity:.35;mix-blend-mode:overlay}
+.draw-text{font-family:"Cormorant Garamond",serif;font-size:clamp(22px,2.6vw,28px);font-weight:400;line-height:1.35;color:#f2f0f2;letter-spacing:-.005em;text-align:center;max-width:100%;position:relative;z-index:2}
+.draw-text em{font-style:italic}
+.draw-close{position:absolute;top:16px;right:16px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:none;border:1px solid rgba(242,242,242,.12);border-radius:50%;color:rgba(242,242,242,.6);font-size:16px;cursor:pointer;transition:all .2s;z-index:10}
+.draw-close:hover{border-color:rgba(242,242,242,.4);color:var(--ink);transform:rotate(90deg)}
+
+@media(max-width:600px){
+  .joker-card{width:82px;bottom:20px;right:20px}
+  .joker-card-label-wrap{width:140px}
+  .draw-card{--dcw:min(300px,82vw,42vh);width:var(--dcw);height:calc(var(--dcw) * 16 / 9)}
+  .draw-face-front{padding:32px 24px}
+}
 </style>
 </head>
 <body>
 <canvas id="c"></canvas>
-<canvas id="grain"></canvas>
 
 <div class="lang">
   <button id="btn-de" class="active" onclick="setLang('de')">DE</button>
@@ -255,7 +292,6 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
         <img class="card-img"        id="card-img-8"  src="card-09.jpg" alt="Verge Karte 9">
         <img class="card-img"        id="card-img-9"  src="card-10.jpg" alt="Verge Karte 10">
       </div>
-      <div class="card-progress"><div class="card-bar" id="card-bar"></div></div>
       <div class="card-controls">
         <div class="card-dots" id="card-dots"></div>
       </div>
@@ -284,19 +320,23 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
     </div>
   </div>
 
+  <div class="warm-kitchen">
+    <p class="wk-quote" id="t-wk">Wie eine warme Küche um Mitternacht.</p>
+  </div>
+
   <div class="about-sec">
     <div class="about-left"><p class="sec-label" id="t-about-label">Was ist Verge?</p></div>
     <div class="about-right">
-      <p class="about-pull" id="t-about-text">Verge funktioniert auf eurer WG-Party genauso wie in eurem Kinky-Kreis. Das Spiel passt sich an, so dass ihr es nicht müsst. Fünf Phasen führen euch so weit ihr möchtet.</p>
+      <p class="about-pull" id="t-about-text">Zu zweit, auf eurer WG-Party oder in eurem Kinky-Kreis. Verge passt sich an, so dass ihr es nicht müsst. Fünf Phasen führen euch so weit ihr möchtet.</p>
       <div class="phases">
         <div class="phases-row">
-          <span class="pill" style="color:var(--a1);border-color:rgba(46,196,182,.2)">Spielerisch</span>
-          <span class="pill" style="color:var(--a2);border-color:rgba(58,134,255,.2)">Persönlich</span>
-          <span class="pill" style="color:var(--a3);border-color:rgba(123,97,255,.2)">Nah</span>
+          <span class="pill" style="color:var(--a1);border-color:rgba(46,196,182,.2)" id="t-p1">Spielerisch</span>
+          <span class="pill" style="color:var(--a2);border-color:rgba(58,134,255,.2)" id="t-p2">Persönlich</span>
+          <span class="pill" style="color:var(--a3);border-color:rgba(123,97,255,.2)" id="t-p3">Nah</span>
         </div>
         <div class="phases-row">
-          <span class="pill" style="color:var(--a4);border-color:rgba(255,107,107,.2)">Intim</span>
-          <span class="pill" style="color:var(--a5);border-color:rgba(255,59,48,.2)">Enthemmt</span>
+          <span class="pill" style="color:var(--a4);border-color:rgba(255,107,107,.2)" id="t-p4">Intim</span>
+          <span class="pill" style="color:var(--a5);border-color:rgba(255,59,48,.2)" id="t-p5">Enthemmt</span>
         </div>
       </div>
     </div>
@@ -306,29 +346,45 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
 <div class="consent-sec">
   <div class="site">
     <div class="consent-top">
-      <div class="ctop-left"><p class="sec-label" id="t-consent-label">Drei Schichten Consent</p></div>
+      <div class="ctop-left"><p class="sec-label" id="t-consent-label">Wie Verge funktioniert</p></div>
       <div class="ctop-right"><p class="consent-big" id="t-consent-sub">Ihr entscheidet selbst.<br>Immer. Jede Person für sich.</p></div>
     </div>
 
-    <div class="ci">
-      <div class="ci-left"><div class="ci-num" style="color:rgba(46,196,182,.35)">01</div></div>
-      <div class="ci-body">
-        <p class="ci-tag" style="color:var(--a1)">Host</p>
-        <p class="ci-text" id="t-c1"><strong>Host setzt den Rahmen.</strong> Was für den Abend möglich ist – und was nicht.</p>
+    <div class="ci-grid">
+      <div class="ci">
+        <div class="ci-left"><div class="ci-num" style="color:rgba(46,196,182,.4)">01</div></div>
+        <div class="ci-body">
+          <p class="ci-tag" style="color:var(--a1)" id="t-ct1">Host</p>
+          <p class="ci-text" id="t-c1"><strong>Host setzt den Rahmen.</strong> Was für den Abend möglich ist. Und was nicht.</p>
+        </div>
       </div>
-    </div>
-    <div class="ci">
-      <div class="ci-left"><div class="ci-num" style="color:rgba(58,134,255,.35)">02</div></div>
-      <div class="ci-body">
-        <p class="ci-tag" style="color:var(--a2)">Du</p>
-        <p class="ci-text" id="t-c2"><strong>Ihr setzt eure eigenen Grenzen.</strong> Unabhängig vom Rest der Gruppe.</p>
+      <div class="ci">
+        <div class="ci-left"><div class="ci-num" style="color:rgba(58,134,255,.4)">02</div></div>
+        <div class="ci-body">
+          <p class="ci-tag" style="color:var(--a2)" id="t-ct2">Du</p>
+          <p class="ci-text" id="t-c2"><strong>Du setzt deine eigenen Grenzen.</strong> Unabhängig vom Rest der Gruppe.</p>
+        </div>
       </div>
-    </div>
-    <div class="ci">
-      <div class="ci-left"><div class="ci-num" style="color:rgba(123,97,255,.35)">03</div></div>
-      <div class="ci-body">
-        <p class="ci-tag" style="color:var(--a3)">Ihr</p>
-        <p class="ci-text" id="t-c3"><strong>Wenn ihr euch kennengelernt habt,</strong> entscheidet ihr bei jeder Person einzeln, wie intim es wirklich werden darf. Oder ob es spielerisch bleibt.</p>
+      <div class="ci">
+        <div class="ci-left"><div class="ci-num" style="color:rgba(123,97,255,.4)">03</div></div>
+        <div class="ci-body">
+          <p class="ci-tag" style="color:var(--a3)" id="t-ct3">Ihr</p>
+          <p class="ci-text" id="t-c3"><strong>Bei jeder Person einzeln</strong> entscheidet ihr, wie intim es wirklich werden darf. Oder ob es spielerisch bleibt.</p>
+        </div>
+      </div>
+      <div class="ci">
+        <div class="ci-left"><div class="ci-num" style="color:rgba(255,107,107,.4)">04</div></div>
+        <div class="ci-body">
+          <p class="ci-tag" style="color:var(--a4)" id="t-ct4">Verge Lite</p>
+          <p class="ci-text" id="t-c4"><strong>Zu zweit oder zu zehnt.</strong> Bei Verge Lite reicht ein Handy für die ganze Runde. Wie weit? Bis Nah.</p>
+        </div>
+      </div>
+      <div class="ci">
+        <div class="ci-left"><div class="ci-num" style="color:rgba(255,59,48,.4)">05</div></div>
+        <div class="ci-body">
+          <p class="ci-tag" style="color:var(--a5)" id="t-ct5">Kein Nein nötig</p>
+          <p class="ci-text" id="t-c5"><strong>Karten erscheinen nur, wenn alle Beteiligten Ja gesagt haben.</strong> Niemand sieht, was die anderen eingeben.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -350,26 +406,38 @@ const T={
     sub:'Verge bringt euch zusammen.<br><strong>Neugierig, offen, mit Herz.</strong><br>Fünf Phasen. Ein Consent-System.',
     label:"Sei beim Start dabei!",btn:"Benachrichtigen",placeholder:"deine@email.de",
     note:"Kein Spam. Nur der Launch.",success:"✦ Fast! Bitte bestätige deine Anmeldung per Mail.",
+    joker:"Zieh eine Karte",
+    wk:"Wie eine warme Küche um Mitternacht.",
     aboutLabel:"Was ist Verge?",
-    aboutText:"Verge funktioniert auf eurer WG-Party genauso wie in eurem Kinky-Kreis. Das Spiel passt sich an, so dass ihr es nicht müsst. Fünf Phasen führen euch so weit ihr möchtet.",
-    consentLabel:"Drei Schichten Consent",consentSub:"Ihr entscheidet selbst.<br>Immer. Jede Person für sich.",
-    c1:"<strong>Host setzt den Rahmen.</strong> Was für den Abend möglich ist – und was nicht.",
-    c2:"<strong>Ihr setzt eure eigenen Grenzen.</strong> Unabhängig vom Rest der Gruppe.",
-    c3:"<strong>Wenn ihr euch kennengelernt habt,</strong> entscheidet ihr bei jeder Person einzeln, wie intim es wirklich werden darf. Oder ob es spielerisch bleibt.",
+    aboutText:"Zu zweit, auf eurer WG-Party oder in eurem Kinky-Kreis. Verge passt sich an, so dass ihr es nicht müsst. Fünf Phasen führen euch so weit ihr möchtet.",
+    p1:"Spielerisch",p2:"Persönlich",p3:"Nah",p4:"Intim",p5:"Enthemmt",
+    consentLabel:"Wie Verge funktioniert",consentSub:"Ihr entscheidet selbst.<br>Immer. Jede Person für sich.",
+    ct1:"Host",ct2:"Du",ct3:"Ihr",ct4:"Verge Lite",ct5:"Kein Nein nötig",
+    c1:"<strong>Host setzt den Rahmen.</strong> Was für den Abend möglich ist. Und was nicht.",
+    c2:"<strong>Du setzt deine eigenen Grenzen.</strong> Unabhängig vom Rest der Gruppe.",
+    c3:"<strong>Bei jeder Person einzeln</strong> entscheidet ihr, wie intim es wirklich werden darf. Oder ob es spielerisch bleibt.",
+    c4:"<strong>Zu zweit oder zu zehnt.</strong> Bei Verge Lite reicht ein Handy für die ganze Runde. Wie weit? Bis Nah.",
+    c5:"<strong>Karten erscheinen nur, wenn alle Beteiligten Ja gesagt haben.</strong> Niemand sieht, was die anderen eingeben.",
     privacy:"Imprint &amp; Privacy Policy"
   },
   en:{
     navtag:"Coming soon",
-    hl1:"It starts",hl2:"playful.",hl3:"How far it goes –",hl4:"that's up to you.",
+    hl1:"It starts",hl2:"playful.",hl3:"How far it goes,",hl4:"that's up to you.",
     sub:'Verge brings you together.<br><strong>Curious, open, heartfelt.</strong><br>Five phases. One consent system.',
     label:"Be there from day one",btn:"Notify me",placeholder:"your@email.com",
     note:"No spam. Just the launch.",success:"✦ Almost! Please confirm your sign-up via email.",
+    joker:"Draw a card",
+    wk:"Like a warm kitchen at midnight.",
     aboutLabel:"What is Verge?",
-    aboutText:"Verge works at your house party just as well as in your kinky circle. The game adapts so you don't have to. Five phases take you as far as you want.",
-    consentLabel:"Three Layers of Consent",consentSub:"You decide for yourselves.<br>Always. Each person individually.",
-    c1:"<strong>The host sets the frame.</strong> What's on the table for the evening – and what isn't.",
+    aboutText:"Just the two of you, at a house party, or in your kinky circle. Verge adapts, so you don't have to. Five phases take you as far as you want to go.",
+    p1:"Playful",p2:"Personal",p3:"Close",p4:"Intimate",p5:"Uninhibited",
+    consentLabel:"How Verge works",consentSub:"You decide for yourselves.<br>Always. Each person individually.",
+    ct1:"Host",ct2:"You",ct3:"Together",ct4:"Verge Lite",ct5:"No no needed",
+    c1:"<strong>The host sets the frame.</strong> What's on the table for the evening. And what isn't.",
     c2:"<strong>You set your own limits.</strong> Independently of the rest of the group.",
-    c3:"<strong>Once you've gotten to know each other,</strong> you decide for each person individually how intimate it can get. Or whether it stays playful.",
+    c3:"<strong>For each person individually</strong> you decide how intimate it can get. Or whether it stays playful.",
+    c4:"<strong>Two players or ten.</strong> With Verge Lite, one phone is enough for the whole group. How far? Up to Close.",
+    c5:"<strong>Cards only appear when everyone involved has said yes.</strong> No one sees what the others enter.",
     privacy:"Imprint &amp; Privacy Policy"
   }
 };
@@ -389,14 +457,30 @@ function setLang(l){
   document.getElementById("t-btn").textContent=t.btn;
   document.getElementById("email-input").placeholder=t.placeholder;
   document.getElementById("t-note").textContent=t.note;
+  document.getElementById("t-wk").textContent=t.wk;
   document.getElementById("t-about-label").textContent=t.aboutLabel;
   document.getElementById("t-about-text").textContent=t.aboutText;
+  document.getElementById("t-p1").textContent=t.p1;
+  document.getElementById("t-p2").textContent=t.p2;
+  document.getElementById("t-p3").textContent=t.p3;
+  document.getElementById("t-p4").textContent=t.p4;
+  document.getElementById("t-p5").textContent=t.p5;
   document.getElementById("t-consent-label").textContent=t.consentLabel;
   document.getElementById("t-consent-sub").innerHTML=t.consentSub;
+  document.getElementById("t-ct1").textContent=t.ct1;
+  document.getElementById("t-ct2").textContent=t.ct2;
+  document.getElementById("t-ct3").textContent=t.ct3;
+  document.getElementById("t-ct4").textContent=t.ct4;
+  document.getElementById("t-ct5").textContent=t.ct5;
   document.getElementById("t-c1").innerHTML=t.c1;
   document.getElementById("t-c2").innerHTML=t.c2;
   document.getElementById("t-c3").innerHTML=t.c3;
+  document.getElementById("t-c4").innerHTML=t.c4;
+  document.getElementById("t-c5").innerHTML=t.c5;
   document.getElementById("t-privacy").innerHTML=t.privacy;
+  document.getElementById("t-joker").textContent=t.joker;
+  // Card labels neu auflösen (CARD_DATA.label ist sprachabhängig)
+  if(typeof cShow==="function")cShow(cIdx);
 }
 function handleSignup(){
   const e=document.getElementById("email-input").value.trim();
@@ -411,25 +495,46 @@ function handleSignup(){
 document.getElementById("email-input").addEventListener("keydown",e=>{if(e.key==="Enter")handleSignup();});
 
 // ── KARTEN-SLIDER ────────────────────────────────────────────────────────────
-// Phasen-Labels und -Farben für jede Karte (card-01.jpg bis card-10.jpg)
-// Einfach hier anpassen wenn du andere Karten einbaust:
+// Phasen-Labels (DE/EN) und -Farben für jede Karte (card-01.jpg bis card-10.jpg)
 const CARD_DATA = [
-  { label: 'Spielerisch', color: '#2ec4b6' },
-  { label: 'Spielerisch', color: '#2ec4b6' },
-  { label: 'Pers\u00f6nlich',  color: '#3a86ff' },
-  { label: 'Pers\u00f6nlich',  color: '#3a86ff' },
-  { label: 'Nah',         color: '#7b61ff' },
-  { label: 'Nah',         color: '#7b61ff' },
-  { label: 'Intim',       color: '#ff6b6b' },
-  { label: 'Intim',       color: '#ff6b6b' },
-  { label: 'Enthemmt',    color: '#ff3b30' },
-  { label: 'Enthemmt',    color: '#ff3b30' },
+  { labelDe: 'Spielerisch', labelEn: 'Playful',     color: '#2ec4b6' },
+  { labelDe: 'Spielerisch', labelEn: 'Playful',     color: '#2ec4b6' },
+  { labelDe: 'Pers\u00f6nlich', labelEn: 'Personal', color: '#3a86ff' },
+  { labelDe: 'Pers\u00f6nlich', labelEn: 'Personal', color: '#3a86ff' },
+  { labelDe: 'Nah',         labelEn: 'Close',       color: '#7b61ff' },
+  { labelDe: 'Nah',         labelEn: 'Close',       color: '#7b61ff' },
+  { labelDe: 'Intim',       labelEn: 'Intimate',    color: '#ff6b6b' },
+  { labelDe: 'Intim',       labelEn: 'Intimate',    color: '#ff6b6b' },
+  { labelDe: 'Enthemmt',    labelEn: 'Uninhibited', color: '#ff3b30' },
+  { labelDe: 'Enthemmt',    labelEn: 'Uninhibited', color: '#ff3b30' },
 ];
+function cardLabel(d) { return (typeof lang !== 'undefined' && lang === 'en') ? d.labelEn : d.labelDe; }
+
+// ── Slider v2 ────────────────────────────────────────────────────────────────
+// Pointer Events (unifiziert Maus/Touch/Stylus) + setPointerCapture (fixt Drag-Leak
+// wenn Maus außerhalb des Fensters losgelassen wird). 3-Kartenmodell:
+// nur prev/current/next werden positioniert, Rest bleibt default (rechts außerhalb).
+// Auto-Advance pausiert bei User-Interaktion, resumed nach RESUME_DELAY ms Inaktivität.
+const N = CARD_DATA.length;
+const C_INTERVAL   = 5000;   // Auto-Advance-Takt
+const RESUME_DELAY = 8000;   // Pause nach Interaktion bis Resume
+const SWIPE_PX     = 60;     // Threshold für Commit
 
 let cIdx = 0;
-let cTimer = null;
-let cUserStopped = false;
-const C_DURATION = 5000;
+let autoTimer   = null;
+let resumeTimer = null;
+
+function mod(i) { return ((i % N) + N) % N; }
+
+function scheduleAuto() {
+  clearTimeout(autoTimer);
+  autoTimer = setTimeout(() => cShow(cIdx + 1), C_INTERVAL);
+}
+function pauseAuto() {
+  clearTimeout(autoTimer);
+  clearTimeout(resumeTimer);
+  resumeTimer = setTimeout(scheduleAuto, RESUME_DELAY);
+}
 
 function cBuildDots() {
   const wrap = document.getElementById('card-dots');
@@ -439,116 +544,98 @@ function cBuildDots() {
     const btn = document.createElement('button');
     btn.className = 'card-dot' + (i === cIdx ? ' active' : '');
     btn.style.background = i === cIdx ? d.color : 'rgba(242,242,242,.15)';
-    btn.onclick = () => cShow(i);
+    btn.onclick = () => { cShow(i); pauseAuto(); };
     wrap.appendChild(btn);
   });
 }
 
-function cShow(idx, dir) {
-  const prevIdx = cIdx;
-  cIdx = ((idx % CARD_DATA.length) + CARD_DATA.length) % CARD_DATA.length;
+function cShow(idx) {
+  cIdx = mod(idx);
+  const prevI = mod(cIdx - 1);
+  const nextI = mod(cIdx + 1);
   const imgs = document.querySelectorAll('.card-img');
-  // Positioniere alle Karten
   imgs.forEach((img, i) => {
-    img.style.transform = '';
-    if (i === cIdx) {
-      img.style.transform = 'translateX(0)';
-      img.style.zIndex = '2';
-      img.style.opacity = '1';
-    } else {
-      img.style.transform = 'translateX(100%)';
-      img.style.zIndex = '1';
-      img.style.opacity = '1';
-    }
+    img.classList.remove('is-prev', 'is-current', 'is-next');
+    if (i === cIdx)      img.classList.add('is-current');
+    else if (i === prevI) img.classList.add('is-prev');
+    else if (i === nextI) img.classList.add('is-next');
   });
-  // Vorherige Karte rausschieben
-  const prevImg = document.getElementById('card-img-' + prevIdx);
-  if (prevImg && prevIdx !== cIdx) {
-    prevImg.style.transform = dir === 'prev' ? 'translateX(100%)' : 'translateX(-100%)';
-  }
-  // Label + Farbe
   const lbl = document.getElementById('card-phase-label');
-  if (lbl) { lbl.textContent = CARD_DATA[cIdx].label; lbl.style.color = CARD_DATA[cIdx].color; }
-  // Dots
+  if (lbl) { lbl.textContent = cardLabel(CARD_DATA[cIdx]); lbl.style.color = CARD_DATA[cIdx].color; }
   cBuildDots();
-  // Progress bar reset
-  const bar = document.getElementById('card-bar');
-  if (bar) {
-    bar.style.transition = 'none';
-    bar.style.width = '0%';
-    bar.style.background = CARD_DATA[cIdx].color;
-    setTimeout(() => {
-      bar.style.transition = 'width ' + C_DURATION + 'ms linear';
-      bar.style.width = '100%';
-    }, 30);
-  }
-  // Auto-advance timer
-  clearTimeout(cTimer);
-  if (!cUserStopped) { cTimer = setTimeout(() => cShow(cIdx + 1), C_DURATION); }
+  scheduleAuto();
 }
 
-function cardNext() { cShow(cIdx + 1, "next"); }
-function cardPrev() { cShow(cIdx - 1, "prev"); }
+function cardNext() { cShow(cIdx + 1); pauseAuto(); }
+function cardPrev() { cShow(cIdx - 1); pauseAuto(); }
 
-// Drag-to-swipe
+// Pointer-Drag
 (function(){
   const wrap = document.querySelector('.card-img-wrap');
   if (!wrap) return;
-  let startX = 0, currentX = 0, dragging = false;
+  let startX = 0, currentX = 0, dragging = false, pointerId = null;
 
   function getImgs() { return wrap.querySelectorAll('.card-img'); }
 
   function applyDrag(dx) {
     const imgs = getImgs();
     const cur  = imgs[cIdx];
-    const next = imgs[((cIdx + 1) % CARD_DATA.length)];
-    const prev = imgs[((cIdx - 1 + CARD_DATA.length) % CARD_DATA.length)];
-    if (cur)  cur.style.transform  = `translateX(${dx}px)`;
-    if (dx < 0 && next) next.style.transform = `translateX(calc(100% + ${dx}px))`;
-    if (dx > 0 && prev) prev.style.transform = `translateX(calc(-100% + ${dx}px))`;
+    const nxt  = imgs[mod(cIdx + 1)];
+    const prv  = imgs[mod(cIdx - 1)];
+    if (cur) cur.style.transform = `translateX(${dx}px)`;
+    if (dx < 0 && nxt) nxt.style.transform = `translateX(calc(100% + ${dx}px))`;
+    if (dx > 0 && prv) prv.style.transform = `translateX(calc(-100% + ${dx}px))`;
   }
 
-  function resetDrag() {
-    getImgs().forEach(img => { img.style.transform = ''; img.style.transition = ''; });
+  function clearInline() {
+    getImgs().forEach(img => { img.style.transform = ''; });
   }
 
-  // Mouse
-  wrap.addEventListener('mousedown', e => {
-    dragging = true; startX = e.clientX; currentX = 0;
-    wrap.style.cursor = 'grabbing';
-    clearTimeout(cTimer); cTimer = null; cUserStopped = true;
-    getImgs().forEach(img => img.style.transition = 'none');
+  function endDrag(commit) {
+    if (!dragging) return;
+    dragging = false;
+    wrap.classList.remove('is-dragging');
+    if (pointerId !== null) {
+      try { wrap.releasePointerCapture(pointerId); } catch(e) {}
+      pointerId = null;
+    }
+    if (commit === 'next')      { clearInline(); cShow(cIdx + 1); }
+    else if (commit === 'prev') { clearInline(); cShow(cIdx - 1); }
+    else                        { clearInline(); /* snap-back via CSS-Transition */ }
+    pauseAuto();
+  }
+
+  wrap.addEventListener('pointerdown', e => {
+    // Ignoriere Klicks auf Arrow-Buttons - die haben eigene Handler
+    if (e.target.closest('.card-arrow')) return;
+    dragging = true;
+    startX = e.clientX;
+    currentX = 0;
+    pointerId = e.pointerId;
+    try { wrap.setPointerCapture(e.pointerId); } catch(err) {}
+    wrap.classList.add('is-dragging');
+    clearTimeout(autoTimer);
+    clearTimeout(resumeTimer);
   });
-  window.addEventListener('mousemove', e => {
+
+  wrap.addEventListener('pointermove', e => {
     if (!dragging) return;
     currentX = e.clientX - startX;
     applyDrag(currentX);
   });
-  window.addEventListener('mouseup', () => {
+
+  wrap.addEventListener('pointerup', () => {
     if (!dragging) return;
-    dragging = false;
-    wrap.style.cursor = '';
-    getImgs().forEach(img => img.style.transition = '');
-    if (currentX < -60) cShow(cIdx + 1, "next");
-    else if (currentX > 60) cShow(cIdx - 1, "prev");
-    else resetDrag();
+    if (currentX < -SWIPE_PX)      endDrag('next');
+    else if (currentX > SWIPE_PX)  endDrag('prev');
+    else                            endDrag(null);
   });
 
-  // Touch
-  wrap.addEventListener('touchstart', e => {
-    startX = e.touches[0].clientX; currentX = 0;
-    clearTimeout(cTimer); cTimer = null; cUserStopped = true;
-    getImgs().forEach(img => img.style.transition = 'none');
-  }, { passive: true });
-  wrap.addEventListener('touchmove', e => {
-    currentX = e.touches[0].clientX - startX;
-    applyDrag(currentX);
-  }, { passive: true });
-  wrap.addEventListener('touchend', () => {
-    getImgs().forEach(img => img.style.transition = '');
-    if (currentX < -60) cShow(cIdx + 1, "next");
-    else if (currentX > 60) cShow(cIdx - 1, "prev");
-    else resetDrag();
+  wrap.addEventListener('pointercancel', () => endDrag(null));
+  // Browser-Return-from-BFCache oder Visibility-Change
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) { clearTimeout(autoTimer); clearTimeout(resumeTimer); }
+    else { scheduleAuto(); }
   });
 })();
 
@@ -559,140 +646,216 @@ cShow(0);
 </script>
 
 <script>
-// VERGE Filmkorn-Animation - live grain via canvas
-// 20 FPS throttle, 256x256 offscreen noise, skaliert auf Viewport
-(function(){
-  const grain = document.getElementById('grain');
-  if(!grain) return;
-  const gctx = grain.getContext('2d');
-  gctx.imageSmoothingEnabled = true;
-
-  const N = 256;
-  const noise = document.createElement('canvas');
-  noise.width = noise.height = N;
-  const nctx = noise.getContext('2d');
-
-  function resize(){
-    grain.width = window.innerWidth;
-    grain.height = window.innerHeight;
-    gctx.imageSmoothingEnabled = true;
-  }
-
-  function renderNoise(){
-    const img = nctx.createImageData(N, N);
-    const d = img.data;
-    for(let i=0; i<d.length; i+=4){
-      const v = 128 + (Math.random() - 0.5) * 200;
-      d[i] = d[i+1] = d[i+2] = v;
-      d[i+3] = 255;
-    }
-    nctx.putImageData(img, 0, 0);
-    gctx.clearRect(0, 0, grain.width, grain.height);
-    gctx.drawImage(noise, 0, 0, grain.width, grain.height);
-  }
-
-  let last = 0;
-  function loop(now){
-    if(now - last > 50){
-      renderNoise();
-      last = now;
-    }
-    requestAnimationFrame(loop);
-  }
-
-  resize();
-  window.addEventListener('resize', resize);
-  requestAnimationFrame(loop);
-})();
-</script>
-
-<script>
-// VERGE Ambientbackground v5 — JS port (exact match to Flutter widget)
-// 45 nodes, seed 4919, half-speed movement, blob-influence on lines
+// VERGE AnalogAmbientBackground — JS port of Flutter widget (AnalogAmbientBackground v4)
+// 8 Blobs in 3 Tiefenschichten (Base/Accent/Highlight) mit Phasen-Offsets 0/0.10/0.20
+// 1000 statische Dust-Partikel auf Offscreen-Canvas (nur bei Resize neu gerendert)
+// 120s Ping-Pong-Farbzyklus, feste Epoche fuer Konsistenz zwischen Sessions
 (function(){
 const canvas=document.getElementById("c"),ctx=canvas.getContext("2d");
 
-// Phase accent + background colours — exact Flutter values
-const PA=[[46,196,182],[58,134,255],[123,97,255],[255,107,107],[255,59,48]];
-const PB=[[26,94,84],[31,64,112],[58,51,112],[112,56,56],[112,34,30]];
-const CMS=120000; // 120s ping-pong cycle
+// 5 Paletten, je 4 Stufen [darkest, dark, mid, light]
+const PALETTES=[
+  [[12,38,35],[22,70,63],[38,128,118],[95,160,152]],
+  [[8,18,42],[12,58,115],[50,100,175],[120,155,200]],
+  [[20,12,42],[40,28,115],[90,75,175],[145,135,195]],
+  [[42,15,15],[100,30,30],[175,85,80],[205,140,135]],
+  [[38,8,6],[90,22,18],[165,55,45],[195,110,100]]
+];
 
-// Seeded RNG matching Flutter's Random(4919)
-function srng(seed){
-  // LCG that closely mirrors Dart's Random seeding behaviour for layout
-  let s=seed|0;
-  return()=>{s=(Math.imul(s,1664525)+1013904223)|0;return(s>>>0)/4294967296;};
+// 8 Blobs: [bx, by, ax, ay, fx, fy, px, py, rf, co, colorIdx]
+const SEEDS=[
+  [0.22,0.18,55,65,0.55,0.45,0.0,1.5,0.92,0.58,0],
+  [0.78,0.78,60,58,0.50,0.65,2.0,0.3,0.88,0.55,0],
+  [0.50,0.50,70,60,0.48,0.52,3.2,2.8,0.95,0.45,0],
+  [0.45,0.30,55,52,0.80,0.65,3.5,2.0,0.55,0.82,1],
+  [0.72,0.42,48,55,0.72,0.88,4.5,1.0,0.50,0.78,1],
+  [0.28,0.68,52,48,0.88,0.55,1.5,3.5,0.48,0.80,1],
+  [0.50,0.28,35,42,1.05,1.10,5.5,4.0,0.30,0.90,2],
+  [0.25,0.52,32,38,1.20,0.95,0.5,5.5,0.26,0.92,2]
+];
+
+const CYCLE_MS=120000;
+const EPOCH_MS=1735689600000;
+const ACCENT_OFFSET=0.10;
+const HIGHLIGHT_OFFSET=0.20;
+const DUST_DENSITY=1000;
+const DUST_BRIGHTNESS=0.50;
+const DUST_CHAOS=0.60;
+
+// Offscreen canvas fuer Dust-Layer (statisch, nur bei Resize neu rendern)
+const dustCanvas=document.createElement("canvas");
+const dctx=dustCanvas.getContext("2d");
+
+let dust=[],lw=0,lh=0;
+
+// Utils
+const clamp=(v,lo,hi)=>Math.max(lo,Math.min(hi,v));
+const lerpRgb=(a,b,t)=>[
+  Math.round(clamp(a[0]+(b[0]-a[0])*t,0,255)),
+  Math.round(clamp(a[1]+(b[1]-a[1])*t,0,255)),
+  Math.round(clamp(a[2]+(b[2]-a[2])*t,0,255))
+];
+const rgba=(c,a)=>`rgba(${c[0]},${c[1]},${c[2]},${a.toFixed(4)})`;
+const smoothPingPong=t=>(1-Math.cos(t*Math.PI*2))/2;
+
+function getPaletteAt(cyclePos){
+  let p=cyclePos-Math.floor(cyclePos);
+  if(p<0)p+=1;
+  const scaled=p*4;
+  const idx=Math.min(Math.floor(scaled),3);
+  const frac=scaled-idx;
+  const cur=PALETTES[idx],nxt=PALETTES[idx+1];
+  return[
+    lerpRgb(cur[0],nxt[0],frac),
+    lerpRgb(cur[1],nxt[1],frac),
+    lerpRgb(cur[2],nxt[2],frac),
+    lerpRgb(cur[3],nxt[3],frac)
+  ];
 }
 
-let nodes=null,lw=0,lh=0;
-
-// 45 nodes, seed 4919 — matches Flutter _generateNodes
-function gen(w,h){
-  const r=srng(4919),ns=[];
-  for(let i=0;i<45;i++) ns.push({
-    bx:r()*w, by:r()*h,
-    fx:0.1+r()*0.3, fy:0.1+r()*0.3,
-    ax:12+r()*30,   ay:12+r()*30,
-    px:r()*Math.PI*2, py:r()*Math.PI*2
-  });
-  return ns;
-}
-
-const pp =t=>t<=.5?t*2:2-t*2;
-const l3 =(a,b,f)=>[a[0]+(b[0]-a[0])*f,a[1]+(b[1]-a[1])*f,a[2]+(b[2]-a[2])*f];
-const rgba=(c,a)=>`rgba(${c[0]|0},${c[1]|0},${c[2]|0},${a.toFixed(4)})`;
-
-function gc(p,pos){
-  const x=((pos%1)+1)%1,s=x*5,i=Math.floor(s)%5;
-  return l3(p[i],p[(i+1)%5],s-Math.floor(s));
-}
-
-// HSL helpers for brightening — matches Flutter HSLColor shift
-function rgbToHsl(r,g,b){
-  r/=255;g/=255;b/=255;
-  const mx=Math.max(r,g,b),mn=Math.min(r,g,b),d=mx-mn;
-  let h=0,s=0,l=(mx+mn)/2;
-  if(d){
-    s=d/(1-Math.abs(2*l-1));
-    if(mx===r) h=((g-b)/d+6)%6;
-    else if(mx===g) h=(b-r)/d+2;
-    else h=(r-g)/d+4;
-    h/=6;
+// Dust-Generation (matched Flutter _regenerateDust)
+function regenerateDust(){
+  const zoneCount=3+Math.floor(Math.random()*3);
+  const zones=[];
+  for(let i=0;i<zoneCount;i++){
+    zones.push({
+      cx:Math.random(),
+      cy:Math.random(),
+      radius:0.12+Math.random()*0.35,
+      densityMultiplier:0.3+Math.random()*2.5,
+      character:Math.floor(Math.random()*4)
+    });
   }
-  return[h,s,l];
-}
-function hslToRgb(h,s,l){
-  const c=(1-Math.abs(2*l-1))*s,x=c*(1-Math.abs((h*6)%2-1)),m=l-c/2;
-  let r=0,g=0,b=0;
-  if(h<1/6)[r,g,b]=[c,x,0];
-  else if(h<2/6)[r,g,b]=[x,c,0];
-  else if(h<3/6)[r,g,b]=[0,c,x];
-  else if(h<4/6)[r,g,b]=[0,x,c];
-  else if(h<5/6)[r,g,b]=[x,0,c];
-  else[r,g,b]=[c,0,x];
-  return[Math.round((r+m)*255),Math.round((g+m)*255),Math.round((b+m)*255)];
-}
-function brighten(c,lAdd,sScale){
-  const[h,s,l]=rgbToHsl(c[0],c[1],c[2]);
-  return hslToRgb(h, Math.min(1,s*sScale), Math.min(0.95,l+lAdd));
-}
-// Darken for BG blend — matches Flutter _darken(phaseBG, 0.60)
-function darken(c,amt){
-  const[h,s,l]=rgbToHsl(c[0],c[1],c[2]);
-  return hslToRgb(h,s,Math.max(0,l-amt));
+
+  const particles=[];
+  for(let i=0;i<DUST_DENSITY;i++){
+    const useZone=Math.random()<DUST_CHAOS;
+    let px,py,zone=null,character=3;
+
+    if(useZone&&zones.length>0){
+      let totalWeight=0;
+      for(const z of zones)totalWeight+=z.densityMultiplier;
+      let pick=Math.random()*totalWeight;
+      zone=zones[0];
+      for(const z of zones){
+        pick-=z.densityMultiplier;
+        if(pick<=0){zone=z;break;}
+      }
+      const theta=Math.random()*Math.PI*2;
+      const r=Math.pow(Math.random(),0.7)*zone.radius;
+      px=zone.cx+Math.cos(theta)*r;
+      py=zone.cy+Math.sin(theta)*r;
+      character=zone.character;
+    }else{
+      px=Math.random();
+      py=Math.random();
+    }
+
+    if(px<-0.05||px>1.05||py<-0.05||py>1.05)continue;
+
+    const alphaVar=0.4+Math.random()*0.6;
+    let alpha=DUST_BRIGHTNESS*alphaVar*0.6;
+    if(zone){
+      const dx=px-zone.cx,dy=py-zone.cy;
+      const d=Math.sqrt(dx*dx+dy*dy);
+      const zoneFalloff=clamp(1-(d/zone.radius)*0.3,0.3,1.0);
+      alpha*=zoneFalloff;
+    }
+
+    particles.push({
+      nx:px,ny:py,alpha:alpha,
+      angle:Math.random()*Math.PI*2,
+      character:character,
+      typeRoll:Math.random(),
+      sizeRoll:Math.random(),
+      lengthRoll:Math.random(),
+      curveRoll:Math.random()-0.5,
+      gapRoll:Math.random()
+    });
+  }
+  dust=particles;
 }
 
-function drawBand(cx,cy,rw,rh,c,op){
-  ctx.save();
-  ctx.translate(cx,cy);
-  ctx.scale(1,rh/rw);
-  const g=ctx.createRadialGradient(0,0,0,0,0,rw);
-  g.addColorStop(0,  rgba(c,op));
-  g.addColorStop(0.6,rgba(c,op*0.4));
-  g.addColorStop(1,  rgba(c,0));
-  ctx.beginPath();ctx.arc(0,0,rw,0,Math.PI*2);
-  ctx.fillStyle=g;ctx.fill();
-  ctx.restore();
+function drawStroke(c,x,y,cos,sin,length,alpha,strokeWidth){
+  c.strokeStyle=`rgba(255,255,255,${clamp(alpha,0,1).toFixed(4)})`;
+  c.lineWidth=strokeWidth;
+  c.beginPath();
+  c.moveTo(x-cos*length*0.5,y-sin*length*0.5);
+  c.lineTo(x+cos*length*0.5,y+sin*length*0.5);
+  c.stroke();
+}
+
+function drawCurve(c,x,y,cos,sin,length,curveAmount,alpha,strokeWidth){
+  const perpCos=-sin,perpSin=cos;
+  c.strokeStyle=`rgba(255,255,255,${clamp(alpha,0,1).toFixed(4)})`;
+  c.lineWidth=strokeWidth;
+  c.beginPath();
+  c.moveTo(x-cos*length*0.5,y-sin*length*0.5);
+  c.quadraticCurveTo(
+    x+perpCos*curveAmount,
+    y+perpSin*curveAmount,
+    x+cos*length*0.5,
+    y+sin*length*0.5
+  );
+  c.stroke();
+}
+
+function drawDoubleStroke(c,x,y,cos,sin,length,gap,alpha,strokeWidth){
+  const perpCos=-sin,perpSin=cos;
+  drawStroke(c,x+perpCos*gap,y+perpSin*gap,cos,sin,length,alpha,strokeWidth);
+  drawStroke(c,x-perpCos*gap,y-perpSin*gap,cos,sin,length,alpha,strokeWidth);
+}
+
+// Rendert Dust einmal auf Offscreen-Canvas (statisch)
+function renderDustLayer(w,h){
+  dustCanvas.width=w;
+  dustCanvas.height=h;
+  dctx.clearRect(0,0,w,h);
+  dctx.lineCap="round";
+
+  for(const p of dust){
+    const x=p.nx*w,y=p.ny*h;
+    const cos=Math.cos(p.angle),sin=Math.sin(p.angle);
+    const alpha=clamp(p.alpha,0,1);
+
+    let typeRoll=p.typeRoll;
+    if(p.character===0)typeRoll=typeRoll*0.6;
+    else if(p.character===1)typeRoll=0.3+typeRoll*0.5;
+    else if(p.character===2)typeRoll=0.65+typeRoll*0.35;
+
+    if(typeRoll<0.30){
+      let radius;
+      if(p.sizeRoll<0.6)radius=0.5;
+      else if(p.sizeRoll<0.9)radius=0.8;
+      else radius=1.2;
+      dctx.fillStyle=`rgba(255,255,255,${alpha.toFixed(4)})`;
+      dctx.beginPath();
+      dctx.arc(x,y,radius,0,Math.PI*2);
+      dctx.fill();
+    }else if(typeRoll<0.50){
+      const length=2+p.lengthRoll*2;
+      drawStroke(dctx,x,y,cos,sin,length,alpha*0.9,0.6);
+    }else if(typeRoll<0.65){
+      const length=4+p.lengthRoll*4;
+      drawStroke(dctx,x,y,cos,sin,length,alpha*0.8,0.5);
+    }else if(typeRoll<0.78){
+      const length=5+p.lengthRoll*5;
+      drawCurve(dctx,x,y,cos,sin,length,p.curveRoll*4,alpha*0.75,0.5);
+    }else if(typeRoll<0.88){
+      const length=10+p.lengthRoll*10;
+      drawStroke(dctx,x,y,cos,sin,length,alpha*0.6,0.4);
+    }else if(typeRoll<0.95){
+      const length=8+p.lengthRoll*7;
+      drawCurve(dctx,x,y,cos,sin,length,p.curveRoll*6,alpha*0.65,0.4);
+    }else if(typeRoll<0.98){
+      const length=3+p.lengthRoll*3;
+      const gap=1+p.gapRoll*1;
+      drawDoubleStroke(dctx,x,y,cos,sin,length,gap,alpha*0.7,0.4);
+    }else{
+      const length=25+p.lengthRoll*15;
+      drawStroke(dctx,x,y,cos,sin,length,alpha*0.4,0.3);
+    }
+  }
 }
 
 function resize(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
@@ -700,99 +863,252 @@ function resize(){canvas.width=window.innerWidth;canvas.height=window.innerHeigh
 function frame(){
   const w=canvas.width,h=canvas.height;
   if(!w||!h){requestAnimationFrame(frame);return;}
-  if(!nodes||Math.abs(w-lw)>2||Math.abs(h-lh)>2){nodes=gen(w,h);lw=w;lh=h;}
 
-  const now=Date.now();
-  const cp   = pp((now%CMS)/CMS);           // colour position 0–1 ping-pong
-  const rawT = (now%3600000)/1000.0;
-  const t    = rawT*0.5*0.4;               // v5: half speed, then ×0.4 to match Flutter scale
+  // Dust bei Resize neu rendern
+  if(Math.abs(w-lw)>2||Math.abs(h-lh)>2){
+    renderDustLayer(w,h);
+    lw=w;lh=h;
+  }
 
-  const mx=Math.max(w,h);
+  const nowMs=Date.now();
+  const cycleValue=(nowMs%CYCLE_MS)/CYCLE_MS;
 
-  // ── 1. Background ─────────────────────────────────────────────────────────
-  const phaseBG  = gc(PB,cp);
-  const baseBG   = [26,26,26];
-  const darkBG   = darken(phaseBG, 0.60);   // Flutter _darken(phaseBG, 0.60)
-  // Flutter: Color.lerp(baseBG, darkenedPhase, 0.4)
-  const blendBG  = l3(baseBG, darkBG, 0.4);
-  ctx.fillStyle=rgba(blendBG,1);
+  // Drei Schichten, drei Phasen: Base synchron, Accent/Highlight zeitlich versetzt
+  const basePos=smoothPingPong(cycleValue);
+  const accentPos=smoothPingPong(((cycleValue+ACCENT_OFFSET)%1+1)%1);
+  const highlightPos=smoothPingPong(((cycleValue+HIGHLIGHT_OFFSET)%1+1)%1);
+
+  const basePalette=getPaletteAt(basePos);
+  const accentPalette=getPaletteAt(accentPos);
+  const highlightPalette=getPaletteAt(highlightPos);
+
+  const rawTime=(nowMs-EPOCH_MS)/1000.0;
+  const ts=rawTime*0.07;
+
+  // BG aus Base-Palette (dunkelste Stufe)
+  ctx.fillStyle=rgba(basePalette[0],1);
   ctx.fillRect(0,0,w,h);
 
-  // ── 2. Aurora bands (exact Flutter positions + opacities) ─────────────────
-  const ac0=gc(PA,cp), ac1=gc(PA,cp+.20), ac2=gc(PA,cp+.40), ac3=gc(PA,cp+.60);
-  drawBand(w*(0.30+0.35*Math.sin(t*0.08)),       h*0.30, w*0.45, h*0.55, ac0, 0.25);
-  drawBand(w*(0.65+0.30*Math.sin(t*0.06+1.5)),   h*0.25, w*0.40, h*0.60, ac1, 0.20);
-  drawBand(w*(0.50+0.25*Math.cos(t*0.09+3.0)),   h*0.40, w*0.35, h*0.50, ac2, 0.15);
-  drawBand(w*(0.45+0.20*Math.sin(t*0.12+2.0)),   h*0.75, w*0.50, h*0.30, ac3, 0.12);
+  // 8 Blobs
+  for(const s of SEEDS){
+    const bx=s[0],by=s[1],ax=s[2],ay=s[3];
+    const fx=s[4],fy=s[5],px=s[6],py=s[7];
+    const rf=s[8],co=s[9];
+    const colorIdx=s[10]|0;
 
-  // ── 3. Depth shadow (bottom-centre, matches Flutter RadialGradient) ────────
-  const vg=ctx.createRadialGradient(w*.5,h*.85,0,w*.5,h*.85,mx*0.45);
-  vg.addColorStop(0,"rgba(0,0,0,0.20)");
-  vg.addColorStop(1,"rgba(0,0,0,0)");
-  ctx.fillStyle=vg;ctx.fillRect(0,0,w,h);
+    const x=w*bx+Math.sin(ts*fx+px)*ax;
+    const y=h*by+Math.cos(ts*fy+py)*ay;
+    const r=w*rf+Math.sin(ts*0.9+px)*10;
 
-  // ── 4. Line network ────────────────────────────────────────────────────────
-  const pos=nodes.map(n=>({
-    x:n.bx+Math.sin(t*n.fx+n.px)*n.ax,
-    y:n.by+Math.cos(t*n.fy+n.py)*n.ay
-  }));
+    // Schicht-Palette: Dunkel aus Base, Mittel aus Accent, Hell aus Highlight
+    let color;
+    if(colorIdx===0)color=basePalette[1];
+    else if(colorIdx===1)color=accentPalette[2];
+    else color=highlightPalette[3];
 
-  const curAccent   = gc(PA,cp);
-  const brightLine  = brighten(curAccent, 0.35, 0.70);   // Flutter: +0.35L, ×0.7S
-  const brightDot   = brighten(curAccent, 0.40, 1.00);   // Flutter: +0.40L
-
-  const connDist      = mx*0.22;   // Flutter connectionDist = maxDim * 0.22
-  const blobInfluence = mx*0.28;   // Flutter blobInfluenceRadius = maxDim * 0.28
-
-  // Band centres for blob-influence calculation
-  const bandCentres=[
-    {x:w*(0.30+0.35*Math.sin(t*0.08)),      y:h*0.30},
-    {x:w*(0.65+0.30*Math.sin(t*0.06+1.5)),  y:h*0.25},
-    {x:w*(0.50+0.25*Math.cos(t*0.09+3.0)),  y:h*0.40},
-    {x:w*(0.45+0.20*Math.sin(t*0.12+2.0)),  y:h*0.75},
-  ];
-
-  ctx.lineWidth=0.7;
-  for(let i=0;i<pos.length;i++){
-    for(let j=i+1;j<pos.length;j++){
-      const dx=pos[j].x-pos[i].x, dy=pos[j].y-pos[i].y;
-      const d=Math.sqrt(dx*dx+dy*dy);
-      if(d<connDist){
-        let alpha=(1-d/connDist)*0.08;
-        // blob influence on lines
-        const mx2=(pos[i].x+pos[j].x)*0.5, my2=(pos[i].y+pos[j].y)*0.5;
-        for(const bc of bandCentres){
-          const bd=Math.sqrt((mx2-bc.x)**2+(my2-bc.y)**2);
-          if(bd<blobInfluence) alpha+=(1-bd/blobInfluence)*0.07;
-        }
-        alpha=Math.min(0.15,alpha);
-        ctx.beginPath();ctx.moveTo(pos[i].x,pos[i].y);ctx.lineTo(pos[j].x,pos[j].y);
-        ctx.strokeStyle=rgba(brightLine,alpha);ctx.stroke();
-      }
-    }
+    const g=ctx.createRadialGradient(x,y,0,x,y,r);
+    g.addColorStop(0,rgba(color,co));
+    g.addColorStop(0.35,rgba(color,co*0.65));
+    g.addColorStop(0.75,rgba(color,co*0.18));
+    g.addColorStop(1,rgba(color,0));
+    ctx.fillStyle=g;
+    ctx.fillRect(0,0,w,h);
   }
 
-  // ── 5. Dots ────────────────────────────────────────────────────────────────
-  for(const p of pos){
-    let da=0.06;
-    for(const bc of bandCentres){
-      const bd=Math.sqrt((p.x-bc.x)**2+(p.y-bc.y)**2);
-      if(bd<blobInfluence*0.8) da+=(1-bd/(blobInfluence*0.8))*0.12;
-    }
-    da=Math.min(0.20,da);
-    ctx.beginPath();
-    ctx.arc(p.x,p.y,1.5,0,Math.PI*2);
-    ctx.fillStyle=rgba(brightDot,da);
-    ctx.fill();
-  }
+  // Dust-Layer (statisches Offscreen-Canvas)
+  ctx.drawImage(dustCanvas,0,0);
 
   requestAnimationFrame(frame);
 }
 
+regenerateDust();
 resize();
-window.addEventListener('resize',resize);
+window.addEventListener("resize",resize);
 requestAnimationFrame(frame);
+
+// Analog-Scan-Effekt: Dust alle 5s neu wuerfeln (wie ein neues eingescanntes Bild)
+setInterval(()=>{
+  regenerateDust();
+  if(canvas.width>0&&canvas.height>0)renderDustLayer(canvas.width,canvas.height);
+},5000);
 })();
 </script>
+<!-- ── JOKER-KARTENZIEHER ── -->
+<div class="joker-card" id="joker-card" role="button" tabindex="0" aria-label="Zieh eine Karte">
+  <video autoplay loop muted playsinline poster="joker.jpg">
+    <source src="joker.mp4" type="video/mp4">
+    <img src="joker.jpg" alt="">
+  </video>
+</div>
+<div class="joker-card-label-wrap" id="joker-label-wrap">
+  <span class="joker-card-label" id="t-joker">Zieh eine Karte</span>
+</div>
+
+<div class="draw-overlay" id="draw-overlay" aria-hidden="true">
+  <div class="draw-card" id="draw-card">
+    <button class="draw-close" id="draw-close" aria-label="Karte schließen">×</button>
+    <div class="draw-card-inner">
+      <div class="draw-face draw-face-back">
+        <video autoplay loop muted playsinline poster="joker.jpg">
+          <source src="joker.mp4" type="video/mp4">
+          <img src="joker.jpg" alt="">
+        </video>
+      </div>
+      <div class="draw-face draw-face-front" id="draw-face-front">
+        <p class="draw-text" id="draw-text">—</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── VERGE JOKER-KARTENZIEHER ───────────────────────────────────────────────
+// 40 kuratierte Karten, Phasen-Gewichtung 25/25/20/15/15.
+// Einmal pro Session: Click → Karte flippt → Joker fadet aus.
+// Reload für eine neue Karte.
+(function(){
+
+const DRAW_CARDS = [
+  // Phase 1 — Spielerisch
+  { p:1, de:"Was würdest du heute Nacht tun, wenn du keine Konsequenzen fürchten müsstest? (Aber nichts Illegales)", en:"What would you do tonight if you had no consequences to fear? (Nothing illegal though.)" },
+  { p:1, de:"Was ist etwas, das du kannst, was niemand von dir erwartet?", en:"What is something you can do that no one would expect from you?" },
+  { p:1, de:"Was würdest du morgen als erstes tun, wenn du plötzlich mit Millionen auf dem Konto aufwachst?", en:"What would you do first tomorrow if you suddenly woke up with millions in the bank?" },
+  { p:1, de:"Was war heute dein bester Moment. Und hat er dich überrascht?", en:"What was your best moment today. And did it surprise you?" },
+  { p:1, de:"Was würdest du Jonas fragen, wenn ihr euch gerade zum ersten Mal begegnen würdet?", en:"What would you ask Jonas if you were meeting for the very first time right now?" },
+  { p:1, de:"Was ist das Absurdeste, das du heute gedacht hast?", en:"What's the most absurd thing you've thought today?" },
+  { p:1, de:"Was glaubst du, hat Kim heute als letztes gegessen?", en:"What do you think Kim ate last today?" },
+  { p:1, de:"Was ist die dümmste Art, wie du dich jemals verletzt hast?", en:"What's the stupidest way you've ever hurt yourself?" },
+
+  // Phase 2 — Persönlich
+  { p:2, de:"Was kannst du besonders schlecht, was die meisten Menschen nicht wissen?", en:"What are you particularly bad at that most people don't know?" },
+  { p:2, de:"Was hast du beim ersten Sehen von Laura gedacht? Und was denkst du jetzt?", en:"What did you think when you first saw Laura? And what do you think now?" },
+  { p:2, de:"Wenn du ein Möbelstück in dieser Wohnung wärst. Welches und warum?", en:"If you were a piece of furniture in this apartment. Which one and why?" },
+  { p:2, de:"Was ist etwas aus deiner Kindheit, was du vermisst und eigentlich wieder aufleben lassen könntest?", en:"What's something from your childhood that you miss and could actually bring back?" },
+  { p:2, de:"Was ist etwas, das du an dir magst, aber selten zugibst?", en:"What's something you like about yourself but rarely admit?" },
+  { p:2, de:"Ergänze den Satz: „Die meisten Menschen denken anfangs oft ich bin… aber eigentlich bin ich…\"", en:"Finish the sentence: \"Most people initially think I'm… but actually I'm…\"" },
+  { p:2, de:"Was ist etwas, das du an Leon bewunderst?", en:"What's something you admire about Leon?" },
+  { p:2, de:"In welchem Moment deines Lebens hast du dich zum ersten Mal wirklich erwachsen gefühlt?", en:"In which moment of your life did you first feel truly grown up?" },
+
+  // Phase 3 — Nah
+  { p:3, de:"Was ist eine Eigenschaft von dir, die nur Leute kennen, die dir sehr nah sind?", en:"What's a quality of yours that only people very close to you know?" },
+  { p:3, de:"Was ist das Mutigste, das du je in Bezug auf eine andere Person getan hast?", en:"What's the bravest thing you've ever done in relation to another person?" },
+  { p:3, de:"Was ist der ehrlichste Satz, den du diese Woche zu jemandem gesagt hast?", en:"What's the most honest sentence you've said to someone this week?" },
+  { p:3, de:"Was würdest du Elif fragen, wenn du sicher wärst, dass die Antwort ehrlich ist?", en:"What would you ask Elif if you were sure the answer would be honest?" },
+  { p:3, de:"Was ist etwas, das du an Mateo bewunderst, das Mateo wahrscheinlich an sich selbst unterschätzt?", en:"What's something you admire about Mateo that Mateo probably underestimates in themselves?" },
+  { p:3, de:"Beende folgenden Satz: „Was mich an Menschen sofort fesselt, ist…\"", en:"Finish this sentence: \"What instantly captivates me about people is…\"" },
+  { p:3, de:"Was findest du sexuell anziehend? (Vielleicht etwas, was niemand weiß oder von dir erwartet?)", en:"What do you find sexually attractive? (Maybe something no one knows or expects from you?)" },
+  { p:3, de:"Was war das schlechteste Date deines Lebens? Drei Sätze. Mehr nicht.", en:"What was the worst date of your life? Three sentences. No more." },
+
+  // Phase 4 — Intim
+  { p:4, de:"Was wäre das Mutigste, das du heute Nacht tun könntest, und was hält dich davon ab?", en:"What would be the bravest thing you could do tonight, and what's stopping you?" },
+  { p:4, de:"Beschreib in einem Satz die Art, wie du am liebsten geküsst wirst.", en:"Describe in one sentence the way you most like to be kissed." },
+  { p:4, de:"Was brauchst du von einer Person, damit du dich fallen lassen kannst?", en:"What do you need from a person so you can let yourself go?" },
+  { p:4, de:"Was ist etwas, das du dir körperlich oder intim wünschst, aber noch nie laut gesagt hast?", en:"What's something you physically or intimately desire but have never said out loud?" },
+  { p:4, de:"Was ist etwas, das Mira tut (vielleicht ohne es zu merken), das dich fasziniert?", en:"What's something Mira does (maybe without noticing) that fascinates you?" },
+  { p:4, de:"Was ist etwas an Stans Körper, das dich nicht mehr loslässt?", en:"What's something about Stan's body that won't let you go?" },
+  { p:4, de:"Was ist dein liebster Ort am Körper einer anderen Person? Nicht welcher Ort an wem. Einfach: welcher Ort, generell.", en:"What's your favorite spot on another person's body? Not which spot on whom. Just: which spot, in general." },
+  { p:4, de:"Was hast du über dich selbst im Bett gelernt, das dich überrascht hat?", en:"What have you learned about yourself in bed that surprised you?" },
+
+  // Phase 5 — Enthemmt
+  { p:5, de:"Was ist eine sexuelle Fantasie, die du noch nie jemandem erzählt hast und die du jetzt erzählen könntest?", en:"What's a sexual fantasy you've never told anyone that you could tell right now?" },
+  { p:5, de:"Was ist gerade die lauteste Stimme in deinem Kopf? Lust, Angst, Neugier, Zärtlichkeit…? Sag es in einem Wort.", en:"What's the loudest voice in your head right now? Desire, fear, curiosity, tenderness…? Say it in one word." },
+  { p:5, de:"Beschreib in drei Sätzen eine deiner liebsten sexuellen Erinnerungen. Nicht wer. Nicht wo. Nur wie es sich angefühlt hat.", en:"Describe in three sentences one of your favorite sexual memories. Not who. Not where. Just how it felt." },
+  { p:5, de:"Stell dir vor, du und Noa könntet jetzt allein sein. Was passiert?", en:"Imagine you and Noa could be alone right now. What happens?" },
+  { p:5, de:"Was hältst du gerade zurück, obwohl du es am liebsten sofort tun würdest? Nicht mit wem. Nur was.", en:"What are you holding back right now that you'd love to do right away? Not with whom. Just what." },
+  { p:5, de:"Was hat Jordan heute Abend getan — bewusst oder unbewusst — das dich am meisten angezogen hat?", en:"What has Jordan done tonight — knowingly or not — that drew you in most?" },
+  { p:5, de:"Was traust du dich hier gerade noch nicht zu tun, obwohl du weißt, dass du es willst? Nicht mit wem, sondern was.", en:"What are you not yet daring to do here, even though you know you want to? Not with whom, but what." },
+  { p:5, de:"Was hat sich für dich heute Abend verändert? Oder ist sich gerade am verändern. Ein Satz.", en:"What's changed for you tonight? Or is changing right now. One sentence." }
+];
+
+// Phase-Paletten aus AnalogGameBackground.dart (gedeckte Analog-Toene)
+// [bg (dunkelste), dark, mid, light]
+const PHASE_PALETTE = {
+  1: { bg:"rgb(12,38,35)",  dark:"rgb(22,70,63)",   mid:"rgb(38,128,118)", light:"rgb(95,160,152)"  }, // Spielerisch
+  2: { bg:"rgb(8,18,42)",   dark:"rgb(12,58,115)",  mid:"rgb(50,100,175)", light:"rgb(120,155,200)" }, // Persoenlich
+  3: { bg:"rgb(20,12,42)",  dark:"rgb(40,28,115)",  mid:"rgb(90,75,175)",  light:"rgb(145,135,195)" }, // Nah
+  4: { bg:"rgb(42,15,15)",  dark:"rgb(100,30,30)",  mid:"rgb(175,85,80)",  light:"rgb(205,140,135)" }, // Intim
+  5: { bg:"rgb(38,8,6)",    dark:"rgb(90,22,18)",   mid:"rgb(165,55,45)",  light:"rgb(195,110,100)" }  // Enthemmt
+};
+
+// Baut einen mehrschichtigen Radial-Gradient, der die Blobs aus dem
+// Flutter-AnalogGameBackground imitiert. Drei weiche Farbblobs auf der
+// dunkelsten Palettenfarbe als BG.
+function buildPhaseBackground(phase){
+  const p = PHASE_PALETTE[phase];
+  return [
+    `radial-gradient(ellipse 110% 70% at 25% 25%, ${p.mid} 0%, transparent 55%)`,
+    `radial-gradient(ellipse 100% 65% at 75% 70%, ${p.light} 0%, transparent 50%)`,
+    `radial-gradient(ellipse 90% 80% at 50% 50%, ${p.dark} 0%, transparent 65%)`,
+    p.bg
+  ].join(",");
+}
+
+// Gewichtete Phasen-Auswahl: P1 25%, P2 25%, P3 20%, P4 15%, P5 15%
+function drawRandomCard(){
+  const r = Math.random();
+  let phase;
+  if      (r < 0.25) phase = 1;
+  else if (r < 0.50) phase = 2;
+  else if (r < 0.70) phase = 3;
+  else if (r < 0.85) phase = 4;
+  else               phase = 5;
+  const pool = DRAW_CARDS.filter(c => c.p === phase);
+  return pool[Math.floor(Math.random() * pool.length)];
+}
+
+const jokerCard  = document.getElementById("joker-card");
+const jokerLabel = document.getElementById("joker-label-wrap");
+const overlay    = document.getElementById("draw-overlay");
+const drawCard   = document.getElementById("draw-card");
+const drawFront  = document.getElementById("draw-face-front");
+const drawText   = document.getElementById("draw-text");
+const drawClose  = document.getElementById("draw-close");
+
+let hasDrawn = false;
+
+function openDraw(){
+  if (hasDrawn) return;
+  hasDrawn = true;
+
+  const card = drawRandomCard();
+  const useLang = (typeof lang !== "undefined" && lang === "en") ? "en" : "de";
+
+  // Karten-Vorderseite: Phasenhintergrund + Text
+  drawFront.style.background = buildPhaseBackground(card.p);
+  drawText.textContent = card[useLang];
+
+  // Overlay oeffnen (Fade-In + Karte-Skalier-In)
+  overlay.classList.add("is-open");
+  overlay.setAttribute("aria-hidden", "false");
+
+  // Nach kurzer Pause: Karte flippt (Rueckseite -> Vorderseite)
+  setTimeout(() => drawCard.classList.add("is-flipped"), 650);
+
+  // Joker unten rechts fadet aus
+  jokerCard.classList.add("is-hidden");
+  jokerLabel.classList.add("is-hidden");
+}
+
+function closeDraw(){
+  overlay.classList.remove("is-open");
+  overlay.setAttribute("aria-hidden", "true");
+  // Karte bleibt geflippt - User kann nicht neu ziehen ohne Reload
+}
+
+// Click-Handler
+jokerCard.addEventListener("click", openDraw);
+jokerCard.addEventListener("keydown", e => {
+  if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openDraw(); }
+});
+drawClose.addEventListener("click", closeDraw);
+overlay.addEventListener("click", e => {
+  if (e.target === overlay) closeDraw();
+});
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && overlay.classList.contains("is-open")) closeDraw();
+});
+})();
+</script>
+
 </body>
 </html>
