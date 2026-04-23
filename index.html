@@ -555,26 +555,44 @@ function cardLabel(d) { return (typeof lang !== 'undefined' && lang === 'en') ? 
   }
 })();
 
-// ── Joker-Video iOS-Fallback ─────────────────────────────────────────────────
-// Wenn Safari/Brave das Video nicht autoplay'd (Low-Power-Modus, strikte Medien-
-// Policy, schwaches Netz), zeigt iOS einen nativen Play-Button-Overlay ueber
-// dem Poster-Bild. Das wirkt unsauber.
+// ── Joker-Video iOS-Fix v4 ───────────────────────────────────────────────────
+// Safari iOS pausiert Videos nach Tab-Inaktivitaet und weigert sich dann, sie
+// per play() wieder zu starten (Never-Auto-Resume-Policy nach ~60s Pause).
+// Die resume-Events (visibilitychange/pageshow/focus) helfen nur kurzfristig.
 //
-// v3 (23.04.2026): Das eigentliche Problem auf iOS ist nicht das initiale Laden,
-// sondern dass Safari/Brave Videos pausieren wenn der Tab im Hintergrund war.
-// Nach Rueckkehr ist paused=true und iOS zeigt den Play-Button-Overlay.
-// Fix: visibilitychange und pageshow Events triggern ein erneutes play() und
-// fallen bei Fehler auf das Bild zurueck.
+// Fix v4: Wenn nach Tab-Return play() erfolglos bleibt, ersetzen wir das gesamte
+// <video>-Element durch ein frisch erstelltes. Safari behandelt das wie ein
+// initiales Laden und gibt die Autoplay-Chance zurueck. Gelingt auch das nicht,
+// faellt es auf das Standbild zurueck.
 (function jokerVideoSetup(){
-  const videos = document.querySelectorAll('video[data-joker-video]');
 
-  // Merke welche Videos bereits durch Bild ersetzt wurden
-  const replacedVideos = new WeakSet();
+  // Fabrik: erstellt ein <video>-Element identisch zum deployed Markup
+  const makeVideo = (dataType) => {
+    const v = document.createElement('video');
+    v.autoplay = true;
+    v.loop = true;
+    v.muted = true;
+    v.playsInline = true;
+    v.setAttribute('playsinline', '');
+    v.setAttribute('webkit-playsinline', '');
+    v.setAttribute('muted', '');
+    v.setAttribute('autoplay', '');
+    v.setAttribute('loop', '');
+    v.setAttribute('disablepictureinpicture', '');
+    v.setAttribute('disableremoteplayback', '');
+    v.preload = 'auto';
+    v.poster = 'joker.jpg';
+    v.setAttribute('data-joker-video', dataType);
+    const source = document.createElement('source');
+    source.src = 'joker.mp4';
+    source.type = 'video/mp4';
+    v.appendChild(source);
+    return v;
+  };
 
+  // Ersetzt ein Video durch ein Standbild (letzter Fallback)
   const replaceWithImg = (v) => {
-    if (replacedVideos.has(v)) return;
-    if (!v.parentNode) return; // bereits entfernt
-    replacedVideos.add(v);
+    if (!v.parentNode) return;
     const img = document.createElement('img');
     img.src = v.getAttribute('poster') || 'joker.jpg';
     img.alt = '';
@@ -582,45 +600,74 @@ function cardLabel(d) { return (typeof lang !== 'undefined' && lang === 'en') ? 
     v.replaceWith(img);
   };
 
-  // Versucht Video abzuspielen. Bei Fehler oder nach Safety-Timeout faellt es
-  // auf das Standbild zurueck.
-  const tryPlay = (v) => {
-    if (replacedVideos.has(v)) return;
-    if (!v.parentNode) return;
-
-    const p = v.play();
-    if (p !== undefined) {
-      p.catch(() => replaceWithImg(v));
-    }
+  // Ersetzt ein Video durch ein frisches Video-Element und versucht play
+  const refreshVideo = (v) => {
+    if (!v.parentNode) return null;
+    const dataType = v.getAttribute('data-joker-video');
+    const newVideo = makeVideo(dataType);
+    v.replaceWith(newVideo);
+    attachHandlers(newVideo);
+    return newVideo;
   };
 
-  videos.forEach(v => {
-    // Error-Handling fuer Ladefehler (nur bei initialem Laden relevant)
+  // Handler an ein Video-Element anhaengen (Initial + nach Refresh)
+  const attachHandlers = (v) => {
+    // Bei Ladefehler sofort auf Bild wechseln
     v.addEventListener('error', () => replaceWithImg(v));
 
-    // Initial play
-    tryPlay(v);
+    // Play versuchen
+    const attempt = v.play();
+    if (attempt !== undefined) {
+      attempt.catch(() => {
+        // play() rejected - nicht sofort Bild, sondern auf naechsten visibilityChange warten
+        // (oft triggert iOS dann noch einmal erfolgreich)
+      });
+    }
 
-    // Safety-Net nach 2s
+    // Nach 2s pruefen ob es wirklich laeuft
     setTimeout(() => {
-      if (!replacedVideos.has(v) && v.parentNode) {
-        if (v.paused || v.readyState < 3 || v.currentTime === 0) {
-          replaceWithImg(v);
-        }
+      if (!v.parentNode) return;
+      if (v.paused || v.readyState < 3) {
+        replaceWithImg(v);
       }
     }, 2000);
-  });
+  };
 
-  // Nach Tab-Wechsel / App-Rueckkehr: Videos wieder starten
-  // visibilitychange feuert wenn Tab in Vordergrund kommt
-  // pageshow feuert auch nach Back-Forward-Cache Restore (iOS Safari)
+  // Initial: Handlers an alle existierenden Videos anhaengen
+  document.querySelectorAll('video[data-joker-video]').forEach(attachHandlers);
+
+  // Resume-Handler: Bei Tab-Return prueft, ob Videos laufen. Wenn nicht,
+  // werden sie durch frische Video-Elemente ersetzt.
+  let resumeInFlight = false;
   const resumeAll = () => {
     if (document.hidden) return;
-    videos.forEach(v => {
-      if (!replacedVideos.has(v) && v.parentNode && v.paused) {
-        tryPlay(v);
-      }
-    });
+    if (resumeInFlight) return;
+    resumeInFlight = true;
+
+    // Kurzer Delay damit Safari sein Rendering abschliessen kann
+    setTimeout(() => {
+      const videos = document.querySelectorAll('video[data-joker-video]');
+      videos.forEach(v => {
+        if (v.paused || v.readyState < 3) {
+          // play() probieren
+          const attempt = v.play();
+          if (attempt !== undefined) {
+            attempt.catch(() => {
+              // Wenn play scheitert: Video durch frisches ersetzen
+              refreshVideo(v);
+            });
+          }
+          // Nach 500ms pruefen ob es jetzt laeuft, sonst refresh
+          setTimeout(() => {
+            if (!v.parentNode) return; // schon ersetzt
+            if (v.paused || v.readyState < 3) {
+              refreshVideo(v);
+            }
+          }, 500);
+        }
+      });
+      resumeInFlight = false;
+    }, 100);
   };
 
   document.addEventListener('visibilitychange', resumeAll);
