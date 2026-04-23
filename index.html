@@ -555,6 +555,53 @@ function cardLabel(d) { return (typeof lang !== 'undefined' && lang === 'en') ? 
   }
 })();
 
+// ── Joker-Video iOS-Fallback ─────────────────────────────────────────────────
+// Wenn Safari/Brave das Video nicht autoplay'd (Low-Power-Modus, strikte Medien-
+// Policy, schwaches Netz), zeigt iOS einen nativen Play-Button-Overlay ueber
+// dem Poster-Bild. Das wirkt unsauber. Statt dessen ersetzen wir das Video
+// durch ein <img>-Element mit dem Poster.
+//
+// v2 (23.04.2026): Reagiert auf tatsaechliche Events (play()-reject, error,
+// stalled, suspend) statt nur auf Timeout-Schaetzung. Effektive Reaktionszeit
+// jetzt unter 100ms statt 1200ms. Zusaetzlicher currentTime-Check fuer iOS-Bugs
+// wo das Video "spielt" aber bei Sekunde 0 haengt.
+(function jokerVideoFallback(){
+  const videos = document.querySelectorAll('video[data-joker-video]');
+  videos.forEach(v => {
+    let replaced = false;
+
+    const replaceWithImg = () => {
+      if (replaced) return;
+      replaced = true;
+      const img = document.createElement('img');
+      img.src = v.getAttribute('poster') || 'joker.jpg';
+      img.alt = '';
+      img.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;pointer-events:none';
+      v.replaceWith(img);
+    };
+
+    // Fall 1: Video laedt nicht oder bricht ab
+    v.addEventListener('error', replaceWithImg);
+    v.addEventListener('stalled', replaceWithImg);
+    v.addEventListener('suspend', () => {
+      if (v.readyState < 3) replaceWithImg();
+    });
+
+    // Fall 2: play() rejected (autoplay blockiert)
+    const p = v.play();
+    if (p !== undefined) {
+      p.catch(replaceWithImg);
+    }
+
+    // Fall 3: Safety-Net nach 2s falls nichts davon getriggert hat
+    setTimeout(() => {
+      if (v.paused || v.readyState < 3 || v.currentTime === 0) {
+        replaceWithImg();
+      }
+    }, 2000);
+  });
+})();
+
 // ── Slider v2 ────────────────────────────────────────────────────────────────
 // Pointer Events (unifiziert Maus/Touch/Stylus) + setPointerCapture (fixt Drag-Leak
 // wenn Maus außerhalb des Fensters losgelassen wird). 3-Kartenmodell:
@@ -980,7 +1027,10 @@ setInterval(()=>{
 </script>
 <!-- ── JOKER-KARTENZIEHER ── -->
 <div class="joker-card" id="joker-card" role="button" tabindex="0" aria-label="Zieh eine Karte">
-  <img src="joker.webp" alt="" style="width:100%;height:100%;object-fit:cover;display:block;pointer-events:none">
+  <video autoplay loop muted playsinline disablepictureinpicture disableremoteplayback preload="auto" poster="joker.jpg" data-joker-video="corner">
+    <source src="joker.mp4" type="video/mp4">
+    <img src="joker.jpg" alt="">
+  </video>
 </div>
 <div class="joker-card-label-wrap" id="joker-label-wrap">
   <span class="joker-card-label" id="t-joker">Zieh eine Karte</span>
@@ -991,7 +1041,10 @@ setInterval(()=>{
     <button class="draw-close" id="draw-close" aria-label="Karte schließen">×</button>
     <div class="draw-card-inner">
       <div class="draw-face draw-face-back">
-        <img src="joker.webp" alt="" style="width:100%;height:100%;object-fit:cover;display:block">
+        <video autoplay loop muted playsinline disablepictureinpicture disableremoteplayback preload="auto" poster="joker.jpg" data-joker-video="back">
+          <source src="joker.mp4" type="video/mp4">
+          <img src="joker.jpg" alt="">
+        </video>
       </div>
       <div class="draw-face draw-face-front" id="draw-face-front">
         <p class="draw-text" id="draw-text">—</p>
