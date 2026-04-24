@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kontakt &ndash; Verge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#1A1A1A;
+  --text:#F0F0F0;
+  --dim:#888;
+  --muted:#ccc;
+  --a1:#2EC4B6;
+  --a2:#3A86FF;
+  --a3:#7B61FF;
+  --a4:#FF6B6B;
+  --a5:#FF3B30;
+  --border:#2A2A2A;
+}
+html,body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.75;min-height:100%}
+.wrap{position:relative;z-index:10;max-width:720px;margin:0 auto;padding:48px 24px 80px}
+#c{position:fixed;inset:0;z-index:0;pointer-events:none}
+
+.back{display:inline-flex;align-items:center;gap:8px;color:var(--a1);text-decoration:none;
+  font-size:13px;letter-spacing:.04em;margin-bottom:52px;opacity:.8;transition:opacity .2s}
+.back:hover{opacity:1}
+.back::before{content:"\2190"}
+
+.site-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,40px);
+  font-weight:300;margin-bottom:6px;line-height:1.1}
+.site-title em{font-style:italic;
+  background:linear-gradient(135deg,#2EC4B6,#3A86FF,#7B61FF);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.site-sub{color:var(--dim);font-size:13px;margin-bottom:48px}
+
+.lang-toggle{display:flex;gap:8px;margin-bottom:48px}
+.lang-btn{background:none;border:1px solid var(--border);color:var(--dim);
+  padding:5px 14px;border-radius:20px;font-size:12px;cursor:pointer;
+  font-family:'Inter',sans-serif;letter-spacing:.06em;transition:all .2s}
+.lang-btn.active{border-color:var(--a1);color:var(--a1)}
+
+section{margin-bottom:72px}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,4vw,30px);
+  font-weight:300;margin-bottom:20px;padding-bottom:14px;
+  border-bottom:1px solid var(--border)}
+h2{font-size:12px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--a1);margin-top:32px;margin-bottom:10px}
+p{color:var(--muted);margin-bottom:14px;font-size:14px}
+.intro{color:var(--muted);font-size:15px;margin-bottom:32px;line-height:1.8}
+a{color:var(--a2);text-decoration:none}
+a:hover{text-decoration:underline}
+
+.pullquote{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2.4vw,26px);
+  font-weight:400;font-style:italic;line-height:1.5;color:rgba(240,240,240,.82);
+  margin:0 0 40px 0;padding-left:20px;border-left:2px solid var(--a1)}
+
+.contact-direct{background:rgba(46,196,182,.04);border:1px solid rgba(46,196,182,.18);
+  padding:24px 28px;margin-bottom:32px;border-radius:2px}
+.contact-direct h2{margin-top:0;color:var(--a1)}
+.contact-direct p{color:var(--text);font-size:14px}
+.contact-direct a{color:var(--a1);font-weight:400}
+
+form{display:flex;flex-direction:column;gap:20px;margin-top:28px}
+.field{display:flex;flex-direction:column;gap:6px}
+label{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--dim)}
+label .req{color:var(--a4);margin-left:4px}
+input[type="text"],input[type="email"],select,textarea{
+  width:100%;background:rgba(255,255,255,.03);border:1px solid var(--border);
+  padding:14px 16px;color:var(--text);font-family:'Inter',sans-serif;
+  font-size:14px;font-weight:300;outline:none;transition:border-color .25s;
+  border-radius:2px;resize:vertical}
+input:focus,select:focus,textarea:focus{border-color:rgba(46,196,182,.5)}
+input::placeholder,textarea::placeholder{color:rgba(240,240,240,.3)}
+select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/></svg>");
+  background-repeat:no-repeat;background-position:right 16px center;padding-right:40px}
+textarea{min-height:120px;line-height:1.6}
+
+.phase-hint{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.phase-pill{display:inline-flex;align-items:center;gap:6px;font-size:10px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.phase-dot{width:8px;height:8px;border-radius:50%}
+.d1{background:var(--a1)}
+.d2{background:var(--a2)}
+.d3{background:var(--a3)}
+.d4{background:var(--a4)}
+.d5{background:var(--a5)}
+
+.submit-btn{background:var(--a1);border:none;border-radius:2px;padding:16px 28px;
+  color:#0a0a0a;font-family:'Inter',sans-serif;font-size:11px;font-weight:500;
+  letter-spacing:.22em;text-transform:uppercase;cursor:pointer;transition:all .3s;
+  align-self:flex-start;display:inline-flex;align-items:center;gap:12px;margin-top:8px}
+.submit-btn::after{content:'\2192';font-size:16px;letter-spacing:0;transition:transform .3s}
+.submit-btn:hover:not(:disabled){background:var(--text)}
+.submit-btn:hover:not(:disabled)::after{transform:translateX(6px)}
+.submit-btn:disabled{background:rgba(46,196,182,.18);color:rgba(10,10,10,.4);
+  cursor:not-allowed}
+.submit-btn:disabled::after{opacity:.3}
+
+.btn-helper{font-size:11px;color:var(--dim);margin-top:10px;font-style:italic;
+  transition:opacity .3s;opacity:0;height:0;overflow:hidden}
+.btn-helper.visible{opacity:1;height:auto}
+
+.legal-check{display:flex;gap:12px;align-items:flex-start;margin-top:8px}
+.legal-check input{width:16px;height:16px;margin-top:3px;accent-color:var(--a1);
+  cursor:pointer;flex-shrink:0}
+.legal-check label{font-size:12px;letter-spacing:0;text-transform:none;
+  color:var(--muted);font-weight:300;line-height:1.6;cursor:pointer}
+
+.opt-hint{font-size:11px;color:var(--dim);font-style:italic;margin-top:4px;
+  letter-spacing:0;text-transform:none;font-weight:300;line-height:1.5}
+
+hr{border:none;border-top:1px solid var(--border);margin:64px 0}
+
+.footer{color:var(--dim);font-size:12px;text-align:center;margin-top:80px;
+  padding-top:32px;border-top:1px solid var(--border)}
+.footer a{color:var(--dim);margin:0 10px;transition:color .2s}
+.footer a:hover{color:var(--a1)}
+
+[data-lang]{display:none}
+[data-lang].visible{display:block}
+</style>
+</head>
+<body>
+
+<canvas id="c"></canvas>
+
+<div class="wrap">
+
+<a href="index.html" class="back" data-de="Zur&uuml;ck zur Startseite" data-en="Back to home">Zur&uuml;ck zur Startseite</a>
+
+<div class="site-title">Verge &ndash; <em data-de="echte N&auml;he" data-en="real closeness">echte N&auml;he</em></div>
+<div class="site-sub">playverge.app</div>
+
+<div class="lang-toggle">
+  <button class="lang-btn active" onclick="setLang('de')">DE</button>
+  <button class="lang-btn" onclick="setLang('en')">EN</button>
+</div>
+
+<!-- ═══════════════════════ DEUTSCH ═══════════════════════ -->
+<div data-lang="de" class="visible">
+
+<section>
+<h1>Sag Hallo.</h1>
+<p class="pullquote">Schreib uns, was dich bewegt. Oder schenk uns eine Karte, die wir ohne dich nicht h&auml;tten.</p>
+
+<div class="contact-direct">
+<h2>Direkter Draht</h2>
+<p>Am schnellsten erreichst du uns per Mail: <a href="mailto:info@playverge.app">info@playverge.app</a></p>
+<p style="margin-bottom:0">Oder &uuml;ber eines der Formulare unten. Wir lesen alles.</p>
+</div>
+</section>
+
+<section>
+<h1>Schreib uns.</h1>
+<p class="intro">Feedback, Fragen, Presse, Kooperation oder einfach nur Hallo.</p>
+
+<form action="https://formsubmit.co/info@playverge.app" method="POST" data-form="message">
+  <input type="hidden" name="_subject" value="Neue Nachricht &uuml;ber playverge.app">
+  <input type="hidden" name="_captcha" value="true">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_next" value="https://playverge.app/contact.html?sent=1">
+  <input type="text" name="_honey" style="display:none">
+
+  <div class="field">
+    <label for="m-name">Name <span class="req">*</span></label>
+    <input type="text" id="m-name" name="Name" required placeholder="Wie hei&szlig;t du?">
+  </div>
+
+  <div class="field">
+    <label for="m-email">E-Mail <span class="req">*</span></label>
+    <input type="email" id="m-email" name="Email" required placeholder="deine@email.de">
+  </div>
+
+  <div class="field">
+    <label for="m-topic">Worum geht's?</label>
+    <select id="m-topic" name="Thema">
+      <option value="Allgemein">Allgemein</option>
+      <option value="Feedback">Feedback zur App</option>
+      <option value="Bug">Bug oder Problem</option>
+      <option value="Presse">Presse / Interview</option>
+      <option value="Kooperation">Kooperation</option>
+      <option value="Sonstiges">Sonstiges</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="m-message">Nachricht <span class="req">*</span></label>
+    <textarea id="m-message" name="Nachricht" required placeholder="Erz&auml;hl uns, was dich bewegt."></textarea>
+  </div>
+
+  <button type="submit" class="submit-btn" disabled>Absenden</button>
+  <span class="btn-helper" data-helper="message">F&uuml;ll bitte alle Pflichtfelder aus.</span>
+</form>
+</section>
+
+<hr>
+
+<section>
+<h1>Reich eine Karte ein.</h1>
+<p class="intro">Hast du eine Frage, die du schon immer mal gestellt bekommen wolltest? Eine Aufgabe, die aus einem Abend einen Moment gemacht hat? Schick sie uns. Die besten Karten landen in Verge.</p>
+
+<div class="phase-hint">
+  <span class="phase-pill"><span class="phase-dot d1"></span>Spielerisch</span>
+  <span class="phase-pill"><span class="phase-dot d2"></span>Pers&ouml;nlich</span>
+  <span class="phase-pill"><span class="phase-dot d3"></span>Nah</span>
+  <span class="phase-pill"><span class="phase-dot d4"></span>Intim</span>
+  <span class="phase-pill"><span class="phase-dot d5"></span>Enthemmt</span>
+</div>
+
+<form action="https://formsubmit.co/info@playverge.app" method="POST" style="margin-top:32px" data-form="card">
+  <input type="hidden" name="_subject" value="Neue Karten-Einreichung">
+  <input type="hidden" name="_captcha" value="true">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_next" value="https://playverge.app/contact.html?sent=1">
+  <input type="text" name="_honey" style="display:none">
+
+  <div class="field">
+    <label for="k-phase">Phase <span class="req">*</span></label>
+    <select id="k-phase" name="Phase" required>
+      <option value="">W&auml;hle eine Phase</option>
+      <option value="Spielerisch">Spielerisch &ndash; lockere Fragen, Warmwerden</option>
+      <option value="Pers&ouml;nlich">Pers&ouml;nlich &ndash; ehrliche Fragen, Spa&szlig;</option>
+      <option value="Nah">Nah &ndash; Tiefe, Vertrauen, achtsame Ber&uuml;hrung</option>
+      <option value="Intim">Intim &ndash; K&ouml;rperliche N&auml;he, Spannung</option>
+      <option value="Enthemmt">Enthemmt &ndash; Erotisch, loslassend</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="k-text">Deine Karte <span class="req">*</span></label>
+    <textarea id="k-text" name="Karte" required placeholder="Schreib die Frage oder Aufgabe so, wie sie im Spiel erscheinen soll."></textarea>
+  </div>
+
+  <div class="field">
+    <label for="k-name">Dein Name
+      <div class="opt-hint">Optional. Wenn du m&ouml;chtest, nennen wir dich bei Ver&ouml;ffentlichung auf Social Media.</div>
+    </label>
+    <input type="text" id="k-name" name="Einsender" placeholder="Wie sollen wir dich nennen?">
+  </div>
+
+  <div class="field">
+    <label for="k-email">E-Mail
+      <div class="opt-hint">Optional. Nur falls wir R&uuml;ckfragen haben.</div>
+    </label>
+    <input type="email" id="k-email" name="Email" placeholder="deine@email.de">
+  </div>
+
+  <div class="legal-check">
+    <input type="checkbox" id="k-rights" name="Nutzungsrechte" required>
+    <label for="k-rights">
+      Ich bin damit einverstanden, dass Verge meine Einreichung kostenlos und ohne zeitliche Einschr&auml;nkung in der App, auf Social Media und in Werbung nutzen darf.
+    </label>
+  </div>
+
+  <button type="submit" class="submit-btn" disabled>Karte einreichen</button>
+  <span class="btn-helper" data-helper="card">F&uuml;ll Phase und Karten-Text aus und best&auml;tige die Nutzungsrechte.</span>
+</form>
+</section>
+
+<div class="footer">
+  <a href="index.html">Startseite</a>
+  <a href="privacy.html">Impressum &amp; Datenschutz</a>
+  <br><br>
+  &copy; 2026 Verge
+</div>
+
+</div>
+
+<!-- ═══════════════════════ ENGLISH ═══════════════════════ -->
+<div data-lang="en">
+
+<section>
+<h1>Say hi.</h1>
+<p class="pullquote">Write to us about what moves you. Or hand us a card we wouldn't have without you.</p>
+
+<div class="contact-direct">
+<h2>Direct line</h2>
+<p>Fastest way to reach us is email: <a href="mailto:info@playverge.app">info@playverge.app</a></p>
+<p style="margin-bottom:0">Or through one of the forms below. We read everything.</p>
+</div>
+</section>
+
+<section>
+<h1>Write us.</h1>
+<p class="intro">Feedback, questions, press, partnerships or just a hello.</p>
+
+<form action="https://formsubmit.co/info@playverge.app" method="POST" data-form="message-en">
+  <input type="hidden" name="_subject" value="New message via playverge.app">
+  <input type="hidden" name="_captcha" value="true">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_next" value="https://playverge.app/contact.html?sent=1">
+  <input type="text" name="_honey" style="display:none">
+
+  <div class="field">
+    <label for="m-name-en">Name <span class="req">*</span></label>
+    <input type="text" id="m-name-en" name="Name" required placeholder="What's your name?">
+  </div>
+
+  <div class="field">
+    <label for="m-email-en">Email <span class="req">*</span></label>
+    <input type="email" id="m-email-en" name="Email" required placeholder="your@email.com">
+  </div>
+
+  <div class="field">
+    <label for="m-topic-en">What's it about?</label>
+    <select id="m-topic-en" name="Topic">
+      <option value="General">General</option>
+      <option value="Feedback">App feedback</option>
+      <option value="Bug">Bug or problem</option>
+      <option value="Press">Press / interview</option>
+      <option value="Partnership">Partnership</option>
+      <option value="Other">Other</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="m-message-en">Message <span class="req">*</span></label>
+    <textarea id="m-message-en" name="Message" required placeholder="Tell us what's on your mind."></textarea>
+  </div>
+
+  <button type="submit" class="submit-btn" disabled>Send</button>
+  <span class="btn-helper" data-helper="message-en">Please fill in all required fields.</span>
+</form>
+</section>
+
+<hr>
+
+<section>
+<h1>Submit a card.</h1>
+<p class="intro">Got a question you always wanted to be asked? A task that turned an evening into a moment? Send it to us. The best cards end up in Verge.</p>
+
+<div class="phase-hint">
+  <span class="phase-pill"><span class="phase-dot d1"></span>Playful</span>
+  <span class="phase-pill"><span class="phase-dot d2"></span>Personal</span>
+  <span class="phase-pill"><span class="phase-dot d3"></span>Close</span>
+  <span class="phase-pill"><span class="phase-dot d4"></span>Intimate</span>
+  <span class="phase-pill"><span class="phase-dot d5"></span>Uninhibited</span>
+</div>
+
+<form action="https://formsubmit.co/info@playverge.app" method="POST" style="margin-top:32px" data-form="card-en">
+  <input type="hidden" name="_subject" value="New card submission">
+  <input type="hidden" name="_captcha" value="true">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_next" value="https://playverge.app/contact.html?sent=1">
+  <input type="text" name="_honey" style="display:none">
+
+  <div class="field">
+    <label for="k-phase-en">Phase <span class="req">*</span></label>
+    <select id="k-phase-en" name="Phase" required>
+      <option value="">Choose a phase</option>
+      <option value="Playful">Playful &ndash; light questions, warming up</option>
+      <option value="Personal">Personal &ndash; honest questions, fun</option>
+      <option value="Close">Close &ndash; depth, trust, mindful touch</option>
+      <option value="Intimate">Intimate &ndash; physical closeness, tension</option>
+      <option value="Uninhibited">Uninhibited &ndash; erotic, letting go</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="k-text-en">Your card <span class="req">*</span></label>
+    <textarea id="k-text-en" name="Card" required placeholder="Write the question or task the way it should appear in the game."></textarea>
+  </div>
+
+  <div class="field">
+    <label for="k-name-en">Your name
+      <div class="opt-hint">Optional. If you'd like, we'll mention you when we post on social media.</div>
+    </label>
+    <input type="text" id="k-name-en" name="Submitter" placeholder="What should we call you?">
+  </div>
+
+  <div class="field">
+    <label for="k-email-en">Email
+      <div class="opt-hint">Optional. Only if we have follow-up questions.</div>
+    </label>
+    <input type="email" id="k-email-en" name="Email" placeholder="your@email.com">
+  </div>
+
+  <div class="legal-check">
+    <input type="checkbox" id="k-rights-en" name="Rights" required>
+    <label for="k-rights-en">
+      I agree that Verge may use my submission free of charge and without time limit in the app, on social media, and in advertising.
+    </label>
+  </div>
+
+  <button type="submit" class="submit-btn" disabled>Submit card</button>
+  <span class="btn-helper" data-helper="card-en">Choose a phase, write your card, and confirm the rights above.</span>
+</form>
+</section>
+
+<div class="footer">
+  <a href="index.html">Home</a>
+  <a href="privacy.html">Imprint &amp; Privacy Policy</a>
+  <br><br>
+  &copy; 2026 Verge
+</div>
+
+</div>
+
+</div><!-- /.wrap -->
+
+<script>
+function setLang(l){
+  document.documentElement.lang=l;
+  document.querySelectorAll('.lang-btn').forEach(btn=>{
+    btn.classList.toggle('active',btn.textContent.trim().toLowerCase()===l);
+  });
+  document.querySelectorAll('[data-lang]').forEach(s=>{
+    s.classList.toggle('visible',s.getAttribute('data-lang')===l);
+  });
+  const back=document.querySelector('.back');
+  if(back){
+    const txt=back.getAttribute('data-'+l);
+    back.textContent=txt;
+  }
+  const em=document.querySelector('.site-title em');
+  if(em)em.textContent=em.getAttribute('data-'+l);
+}
+
+if(window.location.search.includes('sent=1')){
+  const msg=document.createElement('div');
+  msg.style.cssText='position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#2EC4B6;color:#0a0a0a;padding:14px 28px;font-family:Inter,sans-serif;font-size:13px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;z-index:1000;border-radius:2px;box-shadow:0 4px 20px rgba(0,0,0,.3)';
+  msg.textContent='\u2713 Danke. Wir melden uns.';
+  document.body.appendChild(msg);
+  setTimeout(()=>{msg.style.transition='opacity .5s';msg.style.opacity='0';},4000);
+  setTimeout(()=>msg.remove(),4600);
+  history.replaceState(null,'',window.location.pathname);
+}
+
+function setupFormValidation(form){
+  const requiredFields=form.querySelectorAll('[required]');
+  const button=form.querySelector('.submit-btn');
+  const formKey=form.getAttribute('data-form');
+  const helper=document.querySelector('[data-helper="'+formKey+'"]');
+
+  function checkValidity(){
+    const allValid=Array.from(requiredFields).every(f=>{
+      if(f.type==='checkbox')return f.checked;
+      return f.value.trim()!=='';
+    });
+    button.disabled=!allValid;
+    if(helper)helper.classList.toggle('visible',!allValid);
+  }
+
+  requiredFields.forEach(f=>{
+    f.addEventListener('input',checkValidity);
+    f.addEventListener('change',checkValidity);
+  });
+
+  checkValidity();
+}
+
+document.querySelectorAll('form[data-form]').forEach(setupFormValidation);
+
+/* ═══════════════════════════════════════════════════════════════════════
+   Canvas Background — identisch zu privacy.html
+═══════════════════════════════════════════════════════════════════════ */
+(function(){
+const canvas=document.getElementById("c"),ctx=canvas.getContext("2d");
+
+const PALETTES=[
+  [[12,38,35],[22,70,63],[38,128,118],[95,160,152]],
+  [[8,18,42],[12,58,115],[50,100,175],[120,155,200]],
+  [[20,12,42],[40,28,115],[90,75,175],[145,135,195]],
+  [[42,15,15],[100,30,30],[175,85,80],[205,140,135]],
+  [[38,8,6],[90,22,18],[165,55,45],[195,110,100]]
+];
+
+const SEEDS=[
+  [0.22,0.18,55,65,0.55,0.45,0.0,1.5,0.92,0.58,0],
+  [0.78,0.78,60,58,0.50,0.65,2.0,0.3,0.88,0.55,0],
+  [0.50,0.50,70,60,0.48,0.52,3.2,2.8,0.95,0.45,0],
+  [0.45,0.30,55,52,0.80,0.65,3.5,2.0,0.55,0.82,1],
+  [0.72,0.42,48,55,0.72,0.88,4.5,1.0,0.50,0.78,1],
+  [0.28,0.68,52,48,0.88,0.55,1.5,3.5,0.48,0.80,1],
+  [0.50,0.28,35,42,1.05,1.10,5.5,4.0,0.30,0.90,2],
+  [0.25,0.52,32,38,1.20,0.95,0.5,5.5,0.26,0.92,2]
+];
+
+const CYCLE_MS=120000;
+const EPOCH_MS=1735689600000;
+const ACCENT_OFFSET=0.10;
+const HIGHLIGHT_OFFSET=0.20;
+const DUST_DENSITY=1000;
+const DUST_BRIGHTNESS=0.50;
+const DUST_CHAOS=0.60;
+
+const dustCanvas=document.createElement("canvas");
+const dctx=dustCanvas.getContext("2d");
+
+let dust=[],lw=0,lh=0;
+
+const clamp=(v,lo,hi)=>Math.max(lo,Math.min(hi,v));
+const lerpRgb=(a,b,t)=>[
+  Math.round(clamp(a[0]+(b[0]-a[0])*t,0,255)),
+  Math.round(clamp(a[1]+(b[1]-a[1])*t,0,255)),
+  Math.round(clamp(a[2]+(b[2]-a[2])*t,0,255))
+];
+const rgba=(c,a)=>'rgba('+c[0]+','+c[1]+','+c[2]+','+a.toFixed(4)+')';
+const smoothPingPong=t=>(1-Math.cos(t*Math.PI*2))/2;
+
+function getPaletteAt(cyclePos){
+  let p=cyclePos-Math.floor(cyclePos);
+  if(p<0)p+=1;
+  const scaled=p*4;
+  const idx=Math.min(Math.floor(scaled),3);
+  const frac=scaled-idx;
+  const cur=PALETTES[idx],nxt=PALETTES[idx+1];
+  return[
+    lerpRgb(cur[0],nxt[0],frac),
+    lerpRgb(cur[1],nxt[1],frac),
+    lerpRgb(cur[2],nxt[2],frac),
+    lerpRgb(cur[3],nxt[3],frac)
+  ];
+}
+
+function regenerateDust(){
+  const zoneCount=3+Math.floor(Math.random()*3);
+  const zones=[];
+  for(let i=0;i<zoneCount;i++){
+    zones.push({
+      cx:Math.random(),
+      cy:Math.random(),
+      radius:0.12+Math.random()*0.35,
+      densityMultiplier:0.3+Math.random()*2.5,
+      character:Math.floor(Math.random()*4)
+    });
+  }
+
+  const particles=[];
+  for(let i=0;i<DUST_DENSITY;i++){
+    const useZone=Math.random()<DUST_CHAOS;
+    let px,py,zone=null,character=3;
+
+    if(useZone&&zones.length>0){
+      let totalWeight=0;
+      for(const z of zones)totalWeight+=z.densityMultiplier;
+      let pick=Math.random()*totalWeight;
+      zone=zones[0];
+      for(const z of zones){
+        pick-=z.densityMultiplier;
+        if(pick<=0){zone=z;break;}
+      }
+      const theta=Math.random()*Math.PI*2;
+      const r=Math.pow(Math.random(),0.7)*zone.radius;
+      px=zone.cx+Math.cos(theta)*r;
+      py=zone.cy+Math.sin(theta)*r;
+      character=zone.character;
+    }else{
+      px=Math.random();
+      py=Math.random();
+    }
+
+    if(px<-0.05||px>1.05||py<-0.05||py>1.05)continue;
+
+    const alphaVar=0.4+Math.random()*0.6;
+    let alpha=DUST_BRIGHTNESS*alphaVar*0.6;
+    if(zone){
+      const dx=px-zone.cx,dy=py-zone.cy;
+      const d=Math.sqrt(dx*dx+dy*dy);
+      const zoneFalloff=clamp(1-(d/zone.radius)*0.3,0.3,1.0);
+      alpha*=zoneFalloff;
+    }
+
+    particles.push({
+      nx:px,ny:py,alpha:alpha,
+      angle:Math.random()*Math.PI*2,
+      character:character,
+      typeRoll:Math.random(),
+      sizeRoll:Math.random(),
+      lengthRoll:Math.random(),
+      curveRoll:Math.random()-0.5,
+      gapRoll:Math.random()
+    });
+  }
+  dust=particles;
+}
+
+function drawStroke(c,x,y,cos,sin,length,alpha,strokeWidth){
+  c.strokeStyle='rgba(255,255,255,'+clamp(alpha,0,1).toFixed(4)+')';
+  c.lineWidth=strokeWidth;
+  c.beginPath();
+  c.moveTo(x-cos*length*0.5,y-sin*length*0.5);
+  c.lineTo(x+cos*length*0.5,y+sin*length*0.5);
+  c.stroke();
+}
+
+function drawCurve(c,x,y,cos,sin,length,curveAmount,alpha,strokeWidth){
+  const perpCos=-sin,perpSin=cos;
+  c.strokeStyle='rgba(255,255,255,'+clamp(alpha,0,1).toFixed(4)+')';
+  c.lineWidth=strokeWidth;
+  c.beginPath();
+  c.moveTo(x-cos*length*0.5,y-sin*length*0.5);
+  c.quadraticCurveTo(
+    x+perpCos*curveAmount,
+    y+perpSin*curveAmount,
+    x+cos*length*0.5,
+    y+sin*length*0.5
+  );
+  c.stroke();
+}
+
+function drawDoubleStroke(c,x,y,cos,sin,length,gap,alpha,strokeWidth){
+  const perpCos=-sin,perpSin=cos;
+  drawStroke(c,x+perpCos*gap,y+perpSin*gap,cos,sin,length,alpha,strokeWidth);
+  drawStroke(c,x-perpCos*gap,y-perpSin*gap,cos,sin,length,alpha,strokeWidth);
+}
+
+function renderDustLayer(w,h){
+  dustCanvas.width=w;
+  dustCanvas.height=h;
+  dctx.clearRect(0,0,w,h);
+  dctx.lineCap="round";
+
+  for(const p of dust){
+    const x=p.nx*w,y=p.ny*h;
+    const cos=Math.cos(p.angle),sin=Math.sin(p.angle);
+    const alpha=clamp(p.alpha,0,1);
+
+    let typeRoll=p.typeRoll;
+    if(p.character===0)typeRoll=typeRoll*0.6;
+    else if(p.character===1)typeRoll=0.3+typeRoll*0.5;
+    else if(p.character===2)typeRoll=0.65+typeRoll*0.35;
+
+    if(typeRoll<0.30){
+      let radius;
+      if(p.sizeRoll<0.6)radius=0.5;
+      else if(p.sizeRoll<0.9)radius=0.8;
+      else radius=1.2;
+      dctx.fillStyle='rgba(255,255,255,'+alpha.toFixed(4)+')';
+      dctx.beginPath();
+      dctx.arc(x,y,radius,0,Math.PI*2);
+      dctx.fill();
+    }else if(typeRoll<0.50){
+      const length=2+p.lengthRoll*2;
+      drawStroke(dctx,x,y,cos,sin,length,alpha*0.9,0.6);
+    }else if(typeRoll<0.65){
+      const length=4+p.lengthRoll*4;
+      drawStroke(dctx,x,y,cos,sin,length,alpha*0.8,0.5);
+    }else if(typeRoll<0.78){
+      const length=5+p.lengthRoll*5;
+      drawCurve(dctx,x,y,cos,sin,length,p.curveRoll*4,alpha*0.75,0.5);
+    }else if(typeRoll<0.88){
+      const length=10+p.lengthRoll*10;
+      drawStroke(dctx,x,y,cos,sin,length,alpha*0.6,0.4);
+    }else if(typeRoll<0.95){
+      const length=8+p.lengthRoll*7;
+      drawCurve(dctx,x,y,cos,sin,length,p.curveRoll*6,alpha*0.65,0.4);
+    }else if(typeRoll<0.98){
+      const length=3+p.lengthRoll*3;
+      const gap=1+p.gapRoll*1;
+      drawDoubleStroke(dctx,x,y,cos,sin,length,gap,alpha*0.7,0.4);
+    }else{
+      const length=25+p.lengthRoll*15;
+      drawStroke(dctx,x,y,cos,sin,length,alpha*0.4,0.3);
+    }
+  }
+}
+
+function resize(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
+
+function frame(){
+  const w=canvas.width,h=canvas.height;
+  if(!w||!h){requestAnimationFrame(frame);return;}
+
+  if(Math.abs(w-lw)>2||Math.abs(h-lh)>2){
+    renderDustLayer(w,h);
+    lw=w;lh=h;
+  }
+
+  const nowMs=Date.now();
+  const cycleValue=(nowMs%CYCLE_MS)/CYCLE_MS;
+
+  const basePos=smoothPingPong(cycleValue);
+  const accentPos=smoothPingPong(((cycleValue+ACCENT_OFFSET)%1+1)%1);
+  const highlightPos=smoothPingPong(((cycleValue+HIGHLIGHT_OFFSET)%1+1)%1);
+
+  const basePalette=getPaletteAt(basePos);
+  const accentPalette=getPaletteAt(accentPos);
+  const highlightPalette=getPaletteAt(highlightPos);
+
+  const rawTime=(nowMs-EPOCH_MS)/1000.0;
+  const ts=rawTime*0.07;
+
+  ctx.fillStyle=rgba(basePalette[0],1);
+  ctx.fillRect(0,0,w,h);
+
+  for(const s of SEEDS){
+    const bx=s[0],by=s[1],ax=s[2],ay=s[3];
+    const fx=s[4],fy=s[5],px=s[6],py=s[7];
+    const rf=s[8],co=s[9];
+    const colorIdx=s[10]|0;
+
+    const x=w*bx+Math.sin(ts*fx+px)*ax;
+    const y=h*by+Math.cos(ts*fy+py)*ay;
+    const r=w*rf+Math.sin(ts*0.9+px)*10;
+
+    let color;
+    if(colorIdx===0)color=basePalette[1];
+    else if(colorIdx===1)color=accentPalette[2];
+    else color=highlightPalette[3];
+
+    const g=ctx.createRadialGradient(x,y,0,x,y,r);
+    g.addColorStop(0,rgba(color,co));
+    g.addColorStop(0.35,rgba(color,co*0.65));
+    g.addColorStop(0.75,rgba(color,co*0.18));
+    g.addColorStop(1,rgba(color,0));
+    ctx.fillStyle=g;
+    ctx.fillRect(0,0,w,h);
+  }
+
+  ctx.drawImage(dustCanvas,0,0);
+  requestAnimationFrame(frame);
+}
+
+regenerateDust();
+resize();
+window.addEventListener("resize",resize);
+requestAnimationFrame(frame);
+
+setInterval(()=>{
+  regenerateDust();
+  if(canvas.width>0&&canvas.height>0)renderDustLayer(canvas.width,canvas.height);
+},5000);
+})();
+</script>
+
+</body>
+</html>
