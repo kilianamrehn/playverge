@@ -428,7 +428,13 @@ J&uuml;licher Str. 24<br>
 </section>
 </div>
 
-<div class="footer">Verge &middot; info@playverge.app &middot; playverge.app</div>
+<div class="footer">
+  <div style="margin-bottom:10px">
+    <a href="index.html" style="color:var(--dim);margin:0 10px;text-decoration:none" data-footer-home>Startseite</a>
+    <a href="contact.html" style="color:var(--a1);margin:0 10px;text-decoration:none" data-footer-contact>Kontakt</a>
+  </div>
+  Verge &middot; <a href="mailto:info@playverge.app" style="color:inherit">info@playverge.app</a> &middot; playverge.app
+</div>
 
 </div>
 
@@ -441,6 +447,11 @@ function setLang(l){
     btn.classList.toggle('active',btn.textContent.toLowerCase()===l);
   });
   document.documentElement.lang=l;
+  // Footer translations
+  const home=document.querySelector('[data-footer-home]');
+  const contact=document.querySelector('[data-footer-contact]');
+  if(home)home.textContent=(l==='en')?'Home':'Startseite';
+  if(contact)contact.textContent=(l==='en')?'Contact':'Kontakt';
 }
 </script>
 

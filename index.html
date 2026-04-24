@@ -126,6 +126,8 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
 .foot-links{display:flex;gap:28px}
 .foot-links a{color:var(--ink2);font-family:"Inter",sans-serif;font-size:8px;font-weight:300;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:color .2s;opacity:.5}
 .foot-links a:hover{color:var(--ink);opacity:1}
+.foot-links a#t-contact{font-size:11px;font-weight:500;opacity:1;color:var(--a1);padding:7px 16px;border:1px solid rgba(46,196,182,.35);transition:all .25s}
+.foot-links a#t-contact:hover{background:rgba(46,196,182,.1);border-color:var(--a1);color:var(--a1)}
 .copy{font-family:"Inter",sans-serif;font-size:8px;font-weight:300;letter-spacing:.1em;text-transform:uppercase;color:rgba(242,242,242,.15)}
 
 /* ── WARME KÜCHE (Atem-Element zwischen Hero und About) ── */
@@ -187,7 +189,7 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
   /* Consent items auf Mobile: flex-row, Zahl + Text nebeneinander */
   .ci{display:flex;flex-direction:row;align-items:flex-start;padding:24px 0;gap:20px}
   .ci-left{padding:0;flex-shrink:0;width:52px;display:flex;align-items:flex-start}
-  .ci-num{font-size:44px;line-height:1;opacity:.55}
+  .ci-num{font-size:44px;line-height:1;opacity:1}
   .ci-body{padding:4px 0 0;flex:1}
   .ci-tag{margin-bottom:10px}
 }
@@ -382,35 +384,35 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
 
     <div class="ci-grid">
       <div class="ci">
-        <div class="ci-left"><div class="ci-num" style="color:rgba(46,196,182,.4)">01</div></div>
+        <div class="ci-left"><div class="ci-num" style="color:rgba(46,196,182,1)">01</div></div>
         <div class="ci-body">
           <p class="ci-tag" style="color:var(--a1)" id="t-ct1">Host</p>
           <p class="ci-text" id="t-c1"><strong>Host setzt den Rahmen.</strong> Was für den Abend möglich ist. Und was nicht.</p>
         </div>
       </div>
       <div class="ci">
-        <div class="ci-left"><div class="ci-num" style="color:rgba(58,134,255,.4)">02</div></div>
+        <div class="ci-left"><div class="ci-num" style="color:rgba(58,134,255,1)">02</div></div>
         <div class="ci-body">
           <p class="ci-tag" style="color:var(--a2)" id="t-ct2">Du</p>
           <p class="ci-text" id="t-c2"><strong>Du setzt deine eigenen Grenzen.</strong> Unabhängig vom Rest der Gruppe.</p>
         </div>
       </div>
       <div class="ci">
-        <div class="ci-left"><div class="ci-num" style="color:rgba(123,97,255,.4)">03</div></div>
+        <div class="ci-left"><div class="ci-num" style="color:rgba(123,97,255,1)">03</div></div>
         <div class="ci-body">
           <p class="ci-tag" style="color:var(--a3)" id="t-ct3">Ihr</p>
           <p class="ci-text" id="t-c3"><strong>Bei jeder Person einzeln</strong> entscheidet ihr, wie intim es wirklich werden darf. Oder ob es spielerisch bleibt.</p>
         </div>
       </div>
       <div class="ci">
-        <div class="ci-left"><div class="ci-num" style="color:rgba(255,107,107,.4)">04</div></div>
+        <div class="ci-left"><div class="ci-num" style="color:rgba(255,107,107,1)">04</div></div>
         <div class="ci-body">
           <p class="ci-tag" style="color:var(--a4)" id="t-ct4">Verge Lite</p>
           <p class="ci-text" id="t-c4"><strong>Zu zweit oder zu zehnt.</strong> Bei Verge Lite reicht ein Handy für die ganze Runde. Wie weit? Bis Nah.</p>
         </div>
       </div>
       <div class="ci">
-        <div class="ci-left"><div class="ci-num" style="color:rgba(255,59,48,.4)">05</div></div>
+        <div class="ci-left"><div class="ci-num" style="color:rgba(255,59,48,1)">05</div></div>
         <div class="ci-body">
           <p class="ci-tag" style="color:var(--a5)" id="t-ct5">Kein Nein nötig</p>
           <p class="ci-text" id="t-c5"><strong>Karten erscheinen nur, wenn alle Beteiligten Ja gesagt haben.</strong> Niemand sieht, was die anderen eingeben.</p>
@@ -422,7 +424,8 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
 
 <footer>
   <div class="foot-links">
-    <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#105;&#110;&#102;&#111;&#64;&#112;&#108;&#97;&#121;&#118;&#101;&#114;&#103;&#101;&#46;&#97;&#112;&#112;" style="color:inherit;text-decoration:none">&#105;&#110;&#102;&#111;&#64;&#112;&#108;&#97;&#121;&#118;&#101;&#114;&#103;&#101;&#46;&#97;&#112;&#112;
+    <a href="contact.html" id="t-contact">Kontakt</a>
+    <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#105;&#110;&#102;&#111;&#64;&#112;&#108;&#97;&#121;&#118;&#101;&#114;&#103;&#101;&#46;&#97;&#112;&#112;" style="color:inherit;text-decoration:none">&#105;&#110;&#102;&#111;&#64;&#112;&#108;&#97;&#121;&#118;&#101;&#114;&#103;&#101;&#46;&#97;&#112;&#112;</a>
     <a href="privacy.html" id="t-privacy">Imprint &amp; Privacy Policy</a>
   </div>
   <p class="copy">&copy; 2026 Verge</p>
@@ -448,9 +451,9 @@ const T={
     c3:"<strong>Bei jeder Person einzeln</strong> entscheidet ihr, wie intim es wirklich werden darf. Oder ob es spielerisch bleibt.",
     c4:"<strong>Zu zweit oder zu zehnt.</strong> Bei Verge Lite reicht ein Handy für die ganze Runde. Wie weit? Bis Nah.",
     c5:"<strong>Karten erscheinen nur, wenn alle Beteiligten Ja gesagt haben.</strong> Niemand sieht, was die anderen eingeben.",
-    privacy:"Imprint &amp; Privacy Policy"
+    privacy:"Imprint &amp; Privacy Policy",
+    contact:"Kontakt"
   },
-  en:{
     navtag:"Coming soon",
     hl1:"It starts",hl2:"playful.",hl3:"How far it goes,",hl4:"that's up to you.",
     sub:'Verge brings you together.<br><strong>Curious, open, heartfelt.</strong><br>Five phases. One consent system.',
@@ -468,7 +471,8 @@ const T={
     c3:"<strong>For each person individually</strong> you decide how intimate it can get. Or whether it stays playful.",
     c4:"<strong>Two players or ten.</strong> With Verge Lite, one phone is enough for the whole group. How far? Up to Close.",
     c5:"<strong>Cards only appear when everyone involved has said yes.</strong> No one sees what the others enter.",
-    privacy:"Imprint &amp; Privacy Policy"
+    privacy:"Imprint &amp; Privacy Policy",
+    contact:"Contact"
   }
 };
 let lang="de";
@@ -508,6 +512,7 @@ function setLang(l){
   document.getElementById("t-c4").innerHTML=t.c4;
   document.getElementById("t-c5").innerHTML=t.c5;
   document.getElementById("t-privacy").innerHTML=t.privacy;
+  document.getElementById("t-contact").innerHTML=t.contact;
   document.getElementById("t-joker").textContent=t.joker;
   // Card image src je Sprache umschalten (card-XX.jpg DE / card-XX-en.jpg EN)
   for(let i=0;i<10;i++){
