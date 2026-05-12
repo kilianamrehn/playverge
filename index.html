@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Verge – Die App für echte Begegnung</title>
+<title>Verge – Das Spiel für echte Begegnung</title>
 <!-- Open Graph / WhatsApp Preview -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://playverge.app/">
-<meta property="og:title" content="Verge – Die App für echte Begegnung">
+<meta property="og:title" content="Verge – Das Spiel für echte Begegnung">
 <meta property="og:description" content="Spielerisch fängt es an. Wie weit es geht, entscheidet ihr.">
 <meta property="og:image" content="https://playverge.app/LogoFinal_mit_Hintergrund.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Verge – Die App für echte Begegnung">
+<meta name="twitter:title" content="Verge – Das Spiel für echte Begegnung">
 <meta name="twitter:description" content="Spielerisch fängt es an. Wie weit es geht, entscheidet ihr.">
 <meta name="twitter:image" content="https://playverge.app/LogoFinal_mit_Hintergrund.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -138,8 +138,14 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
 
 /* ── SOCIAL BAR ── */
 .social-bar{display:flex;align-items:center;gap:14px;padding:20px 0;border-bottom:1px solid var(--rule);animation:up .8s cubic-bezier(.16,1,.3,1) .07s both}
-.social-link{display:flex;align-items:center;gap:11px;color:var(--ink);text-decoration:none;font-family:"Inter",sans-serif;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;padding:9px 18px;border:1px solid transparent;border-radius:999px;position:relative;transition:transform .3s cubic-bezier(.16,1,.3,1),border-color .3s,background-color .3s;will-change:transform}
+.social-link{display:flex;align-items:center;gap:11px;color:var(--ink);text-decoration:none;font-family:"Inter",sans-serif;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;padding:9px 18px;border:1px solid transparent;border-radius:10px;position:relative;transition:transform .3s cubic-bezier(.16,1,.3,1),border-color .3s,background-color .3s;will-change:transform}
 .social-link svg{flex-shrink:0;transition:filter .3s ease}
+
+/* Telegram: Brand-Blue-Glow mit Breathing-Animation */
+.social-link.tg{border-color:rgba(38,165,228,.35);background:rgba(38,165,228,.06);box-shadow:0 0 0 rgba(38,165,228,0),0 0 14px rgba(38,165,228,.25);animation:tg-breathe 3.4s ease-in-out infinite}
+.social-link.tg svg{color:#5ec3ec;filter:drop-shadow(0 0 6px rgba(38,165,228,.6))}
+.social-link.tg:hover{transform:translateY(-2px) scale(1.04);border-color:rgba(38,165,228,.7);background:rgba(38,165,228,.14);box-shadow:0 0 0 rgba(38,165,228,0),0 0 28px rgba(38,165,228,.65),0 0 60px rgba(38,165,228,.25);animation-play-state:paused}
+.social-link.tg:hover svg{filter:drop-shadow(0 0 10px rgba(38,165,228,.9))}
 
 /* Instagram: Brand-Pink-Glow mit Breathing-Animation */
 .social-link.ig{border-color:rgba(225,48,108,.35);background:rgba(225,48,108,.06);box-shadow:0 0 0 rgba(225,48,108,0),0 0 14px rgba(225,48,108,.25);animation:ig-breathe 3.4s ease-in-out infinite}
@@ -153,6 +159,10 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
 .social-link.tt:hover{transform:translateY(-2px) scale(1.04);border-color:rgba(105,201,208,.7);background:rgba(105,201,208,.14);box-shadow:0 0 0 rgba(105,201,208,0),0 0 28px rgba(105,201,208,.65),0 0 60px rgba(105,201,208,.25);animation-play-state:paused}
 .social-link.tt:hover svg{filter:drop-shadow(0 0 10px rgba(105,201,208,.9))}
 
+@keyframes tg-breathe{
+  0%,100%{box-shadow:0 0 0 rgba(38,165,228,0),0 0 14px rgba(38,165,228,.22);border-color:rgba(38,165,228,.30)}
+  50%   {box-shadow:0 0 0 rgba(38,165,228,0),0 0 22px rgba(38,165,228,.42);border-color:rgba(38,165,228,.55)}
+}
 @keyframes ig-breathe{
   0%,100%{box-shadow:0 0 0 rgba(225,48,108,0),0 0 14px rgba(225,48,108,.22);border-color:rgba(225,48,108,.30)}
   50%   {box-shadow:0 0 0 rgba(225,48,108,0),0 0 22px rgba(225,48,108,.42);border-color:rgba(225,48,108,.55)}
@@ -166,13 +176,14 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
 
 /* Respects reduced-motion */
 @media (prefers-reduced-motion:reduce){
-  .social-link.ig,.social-link.tt{animation:none}
+  .social-link.tg,.social-link.ig,.social-link.tt{animation:none}
 }
 
-/* Mobile: etwas kompakter */
+/* Mobile: nur Icons (drei Kanaele nebeneinander) */
 @media(max-width:640px){
-  .social-link{font-size:10px;padding:8px 14px;gap:9px;letter-spacing:.16em}
-  .social-bar{gap:10px;padding:16px 0}
+  .social-link{font-size:0;padding:10px;gap:0;letter-spacing:0;width:42px;height:42px;justify-content:center}
+  .social-link svg{width:18px;height:18px}
+  .social-bar{gap:12px;padding:16px 0;justify-content:flex-start}
 }
 
 @media(max-width:900px){
@@ -284,6 +295,10 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
   </nav>
 
   <div class="social-bar">
+    <a class="social-link tg" href="https://t.me/playverge" target="_blank" rel="noopener">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+      @playverge
+    </a>
     <a class="social-link ig" href="https://www.instagram.com/play.verge/" target="_blank" rel="noopener">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
       @play.verge
@@ -407,8 +422,8 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
       <div class="ci">
         <div class="ci-left"><div class="ci-num" style="color:rgba(255,107,107,1)">04</div></div>
         <div class="ci-body">
-          <p class="ci-tag" style="color:var(--a4)" id="t-ct4">Verge Lite</p>
-          <p class="ci-text" id="t-c4"><strong>Zu zweit oder zu zehnt.</strong> Bei Verge Lite reicht ein Handy für die ganze Runde. Wie weit? Bis Nah.</p>
+          <p class="ci-tag" style="color:var(--a4)" id="t-ct4">Verge Friends</p>
+          <p class="ci-text" id="t-c4"><strong>Zu zweit oder zu zehnt.</strong> Bei Verge Friends reicht ein Handy für die ganze Runde. Wie weit? Bis Nah.</p>
         </div>
       </div>
       <div class="ci">
@@ -434,6 +449,7 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const T={
   de:{
+    pageTitle:"Verge – Das Spiel für echte Begegnung",
     navtag:"Demnächst verfügbar",
     hl1:"Spielerisch",hl2:"fängt es an.",hl3:"Wie weit es geht,",hl4:"entscheidet ihr.",
     sub:'Verge bringt euch zusammen.<br><strong>Neugierig, offen, mit Herz.</strong><br>Fünf Phasen. Ein Consent-System.',
@@ -445,16 +461,17 @@ const T={
     aboutText:"Zu zweit, auf eurer WG-Party oder in eurem Kinky-Kreis. Verge passt sich an, so dass ihr es nicht müsst. Fünf Phasen führen euch so weit ihr möchtet.",
     p1:"Spielerisch",p2:"Persönlich",p3:"Nah",p4:"Intim",p5:"Enthemmt",
     consentLabel:"Wie Verge funktioniert",consentSub:"Ihr entscheidet selbst.<br>Immer. Jede Person für sich.",
-    ct1:"Host",ct2:"Du",ct3:"Ihr",ct4:"Verge Lite",ct5:"Kein Nein nötig",
+    ct1:"Host",ct2:"Du",ct3:"Ihr",ct4:"Verge Friends",ct5:"Kein Nein nötig",
     c1:"<strong>Host setzt den Rahmen.</strong> Was für den Abend möglich ist. Und was nicht.",
     c2:"<strong>Du setzt deine eigenen Grenzen.</strong> Unabhängig vom Rest der Gruppe.",
     c3:"<strong>Bei jeder Person einzeln</strong> entscheidet ihr, wie intim es wirklich werden darf. Oder ob es spielerisch bleibt.",
-    c4:"<strong>Zu zweit oder zu zehnt.</strong> Bei Verge Lite reicht ein Handy für die ganze Runde. Wie weit? Bis Nah.",
+    c4:"<strong>Zu zweit oder zu zehnt.</strong> Bei Verge Friends reicht ein Handy für die ganze Runde. Wie weit? Bis Nah.",
     c5:"<strong>Karten erscheinen nur, wenn alle Beteiligten Ja gesagt haben.</strong> Niemand sieht, was die anderen eingeben.",
     privacy:"Imprint &amp; Privacy Policy",
     contact:"Kontakt"
   },
   en:{
+    pageTitle:"Verge – The game for real connection",
     navtag:"Coming soon",
     hl1:"It starts",hl2:"playful.",hl3:"How far it goes,",hl4:"that's up to you.",
     sub:'Verge brings you together.<br><strong>Curious, open, heartfelt.</strong><br>Five phases. One consent system.',
@@ -466,11 +483,11 @@ const T={
     aboutText:"Just the two of you, at a house party, or in your kinky circle. Verge adapts, so you don't have to. Five phases take you as far as you want to go.",
     p1:"Playful",p2:"Personal",p3:"Close",p4:"Intimate",p5:"Uninhibited",
     consentLabel:"How Verge works",consentSub:"You decide for yourselves.<br>Always. Each person individually.",
-    ct1:"Host",ct2:"You",ct3:"Together",ct4:"Verge Lite",ct5:"No no needed",
+    ct1:"Host",ct2:"You",ct3:"Together",ct4:"Verge Friends",ct5:"No no needed",
     c1:"<strong>The host sets the frame.</strong> What's on the table for the evening. And what isn't.",
     c2:"<strong>You set your own limits.</strong> Independently of the rest of the group.",
     c3:"<strong>For each person individually</strong> you decide how intimate it can get. Or whether it stays playful.",
-    c4:"<strong>Two players or ten.</strong> With Verge Lite, one phone is enough for the whole group. How far? Up to Close.",
+    c4:"<strong>Two players or ten.</strong> With Verge Friends, one phone is enough for the whole group. How far? Up to Close.",
     c5:"<strong>Cards only appear when everyone involved has said yes.</strong> No one sees what the others enter.",
     privacy:"Imprint &amp; Privacy Policy",
     contact:"Contact"
@@ -479,6 +496,7 @@ const T={
 let lang="de";
 function setLang(l){
   lang=l;document.documentElement.lang=l;
+  document.title=T[l].pageTitle;
   document.getElementById("btn-de").classList.toggle("active",l==="de");
   document.getElementById("btn-en").classList.toggle("active",l==="en");
   const t=T[l];
