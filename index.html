@@ -68,19 +68,14 @@ nav{position:relative;display:flex;align-items:center;justify-content:center;pad
 .hero-copy{font-family:"Inter",sans-serif;font-size:15px;font-weight:300;line-height:2;color:var(--ink2);animation:up .8s cubic-bezier(.16,1,.3,1) .18s both;max-width:400px;margin-top:52px}
 .hero-copy strong{color:var(--ink);font-weight:400}
 
-/* right col — signup */
+/* right col — launch */
 .hero-right{padding:80px 0 80px 52px;display:flex;flex-direction:column;justify-content:flex-start;gap:0;animation:up .8s cubic-bezier(.16,1,.3,1) .14s both}
 
-.signup-ey{font-family:"Cormorant Garamond",serif;font-size:20px;font-weight:500;font-style:italic;letter-spacing:.01em;color:var(--ink);margin-bottom:22px}
-.sfield{width:100%;background:transparent;border:none;border-bottom:1px solid var(--rule);padding:14px 0;color:var(--ink);font-family:"Inter",sans-serif;font-size:15px;font-weight:300;outline:none;transition:border-color .25s;display:block}
-.sfield:focus{border-bottom-color:rgba(46,196,182,.45)}
-.sfield::placeholder{color:rgba(242,242,242,.38)}
-.sbtn{width:100%;background:var(--a1);border:none;border-radius:2px;padding:16px 20px;color:#0a0a0a;font-family:"Inter",sans-serif;font-size:10px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;cursor:pointer;transition:all .3s;text-align:left;display:flex;justify-content:space-between;align-items:center;margin-top:18px}
-.sbtn::after{content:'→';font-size:15px;letter-spacing:0;font-weight:400;transition:transform .3s}
-.sbtn:hover{background:var(--ink);color:#0a0a0a}
-.sbtn:hover::after{transform:translateX(6px)}
-.snote{font-family:"Inter",sans-serif;font-size:9px;font-weight:300;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,250,250,.22);margin-top:18px}
-.success-msg{display:none;padding:24px 0;font-family:"Cormorant Garamond",serif;font-size:22px;font-style:italic;font-weight:400;color:var(--a1)}
+.launch-ey{font-family:"Inter",sans-serif;font-size:9px;font-weight:400;letter-spacing:.28em;text-transform:uppercase;color:rgba(250,250,250,.38);margin-bottom:18px}
+.launch-date{font-family:"Cormorant Garamond",serif;font-size:52px;line-height:1.05;font-weight:500;font-style:italic;letter-spacing:-.01em;color:var(--ink);margin:0}
+.launch-rule{width:44px;height:1px;background:var(--a1);opacity:.55;margin:24px 0 18px}
+.launch-note{font-family:"Inter",sans-serif;font-size:11px;font-weight:300;letter-spacing:.16em;text-transform:uppercase;color:rgba(250,250,250,.45);margin:0}
+@media(max-width:900px){.launch-date{font-size:40px}}
 
 /* badges */
 .badges{display:flex;flex-direction:column;gap:6px;margin-top:auto;padding-top:48px}
@@ -291,7 +286,6 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
 <div class="site">
   <nav>
     <div class="logo"><img src="logo.png" alt="Verge"></div>
-    <span class="nav-label" id="t-navtag">Demnächst verfügbar</span>
   </nav>
 
   <div class="social-bar">
@@ -346,22 +340,19 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
 
     <div class="hero-right">
       <div>
-        <p class="signup-ey" id="t-label">Sei beim Start dabei!</p>
-        <div id="signup-form">
-          <input class="sfield" type="email" id="email-input" placeholder="deine@email.de" autocomplete="email">
-          <button class="sbtn" onclick="handleSignup()"><span id="t-btn">Benachrichtigen</span></button>
-          <p class="snote" id="t-note">Kein Spam. Nur der Launch.</p>
-        </div>
-        <div class="success-msg" id="success-msg">✦ Fast! Bitte bestätige deine Anmeldung per Mail.</div>
+        <p class="launch-ey" id="t-launch-ey">Verge erscheint am</p>
+        <p class="launch-date" id="t-launch-date">21. August 2026</p>
+        <div class="launch-rule"></div>
+        <p class="launch-note" id="t-launch-note">iOS und Android</p>
       </div>
       <div class="badges">
         <div class="badge">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="#d0d0d0"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-          <div><div class="badge-text-top">Coming Soon</div><div class="badge-text-main">App Store</div></div>
+          <div><div class="badge-text-top">21.08.2026</div><div class="badge-text-main">App Store</div></div>
         </div>
         <div class="badge">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="#d0d0d0"><path d="M3.18 23.76c.3.17.64.22.99.14l13.23-7.62-2.9-2.9-11.32 10.38zm-1.7-20.1C1.2 4 1 4.5 1 5.14v13.72c0 .64.2 1.14.49 1.48l.08.07 7.69-7.69v-.18L1.56 3.65l-.08.01zM20.49 10.7l-2.78-1.6-3.14 3.14 3.14 3.14 2.8-1.61c.8-.46.8-1.21-.02-1.67zM4.17.26L17.4 7.88l-2.9 2.9L4.17 1.4c-.4-.23-.78-.26-1.07-.08l-.01.01 1.08-.07z"/></svg>
-          <div><div class="badge-text-top">Coming Soon</div><div class="badge-text-main">Google Play</div></div>
+          <div><div class="badge-text-top">21.08.2026</div><div class="badge-text-main">Google Play</div></div>
         </div>
       </div>
     </div>
@@ -443,18 +434,16 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
     <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#105;&#110;&#102;&#111;&#64;&#112;&#108;&#97;&#121;&#118;&#101;&#114;&#103;&#101;&#46;&#97;&#112;&#112;" style="color:inherit;text-decoration:none">&#105;&#110;&#102;&#111;&#64;&#112;&#108;&#97;&#121;&#118;&#101;&#114;&#103;&#101;&#46;&#97;&#112;&#112;</a>
     <a href="privacy.html" id="t-privacy">Imprint &amp; Privacy Policy</a>
   </div>
-  <p class="copy">&copy; 2026 Verge</p>
+  <p class="copy">&copy; 2026 AmBuetioniert UG (haftungsbeschr&auml;nkt)</p>
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const T={
   de:{
     pageTitle:"Verge – Das Spiel für echte Begegnung",
-    navtag:"Demnächst verfügbar",
     hl1:"Spielerisch",hl2:"fängt es an.",hl3:"Wie weit es geht,",hl4:"entscheidet ihr.",
     sub:'Verge bringt euch zusammen.<br><strong>Neugierig, offen, mit Herz.</strong><br>Fünf Phasen. Ein Consent-System.',
-    label:"Sei beim Start dabei!",btn:"Benachrichtigen",placeholder:"deine@email.de",
-    note:"Kein Spam. Nur der Launch.",success:"✦ Fast! Bitte bestätige deine Anmeldung per Mail.",
+    launchEy:"Verge erscheint am",launchDate:"21. August 2026",launchNote:"iOS und Android",
     joker:"Zieh eine Karte",
     wk:"Wie eine warme Küche um Mitternacht.",
     aboutLabel:"Was ist Verge?",
@@ -472,11 +461,9 @@ const T={
   },
   en:{
     pageTitle:"Verge – The game for real connection",
-    navtag:"Coming soon",
     hl1:"It starts",hl2:"playful.",hl3:"How far it goes,",hl4:"that's up to you.",
     sub:'Verge brings you together.<br><strong>Curious, open, heartfelt.</strong><br>Five phases. One consent system.',
-    label:"Be there from day one",btn:"Notify me",placeholder:"your@email.com",
-    note:"No spam. Just the launch.",success:"✦ Almost! Please confirm your sign-up via email.",
+    launchEy:"Verge is out",launchDate:"August 21, 2026",launchNote:"iOS and Android",
     joker:"Draw a card",
     wk:"Like a warm kitchen at midnight.",
     aboutLabel:"What is Verge?",
@@ -500,16 +487,14 @@ function setLang(l){
   document.getElementById("btn-de").classList.toggle("active",l==="de");
   document.getElementById("btn-en").classList.toggle("active",l==="en");
   const t=T[l];
-  document.getElementById("t-navtag").textContent=t.navtag;
   document.getElementById("t-hl1").textContent=t.hl1;
   document.getElementById("t-hl2").textContent=t.hl2;
   document.getElementById("t-hl3").textContent=t.hl3;
   document.getElementById("t-hl4").textContent=t.hl4;
   document.getElementById("t-sub").innerHTML=t.sub;
-  document.getElementById("t-label").textContent=t.label;
-  document.getElementById("t-btn").textContent=t.btn;
-  document.getElementById("email-input").placeholder=t.placeholder;
-  document.getElementById("t-note").textContent=t.note;
+  document.getElementById("t-launch-ey").textContent=t.launchEy;
+  document.getElementById("t-launch-date").textContent=t.launchDate;
+  document.getElementById("t-launch-note").textContent=t.launchNote;
   document.getElementById("t-wk").textContent=t.wk;
   document.getElementById("t-about-label").textContent=t.aboutLabel;
   document.getElementById("t-about-text").textContent=t.aboutText;
@@ -543,17 +528,6 @@ function setLang(l){
   // Card labels neu auflösen (CARD_DATA.label ist sprachabhängig)
   if(typeof cShow==="function")cShow(cIdx);
 }
-function handleSignup(){
-  const e=document.getElementById("email-input").value.trim();
-  if(!e||!e.includes("@")){document.getElementById("email-input").focus();return;}
-  const fd=new FormData();
-  fd.append("EMAIL",e);fd.append("email_address_check","");fd.append("locale","de");fd.append("html_type","simple");
-  fetch("https://67ee15bb.sibforms.com/serve/MUIFAPjOVMvRdyszsoEOAALha8_inubGxGyECVMkpyekZk4iHMlPPGyfUaXV0WCT-bRdIGvyht69W4L_Mwk7ZK83WTosrWl9nYonG25c8FbTrCj3RReSsQ0fuKuDyJ4kCLsHaMyO48YCcka5OgbMZfb07DRPtn5uLM-eJFKEzw0zTldkLJSQwILEgD0eOsaIWmP9c-vhd1VE37YNGQ==",{method:"POST",body:fd,mode:"no-cors"}).finally(()=>{
-    document.getElementById("signup-form").style.display="none";
-    const s=document.getElementById("success-msg");s.style.display="block";s.innerHTML=T[lang].success;
-  });
-}
-document.getElementById("email-input").addEventListener("keydown",e=>{if(e.key==="Enter")handleSignup();});
 
 // ── KARTEN-SLIDER ────────────────────────────────────────────────────────────
 // Phasen-Labels (DE/EN) und -Farben für jede Karte (card-01.jpg bis card-10.jpg)
