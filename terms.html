@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nutzungsbedingungen – Verge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#1A1A1A;--text:#F0F0F0;--dim:#888;--a1:#2EC4B6;--a2:#3A86FF;--border:#2A2A2A}
+html,body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.75}
+.wrap{position:relative;z-index:10;max-width:720px;margin:0 auto;padding:48px 24px 80px}
+#c{position:fixed;inset:0;z-index:0;pointer-events:none}
+.back{display:inline-flex;align-items:center;gap:8px;color:var(--a1);text-decoration:none;
+  font-size:13px;letter-spacing:.04em;margin-bottom:52px;opacity:.8;transition:opacity .2s}
+.back:hover{opacity:1}
+.back::before{content:"←"}
+.site-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,40px);
+  font-weight:300;margin-bottom:6px;line-height:1.1}
+.site-title em{font-style:italic;
+  background:linear-gradient(135deg,#2EC4B6,#3A86FF,#7B61FF);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.site-sub{color:var(--dim);font-size:13px;margin-bottom:48px}
+.lang-toggle{display:flex;gap:8px;margin-bottom:48px}
+.lang-btn{background:none;border:1px solid var(--border);color:var(--dim);
+  padding:5px 14px;border-radius:20px;font-size:12px;cursor:pointer;
+  font-family:'Inter',sans-serif;letter-spacing:.06em;transition:all .2s}
+.lang-btn.active{border-color:var(--a1);color:var(--a1)}
+section{margin-bottom:52px}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,4vw,30px);
+  font-weight:300;margin-bottom:28px;padding-bottom:14px;
+  border-bottom:1px solid var(--border)}
+h2{font-size:12px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--a1);margin-top:32px;margin-bottom:10px}
+p{color:#ccc;margin-bottom:14px;font-size:14px}
+a{color:var(--a2);text-decoration:none}
+a:hover{text-decoration:underline}
+ul{color:#ccc;font-size:14px;padding-left:20px;margin-bottom:14px}
+li{margin-bottom:6px}
+address{font-style:normal;color:#ccc;font-size:14px;line-height:1.9;margin-bottom:14px}
+hr{border:none;border-top:1px solid var(--border);margin:52px 0}
+.section-label{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--dim);margin-top:44px;margin-bottom:4px;padding-top:8px;
+  border-top:1px solid var(--border)}
+.footer{color:var(--dim);font-size:12px;text-align:center;margin-top:64px}
+[data-lang]{display:none}
+[data-lang].visible{display:block}
+</style>
+</head>
+<body>
+
+<canvas id="c"></canvas>
+
+<div class="wrap">
+
+<a href="index.html" class="back">Zur&uuml;ck zur Startseite</a>
+
+<div class="site-title">Verge &ndash; <em>echte N&auml;he</em></div>
+<div class="site-sub">playverge.app</div>
+
+<div class="lang-toggle">
+  <button class="lang-btn active" onclick="setLang('de')">DE</button>
+  <button class="lang-btn" onclick="setLang('en')">EN</button>
+</div>
+
+<!-- ═══════════════════════ DEUTSCH ═══════════════════════ -->
+<div data-lang="de" class="visible">
+
+<section id="agb">
+<h1>Allgemeine Gesch&auml;ftsbedingungen</h1>
+<p>Stand: Juli 2026</p>
+
+<h2>1. Geltungsbereich und Vertragspartner</h2>
+<p>Diese Allgemeinen Gesch&auml;ftsbedingungen (AGB) regeln die Nutzung der mobilen App <strong>Verge</strong> (nachfolgend &bdquo;App&ldquo;) sowie den Erwerb kostenpflichtiger Inhalte innerhalb der App. Anbieter der App ist die <strong>AmBuetioniert UG (haftungsbeschr&auml;nkt)</strong>, J&uuml;licher Str. 24, 50674 K&ouml;ln, eingetragen im Handelsregister des Amtsgerichts K&ouml;ln unter HRB 128605, vertreten durch den Gesch&auml;ftsf&uuml;hrer Kilian Amrehn (siehe Impressum). Mit dem Download und der Nutzung der App akzeptierst du diese AGB. Du bist Verbraucher im Sinne des &sect; 13 BGB, sofern du die App zu Zwecken nutzt, die &uuml;berwiegend weder deiner gewerblichen noch deiner selbstst&auml;ndigen beruflichen T&auml;tigkeit zugerechnet werden k&ouml;nnen.</p>
+
+<h2>2. Vertragsgegenstand</h2>
+<p>Verge ist ein Gruppenkartenspiel, das Gespr&auml;che und Interaktionen zwischen Spielenden anregt. Die App bietet eine kostenlose Grundversion mit einer begrenzten Auswahl an Karten und Funktionen.</p>
+<p>Erweiterte Inhalte und Funktionen sind &uuml;ber folgende kostenpflichtige Angebote verf&uuml;gbar:</p>
+<ul>
+  <li><strong>Verge Pro</strong> &ndash; einmaliger Kauf, dauerhafte Freischaltung des erweiterten Kartendecks. Keine Laufzeit, keine automatische Verl&auml;ngerung.</li>
+  <li><strong>Verge Unlimited</strong> &ndash; Abonnement mit automatischer Verl&auml;ngerung, w&auml;hlbar als Monats- oder Jahresabo. Schaltet die Auswahl aller verf&uuml;gbaren Karten-Packs frei. Einzelheiten siehe Abschnitt 6.</li>
+</ul>
+
+<h2>3. Vertragsschluss bei In-App-K&auml;ufen</h2>
+<p>Kostenpflichtige Inhalte werden ausschlie&szlig;lich &uuml;ber die Zahlungsabwicklung des jeweiligen App Stores (Apple App Store oder Google Play Store) erworben. Der Vertrag kommt mit Best&auml;tigung des Kaufs durch den App Store zustande. Es gelten zus&auml;tzlich die Nutzungsbedingungen des jeweiligen Stores.</p>
+
+<h2>4. Preise und Zahlung</h2>
+<p>Die aktuellen Preise werden dir vor dem Kauf im App Store angezeigt. Die Zahlung erfolgt ausschlie&szlig;lich &uuml;ber das im jeweiligen App Store hinterlegte Zahlungsmittel. Wir selbst erhalten keine Zahlungs- oder Kreditkarteninformationen.</p>
+
+<h2>5. Verge Pro (Einmalkauf)</h2>
+<p>Mit dem einmaligen Erwerb von Verge Pro erh&auml;ltst du dauerhaft Zugriff auf die freigeschalteten Inhalte auf allen Ger&auml;ten, die mit deiner Apple ID bzw. deinem Google-Konto verkn&uuml;pft sind. Es entstehen keine Folgekosten und keine automatische Verl&auml;ngerung.</p>
+<p>Solltest du die App auf einem neuen Ger&auml;t installieren oder den Kauf versehentlich wiederholen wollen, kannst du &uuml;ber die Funktion &bdquo;Eink&auml;ufe wiederherstellen&ldquo; in den App-Einstellungen deine bisherigen K&auml;ufe ohne zus&auml;tzliche Kosten erneut aktivieren.</p>
+
+<h2>6. Verge Unlimited (Abonnement mit automatischer Verl&auml;ngerung)</h2>
+<p><strong>Leistungsumfang.</strong> Verge Unlimited schaltet die Auswahl aller verf&uuml;gbaren Karten-Packs frei. Die Packs werden dadurch nicht automatisch aktiviert: Wer eine Runde er&ouml;ffnet, w&auml;hlt weiterhin aktiv aus, welche Packs im jeweiligen Spiel verwendet werden.</p>
+<p><strong>Laufzeit und Preis.</strong> Verge Unlimited ist in zwei Varianten erh&auml;ltlich:</p>
+<ul>
+  <li><strong>Monatlich</strong> &ndash; Laufzeit ein Monat, 5,99 Euro pro Monat.</li>
+  <li><strong>J&auml;hrlich</strong> &ndash; Laufzeit zw&ouml;lf Monate, 44,99 Euro pro Jahr. Der Zugang beginnt mit einem kostenlosen Testzeitraum von drei Tagen. Wird das Abonnement nicht sp&auml;testens 24 Stunden vor Ablauf des Testzeitraums gek&uuml;ndigt, geht es kostenpflichtig in die regul&auml;re Jahreslaufzeit &uuml;ber.</li>
+</ul>
+<p>Ma&szlig;geblich ist stets der Preis, der dir unmittelbar vor dem Kauf im jeweiligen App Store angezeigt wird. Preise k&ouml;nnen je nach Land und Steuers&auml;tzen abweichen.</p>
+<p><strong>Automatische Verl&auml;ngerung.</strong> Das Abonnement verl&auml;ngert sich automatisch um den jeweils gew&auml;hlten Zeitraum zum dann geltenden Preis, sofern es nicht sp&auml;testens 24 Stunden vor Ablauf der laufenden Periode gek&uuml;ndigt wird. Die Abbuchung erfolgt innerhalb von 24 Stunden vor Beginn der neuen Periode &uuml;ber das im App Store hinterlegte Zahlungsmittel.</p>
+<p><strong>K&uuml;ndigung.</strong> Die K&uuml;ndigung erfolgt ausschlie&szlig;lich &uuml;ber die Abo-Verwaltung des jeweiligen Stores, nicht &uuml;ber uns. Auf iOS unter Einstellungen, Apple-Konto, Abonnements. Auf Android im Google Play Store unter Zahlungen und Abos. Nach der K&uuml;ndigung bleibt der Zugang bis zum Ende der bereits bezahlten Periode bestehen. Eine anteilige R&uuml;ckerstattung f&uuml;r den nicht genutzten Teil einer laufenden Periode erfolgt nicht, soweit gesetzlich zul&auml;ssig.</p>
+<p><strong>Preis&auml;nderungen.</strong> &Uuml;ber &Auml;nderungen des Abopreises informieren wir dich rechtzeitig vor Wirksamwerden &uuml;ber den jeweiligen Store. Du kannst das Abonnement in diesem Fall vor Wirksamwerden der &Auml;nderung k&uuml;ndigen.</p>
+<p><strong>Wiederherstellung.</strong> Bei einem Ger&auml;tewechsel oder einer Neuinstallation kannst du ein bestehendes Abonnement &uuml;ber die Funktion &bdquo;Eink&auml;ufe wiederherstellen&ldquo; in den App-Einstellungen ohne zus&auml;tzliche Kosten reaktivieren, sofern dieselbe Apple ID bzw. dasselbe Google-Konto verwendet wird.</p>
+
+<h2>7. Widerrufsrecht</h2>
+<p>Du hast grunds&auml;tzlich das Recht, einen Vertrag &uuml;ber digitale Inhalte innerhalb von 14 Tagen ohne Angabe von Gr&uuml;nden zu widerrufen. Das Widerrufsrecht erlischt vorzeitig, sobald wir mit der Ausf&uuml;hrung des Vertrages begonnen haben, nachdem du ausdr&uuml;cklich zugestimmt hast, dass wir damit vor Ablauf der Widerrufsfrist beginnen, und deine Kenntnis davon best&auml;tigt hast, dass du durch deine Zustimmung mit Beginn der Ausf&uuml;hrung des Vertrages dein Widerrufsrecht verlierst (&sect; 356 Abs. 5 BGB). Da die Freischaltung von Verge Pro sowie von Abo-Inhalten unmittelbar nach Kauf erfolgt, erlischt das Widerrufsrecht in der Regel mit Abschluss der Transaktion.</p>
+<p>R&uuml;ckerstattungsanfragen sind direkt an den jeweiligen App Store zu richten: Apple (<a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>) bzw. Google Play (<a href="https://support.google.com/googleplay" target="_blank" rel="noopener">support.google.com/googleplay</a>).</p>
+
+<h2>8. Mindestalter</h2>
+<p>Die App ist ausschlie&szlig;lich f&uuml;r Personen ab 18 Jahren bestimmt. Mit der Nutzung der App sowie mit jedem Kauf kostenpflichtiger Inhalte best&auml;tigst du, dass du mindestens 18 Jahre alt bist. Minderj&auml;hrigen ist die Nutzung untersagt. Bei begr&uuml;ndeten Zweifeln an der Volljährigkeit behalten wir uns vor, den Zugang zur App oder zu kostenpflichtigen Inhalten einzuschr&auml;nken.</p>
+
+<h2>9. Nutzungsrechte</h2>
+<p>Wir r&auml;umen dir ein einfaches, nicht ausschlie&szlig;liches, nicht &uuml;bertragbares Recht zur pers&ouml;nlichen Nutzung der App auf deinen Ger&auml;ten ein. Eine kommerzielle Nutzung, Weitergabe, Ver&auml;nderung oder Ver&ouml;ffentlichung von Spielinhalten (insbesondere Karten) ist ohne schriftliche Zustimmung nicht gestattet.</p>
+
+<h2>10. Verantwortung der Nutzenden</h2>
+<p>Verge ist ein Spiel, das auf freiwilliger Teilnahme und gegenseitigem Einverst&auml;ndnis basiert. Du bist selbst daf&uuml;r verantwortlich, w&auml;hrend des Spiels respektvoll mit anderen Spielenden umzugehen und deine eigenen Grenzen sowie die der anderen zu respektieren. Die in der App vorgesehenen Consent-Mechanismen sind eine Hilfe, ersetzen aber nicht das eigene Urteilsverm&ouml;gen und die eigene Verantwortung.</p>
+
+<h2>11. Spielinhalt und Eigenverantwortung</h2>
+<p>Die in der App enthaltenen Fragen, Aufgaben und Karteninhalte sind als spielerische Impulse gedacht. Sie stellen keine Empfehlungen, Anweisungen oder medizinischen, therapeutischen, psychologischen oder sexuellen Ratschl&auml;ge dar. Ob, wann und wie du und deine Mitspielenden einzelnen Karten folgt, liegt ausschlie&szlig;lich in eurer eigenen Entscheidung und Verantwortung.</p>
+<p>Wir &uuml;bernehmen keine Gew&auml;hr daf&uuml;r, dass das Spiel zu bestimmten zwischenmenschlichen Ergebnissen, positiven Erfahrungen oder Ver&auml;nderungen in Beziehungen f&uuml;hrt. Jede Interaktion zwischen Spielenden erfolgt freiwillig und auf eigene Verantwortung. Eine Haftung f&uuml;r emotionale, psychische oder k&ouml;rperliche Folgen, die durch die Teilnahme am Spiel oder die Umsetzung einzelner Karten entstehen, ist ausgeschlossen, soweit nicht zwingende gesetzliche Bestimmungen entgegenstehen (siehe auch &sect;14 Haftung).</p>
+
+<h2>12. Verf&uuml;gbarkeit</h2>
+<p>Wir bem&uuml;hen uns um eine m&ouml;glichst unterbrechungsfreie Verf&uuml;gbarkeit der App. Eine hundertprozentige Verf&uuml;gbarkeit k&ouml;nnen wir technisch nicht garantieren. Wartungsarbeiten, Updates oder St&ouml;rungen k&ouml;nnen zu vor&uuml;bergehenden Einschr&auml;nkungen f&uuml;hren.</p>
+
+<h2>13. Gew&auml;hrleistung und Updates</h2>
+<p>F&uuml;r digitale Produkte gelten die gesetzlichen Gew&auml;hrleistungsvorschriften der &sect;&sect; 327 ff. BGB. Zeigt sich innerhalb eines Jahres nach Bereitstellung eines kostenpflichtigen Inhalts ein Mangel, wird vermutet, dass der Mangel bereits zum Zeitpunkt der Bereitstellung vorlag, es sei denn, diese Vermutung ist mit der Art des digitalen Produkts oder des Mangels unvereinbar (&sect; 327k BGB).</p>
+<p>Wir stellen Aktualisierungen der App bereit, die f&uuml;r den Erhalt der Vertragsm&auml;&szlig;igkeit erforderlich sind, einschlie&szlig;lich Sicherheitsupdates, und informieren dich in geeigneter Weise &uuml;ber deren Verf&uuml;gbarkeit. Die Installation von Updates obliegt dir; ein Vers&auml;umnis bei der Installation kann zu Funktionsverlusten f&uuml;hren und schlie&szlig;t Gew&auml;hrleistungsrechte insoweit aus, als der Mangel dadurch entstanden ist.</p>
+<p>Kompatibilit&auml;tsvoraussetzungen (unterst&uuml;tzte Betriebssysteme und Mindestversionen) werden im jeweiligen App Store angegeben. Eine Gew&auml;hrleistung f&uuml;r das Funktionieren der App au&szlig;erhalb dieser Umgebungen wird nicht &uuml;bernommen.</p>
+
+<h2>14. Haftung</h2>
+<p>Wir haften uneingeschr&auml;nkt f&uuml;r Sch&auml;den aus der Verletzung des Lebens, des K&ouml;rpers oder der Gesundheit sowie bei Vorsatz und grober Fahrl&auml;ssigkeit. Bei leichter Fahrl&auml;ssigkeit haften wir nur bei Verletzung wesentlicher Vertragspflichten, und zwar begrenzt auf den typischerweise vorhersehbaren Schaden. Eine weitergehende Haftung ist ausgeschlossen.</p>
+
+<h2>15. Datenschutz</h2>
+<p>Informationen zur Verarbeitung deiner personenbezogenen Daten findest du in unserer <a href="#datenschutz">Datenschutzerkl&auml;rung</a>.</p>
+
+<h2>16. &Auml;nderungen der AGB</h2>
+<p>Wir behalten uns vor, diese AGB bei Bedarf zu aktualisieren, insbesondere bei Einf&uuml;hrung neuer Funktionen oder Kaufoptionen oder bei &Auml;nderungen der Rechtslage. &Auml;nderungen werden rechtzeitig angek&uuml;ndigt. Die jeweils aktuelle Fassung ist auf dieser Seite abrufbar.</p>
+
+<h2>17. Anwendbares Recht und Gerichtsstand</h2>
+<p>Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts. F&uuml;r Verbraucher mit Wohnsitz in der EU gelten zus&auml;tzlich die zwingenden Verbraucherschutzvorschriften ihres Wohnsitzlandes. Gerichtsstand f&uuml;r Kaufleute ist K&ouml;ln.</p>
+
+<h2>18. Streitbeilegung</h2>
+<p>Hinweise zur Online-Streitbeilegung findest du im Impressum. Wir sind nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+
+<h2>19. Salvatorische Klausel</h2>
+<p>Sollte eine Bestimmung dieser AGB unwirksam sein oder werden, bleibt die Wirksamkeit der &uuml;brigen Bestimmungen unber&uuml;hrt. Die unwirksame Regelung wird durch eine solche ersetzt, die dem wirtschaftlichen Zweck der unwirksamen Bestimmung am n&auml;chsten kommt.</p>
+
+</section>
+
+<p style="color:var(--dim);font-size:13px">Die Datenschutzerkl&auml;rung und das Impressum findest du <a href="privacy.html">hier</a>.</p>
+
+</div>
+
+<!-- ═══════════════════════ ENGLISH ═══════════════════════ -->
+<div data-lang="en">
+
+<section>
+<h1>Terms of Service</h1>
+<p>Last updated: July 2026</p>
+
+<h2>1. Scope and Contracting Parties</h2>
+<p>These Terms of Service govern the use of the mobile application <strong>Verge</strong> (hereinafter &ldquo;the App&rdquo;) and the purchase of paid content within the App. The provider of the App is <strong>AmBuetioniert UG (haftungsbeschraenkt)</strong>, Juelicher Str. 24, 50674 Cologne, Germany, registered with the commercial register of the Local Court of Cologne under HRB 128605, represented by its Managing Director Kilian Amrehn (see Legal Notice). By downloading and using the App, you accept these Terms. You are considered a consumer within the meaning of &sect; 13 German Civil Code (BGB) if you use the App for purposes that are predominantly outside your trade, business or profession.</p>
+
+<h2>2. Subject Matter</h2>
+<p>Verge is a group card game designed to spark conversations and interactions between players. The App offers a free base version with a limited selection of cards and features.</p>
+<p>Additional content and features are available through the following paid options:</p>
+<ul>
+  <li><strong>Verge Pro</strong> &ndash; one-time purchase, permanent unlock of the extended card deck. No subscription term, no automatic renewal.</li>
+  <li><strong>Verge Unlimited</strong> &ndash; subscription with automatic renewal, available as a monthly or annual plan. Unlocks the selection of all available card packs. See section 6 for details.</li>
+</ul>
+
+<h2>3. Contract Conclusion for In-App Purchases</h2>
+<p>Paid content is purchased exclusively through the payment system of the respective app store (Apple App Store or Google Play Store). The contract is concluded upon confirmation of the purchase by the app store. The terms of the respective app store apply in addition to these Terms.</p>
+
+<h2>4. Prices and Payment</h2>
+<p>Current prices are displayed to you in the app store before purchase. Payment is processed solely via the payment method stored in the respective app store. We ourselves do not receive any payment or credit card information.</p>
+
+<h2>5. Verge Pro (One-Time Purchase)</h2>
+<p>With the one-time purchase of Verge Pro, you receive permanent access to the unlocked content on all devices linked to your Apple ID or Google account. There are no follow-up charges and no automatic renewal.</p>
+<p>If you install the App on a new device or accidentally try to repurchase, you can use the &ldquo;Restore Purchases&rdquo; function in the app settings to reactivate your previous purchases at no extra cost.</p>
+
+<h2>6. Verge Unlimited (Auto-Renewable Subscription)</h2>
+<p><strong>Scope.</strong> Verge Unlimited unlocks the selection of all available card packs. The packs are not activated automatically: whoever hosts a round still actively chooses which packs are used in that game.</p>
+<p><strong>Term and price.</strong> Verge Unlimited is available in two variants:</p>
+<ul>
+  <li><strong>Monthly</strong> &ndash; term of one month, EUR 5.99 per month.</li>
+  <li><strong>Annual</strong> &ndash; term of twelve months, EUR 44.99 per year. Access starts with a free trial period of three days. Unless cancelled at least 24 hours before the trial ends, it converts into the paid annual term.</li>
+</ul>
+<p>The price shown to you in the respective app store immediately before purchase always prevails. Prices may vary by country and applicable tax rates.</p>
+<p><strong>Automatic renewal.</strong> The subscription renews automatically for the selected period at the price then applicable, unless cancelled at least 24 hours before the end of the current period. Payment is charged within 24 hours before the start of the new period via the payment method stored in the app store.</p>
+<p><strong>Cancellation.</strong> Cancellation is made exclusively through the subscription management of the respective store, not through us. On iOS via Settings, Apple Account, Subscriptions. On Android via the Google Play Store under Payments and subscriptions. After cancellation, access remains available until the end of the period already paid for. No pro rata refund is given for the unused part of a current period, to the extent permitted by law.</p>
+<p><strong>Price changes.</strong> We will inform you of any change to the subscription price in good time before it takes effect, via the respective store. You may cancel the subscription before the change takes effect.</p>
+<p><strong>Restoring purchases.</strong> If you change devices or reinstall the App, you can reactivate an existing subscription at no extra cost using the &ldquo;Restore Purchases&rdquo; function in the app settings, provided the same Apple ID or Google account is used.</p>
+
+<h2>7. Right of Withdrawal</h2>
+<p>You have the right to withdraw from a contract for digital content within 14 days without giving reasons. The right of withdrawal expires prematurely as soon as we have begun performance of the contract after you have expressly agreed to us beginning before the expiry of the withdrawal period and have confirmed your awareness that, by giving your consent to the start of performance, you will lose your right of withdrawal (&sect; 356 para. 5 BGB). Since the activation of Verge Pro and subscription content occurs immediately upon purchase, the right of withdrawal typically expires with the completion of the transaction.</p>
+<p>Refund requests must be directed to the respective app store: Apple (<a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>) or Google Play (<a href="https://support.google.com/googleplay" target="_blank" rel="noopener">support.google.com/googleplay</a>).</p>
+
+<h2>8. Minimum Age</h2>
+<p>The App is intended exclusively for users aged 18 and over. By using the App and by making any purchase of paid content, you confirm that you are at least 18 years old. Use by minors is prohibited. If we have reasonable doubts about your age, we reserve the right to restrict access to the App or to paid content.</p>
+
+<h2>9. Usage Rights</h2>
+<p>We grant you a simple, non-exclusive, non-transferable right to use the App personally on your devices. Commercial use, distribution, modification or publication of game content (in particular cards) is not permitted without our written consent.</p>
+
+<h2>10. User Responsibility</h2>
+<p>Verge is a game based on voluntary participation and mutual consent. You are personally responsible for engaging respectfully with other players during the game and for respecting your own boundaries as well as those of others. The consent mechanisms provided in the App are a supporting tool and do not replace your own judgement and responsibility.</p>
+
+<h2>11. Game Content and Personal Responsibility</h2>
+<p>The questions, prompts and card content in the App are intended as playful impulses. They do not constitute recommendations, instructions or medical, therapeutic, psychological or sexual advice. Whether, when and how you and your fellow players follow individual cards is your own decision and sole responsibility.</p>
+<p>We make no guarantee that the game will lead to specific interpersonal outcomes, positive experiences or changes in relationships. Any interaction between players is voluntary and at your own risk. Liability for emotional, psychological or physical consequences arising from participation in the game or from following individual cards is excluded, unless mandatory legal provisions require otherwise (see also &sect;14 Liability).</p>
+
+<h2>12. Availability</h2>
+<p>We strive to ensure that the App is available with as few interruptions as possible. We cannot technically guarantee one hundred percent availability. Maintenance, updates or disruptions may lead to temporary limitations.</p>
+
+<h2>13. Warranty and Updates</h2>
+<p>The statutory warranty provisions of &sect;&sect; 327 et seq. German Civil Code (BGB) apply to digital products. If a defect becomes apparent within one year of the provision of paid content, it is presumed that the defect already existed at the time of provision, unless this presumption is incompatible with the nature of the digital product or the defect (&sect; 327k BGB).</p>
+<p>We provide updates to the App that are necessary to maintain contractual conformity, including security updates, and will inform you appropriately of their availability. Installation of updates is your responsibility; failure to install may lead to loss of functionality and excludes warranty rights to the extent that the defect was caused thereby.</p>
+<p>Compatibility requirements (supported operating systems and minimum versions) are stated in the respective app store. No warranty is provided for the functioning of the App outside these environments.</p>
+
+<h2>14. Liability</h2>
+<p>We are fully liable for damage arising from injury to life, body or health, as well as for intent and gross negligence. In the case of slight negligence, we are only liable in the event of a breach of essential contractual obligations, and in such cases only for damage typically foreseeable at the time of contract conclusion. Any further liability is excluded.</p>
+
+<h2>15. Data Protection</h2>
+<p>For information on the processing of your personal data, please see our <a href="#datenschutz">Privacy Policy</a>.</p>
+
+<h2>16. Changes to These Terms</h2>
+<p>We reserve the right to update these Terms as needed, in particular when introducing new features or purchase options or in response to changes in the legal framework. Changes will be announced in good time. The current version is always available on this page.</p>
+
+<h2>17. Applicable Law and Jurisdiction</h2>
+<p>German law applies to the exclusion of the UN Convention on Contracts for the International Sale of Goods. For consumers residing in the EU, the mandatory consumer protection provisions of their country of residence apply in addition. For merchants, the place of jurisdiction is Cologne, Germany.</p>
+
+<h2>18. Dispute Resolution</h2>
+<p>Information on online dispute resolution can be found in the Legal Notice. We are not obliged to participate in dispute resolution proceedings before a consumer arbitration board.</p>
+
+<h2>19. Severability</h2>
+<p>If any provision of these Terms is or becomes invalid, the validity of the remaining provisions shall remain unaffected. The invalid provision shall be replaced by one that comes closest to the economic purpose of the invalid provision.</p>
+
+</section>
+
+<p style="color:var(--dim);font-size:13px">You can find the privacy policy and legal notice <a href="privacy.html">here</a>.</p>
+
+</div>
+
+<div class="footer">
+  <div style="margin-bottom:10px">
+    <a href="index.html" style="color:var(--dim);margin:0 10px;text-decoration:none" data-footer-home>Startseite</a>
+    <a href="privacy.html" style="color:var(--dim);margin:0 10px;text-decoration:none" data-footer-privacy>Impressum &amp; Datenschutz</a>
+    <a href="contact.html" style="color:var(--a1);margin:0 10px;text-decoration:none" data-footer-contact>Kontakt</a>
+  </div>
+  Verge &middot; <a href="mailto:info@playverge.app" style="color:inherit">info@playverge.app</a> &middot; playverge.app
+</div>
+
+</div>
+
+<script>
+function setLang(l){
+  document.querySelectorAll('[data-lang]').forEach(el=>{
+    el.classList.toggle('visible',el.dataset.lang===l);
+  });
+  document.querySelectorAll('.lang-btn').forEach(btn=>{
+    btn.classList.toggle('active',btn.textContent.toLowerCase()===l);
+  });
+  document.documentElement.lang=l;
+  // Footer translations
+  const home=document.querySelector('[data-footer-home]');
+  const contact=document.querySelector('[data-footer-contact]');
+  if(home)home.textContent=(l==='en')?'Home':'Startseite';
+  if(contact)contact.textContent=(l==='en')?'Contact':'Kontakt';
+  const priv=document.querySelector('[data-footer-privacy]');
+  if(priv)priv.innerHTML=(l==='en')?'Legal Notice &amp; Privacy':'Impressum &amp; Datenschutz';
+}
+</script>
+
+<script>
+// VERGE AnalogAmbientBackground — JS port of Flutter widget (AnalogAmbientBackground v4)
+// 8 Blobs in 3 Tiefenschichten (Base/Accent/Highlight) mit Phasen-Offsets 0/0.10/0.20
+// 1000 statische Dust-Partikel auf Offscreen-Canvas (nur bei Resize neu gerendert)
+// 120s Ping-Pong-Farbzyklus, feste Epoche fuer Konsistenz zwischen Sessions
+(function(){
+const canvas=document.getElementById("c"),ctx=canvas.getContext("2d");
+
+// 5 Paletten, je 4 Stufen [darkest, dark, mid, light]
+const PALETTES=[
+  [[12,38,35],[22,70,63],[38,128,118],[95,160,152]],
+  [[8,18,42],[12,58,115],[50,100,175],[120,155,200]],
+  [[20,12,42],[40,28,115],[90,75,175],[145,135,195]],
+  [[42,15,15],[100,30,30],[175,85,80],[205,140,135]],
+  [[38,8,6],[90,22,18],[165,55,45],[195,110,100]]
+];
+
+// 8 Blobs: [bx, by, ax, ay, fx, fy, px, py, rf, co, colorIdx]
+const SEEDS=[
+  [0.22,0.18,55,65,0.55,0.45,0.0,1.5,0.92,0.58,0],
+  [0.78,0.78,60,58,0.50,0.65,2.0,0.3,0.88,0.55,0],
+  [0.50,0.50,70,60,0.48,0.52,3.2,2.8,0.95,0.45,0],
+  [0.45,0.30,55,52,0.80,0.65,3.5,2.0,0.55,0.82,1],
+  [0.72,0.42,48,55,0.72,0.88,4.5,1.0,0.50,0.78,1],
+  [0.28,0.68,52,48,0.88,0.55,1.5,3.5,0.48,0.80,1],
+  [0.50,0.28,35,42,1.05,1.10,5.5,4.0,0.30,0.90,2],
+  [0.25,0.52,32,38,1.20,0.95,0.5,5.5,0.26,0.92,2]
+];
+
+const CYCLE_MS=120000;
+const EPOCH_MS=1735689600000;
+const ACCENT_OFFSET=0.10;
+const HIGHLIGHT_OFFSET=0.20;
+const DUST_DENSITY=1000;
+const DUST_BRIGHTNESS=0.50;
+const DUST_CHAOS=0.60;
+
+// Offscreen canvas fuer Dust-Layer (statisch, nur bei Resize neu rendern)
+const dustCanvas=document.createElement("canvas");
+const dctx=dustCanvas.getContext("2d");
+
+let dust=[],lw=0,lh=0;
+
+// Utils
+const clamp=(v,lo,hi)=>Math.max(lo,Math.min(hi,v));
+const lerpRgb=(a,b,t)=>[
+  Math.round(clamp(a[0]+(b[0]-a[0])*t,0,255)),
+  Math.round(clamp(a[1]+(b[1]-a[1])*t,0,255)),
+  Math.round(clamp(a[2]+(b[2]-a[2])*t,0,255))
+];
+const rgba=(c,a)=>`rgba(${c[0]},${c[1]},${c[2]},${a.toFixed(4)})`;
+const smoothPingPong=t=>(1-Math.cos(t*Math.PI*2))/2;
+
+function getPaletteAt(cyclePos){
+  let p=cyclePos-Math.floor(cyclePos);
+  if(p<0)p+=1;
+  const scaled=p*4;
+  const idx=Math.min(Math.floor(scaled),3);
+  const frac=scaled-idx;
+  const cur=PALETTES[idx],nxt=PALETTES[idx+1];
+  return[
+    lerpRgb(cur[0],nxt[0],frac),
+    lerpRgb(cur[1],nxt[1],frac),
+    lerpRgb(cur[2],nxt[2],frac),
+    lerpRgb(cur[3],nxt[3],frac)
+  ];
+}
+
+// Dust-Generation (matched Flutter _regenerateDust)
+function regenerateDust(){
+  const zoneCount=3+Math.floor(Math.random()*3);
+  const zones=[];
+  for(let i=0;i<zoneCount;i++){
+    zones.push({
+      cx:Math.random(),
+      cy:Math.random(),
+      radius:0.12+Math.random()*0.35,
+      densityMultiplier:0.3+Math.random()*2.5,
+      character:Math.floor(Math.random()*4)
+    });
+  }
+
+  const particles=[];
+  for(let i=0;i<DUST_DENSITY;i++){
+    const useZone=Math.random()<DUST_CHAOS;
+    let px,py,zone=null,character=3;
+
+    if(useZone&&zones.length>0){
+      let totalWeight=0;
+      for(const z of zones)totalWeight+=z.densityMultiplier;
+      let pick=Math.random()*totalWeight;
+      zone=zones[0];
+      for(const z of zones){
+        pick-=z.densityMultiplier;
+        if(pick<=0){zone=z;break;}
+      }
+      const theta=Math.random()*Math.PI*2;
+      const r=Math.pow(Math.random(),0.7)*zone.radius;
+      px=zone.cx+Math.cos(theta)*r;
+      py=zone.cy+Math.sin(theta)*r;
+      character=zone.character;
+    }else{
+      px=Math.random();
+      py=Math.random();
+    }
+
+    if(px<-0.05||px>1.05||py<-0.05||py>1.05)continue;
+
+    const alphaVar=0.4+Math.random()*0.6;
+    let alpha=DUST_BRIGHTNESS*alphaVar*0.6;
+    if(zone){
+      const dx=px-zone.cx,dy=py-zone.cy;
+      const d=Math.sqrt(dx*dx+dy*dy);
+      const zoneFalloff=clamp(1-(d/zone.radius)*0.3,0.3,1.0);
+      alpha*=zoneFalloff;
+    }
+
+    particles.push({
+      nx:px,ny:py,alpha:alpha,
+      angle:Math.random()*Math.PI*2,
+      character:character,
+      typeRoll:Math.random(),
+      sizeRoll:Math.random(),
+      lengthRoll:Math.random(),
+      curveRoll:Math.random()-0.5,
+      gapRoll:Math.random()
+    });
+  }
+  dust=particles;
+}
+
+function drawStroke(c,x,y,cos,sin,length,alpha,strokeWidth){
+  c.strokeStyle=`rgba(255,255,255,${clamp(alpha,0,1).toFixed(4)})`;
+  c.lineWidth=strokeWidth;
+  c.beginPath();
+  c.moveTo(x-cos*length*0.5,y-sin*length*0.5);
+  c.lineTo(x+cos*length*0.5,y+sin*length*0.5);
+  c.stroke();
+}
+
+function drawCurve(c,x,y,cos,sin,length,curveAmount,alpha,strokeWidth){
+  const perpCos=-sin,perpSin=cos;
+  c.strokeStyle=`rgba(255,255,255,${clamp(alpha,0,1).toFixed(4)})`;
+  c.lineWidth=strokeWidth;
+  c.beginPath();
+  c.moveTo(x-cos*length*0.5,y-sin*length*0.5);
+  c.quadraticCurveTo(
+    x+perpCos*curveAmount,
+    y+perpSin*curveAmount,
+    x+cos*length*0.5,
+    y+sin*length*0.5
+  );
+  c.stroke();
+}
+
+function drawDoubleStroke(c,x,y,cos,sin,length,gap,alpha,strokeWidth){
+  const perpCos=-sin,perpSin=cos;
+  drawStroke(c,x+perpCos*gap,y+perpSin*gap,cos,sin,length,alpha,strokeWidth);
+  drawStroke(c,x-perpCos*gap,y-perpSin*gap,cos,sin,length,alpha,strokeWidth);
+}
+
+// Rendert Dust einmal auf Offscreen-Canvas (statisch)
+function renderDustLayer(w,h){
+  dustCanvas.width=w;
+  dustCanvas.height=h;
+  dctx.clearRect(0,0,w,h);
+  dctx.lineCap="round";
+
+  for(const p of dust){
+    const x=p.nx*w,y=p.ny*h;
+    const cos=Math.cos(p.angle),sin=Math.sin(p.angle);
+    const alpha=clamp(p.alpha,0,1);
+
+    let typeRoll=p.typeRoll;
+    if(p.character===0)typeRoll=typeRoll*0.6;
+    else if(p.character===1)typeRoll=0.3+typeRoll*0.5;
+    else if(p.character===2)typeRoll=0.65+typeRoll*0.35;
+
+    if(typeRoll<0.30){
+      let radius;
+      if(p.sizeRoll<0.6)radius=0.5;
+      else if(p.sizeRoll<0.9)radius=0.8;
+      else radius=1.2;
+      dctx.fillStyle=`rgba(255,255,255,${alpha.toFixed(4)})`;
+      dctx.beginPath();
+      dctx.arc(x,y,radius,0,Math.PI*2);
+      dctx.fill();
+    }else if(typeRoll<0.50){
+      const length=2+p.lengthRoll*2;
+      drawStroke(dctx,x,y,cos,sin,length,alpha*0.9,0.6);
+    }else if(typeRoll<0.65){
+      const length=4+p.lengthRoll*4;
+      drawStroke(dctx,x,y,cos,sin,length,alpha*0.8,0.5);
+    }else if(typeRoll<0.78){
+      const length=5+p.lengthRoll*5;
+      drawCurve(dctx,x,y,cos,sin,length,p.curveRoll*4,alpha*0.75,0.5);
+    }else if(typeRoll<0.88){
+      const length=10+p.lengthRoll*10;
+      drawStroke(dctx,x,y,cos,sin,length,alpha*0.6,0.4);
+    }else if(typeRoll<0.95){
+      const length=8+p.lengthRoll*7;
+      drawCurve(dctx,x,y,cos,sin,length,p.curveRoll*6,alpha*0.65,0.4);
+    }else if(typeRoll<0.98){
+      const length=3+p.lengthRoll*3;
+      const gap=1+p.gapRoll*1;
+      drawDoubleStroke(dctx,x,y,cos,sin,length,gap,alpha*0.7,0.4);
+    }else{
+      const length=25+p.lengthRoll*15;
+      drawStroke(dctx,x,y,cos,sin,length,alpha*0.4,0.3);
+    }
+  }
+}
+
+function resize(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
+
+function frame(){
+  const w=canvas.width,h=canvas.height;
+  if(!w||!h){requestAnimationFrame(frame);return;}
+
+  // Dust bei Resize neu rendern
+  if(Math.abs(w-lw)>2||Math.abs(h-lh)>2){
+    renderDustLayer(w,h);
+    lw=w;lh=h;
+  }
+
+  const nowMs=Date.now();
+  const cycleValue=(nowMs%CYCLE_MS)/CYCLE_MS;
+
+  // Drei Schichten, drei Phasen: Base synchron, Accent/Highlight zeitlich versetzt
+  const basePos=smoothPingPong(cycleValue);
+  const accentPos=smoothPingPong(((cycleValue+ACCENT_OFFSET)%1+1)%1);
+  const highlightPos=smoothPingPong(((cycleValue+HIGHLIGHT_OFFSET)%1+1)%1);
+
+  const basePalette=getPaletteAt(basePos);
+  const accentPalette=getPaletteAt(accentPos);
+  const highlightPalette=getPaletteAt(highlightPos);
+
+  const rawTime=(nowMs-EPOCH_MS)/1000.0;
+  const ts=rawTime*0.07;
+
+  // BG aus Base-Palette (dunkelste Stufe)
+  ctx.fillStyle=rgba(basePalette[0],1);
+  ctx.fillRect(0,0,w,h);
+
+  // 8 Blobs
+  for(const s of SEEDS){
+    const bx=s[0],by=s[1],ax=s[2],ay=s[3];
+    const fx=s[4],fy=s[5],px=s[6],py=s[7];
+    const rf=s[8],co=s[9];
+    const colorIdx=s[10]|0;
+
+    const x=w*bx+Math.sin(ts*fx+px)*ax;
+    const y=h*by+Math.cos(ts*fy+py)*ay;
+    const r=w*rf+Math.sin(ts*0.9+px)*10;
+
+    // Schicht-Palette: Dunkel aus Base, Mittel aus Accent, Hell aus Highlight
+    let color;
+    if(colorIdx===0)color=basePalette[1];
+    else if(colorIdx===1)color=accentPalette[2];
+    else color=highlightPalette[3];
+
+    const g=ctx.createRadialGradient(x,y,0,x,y,r);
+    g.addColorStop(0,rgba(color,co));
+    g.addColorStop(0.35,rgba(color,co*0.65));
+    g.addColorStop(0.75,rgba(color,co*0.18));
+    g.addColorStop(1,rgba(color,0));
+    ctx.fillStyle=g;
+    ctx.fillRect(0,0,w,h);
+  }
+
+  // Dust-Layer (statisches Offscreen-Canvas)
+  ctx.drawImage(dustCanvas,0,0);
+
+  requestAnimationFrame(frame);
+}
+
+regenerateDust();
+resize();
+window.addEventListener("resize",resize);
+requestAnimationFrame(frame);
+
+// Analog-Scan-Effekt: Dust alle 5s neu wuerfeln (wie ein neues eingescanntes Bild)
+setInterval(()=>{
+  regenerateDust();
+  if(canvas.width>0&&canvas.height>0)renderDustLayer(canvas.width,canvas.height);
+},5000);
+})();
+</script>
+</body>
+</html>

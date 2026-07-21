@@ -433,6 +433,7 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
     <a href="contact.html" id="t-contact">Kontakt</a>
     <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#105;&#110;&#102;&#111;&#64;&#112;&#108;&#97;&#121;&#118;&#101;&#114;&#103;&#101;&#46;&#97;&#112;&#112;" style="color:inherit;text-decoration:none">&#105;&#110;&#102;&#111;&#64;&#112;&#108;&#97;&#121;&#118;&#101;&#114;&#103;&#101;&#46;&#97;&#112;&#112;</a>
     <a href="privacy.html" id="t-privacy">Imprint &amp; Privacy Policy</a>
+    <a href="terms.html" id="t-terms">Nutzungsbedingungen</a>
   </div>
   <p class="copy">&copy; 2026 AmBuetioniert UG (haftungsbeschr&auml;nkt)</p>
 </footer>
@@ -457,6 +458,7 @@ const T={
     c4:"<strong>Zu zweit oder zu zehnt.</strong> Bei Verge Friends reicht ein Handy für die ganze Runde. Wie weit? Bis Nah.",
     c5:"<strong>Karten erscheinen nur, wenn alle Beteiligten Ja gesagt haben.</strong> Niemand sieht, was die anderen eingeben.",
     privacy:"Imprint &amp; Privacy Policy",
+    terms:"Nutzungsbedingungen",
     contact:"Kontakt"
   },
   en:{
@@ -477,6 +479,7 @@ const T={
     c4:"<strong>Two players or ten.</strong> With Verge Friends, one phone is enough for the whole group. How far? Up to Close.",
     c5:"<strong>Cards only appear when everyone involved has said yes.</strong> No one sees what the others enter.",
     privacy:"Imprint &amp; Privacy Policy",
+    terms:"Terms of Service",
     contact:"Contact"
   }
 };
@@ -516,6 +519,7 @@ function setLang(l){
   document.getElementById("t-c4").innerHTML=t.c4;
   document.getElementById("t-c5").innerHTML=t.c5;
   document.getElementById("t-privacy").innerHTML=t.privacy;
+  document.getElementById("t-terms").innerHTML=t.terms;
   document.getElementById("t-contact").innerHTML=t.contact;
   document.getElementById("t-joker").textContent=t.joker;
   // Card image src je Sprache umschalten (card-XX.jpg DE / card-XX-en.jpg EN)
