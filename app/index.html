@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Verge</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#1A1A1A;--text:#F0F0F0;--dim:#888;--a1:#2EC4B6;--border:#2A2A2A}
+html,body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;
+  line-height:1.7;min-height:100vh}
+body{display:flex;align-items:center;justify-content:center;
+  padding:max(28px,env(safe-area-inset-top)) 22px max(28px,env(safe-area-inset-bottom))}
+.wrap{width:100%;max-width:380px;text-align:center}
+.brand{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;
+  font-style:italic;line-height:1.1;margin-bottom:10px;
+  background:linear-gradient(135deg,#2EC4B6,#3A86FF,#7B61FF);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sub{color:var(--dim);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  margin-bottom:34px}
+.btn{display:block;width:100%;text-decoration:none;background:var(--text);color:#1A1A1A;
+  font-size:15px;font-weight:500;padding:16px 20px;border-radius:999px;margin-bottom:12px;
+  transition:transform .15s,opacity .15s}
+.btn.alt{background:none;color:var(--text);border:1px solid rgba(240,240,240,.28);font-weight:400}
+.btn:active{transform:scale(.985);opacity:.9}
+.hint{color:var(--dim);font-size:12px;margin-top:18px}
+.hint a{color:var(--a1);text-decoration:none}
+.foot{margin-top:40px;font-size:11px;color:#555}
+.foot a{color:#555;text-decoration:none;margin:0 8px}
+.lang{display:none;gap:6px;justify-content:center;margin-top:26px}
+.lang button{background:none;border:1px solid var(--border);color:var(--dim);
+  padding:4px 12px;border-radius:20px;font-size:11px;cursor:pointer;
+  font-family:'Inter',sans-serif;letter-spacing:.06em;transition:all .2s}
+.lang button.active{border-color:var(--a1);color:var(--a1)}
+#desktop,#fallback{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="brand">Verge</div>
+  <div class="sub" id="sub">Weiterleitung zum Store</div>
+
+  <div id="desktop">
+    <a class="btn alt" id="d-ios" href="#">Im App Store öffnen</a>
+    <a class="btn alt" id="d-and" href="#">Bei Google Play öffnen</a>
+  </div>
+
+  <div id="fallback">
+    <a class="btn" id="f-link" href="#">Zum Store</a>
+  </div>
+
+  <div class="lang" id="lang">
+    <button data-l="de">DE</button>
+    <button data-l="en">EN</button>
+  </div>
+
+  <div class="foot">
+    <a href="/privacy.html" id="f-privacy">Impressum &amp; Datenschutz</a>
+    <a href="/terms.html" id="f-terms">Nutzungsbedingungen</a>
+  </div>
+
+</div>
+
+<script>
+/* ===== Die einzigen Werte, die sich ändern können ===== */
+var APPLE = "https://apps.apple.com/app/id6761114559";
+var GOOGLE = "https://play.google.com/store/apps/details?id=com.vergeapp.verge";
+/* ===================================================== */
+
+var en = (navigator.language || "de").toLowerCase().indexOf("de") !== 0;
+var ua = navigator.userAgent || "";
+var touch = (navigator.maxTouchPoints || 0) > 1;
+
+var dev = "desktop";
+if (/Android/i.test(ua)) dev = "android";
+else if (/iPhone|iPod|iPad/i.test(ua)) dev = "ios";
+else if (/Macintosh/i.test(ua) && touch) dev = "ios"; /* iPadOS meldet sich als Mac */
+
+document.getElementById("d-ios").href = APPLE;
+document.getElementById("d-and").href = GOOGLE;
+
+function paintDesktop(){
+  document.getElementById("sub").textContent = en ? "Get the app" : "App laden";
+  document.getElementById("d-ios").textContent = en ? "Open in the App Store" : "Im App Store öffnen";
+  document.getElementById("d-and").textContent = en ? "Open in Google Play" : "Bei Google Play öffnen";
+  document.getElementById("f-privacy").textContent = en ? "Legal Notice & Privacy" : "Impressum & Datenschutz";
+  document.getElementById("f-terms").textContent = en ? "Terms of Use" : "Nutzungsbedingungen";
+  document.title = en ? "Get Verge" : "Verge";
+  document.documentElement.lang = en ? "en" : "de";
+  var b = document.querySelectorAll("#lang button");
+  b[0].classList.toggle("active", !en);
+  b[1].classList.toggle("active", en);
+}
+
+if (dev === "desktop") {
+  document.getElementById("desktop").style.display = "block";
+  document.getElementById("lang").style.display = "flex";
+  paintDesktop();
+  Array.prototype.forEach.call(document.querySelectorAll("#lang button"), function(btn){
+    btn.addEventListener("click", function(){
+      en = (btn.getAttribute("data-l") === "en");
+      paintDesktop();
+    });
+  });
+} else {
+  var target = (dev === "ios") ? APPLE : GOOGLE;
+  document.getElementById("sub").textContent = en ? "Taking you to the store" : "Weiterleitung zum Store";
+  var f = document.getElementById("f-link");
+  f.href = target;
+  f.textContent = en
+    ? ((dev === "ios") ? "Open in the App Store" : "Open in Google Play")
+    : ((dev === "ios") ? "Im App Store öffnen" : "Bei Google Play öffnen");
+  location.replace(target);
+  /* Falls die Weiterleitung im In-App-Browser blockiert wird, Knopf zeigen */
+  setTimeout(function(){
+    document.getElementById("sub").textContent = en ? "Almost there" : "Fast geschafft";
+    document.getElementById("fallback").style.display = "block";
+  }, 1200);
+}
+</script>
+</body>
+</html>
