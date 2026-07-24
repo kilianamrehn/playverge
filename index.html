@@ -118,7 +118,7 @@ nav{position:relative;display:flex;align-items:center;justify-content:center;pad
 
 /* footer */
 footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 56px 140px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.foot-links{display:flex;gap:28px}
+.foot-links{display:flex;gap:28px;flex-wrap:wrap;align-items:center}
 .foot-links a{color:var(--ink2);font-family:"Inter",sans-serif;font-size:8px;font-weight:300;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:color .2s;opacity:.5}
 .foot-links a:hover{color:var(--ink);opacity:1}
 .foot-links a#t-contact{font-size:11px;font-weight:500;opacity:1;color:var(--a1);padding:7px 16px;border:1px solid rgba(46,196,182,.35);transition:all .25s}
@@ -272,6 +272,18 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
   .joker-card-label-wrap{width:140px}
   .draw-card{--dcw:min(300px,82vw,42vh);width:var(--dcw);height:calc(var(--dcw) * 16 / 9)}
   .draw-face-front{padding:32px 24px}
+}
+
+@media(max-width:700px){
+  footer{flex-direction:column;align-items:center;text-align:center;gap:22px;
+    padding-top:34px;padding-bottom:120px}
+  .foot-links{flex-direction:column;gap:16px;width:100%}
+  .foot-links a{font-size:9px;letter-spacing:.14em;line-height:1.4;
+    max-width:100%;overflow-wrap:anywhere}
+  .foot-links a#t-contact{order:-1;font-size:12px;padding:11px 26px;
+    border-radius:999px;align-self:center}
+  .copy{font-size:8px;line-height:1.6;max-width:280px;margin:0 auto;
+    overflow-wrap:anywhere}
 }
 </style>
 </head>
