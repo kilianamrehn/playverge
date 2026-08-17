@@ -51,9 +51,9 @@ nav{position:relative;display:flex;align-items:center;justify-content:center;pad
 .nav-label{font-family:"Inter",sans-serif;font-size:9px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--ink2)}
 
 /* ── HERO ── */
-.hero{display:grid;grid-template-columns:1fr 320px;border-bottom:1px solid var(--rule);min-height:auto;align-items:stretch}
+.hero{display:grid;grid-template-columns:1fr 460px;gap:0;border-bottom:1px solid var(--rule);min-height:auto;align-items:center}
 
-.hero-left{padding:60px 40px 60px 0;display:flex;flex-direction:column;justify-content:flex-start}
+.hero-left{padding:72px 48px 72px 0;display:flex;flex-direction:column;justify-content:center}
 
 .eyebrow{font-family:"Inter",sans-serif;font-size:10px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:var(--ink2);margin-bottom:44px;animation:up .8s cubic-bezier(.16,1,.3,1) .05s both}
 
@@ -67,8 +67,6 @@ nav{position:relative;display:flex;align-items:center;justify-content:center;pad
 /* body copy */
 .hero-copy{font-family:"Inter",sans-serif;font-size:15px;font-weight:300;line-height:2;color:var(--ink2);animation:up .8s cubic-bezier(.16,1,.3,1) .18s both;max-width:400px;margin-top:52px}
 .hero-copy strong{color:var(--ink);font-weight:400}
-
-.hero-right{padding:80px 0 80px 52px;display:flex;flex-direction:column;justify-content:flex-start;gap:0;animation:up .8s cubic-bezier(.16,1,.3,1) .14s both}
 
 
 /* badges */
@@ -127,52 +125,21 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
 
 /* ── SOCIAL BAR ── */
 .social-bar{display:flex;align-items:center;gap:14px;padding:20px 0;border-bottom:1px solid var(--rule);animation:up .8s cubic-bezier(.16,1,.3,1) .07s both}
-.social-link{display:flex;align-items:center;gap:11px;color:var(--ink);text-decoration:none;font-family:"Inter",sans-serif;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;padding:9px 18px;border:1px solid transparent;border-radius:10px;position:relative;transition:transform .3s cubic-bezier(.16,1,.3,1),border-color .3s,background-color .3s;will-change:transform}
-.social-link svg{flex-shrink:0;transition:filter .3s ease}
-
-/* Telegram: Brand-Blue-Glow mit Breathing-Animation */
-.social-link.tg{border-color:rgba(38,165,228,.35);background:rgba(38,165,228,.06);box-shadow:0 0 0 rgba(38,165,228,0),0 0 14px rgba(38,165,228,.25);animation:tg-breathe 3.4s ease-in-out infinite}
-.social-link.tg svg{color:#5ec3ec;filter:drop-shadow(0 0 6px rgba(38,165,228,.6))}
-.social-link.tg:hover{transform:translateY(-2px) scale(1.04);border-color:rgba(38,165,228,.7);background:rgba(38,165,228,.14);box-shadow:0 0 0 rgba(38,165,228,0),0 0 28px rgba(38,165,228,.65),0 0 60px rgba(38,165,228,.25);animation-play-state:paused}
-.social-link.tg:hover svg{filter:drop-shadow(0 0 10px rgba(38,165,228,.9))}
-
-/* Instagram: Brand-Pink-Glow mit Breathing-Animation */
-.social-link.ig{border-color:rgba(225,48,108,.35);background:rgba(225,48,108,.06);box-shadow:0 0 0 rgba(225,48,108,0),0 0 14px rgba(225,48,108,.25);animation:ig-breathe 3.4s ease-in-out infinite}
-.social-link.ig svg{color:#ff4a7f;filter:drop-shadow(0 0 6px rgba(225,48,108,.6))}
-.social-link.ig:hover{transform:translateY(-2px) scale(1.04);border-color:rgba(225,48,108,.7);background:rgba(225,48,108,.14);box-shadow:0 0 0 rgba(225,48,108,0),0 0 28px rgba(225,48,108,.65),0 0 60px rgba(225,48,108,.25);animation-play-state:paused}
-.social-link.ig:hover svg{filter:drop-shadow(0 0 10px rgba(225,48,108,.9))}
-
-/* TikTok: Brand-Cyan-Glow mit Breathing-Animation (leicht phasenversetzt) */
-.social-link.tt{border-color:rgba(105,201,208,.35);background:rgba(105,201,208,.06);box-shadow:0 0 0 rgba(105,201,208,0),0 0 14px rgba(105,201,208,.25);animation:tt-breathe 3.4s ease-in-out 1.7s infinite}
-.social-link.tt svg{color:#7ad8e0;filter:drop-shadow(0 0 6px rgba(105,201,208,.6))}
-.social-link.tt:hover{transform:translateY(-2px) scale(1.04);border-color:rgba(105,201,208,.7);background:rgba(105,201,208,.14);box-shadow:0 0 0 rgba(105,201,208,0),0 0 28px rgba(105,201,208,.65),0 0 60px rgba(105,201,208,.25);animation-play-state:paused}
-.social-link.tt:hover svg{filter:drop-shadow(0 0 10px rgba(105,201,208,.9))}
-
-@keyframes tg-breathe{
-  0%,100%{box-shadow:0 0 0 rgba(38,165,228,0),0 0 14px rgba(38,165,228,.22);border-color:rgba(38,165,228,.30)}
-  50%   {box-shadow:0 0 0 rgba(38,165,228,0),0 0 22px rgba(38,165,228,.42);border-color:rgba(38,165,228,.55)}
-}
-@keyframes ig-breathe{
-  0%,100%{box-shadow:0 0 0 rgba(225,48,108,0),0 0 14px rgba(225,48,108,.22);border-color:rgba(225,48,108,.30)}
-  50%   {box-shadow:0 0 0 rgba(225,48,108,0),0 0 22px rgba(225,48,108,.42);border-color:rgba(225,48,108,.55)}
-}
-@keyframes tt-breathe{
-  0%,100%{box-shadow:0 0 0 rgba(105,201,208,0),0 0 14px rgba(105,201,208,.22);border-color:rgba(105,201,208,.30)}
-  50%   {box-shadow:0 0 0 rgba(105,201,208,0),0 0 22px rgba(105,201,208,.42);border-color:rgba(105,201,208,.55)}
-}
-
+.social-link{display:flex;align-items:center;justify-content:center;gap:0;
+  width:46px;height:46px;flex-shrink:0;
+  color:var(--ink);text-decoration:none;
+  font-size:0;letter-spacing:0;
+  border:1px solid rgba(242,242,242,.16);border-radius:50%;opacity:.6;
+  transition:transform .3s cubic-bezier(.16,1,.3,1),border-color .3s,opacity .3s;will-change:transform}
+.social-link svg{flex-shrink:0;width:19px;height:19px;color:var(--ink)}
+.social-link:hover{opacity:1;transform:translateY(-2px);border-color:rgba(242,242,242,.42)}
 .social-divider{display:none}
 
-/* Respects reduced-motion */
-@media (prefers-reduced-motion:reduce){
-  .social-link.tg,.social-link.ig,.social-link.tt{animation:none}
-}
-
-/* Mobile: nur Icons (drei Kanaele nebeneinander) */
+/* Mobile: Kreise, mittig */
 @media(max-width:640px){
-  .social-link{font-size:0;padding:10px;gap:0;letter-spacing:0;width:42px;height:42px;justify-content:center}
+  .social-link{width:44px;height:44px}
   .social-link svg{width:18px;height:18px}
-  .social-bar{gap:12px;padding:16px 0;justify-content:flex-start}
+  .social-bar{gap:14px;padding:16px 0;justify-content:center}
 }
 
 @media(max-width:900px){
@@ -181,7 +148,6 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
   .phases{align-items:center}
   .hero{grid-template-columns:1fr;min-height:auto}
   .hero-left{padding:60px 0 52px;border-right:none;border-bottom:1px solid var(--rule)}
-  .hero-right{padding:52px 0 60px}
   .cards-col{order:1}
   .about-sec{padding:48px 0}
   .badges{flex-direction:row}
@@ -201,9 +167,8 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
 
 /* ── KARTEN-SLIDER ── */
 @media(min-width:901px){
-  .hero{grid-template-columns:1fr 480px 1fr !important}
-  .cards-col{padding:80px 16px;display:flex;flex-direction:column;justify-content:center;align-items:center}
-  .hero-right{padding:80px 0 80px 44px !important}
+  .hero{grid-template-columns:1fr 440px !important}
+  .cards-col{padding:72px 0 72px 24px;display:flex;flex-direction:column;justify-content:center;align-items:center}
 }
 @media(max-width:900px){
   .cards-col{padding:44px 0;border-bottom:1px solid var(--rule)}
@@ -294,6 +259,18 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
   letter-spacing:.14em;text-transform:uppercase;color:rgba(250,250,250,.4);
   margin-bottom:16px}
 @media(max-width:900px){.store-cta{gap:10px}.store-btn{padding:13px 10px}}
+
+/* mobile store bar: nur <=900px sichtbar, direkt unter dem Logo */
+.store-block{margin-top:44px;animation:up .8s cubic-bezier(.16,1,.3,1) .22s both}
+.store-block .store-sub{margin-bottom:14px}
+.store-block .store-cta{margin-bottom:0;max-width:440px}
+.social-mobile{display:none}
+@media(max-width:900px){
+  .store-block{margin-top:38px}
+  .social-bar{display:none}
+  .social-mobile{display:flex;justify-content:center;gap:14px;margin-top:26px}
+  .hero-left{padding:48px 0 56px}
+}
 </style>
 </head>
 <body>
@@ -336,6 +313,25 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
         </h1>
       </div>
       <p class="hero-copy" id="t-sub">Verge bringt Menschen zusammen.<br><strong>Neugierig, offen, mit Herz.</strong><br>Fünf Phasen. Ein Consent-System.</p>
+
+      <div class="store-block">
+        <p class="store-sub" id="t-store-sub-m">Jetzt laden</p>
+        <div class="store-cta">
+          <a class="store-btn" href="https://apps.apple.com/app/id6761114559" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#111"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            <span class="st"><span class="s" id="t-store-apple-s-m">Laden im</span><span class="m">App Store</span></span>
+          </a>
+          <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.vergeapp.verge" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#111"><path d="M3.18 23.76c.3.17.64.22.99.14l13.23-7.62-2.9-2.9-11.32 10.38zm-1.7-20.1C1.2 4 1 4.5 1 5.14v13.72c0 .64.2 1.14.49 1.48l.08.07 7.69-7.69v-.18L1.56 3.65l-.08.01zM20.49 10.7l-2.78-1.6-3.14 3.14 3.14 3.14 2.8-1.61c.8-.46.8-1.21-.02-1.67zM4.17.26L17.4 7.88l-2.9 2.9L4.17 1.4c-.4-.23-.78-.26-1.07-.08l-.01.01 1.08-.07z"/></svg>
+            <span class="st"><span class="s" id="t-store-google-s-m">Jetzt bei</span><span class="m">Google Play</span></span>
+          </a>
+        </div>
+        <div class="social-mobile">
+          <a class="social-link tg" href="https://t.me/playverge" target="_blank" rel="noopener"><svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg></a>
+          <a class="social-link ig" href="https://www.instagram.com/play.verge/" target="_blank" rel="noopener"><svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a class="social-link tt" href="https://www.tiktok.com/@playverge" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.17 8.17 0 004.77 1.52V6.76a4.85 4.85 0 01-1-.07z"/></svg></a>
+        </div>
+      </div>
     </div>
 
     <div class="cards-col">
@@ -356,22 +352,6 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
       </div>
       <div class="card-controls">
         <div class="card-dots" id="card-dots"></div>
-      </div>
-    </div>
-
-    <div class="hero-right">
-      <div>
-        <p class="store-sub" id="t-store-sub">Jetzt laden</p>
-        <div class="store-cta">
-          <a class="store-btn" href="https://apps.apple.com/app/id6761114559" target="_blank" rel="noopener">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="#111"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-            <span class="st"><span class="s" id="t-store-apple-s">Laden im</span><span class="m">App Store</span></span>
-          </a>
-          <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.vergeapp.verge" target="_blank" rel="noopener">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="#111"><path d="M3.18 23.76c.3.17.64.22.99.14l13.23-7.62-2.9-2.9-11.32 10.38zm-1.7-20.1C1.2 4 1 4.5 1 5.14v13.72c0 .64.2 1.14.49 1.48l.08.07 7.69-7.69v-.18L1.56 3.65l-.08.01zM20.49 10.7l-2.78-1.6-3.14 3.14 3.14 3.14 2.8-1.61c.8-.46.8-1.21-.02-1.67zM4.17.26L17.4 7.88l-2.9 2.9L4.17 1.4c-.4-.23-.78-.26-1.07-.08l-.01.01 1.08-.07z"/></svg>
-            <span class="st"><span class="s" id="t-store-google-s">Jetzt bei</span><span class="m">Google Play</span></span>
-          </a>
-        </div>
       </div>
     </div>
   </div>
@@ -513,9 +493,9 @@ function setLang(l){
   document.getElementById("t-hl3").textContent=t.hl3;
   document.getElementById("t-hl4").textContent=t.hl4;
   document.getElementById("t-sub").innerHTML=t.sub;
-  document.getElementById("t-store-sub").textContent=t.storeSub;
-  document.getElementById("t-store-apple-s").textContent=t.storeAppleS;
-  document.getElementById("t-store-google-s").textContent=t.storeGoogleS;
+  var _sm=document.getElementById("t-store-sub-m");if(_sm)_sm.textContent=t.storeSub;
+  var _am=document.getElementById("t-store-apple-s-m");if(_am)_am.textContent=t.storeAppleS;
+  var _gm=document.getElementById("t-store-google-s-m");if(_gm)_gm.textContent=t.storeGoogleS;
   document.getElementById("t-wk").textContent=t.wk;
   document.getElementById("t-about-label").textContent=t.aboutLabel;
   document.getElementById("t-about-text").textContent=t.aboutText;
