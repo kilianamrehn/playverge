@@ -68,14 +68,8 @@ nav{position:relative;display:flex;align-items:center;justify-content:center;pad
 .hero-copy{font-family:"Inter",sans-serif;font-size:15px;font-weight:300;line-height:2;color:var(--ink2);animation:up .8s cubic-bezier(.16,1,.3,1) .18s both;max-width:400px;margin-top:52px}
 .hero-copy strong{color:var(--ink);font-weight:400}
 
-/* right col — launch */
 .hero-right{padding:80px 0 80px 52px;display:flex;flex-direction:column;justify-content:flex-start;gap:0;animation:up .8s cubic-bezier(.16,1,.3,1) .14s both}
 
-.launch-ey{font-family:"Inter",sans-serif;font-size:9px;font-weight:400;letter-spacing:.28em;text-transform:uppercase;color:rgba(250,250,250,.38);margin-bottom:18px}
-.launch-date{font-family:"Cormorant Garamond",serif;font-size:52px;line-height:1.05;font-weight:500;font-style:italic;letter-spacing:-.01em;color:var(--ink);margin:0}
-.launch-rule{width:44px;height:1px;background:var(--a1);opacity:.55;margin:24px 0 18px}
-.launch-note{font-family:"Inter",sans-serif;font-size:11px;font-weight:300;letter-spacing:.16em;text-transform:uppercase;color:rgba(250,250,250,.45);margin:0}
-@media(max-width:900px){.launch-date{font-size:40px}}
 
 /* badges */
 .badges{display:flex;flex-direction:column;gap:6px;margin-top:auto;padding-top:48px}
@@ -285,6 +279,21 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
   .copy{font-size:8px;line-height:1.6;max-width:280px;margin:0 auto;
     overflow-wrap:anywhere}
 }
+
+/* store buttons hero */
+.store-cta{display:flex;gap:12px;margin-bottom:26px}
+.store-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:10px;
+  background:var(--ink);color:#111;text-decoration:none;padding:14px 12px;border-radius:14px;
+  transition:transform .15s,opacity .15s}
+.store-btn:active{transform:scale(.98);opacity:.92}
+.store-btn svg{flex-shrink:0}
+.store-btn .st{text-align:left;line-height:1.15}
+.store-btn .st .s{display:block;font-size:8px;letter-spacing:.08em;text-transform:uppercase;opacity:.6}
+.store-btn .st .m{display:block;font-size:13.5px;font-weight:600}
+.store-sub{font-family:"Inter",sans-serif;font-size:10px;font-weight:400;
+  letter-spacing:.14em;text-transform:uppercase;color:rgba(250,250,250,.4);
+  margin-bottom:16px}
+@media(max-width:900px){.store-cta{gap:10px}.store-btn{padding:13px 10px}}
 </style>
 </head>
 <body>
@@ -352,19 +361,16 @@ footer{position:relative;z-index:10;max-width:1280px;margin:0 auto;padding:28px 
 
     <div class="hero-right">
       <div>
-        <p class="launch-ey" id="t-launch-ey">Verge erscheint am</p>
-        <p class="launch-date" id="t-launch-date">21. August 2026</p>
-        <div class="launch-rule"></div>
-        <p class="launch-note" id="t-launch-note">iOS und Android</p>
-      </div>
-      <div class="badges">
-        <div class="badge">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="#d0d0d0"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-          <div><div class="badge-text-top">21.08.2026</div><div class="badge-text-main">App Store</div></div>
-        </div>
-        <div class="badge">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="#d0d0d0"><path d="M3.18 23.76c.3.17.64.22.99.14l13.23-7.62-2.9-2.9-11.32 10.38zm-1.7-20.1C1.2 4 1 4.5 1 5.14v13.72c0 .64.2 1.14.49 1.48l.08.07 7.69-7.69v-.18L1.56 3.65l-.08.01zM20.49 10.7l-2.78-1.6-3.14 3.14 3.14 3.14 2.8-1.61c.8-.46.8-1.21-.02-1.67zM4.17.26L17.4 7.88l-2.9 2.9L4.17 1.4c-.4-.23-.78-.26-1.07-.08l-.01.01 1.08-.07z"/></svg>
-          <div><div class="badge-text-top">21.08.2026</div><div class="badge-text-main">Google Play</div></div>
+        <p class="store-sub" id="t-store-sub">Jetzt laden</p>
+        <div class="store-cta">
+          <a class="store-btn" href="https://apps.apple.com/app/id6761114559" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#111"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            <span class="st"><span class="s" id="t-store-apple-s">Laden im</span><span class="m">App Store</span></span>
+          </a>
+          <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.vergeapp.verge" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#111"><path d="M3.18 23.76c.3.17.64.22.99.14l13.23-7.62-2.9-2.9-11.32 10.38zm-1.7-20.1C1.2 4 1 4.5 1 5.14v13.72c0 .64.2 1.14.49 1.48l.08.07 7.69-7.69v-.18L1.56 3.65l-.08.01zM20.49 10.7l-2.78-1.6-3.14 3.14 3.14 3.14 2.8-1.61c.8-.46.8-1.21-.02-1.67zM4.17.26L17.4 7.88l-2.9 2.9L4.17 1.4c-.4-.23-.78-.26-1.07-.08l-.01.01 1.08-.07z"/></svg>
+            <span class="st"><span class="s" id="t-store-google-s">Jetzt bei</span><span class="m">Google Play</span></span>
+          </a>
         </div>
       </div>
     </div>
@@ -456,7 +462,7 @@ const T={
     pageTitle:"Verge – Das Spiel für echte Begegnung",
     hl1:"Spielerisch",hl2:"fängt es an.",hl3:"Wie weit es geht,",hl4:"entscheidet ihr.",
     sub:'Verge bringt euch zusammen.<br><strong>Neugierig, offen, mit Herz.</strong><br>Fünf Phasen. Ein Consent-System.',
-    launchEy:"Verge erscheint am",launchDate:"21. August 2026",launchNote:"iOS und Android",
+    storeSub:"Jetzt laden",storeAppleS:"Laden im",storeGoogleS:"Jetzt bei",
     joker:"Zieh eine Karte",
     wk:"Wie eine warme Küche um Mitternacht.",
     aboutLabel:"Was ist Verge?",
@@ -477,7 +483,7 @@ const T={
     pageTitle:"Verge – The game for real connection",
     hl1:"It starts",hl2:"playful.",hl3:"How far it goes,",hl4:"that's up to you.",
     sub:'Verge brings you together.<br><strong>Curious, open, heartfelt.</strong><br>Five phases. One consent system.',
-    launchEy:"Verge is out",launchDate:"August 21, 2026",launchNote:"iOS and Android",
+    storeSub:"Download now",storeAppleS:"Download on the",storeGoogleS:"Get it on",
     joker:"Draw a card",
     wk:"Like a warm kitchen at midnight.",
     aboutLabel:"What is Verge?",
@@ -507,9 +513,9 @@ function setLang(l){
   document.getElementById("t-hl3").textContent=t.hl3;
   document.getElementById("t-hl4").textContent=t.hl4;
   document.getElementById("t-sub").innerHTML=t.sub;
-  document.getElementById("t-launch-ey").textContent=t.launchEy;
-  document.getElementById("t-launch-date").textContent=t.launchDate;
-  document.getElementById("t-launch-note").textContent=t.launchNote;
+  document.getElementById("t-store-sub").textContent=t.storeSub;
+  document.getElementById("t-store-apple-s").textContent=t.storeAppleS;
+  document.getElementById("t-store-google-s").textContent=t.storeGoogleS;
   document.getElementById("t-wk").textContent=t.wk;
   document.getElementById("t-about-label").textContent=t.aboutLabel;
   document.getElementById("t-about-text").textContent=t.aboutText;
