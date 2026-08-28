@@ -6,12 +6,12 @@
 <title>Verge</title>
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://playverge.app/code">
-<meta property="og:title" content="One month of Verge Unlimited">
-<meta property="og:description" content="Redeem your gift code and play every pack for a month.">
+<meta property="og:title" content="Ein Monat Verge Unlimited geschenkt">
+<meta property="og:description" content="Einen Monat alle Packs spielen. Danach 8,99 € pro Monat, jederzeit kündbar.">
 <meta property="og:image" content="https://playverge.app/LogoFinal_mit_Hintergrund.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="One month of Verge Unlimited">
-<meta name="twitter:description" content="Redeem your gift code and play every pack for a month.">
+<meta name="twitter:title" content="Ein Monat Verge Unlimited geschenkt">
+<meta name="twitter:description" content="Einen Monat alle Packs spielen. Danach 8,99 € pro Monat, jederzeit kündbar.">
 <meta name="twitter:image" content="https://playverge.app/LogoFinal_mit_Hintergrund.jpg">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -73,6 +73,10 @@ ol li::before{content:counter(s);position:absolute;left:0;top:2px;
   font-size:10px;line-height:17px;text-align:center;color:var(--dim)}
 ol li strong{color:var(--text);font-weight:600}
 
+.price{margin:2px 0 14px;padding:11px 13px;border-radius:10px;
+  background:rgba(184,153,104,.09);border:1px solid rgba(184,153,104,.28);
+  color:var(--muted);font-size:12.5px;line-height:1.6;text-align:center}
+.price strong{color:var(--text);font-weight:600}
 .foot{margin-top:22px;text-align:center;font-size:11px;line-height:1.7;color:#5a5a5a}
 .foot a{color:#5a5a5a;text-decoration:none;margin:0 7px}
 .foot a:hover{color:var(--dim)}
@@ -91,16 +95,6 @@ ol li strong{color:var(--text);font-weight:600}
   <p class="lead" id="t-lead">Geschenkt</p>
   <p class="redirect" id="t-redirect"></p>
 
-  <!-- Apple -->
-  <div class="card">
-    <div class="plat">
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-      <h2 id="t-ios-h">Auf dem iPhone</h2>
-    </div>
-    <p id="t-ios-p">Ein Tippen genügt. Der Knopf löst deinen Code ein und installiert Verge dabei mit, falls du die App noch nicht hast.</p>
-    <a class="btn" href="https://apps.apple.com/redeem?ctx=offercodes&amp;id=6761114559&amp;code=PHASE2026" id="t-ios-btn">Code einlösen</a>
-  </div>
-
   <!-- Android -->
   <div class="card">
     <div class="plat">
@@ -109,16 +103,29 @@ ol li strong{color:var(--text);font-weight:600}
     </div>
     <p id="t-and-p">Bei Google wird der Code in der App eingelöst, nicht im Store. Kopiere ihn dir am besten zuerst.</p>
     <ol>
-      <li id="t-and-1">Verge öffnen und Verge Unlimited auswählen.</li>
-      <li id="t-and-2">Das <strong>monatliche</strong> Abo wählen. Beim Jahresabo wird der Code nicht angenommen.</li>
-      <li id="t-and-3">Im Google-Play-Fenster auf den Pfeil neben der Zahlungsmethode tippen.</li>
-      <li id="t-and-4">Auf Code einlösen tippen und den Code einfügen.</li>
+      <li id="t-and-1">Verge öffnen und auf <strong>Spielen</strong> tippen.</li>
+      <li id="t-and-2">Session oder Verge Friends wählen. Erst danach kommt die Pack-Auswahl.</li>
+      <li id="t-and-3">Dort <strong>Verge Unlimited</strong> antippen und das <strong>monatliche</strong> Abo wählen. Beim Jahresabo wird der Code nicht angenommen.</li>
+      <li id="t-and-4">Im Google-Play-Fenster auf den Pfeil neben der Zahlungsmethode tippen.</li>
+      <li id="t-and-5">Auf Code einlösen tippen und den Code einfügen.</li>
     </ol>
     <div class="codebox">
       <span class="code" id="code-text">PHASE2026</span>
       <button class="copy" id="copy-btn">Kopieren</button>
     </div>
+    <p class="price" id="t-price-and"></p>
     <a class="btn" href="https://play.google.com/store/apps/details?id=com.vergeapp.verge" id="t-and-btn">Verge bei Google Play</a>
+  </div>
+
+  <!-- Apple -->
+  <div class="card">
+    <div class="plat">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      <h2 id="t-ios-h">Auf dem iPhone</h2>
+    </div>
+    <p id="t-ios-p">Ein Tippen genügt. Der Knopf löst deinen Code ein und installiert Verge dabei mit, falls du die App noch nicht hast.</p>
+    <p class="price" id="t-price-ios"></p>
+    <a class="btn" href="https://apps.apple.com/redeem?ctx=offercodes&amp;id=6761114559&amp;code=PHASE2026" id="t-ios-btn">Code einlösen</a>
   </div>
 
   <div class="foot">
@@ -144,10 +151,12 @@ var T = {
     andH:"Auf Android",
     andP:"Bei Google wird der Code in der App eingelöst, nicht im Store. Kopiere ihn dir am besten zuerst.",
     andBtn:"Verge bei Google Play",
-    and1:"Verge öffnen und Verge Unlimited auswählen.",
-    and2:'Das <strong>monatliche</strong> Abo wählen. Beim Jahresabo wird der Code nicht angenommen.',
-    and3:"Im Google-Play-Fenster auf den Pfeil neben der Zahlungsmethode tippen.",
-    and4:"Auf Code einlösen tippen und den Code einfügen.",
+    and1:'Verge öffnen und auf <strong>Spielen</strong> tippen.',
+    and2:"Session oder Verge Friends wählen. Erst danach kommt die Pack-Auswahl.",
+    and3:'Dort <strong>Verge Unlimited</strong> antippen und das <strong>monatliche</strong> Abo wählen. Beim Jahresabo wird der Code nicht angenommen.',
+    and4:"Im Google-Play-Fenster auf den Pfeil neben der Zahlungsmethode tippen.",
+    and5:"Auf Code einlösen tippen und den Code einfügen.",
+    price:'<strong>Ein Monat geschenkt.</strong> Danach 8,99 € pro Monat. Jederzeit kündbar, auch am ersten Tag.',
     copy:"Kopieren", copied:"Kopiert",
     foot:"Nach dem Freimonat läuft Verge Unlimited regulär weiter. Du kannst jederzeit in den Abo-Einstellungen deines Stores kündigen.",
     fPrivacy:"Impressum &amp; Datenschutz",
@@ -163,10 +172,12 @@ var T = {
     andH:"On Android",
     andP:"On Google the code is redeemed inside the app, not in the store. Best to copy it first.",
     andBtn:"Verge on Google Play",
-    and1:"Open Verge and select Verge Unlimited.",
-    and2:'Choose the <strong>monthly</strong> plan. The code is not accepted on the annual plan.',
-    and3:"In the Google Play sheet, tap the arrow next to the payment method.",
-    and4:"Tap Redeem code and paste the code.",
+    and1:'Open Verge and tap <strong>Play</strong>.',
+    and2:"Choose Session or Verge Friends. The pack selection comes after that.",
+    and3:'Tap <strong>Verge Unlimited</strong> and choose the <strong>monthly</strong> plan. The code is not accepted on the annual plan.',
+    and4:"In the Google Play sheet, tap the arrow next to the payment method.",
+    and5:"Tap Redeem code and paste the code.",
+    price:'<strong>One month on us.</strong> Then 8.99 € per month. Cancel any time, even on day one.',
     copy:"Copy", copied:"Copied",
     foot:"After the free month, Verge Unlimited continues at the regular price. You can cancel at any time in your store's subscription settings.",
     fPrivacy:"Legal Notice &amp; Privacy",
@@ -190,9 +201,12 @@ function setLang(l){
   document.getElementById("t-and-p").textContent = t.andP;
   document.getElementById("t-and-btn").textContent = t.andBtn;
   document.getElementById("t-and-1").innerHTML = t.and1;
-  document.getElementById("t-and-2").innerHTML = t.and2;
-  document.getElementById("t-and-3").textContent = t.and3;
+  document.getElementById("t-and-2").textContent = t.and2;
+  document.getElementById("t-and-3").innerHTML = t.and3;
   document.getElementById("t-and-4").textContent = t.and4;
+  document.getElementById("t-and-5").textContent = t.and5;
+  document.getElementById("t-price-ios").innerHTML = t.price;
+  document.getElementById("t-price-and").innerHTML = t.price;
   document.getElementById("t-foot").textContent = t.foot;
   document.getElementById("t-f-privacy").innerHTML = t.fPrivacy;
   document.getElementById("t-f-terms").innerHTML = t.fTerms;
@@ -233,6 +247,7 @@ document.getElementById("copy-btn").addEventListener("click", function(){
 setLang((navigator.language || "de").toLowerCase().indexOf("de") === 0 ? "de" : "en");
 
 /* iPhone und iPad: direkt zum Einlösen weiterleiten.
+   Apple zeigt Preis und Laufzeit auf dem Einlösebildschirm.
    Die Seite bleibt darunter stehen, der Knopf ist der Rückfallweg. */
 (function(){
   var ua = navigator.userAgent || "";
@@ -244,12 +259,12 @@ setLang((navigator.language || "de").toLowerCase().indexOf("de") === 0 ? "de" : 
   el.style.display = "block";
   setTimeout(function(){
     window.location.href = document.getElementById("t-ios-btn").href;
-  }, 700);
+  }, 1200);
   setTimeout(function(){
     el.textContent = (cur === "en")
       ? "Not working? Use the button below."
       : "Klappt nicht? Nimm den Knopf unten.";
-  }, 2600);
+  }, 3200);
 })();
 </script>
 </body>
