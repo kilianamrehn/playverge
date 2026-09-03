@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Verge</title>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://playverge.app/dreifrei">
+<meta property="og:title" content="Three months of Verge Unlimited">
+<meta property="og:description" content="Redeem your gift code and play every pack for three months.">
+<meta property="og:image" content="https://playverge.app/LogoFinal_mit_Hintergrund.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Three months of Verge Unlimited">
+<meta name="twitter:description" content="Redeem your gift code and play every pack for three months.">
+<meta name="twitter:image" content="https://playverge.app/LogoFinal_mit_Hintergrund.jpg">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --p1:#2EC4B6; --p2:#3A86FF; --p3:#7B61FF; --p4:#FF6B6B; --p5:#FF3B30;
+  --ink:#F2EDE4; --ink2:#C9C2B8; --muted:#8E8880;
+  --gold:#B89968;
+  --line:rgba(242,237,228,.14);
+}
+html,body{min-height:100%}
+body{
+  /* Rückfall, falls WebGL nicht läuft */
+  background:linear-gradient(165deg,#2A1440 0%,#3B1233 46%,#3A0F1C 100%);
+  color:var(--ink);font-family:'Inter',sans-serif;line-height:1.7;
+  display:flex;justify-content:center;
+  padding:max(26px,env(safe-area-inset-top)) 24px max(36px,env(safe-area-inset-bottom));
+}
+#shimmer{position:fixed;inset:0;width:100%;height:100%;z-index:0;display:block}
+.veil{position:fixed;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(120% 80% at 50% 0%,rgba(0,0,0,.10) 0%,rgba(0,0,0,.42) 100%)}
+.wrap{position:relative;z-index:2;width:100%;max-width:430px}
+
+/* ---------- Kopf wie in der Anzeige ---------- */
+.head{display:block;text-align:center;margin-bottom:34px;text-decoration:none;color:inherit}
+.head:hover .mark{opacity:.85}
+.mark{transition:opacity .2s}
+.mark{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:400;
+  letter-spacing:.02em;line-height:1;text-shadow:0 2px 22px rgba(0,0,0,.45)}
+.stars{display:flex;gap:9px;justify-content:center;margin-top:12px}
+.stars svg{width:13px;height:13px;display:block;filter:drop-shadow(0 1px 4px rgba(0,0,0,.5))}
+.lang{position:absolute;top:0;right:0;display:flex;gap:5px}
+.lang button{background:rgba(0,0,0,.22);border:1px solid var(--line);color:var(--ink2);
+  padding:3px 10px;border-radius:20px;font-size:10px;cursor:pointer;
+  font-family:'Inter',sans-serif;letter-spacing:.08em;transition:all .2s;
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.lang button.active{border-color:rgba(242,237,228,.5);color:var(--ink)}
+
+/* ---------- Angebot ---------- */
+h1{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;
+  line-height:1.08;letter-spacing:-.01em;text-align:center;margin-bottom:14px;
+  text-shadow:0 2px 24px rgba(0,0,0,.4)}
+h1 em{font-style:italic;font-weight:500;color:#fff}
+.hook{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;
+  text-align:center;color:var(--ink2);line-height:1.42;margin-bottom:32px;
+  text-shadow:0 1px 14px rgba(0,0,0,.45)}
+
+/* ---------- Stimmen ---------- */
+.voices{display:flex;flex-direction:column;gap:26px;margin-bottom:34px}
+.voice{text-align:center}
+.voice .rate{color:var(--gold);font-size:10px;letter-spacing:.2em;margin-bottom:7px;opacity:.85}
+.voice p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;
+  line-height:1.4;color:rgba(242,237,228,.9);margin-bottom:7px;
+  text-shadow:0 1px 14px rgba(0,0,0,.5)}
+.voice p .hl{font-style:italic;font-weight:500}
+.voice p .c1{color:#7FD8CE} .voice p .c3{color:#A99BEA} .voice p .c5{color:#FF8C82}
+.voice > span{font-size:10px;color:var(--muted);letter-spacing:.16em;text-transform:uppercase}
+.source{text-align:center;font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:13px}
+
+/* ---------- Karten ---------- */
+.card{background:rgba(12,8,14,.34);border:1px solid var(--line);border-radius:16px;
+  padding:19px 17px;margin-bottom:14px;
+  -webkit-backdrop-filter:blur(9px);backdrop-filter:blur(9px)}
+.plat{display:flex;align-items:center;gap:9px;margin-bottom:13px}
+.plat svg{flex-shrink:0;opacity:.9}
+.plat h2{font-size:10.5px;font-weight:500;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ink)}
+.card p{color:var(--ink2);font-size:13.5px;line-height:1.65;margin-bottom:14px}
+
+.btn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;
+  text-decoration:none;background:var(--ink);color:#17110E;
+  font-size:15px;font-weight:600;padding:16px 18px;border-radius:13px;
+  box-shadow:0 10px 28px rgba(0,0,0,.4);transition:transform .15s,opacity .15s}
+.btn:active{transform:scale(.985);opacity:.93}
+.btn.ghost{background:rgba(242,237,228,.07);color:var(--ink);
+  border:1px solid rgba(242,237,228,.28);font-weight:500;box-shadow:none}
+.under{text-align:center;color:var(--muted);font-size:11.5px;margin-top:10px}
+
+.steps{list-style:none;counter-reset:s;margin:0}
+.steps li{counter-increment:s;position:relative;padding-left:28px;margin-bottom:10px;
+  color:var(--ink2);font-size:13px;line-height:1.6}
+.steps li::before{content:counter(s);position:absolute;left:0;top:2px;
+  width:19px;height:19px;border-radius:50%;border:1px solid rgba(242,237,228,.26);
+  font-size:10px;line-height:18px;text-align:center;color:var(--muted)}
+.steps li b{color:var(--ink);font-weight:600}
+.warn{margin:15px 0 0;padding:11px 13px;border-radius:11px;
+  background:rgba(255,107,107,.14);border:1px solid rgba(255,107,107,.42);
+  color:#FFD3CE;font-size:12.5px;line-height:1.6}
+.codebox{display:flex;align-items:center;gap:9px;margin:16px 0 15px}
+.code{flex:1;font-size:17px;font-weight:600;letter-spacing:.2em;color:var(--gold);
+  text-align:center;border:1px dashed rgba(184,153,104,.6);border-radius:11px;padding:12px 8px;
+  background:rgba(0,0,0,.16)}
+.copy{flex-shrink:0;background:rgba(0,0,0,.16);border:1px solid var(--line);color:var(--ink2);
+  font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.06em;
+  padding:12px 15px;border-radius:11px;cursor:pointer;transition:all .2s}
+.copy.done{border-color:var(--p1);color:#8FE0D6}
+
+/* ---------- Preis, Fuß ---------- */
+.price{margin-top:20px;padding:14px 15px;border-radius:12px;
+  background:rgba(12,8,14,.3);border:1px solid var(--line);
+  color:var(--ink2);font-size:12.5px;line-height:1.65;text-align:center;
+  -webkit-backdrop-filter:blur(9px);backdrop-filter:blur(9px)}
+.price b{color:var(--ink);font-weight:600}
+.foot{margin-top:20px;text-align:center;font-size:10.5px;color:var(--muted)}
+.foot a{color:var(--muted);text-decoration:none;margin:0 7px}
+
+  letter-spacing:.02em;line-height:1;color:var(--ink);
+  text-shadow:0 2px 22px rgba(0,0,0,.45);transition:opacity .2s}
+/* Fusszeile wie auf den Hauptseiten */
+.foot{margin-top:28px;text-align:center;font-size:11px;line-height:1.8;color:var(--muted)}
+.foot .links{display:flex;flex-direction:column;gap:10px;align-items:center;margin-top:14px}
+.foot .links a{color:var(--muted);text-decoration:none;letter-spacing:.13em;
+  text-transform:uppercase;font-size:9px;margin:0}
+.foot .links a#f-contact{color:var(--a1);border:1px solid rgba(46,196,182,.35);
+  border-radius:999px;padding:10px 24px;font-size:11px;letter-spacing:.08em;
+  text-transform:none;order:-1}
+.foot .links a#f-mail{text-transform:none;letter-spacing:.04em;font-size:10px}
+.foot .copyline{font-size:8px;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(242,237,228,.22);margin-top:18px}
+</style>
+</head>
+<body>
+
+<canvas id="shimmer"></canvas>
+<div class="veil"></div>
+
+<div class="wrap">
+
+
+  <div class="lang">
+    <button data-l="de" class="active">DE</button>
+    <button data-l="en">EN</button>
+  </div>
+
+  <a class="head" href="/index.html" aria-label="Verge">
+    <div class="mark">Verge</div>
+    <div class="stars">
+      <svg viewBox="0 0 24 24" fill="#2EC4B6"><path d="M12 .8l3.5 7.1 7.8 1.1-5.6 5.5 1.3 7.7L12 18.6 4.9 22.2l1.3-7.7L.6 9l7.8-1.1z"/></svg>
+      <svg viewBox="0 0 24 24" fill="#3A86FF"><path d="M12 .8l3.5 7.1 7.8 1.1-5.6 5.5 1.3 7.7L12 18.6 4.9 22.2l1.3-7.7L.6 9l7.8-1.1z"/></svg>
+      <svg viewBox="0 0 24 24" fill="#7B61FF"><path d="M12 .8l3.5 7.1 7.8 1.1-5.6 5.5 1.3 7.7L12 18.6 4.9 22.2l1.3-7.7L.6 9l7.8-1.1z"/></svg>
+      <svg viewBox="0 0 24 24" fill="#FF6B6B"><path d="M12 .8l3.5 7.1 7.8 1.1-5.6 5.5 1.3 7.7L12 18.6 4.9 22.2l1.3-7.7L.6 9l7.8-1.1z"/></svg>
+      <svg viewBox="0 0 24 24" fill="#FF3B30"><path d="M12 .8l3.5 7.1 7.8 1.1-5.6 5.5 1.3 7.7L12 18.6 4.9 22.2l1.3-7.7L.6 9l7.8-1.1z"/></svg>
+    </div>
+  </a>
+
+  <h1 id="t-title">Drei Monate<br><em>Verge Unlimited</em></h1>
+  <p class="hook" id="t-hook">Wie Wahrheit oder Pflicht. Nur viel, viel besser.</p>
+
+  <p class="source" id="t-source">Aus dem App Store</p>
+  <div class="voices">
+    <div class="voice">
+      <div class="rate">★★★★★</div>
+      <p id="t-v1">„Wir haben es auf einer Party gespielt und alle waren begeistert. <span class="hl c1">Besser als alle anderen Apps</span> in diese Richtung, mit Abstand.“</p>
+      <span>Lennyyy S.</span>
+    </div>
+    <div class="voice">
+      <div class="rate">★★★★★</div>
+      <p id="t-v2">„Man kann zu allen Mitspielenden <span class="hl c3">separat Konsens Grenzen einstellen</span>, ohne diese laut sagen zu müssen.“</p>
+      <span>Lille-Bee</span>
+    </div>
+    <div class="voice">
+      <div class="rate">★★★★★</div>
+      <p id="t-v3">„Egal ob mit friends oder beim ersten Date, <span class="hl c5">für jeden Anlass gibt es die richtigen Karten</span>.“</p>
+      <span>Bronko, Der</span>
+    </div>
+  </div>
+
+  <!-- Android -->
+  <div class="card">
+    <div class="plat">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.64.22.99.14l13.23-7.62-2.9-2.9-11.32 10.38zm-1.7-20.1C1.2 4 1 4.5 1 5.14v13.72c0 .64.2 1.14.49 1.48l.08.07 7.69-7.69v-.18L1.56 3.65l-.08.01zM20.49 10.7l-2.78-1.6-3.14 3.14 3.14 3.14 2.8-1.61c.8-.46.8-1.21-.02-1.67zM4.17.26L17.4 7.88l-2.9 2.9L4.17 1.4c-.4-.23-.78-.26-1.07-.08l-.01.01 1.08-.07z"/></svg>
+      <h2 id="t-and-h">Auf Android</h2>
+    </div>
+    <p id="t-and-p">Bei Google wird der Code in der App eingelöst, nicht im Store. Kopier ihn dir am besten zuerst.</p>
+    <ol class="steps">
+      <li id="t-and-1">Verge öffnen und auf <b>Spielen</b> tippen.</li>
+      <li id="t-and-2">Session oder Verge Friends wählen. Danach kommt die Pack-Auswahl.</li>
+      <li id="t-and-3">Dort <b>Verge Unlimited</b> antippen.</li>
+      <li id="t-and-4">Im Google-Play-Fenster auf den Pfeil neben der Zahlungsmethode tippen.</li>
+      <li id="t-and-5">Auf Code einlösen tippen und den Code einfügen.</li>
+    </ol>
+    <p class="warn" id="t-warn">Wichtig: Der Code gilt nur für das <b>monatliche</b> Abo. Beim Jahresabo wird er nicht angenommen.</p>
+    <div class="codebox">
+      <span class="code" id="code-text">DREIFREI</span>
+      <button class="copy" id="copy-btn">Kopieren</button>
+    </div>
+    <a class="btn" href="https://play.google.com/store/apps/details?id=com.vergeapp.verge" id="t-and-btn">Verge bei Google Play</a>
+  </div>
+
+  <!-- iPhone -->
+  <div class="card">
+    <div class="plat">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      <h2 id="t-ios-h">Auf dem iPhone</h2>
+    </div>
+    <a class="btn" href="https://apps.apple.com/redeem?ctx=offercodes&amp;id=6761114559&amp;code=DREIFREI" id="t-ios-btn">Code einlösen</a>
+    <p class="under" id="t-ios-u">Ein Tippen. Verge wird dabei installiert, falls du es noch nicht hast.</p>
+  </div>
+
+  <p class="price" id="t-price"><b>Ein Monat geschenkt.</b> Danach 8,99 € pro Monat. Jederzeit kündbar, auch am ersten Tag.</p>
+
+  <div class="foot">
+    <div class="links">
+      <a href="/contact.html" id="f-contact">Kontakt</a>
+      <a href="mailto:&#105;&#110;&#102;&#111;&#64;&#112;&#108;&#97;&#121;&#118;&#101;&#114;&#103;&#101;&#46;&#97;&#112;&#112;" id="f-mail">&#105;&#110;&#102;&#111;&#64;&#112;&#108;&#97;&#121;&#118;&#101;&#114;&#103;&#101;&#46;&#97;&#112;&#112;</a>
+      <a href="/privacy.html" id="t-f-privacy">Impressum &amp; Datenschutz</a>
+      <a href="/terms.html" id="t-f-terms">Nutzungsbedingungen</a>
+    </div>
+    <p class="copyline">&copy; 2026 AmBuetioniert UG (haftungsbeschr&auml;nkt)</p>
+  </div>
+
+</div>
+
+<script>
+/* ============ Shimmer, portiert aus shimmer.frag, uMode 1 ============ */
+(function(){
+  var cv = document.getElementById("shimmer");
+  var gl = null;
+  try { gl = cv.getContext("webgl", {alpha:false, antialias:false, depth:false}); } catch(e){}
+  if (!gl) { cv.style.display = "none"; return; }
+
+  var vs = "attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}";
+  var fs = [
+"precision highp float;",
+"uniform vec2 uRes; uniform float uTime; uniform float uPhasePos;",
+"const float TAU=6.28318530718;",
+"const float SPREAD=0.25;",
+"vec3 P0=vec3(0.180,0.769,0.714);",
+"vec3 P1=vec3(0.227,0.525,1.000);",
+"vec3 P2=vec3(0.482,0.380,1.000);",
+"vec3 P3=vec3(1.000,0.420,0.420);",
+"vec3 P4=vec3(1.000,0.231,0.188);",
+"vec3 phaseAt(int i){",
+"  if(i==0)return P0; if(i==1)return P1; if(i==2)return P2;",
+"  if(i==3)return P3; return P4;}",
+"vec3 phaseColor(float p){",
+"  p=fract(p); float ci=p*5.0; int idx=int(floor(ci)); float f=ci-floor(ci);",
+"  vec3 a=phaseAt(idx); vec3 b=phaseAt(int(mod(float(idx)+1.0,5.0)));",
+"  return mix(a,b,f);}",
+"void main(){",
+"  float ar=uRes.x/uRes.y;",
+"  vec2 uv=gl_FragCoord.xy/uRes;",
+"  uv.y=1.0-uv.y;",
+"  float ux=uv.x*ar; float uy=uv.y;",
+"  float px=mod(ux*TAU*1.4,TAU)-250.0;",
+"  float py=mod(uy*TAU*1.4,TAU)-250.0;",
+"  float ix=px, iy=py;",
+"  float c=1.0; float inten=0.0045; float time=uTime+23.0;",
+"  for(int n=1;n<=5;n++){",
+"    float t=time*(1.0-3.5/float(n));",
+"    float nx=px+(cos(t-ix)+sin(t+iy));",
+"    float ny=py+(sin(t-iy)+cos(t+ix));",
+"    ix=nx; iy=ny;",
+"    float dx=px/(sin(ix+t)/inten);",
+"    float dy=py/(cos(iy+t)/inten);",
+"    c+=1.0/sqrt(dx*dx+dy*dy);",
+"  }",
+"  c/=5.0;",
+"  c=1.17-pow(abs(c),1.4);",
+"  float bright=clamp(pow(abs(c),8.0),0.0,1.0);",
+"  vec3 ph=phaseColor(uv.x*SPREAD+uPhasePos);",
+"  vec3 col=ph*bright*0.85+ph*0.045;",
+"  col*=0.82+0.18*(1.0-uy);",
+"  gl_FragColor=vec4(col,1.0);",
+"}"].join("\n");
+
+  function make(type, src){
+    var s = gl.createShader(type);
+    gl.shaderSource(s, src); gl.compileShader(s);
+    if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) return null;
+    return s;
+  }
+  var v = make(gl.VERTEX_SHADER, vs), f = make(gl.FRAGMENT_SHADER, fs);
+  if (!v || !f) { cv.style.display = "none"; return; }
+  var prog = gl.createProgram();
+  gl.attachShader(prog, v); gl.attachShader(prog, f); gl.linkProgram(prog);
+  if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) { cv.style.display = "none"; return; }
+  gl.useProgram(prog);
+
+  var buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,1,1]), gl.STATIC_DRAW);
+  var loc = gl.getAttribLocation(prog, "p");
+  gl.enableVertexAttribArray(loc);
+  gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+
+  var uRes = gl.getUniformLocation(prog, "uRes");
+  var uTime = gl.getUniformLocation(prog, "uTime");
+  var uPhase = gl.getUniformLocation(prog, "uPhasePos");
+
+  /* Niedrige Auflösung, weich hochskaliert. Schont Akku und Rechenzeit. */
+  var SCALE = 0.42;
+  function resize(){
+    var w = Math.max(1, Math.round(cv.clientWidth * SCALE));
+    var h = Math.max(1, Math.round(cv.clientHeight * SCALE));
+    if (cv.width !== w || cv.height !== h){
+      cv.width = w; cv.height = h;
+      gl.viewport(0, 0, w, h);
+    }
+  }
+  window.addEventListener("resize", resize);
+
+  var SPEED = 0.225, SHIFT = 0.009, START = 0.45;
+  var t0 = performance.now(), last = 0;
+  function loop(now){
+    if (now - last > 40){          /* rund 25 Bilder pro Sekunde */
+      last = now;
+      resize();
+      var t = (now - t0) / 1000;
+      gl.uniform2f(uRes, cv.width, cv.height);
+      gl.uniform1f(uTime, t * SPEED);
+      gl.uniform1f(uPhase, START + t * SHIFT);
+      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    }
+    requestAnimationFrame(loop);
+  }
+  resize();
+  requestAnimationFrame(loop);
+})();
+
+/* ============ Sprache ============ */
+var T = {
+  de:{
+    title:'Drei Monate<br><em>Verge Unlimited</em>',
+    hook:"Wie Wahrheit oder Pflicht. Nur viel, viel besser.",
+    v1:"\u201eWir haben es auf einer Party gespielt und alle waren begeistert. <span class=\"hl c1\">Besser als alle anderen Apps</span> in diese Richtung, mit Abstand.\u201c",
+    v2:"\u201eMan kann zu allen Mitspielenden <span class=\"hl c3\">separat Konsens Grenzen einstellen</span>, ohne diese laut sagen zu m\u00fcssen.\u201c",
+    v3:"\u201eEgal ob mit friends oder beim ersten Date, <span class=\"hl c5\">f\u00fcr jeden Anlass gibt es die richtigen Karten</span>.\u201c",
+    source:"Aus dem App Store",
+    iosH:"Auf dem iPhone",
+    iosBtn:"Code einlösen",
+    iosU:"Ein Tippen. Verge wird dabei installiert, falls du es noch nicht hast.",
+    andH:"Auf Android",
+    andP:"Bei Google wird der Code in der App eingelöst, nicht im Store. Kopier ihn dir am besten zuerst.",
+    and1:'Verge öffnen und auf <b>Spielen</b> tippen.',
+    and2:"Session oder Verge Friends wählen. Danach kommt die Pack-Auswahl.",
+    and3:'Dort <b>Verge Unlimited</b> antippen.',
+    and4:"Im Google-Play-Fenster auf den Pfeil neben der Zahlungsmethode tippen.",
+    and5:"Auf Code einlösen tippen und den Code einfügen.",
+    warn:'Wichtig: Der Code gilt nur für das <b>monatliche</b> Abo. Beim Jahresabo wird er nicht angenommen.',
+    andBtn:"Verge bei Google Play",
+    price:'<b>Drei Monate geschenkt.</b> Danach 8,99 € pro Monat. Jederzeit kündbar, auch am ersten Tag.',
+    copy:"Kopieren", copied:"Kopiert",
+    fPrivacy:"Impressum &amp; Datenschutz", fTerms:"Nutzungsbedingungen"
+  },
+  en:{
+    title:'Three months of<br><em>Verge Unlimited</em>',
+    hook:"Like truth or dare. Only much, much better.",
+    v1:"\u201cWe played it at a party and everyone loved it. <span class=\"hl c1\">Better than any other app</span> in this direction, by far.\u201d",
+    v2:"\u201cYou can <span class=\"hl c3\">set consent limits with everyone separately</span>, without having to say them out loud.\u201d",
+    v3:"\u201cWhether with friends or on a first date, <span class=\"hl c5\">there are the right cards for every occasion</span>.\u201d",
+    source:"From the App Store",
+    iosH:"On iPhone",
+    iosBtn:"Redeem code",
+    iosU:"One tap. Verge is installed along the way if you do not have it yet.",
+    andH:"On Android",
+    andP:"On Google the code is redeemed inside the app, not in the store. Best to copy it first.",
+    and1:'Open Verge and tap <b>Play</b>.',
+    and2:"Choose Session or Verge Friends. The pack selection comes after that.",
+    and3:'Tap <b>Verge Unlimited</b>.',
+    and4:"In the Google Play sheet, tap the arrow next to the payment method.",
+    and5:"Tap Redeem code and paste the code.",
+    warn:'Important: the code only works on the <b>monthly</b> plan. It is not accepted on the annual plan.',
+    andBtn:"Verge on Google Play",
+    price:'<b>Three months on us.</b> Then 8.99 € per month. Cancel any time, even on day one.',
+    copy:"Copy", copied:"Copied",
+    fPrivacy:"Legal Notice &amp; Privacy", fTerms:"Terms of Use"
+  }
+};
+var cur = "de";
+function setLang(l){
+  var t = T[l] || T.de; cur = l;
+  document.documentElement.lang = l;
+  function h(id,val){ var e=document.getElementById(id); if(e) e.innerHTML=val; }
+  h("t-title",t.title); h("t-hook",t.hook); h("t-source",t.source);
+  h("t-v1",t.v1); h("t-v2",t.v2); h("t-v3",t.v3);
+  h("t-ios-h",t.iosH); h("t-ios-btn",t.iosBtn); h("t-ios-u",t.iosU);
+  h("t-and-h",t.andH); h("t-and-p",t.andP);
+  h("t-and-1",t.and1); h("t-and-2",t.and2); h("t-and-3",t.and3);
+  h("t-and-4",t.and4); h("t-and-5",t.and5);
+  h("t-warn",t.warn); h("t-and-btn",t.andBtn); h("t-price",t.price);
+  h("t-f-privacy",t.fPrivacy); h("t-f-terms",t.fTerms);
+  var _fc=document.getElementById("f-contact");
+  if(_fc)_fc.textContent=(l==="en")?"Contact":"Kontakt";
+  var cb = document.getElementById("copy-btn");
+  cb.textContent = cb.classList.contains("done") ? t.copied : t.copy;
+  var b = document.querySelectorAll(".lang button");
+  b[0].classList.toggle("active", l === "de");
+  b[1].classList.toggle("active", l === "en");
+}
+Array.prototype.forEach.call(document.querySelectorAll(".lang button"), function(btn){
+  btn.addEventListener("click", function(){ setLang(btn.getAttribute("data-l")); });
+});
+
+/* ============ Code kopieren ============ */
+document.getElementById("copy-btn").addEventListener("click", function(){
+  var btn = this, CODE = "DREIFREI";
+  function done(){
+    btn.classList.add("done"); btn.textContent = T[cur].copied;
+    setTimeout(function(){ btn.classList.remove("done"); btn.textContent = T[cur].copy; }, 1800);
+  }
+  function fallback(){
+    var ta = document.createElement("textarea");
+    ta.value = CODE; ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); done(); } catch(e){}
+    document.body.removeChild(ta);
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(CODE).then(done, fallback);
+  } else { fallback(); }
+});
+
+setLang((navigator.language || "de").toLowerCase().indexOf("de") === 0 ? "de" : "en");
+
+/* iPhone und iPad: die Seite ist erst zu sehen, dann geht es zum Einloesen.
+   Der Knopf unten bleibt als Rueckfallweg stehen. */
+(function(){
+  var ua = navigator.userAgent || "";
+  var touch = (navigator.maxTouchPoints || 0) > 1;
+  var isIOS = /iPhone|iPod|iPad/i.test(ua) || (/Macintosh/i.test(ua) && touch);
+  if (!isIOS) return;
+  setTimeout(function(){
+    var b = document.getElementById("t-ios-btn");
+    if (b) window.location.href = b.href;
+  }, 2500);
+})();
+</script>
+</body>
+</html>
