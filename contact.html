@@ -1,567 +1,298 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Kontakt &ndash; Verge</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Kontakt – Verge</title>
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://playverge.app/contact.html">
-<meta property="og:title" content="Contact and Support at Verge">
-<meta property="og:description" content="Questions, feedback or an issue? Here is how to reach us.">
-<meta property="og:image" content="https://playverge.app/preview.jpg">
+<meta property="og:title" content="Kontakt – Verge">
+<meta property="og:description" content="Wie Wahrheit oder Pflicht. Nur viel, viel besser.">
+<meta property="og:image" content="https://playverge.app/preview.jpg?v=2">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="1200">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Contact and Support at Verge">
-<meta name="twitter:description" content="Questions, feedback or an issue? Here is how to reach us.">
-<meta name="twitter:image" content="https://playverge.app/preview.jpg">
+<meta name="twitter:title" content="Kontakt – Verge">
+<meta name="twitter:description" content="Wie Wahrheit oder Pflicht. Nur viel, viel besser.">
+<meta name="twitter:image" content="https://playverge.app/preview.jpg?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#1A1A1A;
-  --text:#F0F0F0;
-  --dim:#888;
-  --muted:#ccc;
-  --a1:#2EC4B6;
-  --a2:#3A86FF;
-  --a3:#7B61FF;
-  --a4:#FF6B6B;
-  --a5:#FF3B30;
-  --border:#2A2A2A;
+  --pad:clamp(20px,5.5vw,28px);
+  --ink:#2F343A; --ink2:#6C727A; --ink3:#9AA0A7;
+  --creme2:#F7EBD9;
+  --gold:#B89968;
+  --p0:#2EC4B6; --p1:#3A86FF; --p2:#7B61FF; --p3:#FF6B6B; --p4:#FF3B30;
+  --dustink:url(data:image/webp;base64,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);
+  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
 }
-html,body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.75;min-height:100%}
-.wrap{position:relative;z-index:10;max-width:720px;margin:0 auto;padding:48px 24px 80px}
-#c{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;display:block}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;background:#EBE4D3}
+body{background:transparent;color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+[hidden]{display:none!important}
 
-.back{display:inline-flex;align-items:center;gap:8px;color:var(--a1);text-decoration:none;
-  font-size:13px;letter-spacing:.04em;margin-bottom:52px;opacity:.8;transition:opacity .2s}
-.back:hover{opacity:1}
-.back::before{content:"\2190"}
+.bg{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;
+  background-color:#EBE4D3;animation:phases 100s linear infinite}
+.bg i{position:absolute;inset:0;background-image:var(--dustink);background-size:560px 760px;opacity:.65;mix-blend-mode:multiply}
+@keyframes phases{
+  0%{background-color:#EBE4D3}
+  16%{background-color:#F6DCCB}
+  33%{background-color:#F7DAD6}
+  50%{background-color:#E1DAF3}
+  67%{background-color:#DBE5F3}
+  84%{background-color:#DCF0EA}
+  100%{background-color:#EBE4D3}
+}
+.wrap{max-width:560px;margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
 
-.site-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,40px);
-  font-weight:300;margin-bottom:6px;line-height:1.1}
-.site-title em{font-style:italic;
-  background:linear-gradient(135deg,#2EC4B6,#3A86FF,#7B61FF);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.site-sub{color:var(--dim);font-size:13px;margin-bottom:48px}
+.head{display:flex;align-items:flex-start;justify-content:center;position:relative;padding-top:26px;padding-bottom:4px}
+.mark{display:inline-flex;flex-direction:column;align-items:center;text-decoration:none;gap:5px}
+.mark .w{font-family:var(--serif);font-weight:500;font-size:32px;line-height:1}
+.stars{display:flex;gap:7px}
+.stars svg{width:11px;height:11px}
+.lang{position:absolute;right:var(--pad);top:24px;display:flex;border:1px solid rgba(47,52,58,.22);border-radius:999px;overflow:hidden}
+.lang button{padding:5px 11px;font-size:12px;font-weight:600;color:var(--ink2)}
+.lang button.on{background:var(--ink);color:#F7EBD9}
 
-.lang-toggle{display:flex;gap:8px;margin-bottom:48px}
-.lang-btn{background:none;border:1px solid var(--border);color:var(--dim);
-  padding:5px 14px;border-radius:20px;font-size:12px;cursor:pointer;
-  font-family:'Inter',sans-serif;letter-spacing:.06em;transition:all .2s}
-.lang-btn.active{border-color:var(--a1);color:var(--a1)}
+.hero{text-align:center;padding:26px 0 8px}
+h1{font-family:var(--serif);font-weight:500;font-size:44px;line-height:1.03;margin-bottom:12px}
+.lead{font-size:17px;color:var(--ink2);max-width:30em;margin:0 auto}
 
-section{margin-bottom:72px}
-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,4vw,30px);
-  font-weight:300;margin-bottom:20px;padding-bottom:14px;
-  border-bottom:1px solid var(--border)}
-h2{font-size:12px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;
-  color:var(--a1);margin-top:32px;margin-bottom:10px}
-p{color:var(--muted);margin-bottom:14px;font-size:14px}
-.intro{color:var(--muted);font-size:15px;margin-bottom:32px;line-height:1.8}
-a{color:var(--a2);text-decoration:none}
-a:hover{text-decoration:underline}
+.card{background:rgba(255,255,255,.55);backdrop-filter:blur(6px);border:1px solid rgba(47,52,58,.12);
+  border-radius:22px;padding:24px 20px;margin-top:22px}
+h2{font-family:var(--serif);font-weight:500;font-size:31px;line-height:1.1;margin-bottom:8px}
+.sub{font-size:15px;color:var(--ink2);margin-bottom:18px}
+.mail{display:inline-block;font-weight:600;text-decoration:none;border-bottom:1.5px solid var(--gold);padding-bottom:1px}
 
-.pullquote{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2.4vw,26px);
-  font-weight:400;font-style:italic;line-height:1.5;color:rgba(240,240,240,.82);
-  margin:0 0 40px 0;padding-left:20px;border-left:2px solid var(--a1)}
+label{display:block;font-size:13px;font-weight:600;letter-spacing:.02em;margin:16px 0 6px}
+label span{color:var(--ink3);font-weight:400}
+input[type=text],input[type=email],select,textarea{
+  width:100%;font:inherit;font-size:16px;color:var(--ink);background:rgba(255,255,255,.8);
+  border:1px solid rgba(47,52,58,.2);border-radius:13px;padding:12px 14px;outline:none;transition:border-color .2s}
+input:focus,select:focus,textarea:focus{border-color:var(--ink)}
+textarea{min-height:130px;resize:vertical;line-height:1.45}
+select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%232F343A' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 15px center;background-size:12px;padding-right:38px}
+.hint{font-size:12.5px;color:var(--ink3);margin-top:5px;line-height:1.4}
 
-.contact-direct{background:rgba(46,196,182,.04);border:1px solid rgba(46,196,182,.18);
-  padding:24px 28px;margin-bottom:32px;border-radius:2px}
-.contact-direct h2{margin-top:0;color:var(--a1)}
-.contact-direct p{color:var(--text);font-size:14px}
-.contact-direct a{color:var(--a1);font-weight:400}
+.phases{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:6px}
+.ph{grid-column:span 2;padding:10px 3px;border-radius:999px;font-size:clamp(11px,3.3vw,12.5px);font-weight:600;text-align:center;
+  border:1.5px solid var(--c);color:var(--c);background:transparent;transition:background .18s,color .18s}
+.ph:nth-child(4){grid-column:2 / span 2}
+.ph:nth-child(5){grid-column:4 / span 2}
+.ph.on{background:var(--c);color:#fff}
 
-form{display:flex;flex-direction:column;gap:20px;margin-top:28px}
-.field{display:flex;flex-direction:column;gap:6px}
-label{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--dim)}
-label .req{color:var(--a4);margin-left:4px}
-input[type="text"],input[type="email"],select,textarea{
-  width:100%;background:rgba(255,255,255,.03);border:1px solid var(--border);
-  padding:14px 16px;color:var(--text);font-family:'Inter',sans-serif;
-  font-size:14px;font-weight:300;outline:none;transition:border-color .25s;
-  border-radius:2px;resize:vertical}
-input:focus,select:focus,textarea:focus{border-color:rgba(46,196,182,.5)}
-input::placeholder,textarea::placeholder{color:rgba(240,240,240,.3)}
-select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/></svg>");
-  background-repeat:no-repeat;background-position:right 16px center;padding-right:40px}
-textarea{min-height:120px;line-height:1.6}
+.check{display:flex;gap:11px;align-items:flex-start;margin-top:18px;font-size:14px;color:var(--ink2);line-height:1.45}
+.check input{width:20px;height:20px;flex:none;margin-top:1px;accent-color:var(--ink)}
 
-.phase-hint{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
-.phase-pill{display:inline-flex;align-items:center;gap:6px;font-size:10px;
-  letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
-.phase-dot{width:8px;height:8px;border-radius:50%}
-.d1{background:var(--a1)}
-.d2{background:var(--a2)}
-.d3{background:var(--a3)}
-.d4{background:var(--a4)}
-.d5{background:var(--a5)}
+.cta{display:flex;align-items:center;justify-content:center;width:100%;min-height:52px;padding:14px 20px;border-radius:999px;
+  background:var(--ink);color:#F7EBD9;font-weight:600;font-size:16px;margin-top:22px;transition:opacity .2s,transform .12s}
+.cta:active{transform:scale(.985)}
+.cta[disabled]{opacity:.38;cursor:default}
+.helper{font-size:13px;color:var(--ink3);text-align:center;margin-top:9px}
+.hp{position:absolute;left:-9999px}
 
-.submit-btn{background:var(--a1);border:none;border-radius:2px;padding:16px 28px;
-  color:#0a0a0a;font-family:'Inter',sans-serif;font-size:11px;font-weight:500;
-  letter-spacing:.22em;text-transform:uppercase;cursor:pointer;transition:all .3s;
-  align-self:flex-start;display:inline-flex;align-items:center;gap:12px;margin-top:8px}
-.submit-btn::after{content:'\2192';font-size:16px;letter-spacing:0;transition:transform .3s}
-.submit-btn:hover:not(:disabled){background:var(--text)}
-.submit-btn:hover:not(:disabled)::after{transform:translateX(6px)}
-.submit-btn:disabled{background:rgba(46,196,182,.18);color:rgba(10,10,10,.4);
-  cursor:not-allowed}
-.submit-btn:disabled::after{opacity:.3}
+.toast{position:fixed;top:18px;left:50%;transform:translateX(-50%);background:var(--p0);color:#10221f;
+  padding:13px 24px;border-radius:999px;font-size:14px;font-weight:600;z-index:100;box-shadow:0 8px 26px rgba(47,52,58,.22)}
 
-.btn-helper{font-size:11px;color:var(--dim);margin-top:10px;font-style:italic;
-  transition:opacity .3s;opacity:0;height:0;overflow:hidden}
-.btn-helper.visible{opacity:1;height:auto}
-
-.legal-check{display:flex;gap:12px;align-items:flex-start;margin-top:8px}
-.legal-check input{width:16px;height:16px;margin-top:3px;accent-color:var(--a1);
-  cursor:pointer;flex-shrink:0}
-.legal-check label{font-size:12px;letter-spacing:0;text-transform:none;
-  color:var(--muted);font-weight:300;line-height:1.6;cursor:pointer}
-
-.opt-hint{font-size:11px;color:var(--dim);font-style:italic;margin-top:4px;
-  letter-spacing:0;text-transform:none;font-weight:300;line-height:1.5}
-
-hr{border:none;border-top:1px solid var(--border);margin:64px 0}
-
-.footer{color:var(--dim);font-size:12px;text-align:center;margin-top:80px;
-  padding-top:32px;border-top:1px solid var(--border)}
-.footer a{color:var(--dim);margin:0 10px;transition:color .2s}
-.footer a:hover{color:var(--a1)}
-
-[data-lang]{display:none}
-[data-lang].visible{display:block}
-
-/* Logo-Kopf, wie in der Anzeige */
-.vg-logo{display:block;text-decoration:none;text-align:center;margin:4px 0 34px}
-.vg-logo .vg-mark{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:400;
-  letter-spacing:.02em;line-height:1;color:var(--text);
-  text-shadow:0 2px 22px rgba(0,0,0,.45);transition:opacity .2s}
-.vg-logo:hover .vg-mark{opacity:.82}
-.vg-stars{display:flex;gap:9px;justify-content:center;margin-top:11px}
-.vg-stars svg{width:12px;height:12px;display:block;filter:drop-shadow(0 1px 4px rgba(0,0,0,.5))}
-#veil{position:fixed;inset:0;z-index:1;pointer-events:none;
-  background:radial-gradient(130% 90% at 50% 0%,rgba(8,6,10,.34) 0%,rgba(8,6,10,.72) 100%)}
+.foot{padding:40px 0 48px;font-size:13px;color:var(--ink2);text-align:center;line-height:1.7}
+.foot a{color:var(--ink2);text-decoration:none;margin:0 7px}
+.foot .imp{margin-top:16px;color:var(--ink3);font-size:12.5px}
+@media (min-width:640px){h1{font-size:54px}.card{padding:30px 28px}}
+@media (prefers-reduced-motion:reduce){.bg{animation:none}.cta,.ph{transition:none}}
 </style>
 </head>
 <body>
+<div class="bg" aria-hidden="true"><i></i></div>
 
-<canvas id="c"></canvas>
-<div id="veil"></div>
+<header class="head wrap">
+  <a class="mark" href="/" aria-label="Verge">
+    <span class="w">Verge</span>
+    <span class="stars" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path fill="#2EC4B6" d="M12 1.6l3.1 6.9 7.5.8-5.6 5.1 1.6 7.4L12 18l-6.6 3.8 1.6-7.4L1.4 9.3l7.5-.8z"/></svg>
+      <svg viewBox="0 0 24 24"><path fill="#3A86FF" d="M12 1.6l3.1 6.9 7.5.8-5.6 5.1 1.6 7.4L12 18l-6.6 3.8 1.6-7.4L1.4 9.3l7.5-.8z"/></svg>
+      <svg viewBox="0 0 24 24"><path fill="#7B61FF" d="M12 1.6l3.1 6.9 7.5.8-5.6 5.1 1.6 7.4L12 18l-6.6 3.8 1.6-7.4L1.4 9.3l7.5-.8z"/></svg>
+      <svg viewBox="0 0 24 24"><path fill="#FF6B6B" d="M12 1.6l3.1 6.9 7.5.8-5.6 5.1 1.6 7.4L12 18l-6.6 3.8 1.6-7.4L1.4 9.3l7.5-.8z"/></svg>
+      <svg viewBox="0 0 24 24"><path fill="#FF3B30" d="M12 1.6l3.1 6.9 7.5.8-5.6 5.1 1.6 7.4L12 18l-6.6 3.8 1.6-7.4L1.4 9.3l7.5-.8z"/></svg>
+    </span>
+  </a>
+  <div class="lang"><button id="lde" class="on">DE</button><button id="len">EN</button></div>
+</header>
 
-<div class="wrap">
+<main class="wrap">
+  <section class="hero">
+    <h1><span data-de>Sag Hallo.</span><span data-en>Say hi.</span></h1>
+    <p class="lead"><span data-de>Schreib uns, was dich bewegt. Oder schenk uns eine Karte, die wir ohne dich nicht hätten.</span><span data-en>Write to us about what moves you. Or hand us a card we wouldn't have without you.</span></p>
+  </section>
 
-<a href="index.html" class="vg-logo" aria-label="Verge">
-  <div class="vg-mark">Verge</div>
-  <div class="vg-stars">
-    <svg viewBox="0 0 24 24" fill="#2EC4B6"><path d="M12 .8l3.5 7.1 7.8 1.1-5.6 5.5 1.3 7.7L12 18.6 4.9 22.2l1.3-7.7L.6 9l7.8-1.1z"/></svg>
-    <svg viewBox="0 0 24 24" fill="#3A86FF"><path d="M12 .8l3.5 7.1 7.8 1.1-5.6 5.5 1.3 7.7L12 18.6 4.9 22.2l1.3-7.7L.6 9l7.8-1.1z"/></svg>
-    <svg viewBox="0 0 24 24" fill="#7B61FF"><path d="M12 .8l3.5 7.1 7.8 1.1-5.6 5.5 1.3 7.7L12 18.6 4.9 22.2l1.3-7.7L.6 9l7.8-1.1z"/></svg>
-    <svg viewBox="0 0 24 24" fill="#FF6B6B"><path d="M12 .8l3.5 7.1 7.8 1.1-5.6 5.5 1.3 7.7L12 18.6 4.9 22.2l1.3-7.7L.6 9l7.8-1.1z"/></svg>
-    <svg viewBox="0 0 24 24" fill="#FF3B30"><path d="M12 .8l3.5 7.1 7.8 1.1-5.6 5.5 1.3 7.7L12 18.6 4.9 22.2l1.3-7.7L.6 9l7.8-1.1z"/></svg>
-  </div>
-</a>
+  <section class="card">
+    <h2><span data-de>Direkter Draht</span><span data-en>Direct line</span></h2>
+    <p class="sub"><span data-de>Am schnellsten erreichst du uns per Mail. Oder über eines der Formulare unten. Wir lesen alles.</span><span data-en>Fastest way to reach us is email. Or through one of the forms below. We read everything.</span></p>
+    <a class="mail" href="mailto:info@playverge.app">info@playverge.app</a>
+  </section>
 
-<div class="lang-toggle">
-  <button class="lang-btn active" onclick="setLang('de')">DE</button>
-  <button class="lang-btn" onclick="setLang('en')">EN</button>
-</div>
+  <section class="card">
+    <h2><span data-de>Schreib uns.</span><span data-en>Write us.</span></h2>
+    <p class="sub"><span data-de>Feedback, Fragen, Presse, Kooperation oder einfach nur Hallo.</span><span data-en>Feedback, questions, press, partnerships or just hello.</span></p>
+    <form action="https://api.web3forms.com/submit" method="POST" data-form="message">
+      <input type="hidden" name="access_key" value="88991b97-d4cd-443c-b197-482e90f7379c">
+      <input type="hidden" name="subject" value="Neue Nachricht über playverge.app" data-subject-de="Neue Nachricht über playverge.app" data-subject-en="New message via playverge.app">
+      <input type="hidden" name="from_name" value="Verge Kontakt">
+      <input type="hidden" name="redirect" value="https://playverge.app/contact.html?sent=1">
+      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
 
-<!-- ═══════════════════════ DEUTSCH ═══════════════════════ -->
-<div data-lang="de" class="visible">
+      <label for="m-name"><span data-de>Name</span><span data-en>Name</span> <span>*</span></label>
+      <input id="m-name" type="text" name="Name" required autocomplete="name">
 
-<section>
-<h1>Sag Hallo.</h1>
-<p class="pullquote">Schreib uns, was dich bewegt. Oder schenk uns eine Karte, die wir ohne dich nicht h&auml;tten.</p>
+      <label for="m-mail"><span data-de>E-Mail</span><span data-en>Email</span> <span>*</span></label>
+      <input id="m-mail" type="email" name="Email" required autocomplete="email">
 
-<div class="contact-direct">
-<h2>Direkter Draht</h2>
-<p>Am schnellsten erreichst du uns per Mail: <a href="mailto:info@playverge.app">info@playverge.app</a></p>
-<p style="margin-bottom:0">Oder &uuml;ber eines der Formulare unten. Wir lesen alles.</p>
-</div>
-</section>
+      <label for="m-topic"><span data-de>Worum geht's?</span><span data-en>What's it about?</span></label>
+      <select id="m-topic" name="Thema">
+        <option data-de>Allgemein</option>
+        <option data-de>Feedback zur App</option>
+        <option data-de>Bug oder Problem</option>
+        <option data-de>Presse / Interview</option>
+        <option data-de>Kooperation</option>
+        <option data-de>Sonstiges</option>
+        <option data-en hidden>General</option>
+        <option data-en hidden>App feedback</option>
+        <option data-en hidden>Bug or problem</option>
+        <option data-en hidden>Press / interview</option>
+        <option data-en hidden>Partnership</option>
+        <option data-en hidden>Other</option>
+      </select>
 
-<section>
-<h1>Schreib uns.</h1>
-<p class="intro">Feedback, Fragen, Presse, Kooperation oder einfach nur Hallo.</p>
+      <label for="m-msg"><span data-de>Nachricht</span><span data-en>Message</span> <span>*</span></label>
+      <textarea id="m-msg" name="Nachricht" required></textarea>
 
-<form action="https://api.web3forms.com/submit" method="POST" data-form="message">
-  <input type="hidden" name="access_key" value="88991b97-d4cd-443c-b197-482e90f7379c">
-  <input type="hidden" name="subject" value="Neue Nachricht &uuml;ber playverge.app">
-  <input type="hidden" name="from_name" value="Verge Kontakt">
-  <input type="hidden" name="redirect" value="https://playverge.app/contact.html?sent=1">
-  <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+      <button class="cta" type="submit" disabled><span data-de>Absenden</span><span data-en>Send</span></button>
+      <p class="helper" data-helper="message"><span data-de>Füll bitte alle Pflichtfelder aus.</span><span data-en>Please fill in all required fields.</span></p>
+    </form>
+  </section>
 
-  <div class="field">
-    <label for="m-name">Name <span class="req">*</span></label>
-    <input type="text" id="m-name" name="Name" required placeholder="Wie hei&szlig;t du?">
-  </div>
+  <section class="card">
+    <h2><span data-de>Reich eine Karte ein.</span><span data-en>Submit a card.</span></h2>
+    <p class="sub"><span data-de>Hast du eine Frage, die du schon immer mal gestellt bekommen wolltest? Eine Aufgabe, die aus einem Abend einen Moment gemacht hat? Schick sie uns. Die besten Karten landen in Verge.</span><span data-en>Got a question you always wanted to be asked? A dare that turned an evening into a moment? Send it over. The best cards make it into Verge.</span></p>
+    <form action="https://api.web3forms.com/submit" method="POST" data-form="card">
+      <input type="hidden" name="access_key" value="88991b97-d4cd-443c-b197-482e90f7379c">
+      <input type="hidden" name="subject" value="Neue Karten-Einreichung" data-subject-de="Neue Karten-Einreichung" data-subject-en="New card submission">
+      <input type="hidden" name="from_name" value="Verge Karten-Einreichung">
+      <input type="hidden" name="redirect" value="https://playverge.app/contact.html?sent=1">
+      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
 
-  <div class="field">
-    <label for="m-email">E-Mail <span class="req">*</span></label>
-    <input type="email" id="m-email" name="Email" required placeholder="deine@email.de">
-  </div>
+      <label><span data-de>Phase</span><span data-en>Phase</span> <span>*</span></label>
+      <div class="phases" id="phases">
+        <button type="button" class="ph" style="--c:#2EC4B6" data-v="Spielerisch" data-ven="Playful"><span data-de>Spielerisch</span><span data-en>Playful</span></button>
+        <button type="button" class="ph" style="--c:#3A86FF" data-v="Persönlich" data-ven="Personal"><span data-de>Persönlich</span><span data-en>Personal</span></button>
+        <button type="button" class="ph" style="--c:#7B61FF" data-v="Nah" data-ven="Close"><span data-de>Nah</span><span data-en>Close</span></button>
+        <button type="button" class="ph" style="--c:#FF6B6B" data-v="Intim" data-ven="Intimate"><span data-de>Intim</span><span data-en>Intimate</span></button>
+        <button type="button" class="ph" style="--c:#FF3B30" data-v="Enthemmt" data-ven="Uninhibited"><span data-de>Enthemmt</span><span data-en>Uninhibited</span></button>
+      </div>
+      <input type="hidden" name="Phase" id="phaseval" required>
+      <p class="hint"><span data-de>Spielerisch: lockere Fragen zum Warmwerden. Persönlich: ehrlich, mit Spaß. Nah: Tiefe, Vertrauen, achtsame Berührung. Intim: körperliche Nähe, Spannung. Enthemmt: erotisch, loslassend.</span><span data-en>Playful: light questions to warm up. Personal: honest, with humour. Close: depth, trust, mindful touch. Intimate: physical closeness, tension. Uninhibited: erotic, letting go.</span></p>
 
-  <div class="field">
-    <label for="m-topic">Worum geht's?</label>
-    <select id="m-topic" name="Thema">
-      <option value="Allgemein">Allgemein</option>
-      <option value="Feedback">Feedback zur App</option>
-      <option value="Bug">Bug oder Problem</option>
-      <option value="Presse">Presse / Interview</option>
-      <option value="Kooperation">Kooperation</option>
-      <option value="Sonstiges">Sonstiges</option>
-    </select>
-  </div>
+      <label for="c-text"><span data-de>Deine Karte</span><span data-en>Your card</span> <span>*</span></label>
+      <textarea id="c-text" name="Karte" required></textarea>
 
-  <div class="field">
-    <label for="m-message">Nachricht <span class="req">*</span></label>
-    <textarea id="m-message" name="Nachricht" required placeholder="Erz&auml;hl uns, was dich bewegt."></textarea>
-  </div>
+      <label for="c-name"><span data-de>Dein Name</span><span data-en>Your name</span></label>
+      <input id="c-name" type="text" name="Einsender" autocomplete="name">
+      <p class="hint"><span data-de>Optional. Wenn du möchtest, nennen wir dich bei Veröffentlichung auf Social Media.</span><span data-en>Optional. If you like, we'll credit you when we post it on social media.</span></p>
 
-  <button type="submit" class="submit-btn" disabled>Absenden</button>
-  <span class="btn-helper" data-helper="message">F&uuml;ll bitte alle Pflichtfelder aus.</span>
-</form>
-</section>
+      <label for="c-mail"><span data-de>E-Mail</span><span data-en>Email</span></label>
+      <input id="c-mail" type="email" name="Email" autocomplete="email">
+      <p class="hint"><span data-de>Optional. Nur falls wir Rückfragen haben.</span><span data-en>Optional. Only in case we have questions.</span></p>
 
-<hr>
+      <label class="check"><input type="checkbox" name="Nutzungsrechte" value="Ja" required>
+        <span><span data-de>Ich bin damit einverstanden, dass Verge meine Einreichung kostenlos und ohne zeitliche Einschränkung in der App, auf Social Media und in Werbung nutzen darf.</span><span data-en>I agree that Verge may use my submission free of charge and without time limit in the app, on social media and in advertising.</span></span>
+      </label>
 
-<section>
-<h1>Reich eine Karte ein.</h1>
-<p class="intro">Hast du eine Frage, die du schon immer mal gestellt bekommen wolltest? Eine Aufgabe, die aus einem Abend einen Moment gemacht hat? Schick sie uns. Die besten Karten landen in Verge.</p>
+      <button class="cta" type="submit" disabled><span data-de>Karte einreichen</span><span data-en>Submit card</span></button>
+      <p class="helper" data-helper="card"><span data-de>Wähl eine Phase, schreib die Karte und bestätige die Nutzungsrechte.</span><span data-en>Pick a phase, write the card and confirm the usage rights.</span></p>
+    </form>
+  </section>
+</main>
 
-<div class="phase-hint">
-  <span class="phase-pill"><span class="phase-dot d1"></span>Spielerisch</span>
-  <span class="phase-pill"><span class="phase-dot d2"></span>Pers&ouml;nlich</span>
-  <span class="phase-pill"><span class="phase-dot d3"></span>Nah</span>
-  <span class="phase-pill"><span class="phase-dot d4"></span>Intim</span>
-  <span class="phase-pill"><span class="phase-dot d5"></span>Enthemmt</span>
-</div>
-
-<form action="https://api.web3forms.com/submit" method="POST" style="margin-top:32px" data-form="card">
-  <input type="hidden" name="access_key" value="88991b97-d4cd-443c-b197-482e90f7379c">
-  <input type="hidden" name="subject" value="Neue Karten-Einreichung">
-  <input type="hidden" name="from_name" value="Verge Karten-Einreichung">
-  <input type="hidden" name="redirect" value="https://playverge.app/contact.html?sent=1">
-  <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-
-  <div class="field">
-    <label for="k-phase">Phase <span class="req">*</span></label>
-    <select id="k-phase" name="Phase" required>
-      <option value="">W&auml;hle eine Phase</option>
-      <option value="Spielerisch">Spielerisch &ndash; lockere Fragen, Warmwerden</option>
-      <option value="Pers&ouml;nlich">Pers&ouml;nlich &ndash; ehrliche Fragen, Spa&szlig;</option>
-      <option value="Nah">Nah &ndash; Tiefe, Vertrauen, achtsame Ber&uuml;hrung</option>
-      <option value="Intim">Intim &ndash; K&ouml;rperliche N&auml;he, Spannung</option>
-      <option value="Enthemmt">Enthemmt &ndash; Erotisch, loslassend</option>
-    </select>
-  </div>
-
-  <div class="field">
-    <label for="k-text">Deine Karte <span class="req">*</span></label>
-    <textarea id="k-text" name="Karte" required placeholder="Schreib die Frage oder Aufgabe so, wie sie im Spiel erscheinen soll."></textarea>
-  </div>
-
-  <div class="field">
-    <label for="k-name">Dein Name
-      <div class="opt-hint">Optional. Wenn du m&ouml;chtest, nennen wir dich bei Ver&ouml;ffentlichung auf Social Media.</div>
-    </label>
-    <input type="text" id="k-name" name="Einsender" placeholder="Wie sollen wir dich nennen?">
-  </div>
-
-  <div class="field">
-    <label for="k-email">E-Mail
-      <div class="opt-hint">Optional. Nur falls wir R&uuml;ckfragen haben.</div>
-    </label>
-    <input type="email" id="k-email" name="Email" placeholder="deine@email.de">
-  </div>
-
-  <div class="legal-check">
-    <input type="checkbox" id="k-rights" name="Nutzungsrechte" required>
-    <label for="k-rights">
-      Ich bin damit einverstanden, dass Verge meine Einreichung kostenlos und ohne zeitliche Einschr&auml;nkung in der App, auf Social Media und in Werbung nutzen darf.
-    </label>
-  </div>
-
-  <button type="submit" class="submit-btn" disabled>Karte einreichen</button>
-  <span class="btn-helper" data-helper="card">F&uuml;ll Phase und Karten-Text aus und best&auml;tige die Nutzungsrechte.</span>
-</form>
-</section>
-
-<div class="footer">
-  <a href="index.html">Startseite</a>
-  <a href="privacy.html">Impressum &amp; Datenschutz</a>
-  <a href="terms.html">Nutzungsbedingungen</a>
-  <br><br>
-  <strong>AmBuetioniert UG (haftungsbeschr&auml;nkt)</strong><br>
-  J&uuml;licher Str. 24, 50674 K&ouml;ln, Deutschland<br>
-  Gesch&auml;ftsf&uuml;hrer: Kilian Amrehn &middot; HRB 128605, Amtsgericht K&ouml;ln<br>
-  Telefon: <a href="tel:+491791667719" style="margin:0">+49 179 1667719</a><br>
-  Support: <a href="mailto:info@playverge.app" style="margin:0">info@playverge.app</a>
-  <br><br>
-  &copy; 2026 AmBuetioniert UG (haftungsbeschr&auml;nkt)
-</div>
-
-</div>
-
-<!-- ═══════════════════════ ENGLISH ═══════════════════════ -->
-<div data-lang="en">
-
-<section>
-<h1>Say hi.</h1>
-<p class="pullquote">Write to us about what moves you. Or hand us a card we wouldn't have without you.</p>
-
-<div class="contact-direct">
-<h2>Direct line</h2>
-<p>Fastest way to reach us is email: <a href="mailto:info@playverge.app">info@playverge.app</a></p>
-<p style="margin-bottom:0">Or through one of the forms below. We read everything.</p>
-</div>
-</section>
-
-<section>
-<h1>Write us.</h1>
-<p class="intro">Feedback, questions, press, partnerships or just a hello.</p>
-
-<form action="https://api.web3forms.com/submit" method="POST" data-form="message-en">
-  <input type="hidden" name="access_key" value="88991b97-d4cd-443c-b197-482e90f7379c">
-  <input type="hidden" name="subject" value="New message via playverge.app">
-  <input type="hidden" name="from_name" value="Verge Contact">
-  <input type="hidden" name="redirect" value="https://playverge.app/contact.html?sent=1">
-  <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-
-  <div class="field">
-    <label for="m-name-en">Name <span class="req">*</span></label>
-    <input type="text" id="m-name-en" name="Name" required placeholder="What's your name?">
-  </div>
-
-  <div class="field">
-    <label for="m-email-en">Email <span class="req">*</span></label>
-    <input type="email" id="m-email-en" name="Email" required placeholder="your@email.com">
-  </div>
-
-  <div class="field">
-    <label for="m-topic-en">What's it about?</label>
-    <select id="m-topic-en" name="Topic">
-      <option value="General">General</option>
-      <option value="Feedback">App feedback</option>
-      <option value="Bug">Bug or problem</option>
-      <option value="Press">Press / interview</option>
-      <option value="Partnership">Partnership</option>
-      <option value="Other">Other</option>
-    </select>
-  </div>
-
-  <div class="field">
-    <label for="m-message-en">Message <span class="req">*</span></label>
-    <textarea id="m-message-en" name="Message" required placeholder="Tell us what's on your mind."></textarea>
-  </div>
-
-  <button type="submit" class="submit-btn" disabled>Send</button>
-  <span class="btn-helper" data-helper="message-en">Please fill in all required fields.</span>
-</form>
-</section>
-
-<hr>
-
-<section>
-<h1>Submit a card.</h1>
-<p class="intro">Got a question you always wanted to be asked? A task that turned an evening into a moment? Send it to us. The best cards end up in Verge.</p>
-
-<div class="phase-hint">
-  <span class="phase-pill"><span class="phase-dot d1"></span>Playful</span>
-  <span class="phase-pill"><span class="phase-dot d2"></span>Personal</span>
-  <span class="phase-pill"><span class="phase-dot d3"></span>Close</span>
-  <span class="phase-pill"><span class="phase-dot d4"></span>Intimate</span>
-  <span class="phase-pill"><span class="phase-dot d5"></span>Uninhibited</span>
-</div>
-
-<form action="https://api.web3forms.com/submit" method="POST" style="margin-top:32px" data-form="card-en">
-  <input type="hidden" name="access_key" value="88991b97-d4cd-443c-b197-482e90f7379c">
-  <input type="hidden" name="subject" value="New card submission">
-  <input type="hidden" name="from_name" value="Verge Card Submission">
-  <input type="hidden" name="redirect" value="https://playverge.app/contact.html?sent=1">
-  <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-
-  <div class="field">
-    <label for="k-phase-en">Phase <span class="req">*</span></label>
-    <select id="k-phase-en" name="Phase" required>
-      <option value="">Choose a phase</option>
-      <option value="Playful">Playful &ndash; light questions, warming up</option>
-      <option value="Personal">Personal &ndash; honest questions, fun</option>
-      <option value="Close">Close &ndash; depth, trust, mindful touch</option>
-      <option value="Intimate">Intimate &ndash; physical closeness, tension</option>
-      <option value="Uninhibited">Uninhibited &ndash; erotic, letting go</option>
-    </select>
-  </div>
-
-  <div class="field">
-    <label for="k-text-en">Your card <span class="req">*</span></label>
-    <textarea id="k-text-en" name="Card" required placeholder="Write the question or task the way it should appear in the game."></textarea>
-  </div>
-
-  <div class="field">
-    <label for="k-name-en">Your name
-      <div class="opt-hint">Optional. If you'd like, we'll mention you when we post on social media.</div>
-    </label>
-    <input type="text" id="k-name-en" name="Submitter" placeholder="What should we call you?">
-  </div>
-
-  <div class="field">
-    <label for="k-email-en">Email
-      <div class="opt-hint">Optional. Only if we have follow-up questions.</div>
-    </label>
-    <input type="email" id="k-email-en" name="Email" placeholder="your@email.com">
-  </div>
-
-  <div class="legal-check">
-    <input type="checkbox" id="k-rights-en" name="Rights" required>
-    <label for="k-rights-en">
-      I agree that Verge may use my submission free of charge and without time limit in the app, on social media, and in advertising.
-    </label>
-  </div>
-
-  <button type="submit" class="submit-btn" disabled>Submit card</button>
-  <span class="btn-helper" data-helper="card-en">Choose a phase, write your card, and confirm the rights above.</span>
-</form>
-</section>
-
-<div class="footer">
-  <a href="index.html">Home</a>
-  <a href="privacy.html">Imprint &amp; Privacy Policy</a>
-  <a href="terms.html">Terms of Service</a>
-  <br><br>
-  <strong>AmBuetioniert UG (haftungsbeschraenkt)</strong><br>
-  Juelicher Str. 24, 50674 Cologne, Germany<br>
-  Managing Director: Kilian Amrehn &middot; HRB 128605, Local Court of Cologne<br>
-  Phone: <a href="tel:+491791667719" style="margin:0">+49 179 1667719</a><br>
-  Support: <a href="mailto:info@playverge.app" style="margin:0">info@playverge.app</a>
-  <br><br>
-  &copy; 2026 AmBuetioniert UG (haftungsbeschraenkt)
-</div>
-
-</div>
-
-</div><!-- /.wrap -->
+<footer class="foot wrap">
+  <a href="/"><span data-de>Startseite</span><span data-en>Home</span></a>
+  <a href="/privacy.html"><span data-de>Impressum &amp; Datenschutz</span><span data-en>Imprint &amp; Privacy</span></a>
+  <a href="/terms.html"><span data-de>Nutzungsbedingungen</span><span data-en>Terms</span></a>
+  <p class="imp">AmBuetioniert UG (haftungsbeschränkt)<br>
+  Jülicher Str. 24, 50674 Köln, Deutschland<br>
+  <span data-de>Geschäftsführer</span><span data-en>Managing director</span>: Kilian Amrehn · HRB 128605, <span data-de>Amtsgericht Köln</span><span data-en>Cologne District Court</span><br>
+  <span data-de>Telefon</span><span data-en>Phone</span>: +49 179 1667719 · Support: info@playverge.app<br>
+  © 2026 AmBuetioniert UG (haftungsbeschränkt)</p>
+</footer>
 
 <script>
-function setLang(l){
-  document.documentElement.lang=l;
-  document.querySelectorAll('.lang-btn').forEach(btn=>{
-    btn.classList.toggle('active',btn.textContent.trim().toLowerCase()===l);
-  });
-  document.querySelectorAll('[data-lang]').forEach(s=>{
-    s.classList.toggle('visible',s.getAttribute('data-lang')===l);
-  });
-  const back=document.querySelector('.back');
-  if(back){
-    const txt=back.getAttribute('data-'+l);
-    back.textContent=txt;
-  }
-}
-
-if(window.location.search.includes('sent=1')){
-  const msg=document.createElement('div');
-  msg.style.cssText='position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#2EC4B6;color:#0a0a0a;padding:14px 28px;font-family:Inter,sans-serif;font-size:13px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;z-index:1000;border-radius:2px;box-shadow:0 4px 20px rgba(0,0,0,.3)';
-  msg.textContent='\u2713 Danke. Wir melden uns.';
-  document.body.appendChild(msg);
-  setTimeout(()=>{msg.style.transition='opacity .5s';msg.style.opacity='0';},4000);
-  setTimeout(()=>msg.remove(),4600);
-  history.replaceState(null,'',window.location.pathname);
-}
-
-function setupFormValidation(form){
-  const requiredFields=form.querySelectorAll('[required]');
-  const button=form.querySelector('.submit-btn');
-  const formKey=form.getAttribute('data-form');
-  const helper=document.querySelector('[data-helper="'+formKey+'"]');
-
-  function checkValidity(){
-    const allValid=Array.from(requiredFields).every(f=>{
-      if(f.type==='checkbox')return f.checked;
-      return f.value.trim()!=='';
-    });
-    button.disabled=!allValid;
-    if(helper)helper.classList.toggle('visible',!allValid);
-  }
-
-  requiredFields.forEach(f=>{
-    f.addEventListener('input',checkValidity);
-    f.addEventListener('change',checkValidity);
-  });
-
-  checkValidity();
-}
-
-document.querySelectorAll('form[data-form]').forEach(setupFormValidation);
-
-/* ===== Wasserlicht, portiert aus shimmer.frag der App, uMode 1 ===== */
 (function(){
-  var cv=document.getElementById("c");
-  if(!cv) return;
-  var gl=null;
-  try{gl=cv.getContext("webgl",{alpha:false,antialias:false,depth:false});}catch(e){}
-  if(!gl){cv.style.display="none";return;}
-  var vsSrc="attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}";
-  var fsSrc=[
-"precision highp float;",
-"uniform vec2 uRes; uniform float uTime; uniform float uPhasePos;",
-"const float TAU=6.28318530718; const float SPREAD=0.25;",
-"vec3 P0=vec3(0.180,0.769,0.714); vec3 P1=vec3(0.227,0.525,1.000);",
-"vec3 P2=vec3(0.482,0.380,1.000); vec3 P3=vec3(1.000,0.420,0.420);",
-"vec3 P4=vec3(1.000,0.231,0.188);",
-"vec3 phaseAt(int i){if(i==0)return P0;if(i==1)return P1;if(i==2)return P2;if(i==3)return P3;return P4;}",
-"vec3 phaseColor(float p){p=fract(p);float ci=p*5.0;int idx=int(floor(ci));float f=ci-floor(ci);",
-"  return mix(phaseAt(idx),phaseAt(int(mod(float(idx)+1.0,5.0))),f);}",
-"void main(){",
-"  float ar=uRes.x/uRes.y; vec2 uv=gl_FragCoord.xy/uRes; uv.y=1.0-uv.y;",
-"  float ux=uv.x*ar; float uy=uv.y;",
-"  float px=mod(ux*TAU*1.4,TAU)-250.0; float py=mod(uy*TAU*1.4,TAU)-250.0;",
-"  float ix=px, iy=py; float c=1.0; float inten=0.0045; float time=uTime+23.0;",
-"  for(int n=1;n<=5;n++){",
-"    float t=time*(1.0-3.5/float(n));",
-"    float nx=px+(cos(t-ix)+sin(t+iy)); float ny=py+(sin(t-iy)+cos(t+ix));",
-"    ix=nx; iy=ny;",
-"    float dx=px/(sin(ix+t)/inten); float dy=py/(cos(iy+t)/inten);",
-"    c+=1.0/sqrt(dx*dx+dy*dy);}",
-"  c/=5.0; c=1.17-pow(abs(c),1.4);",
-"  float bright=clamp(pow(abs(c),8.0),0.0,1.0);",
-"  vec3 ph=phaseColor(uv.x*SPREAD+uPhasePos);",
-"  vec3 col=ph*bright*0.85+ph*0.045;",
-"  col*=0.82+0.18*(1.0-uy);",
-"  gl_FragColor=vec4(col,1.0);}"].join("\n");
-  function mk(t,s){var sh=gl.createShader(t);gl.shaderSource(sh,s);gl.compileShader(sh);
-    return gl.getShaderParameter(sh,gl.COMPILE_STATUS)?sh:null;}
-  var v=mk(gl.VERTEX_SHADER,vsSrc),f=mk(gl.FRAGMENT_SHADER,fsSrc);
-  if(!v||!f){cv.style.display="none";return;}
-  var pr=gl.createProgram();gl.attachShader(pr,v);gl.attachShader(pr,f);gl.linkProgram(pr);
-  if(!gl.getProgramParameter(pr,gl.LINK_STATUS)){cv.style.display="none";return;}
-  gl.useProgram(pr);
-  var bf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,bf);
-  gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
-  var lo=gl.getAttribLocation(pr,"p");gl.enableVertexAttribArray(lo);
-  gl.vertexAttribPointer(lo,2,gl.FLOAT,false,0,0);
-  var uRes=gl.getUniformLocation(pr,"uRes"),uTime=gl.getUniformLocation(pr,"uTime"),
-      uPh=gl.getUniformLocation(pr,"uPhasePos");
-  var SCALE=0.42;
-  function resize(){
-    var w=Math.max(1,Math.round(window.innerWidth*SCALE));
-    var h=Math.max(1,Math.round(window.innerHeight*SCALE));
-    if(cv.width!==w||cv.height!==h){cv.width=w;cv.height=h;gl.viewport(0,0,w,h);}
+  /* Sprache */
+  var lang=(navigator.language||"de").toLowerCase().indexOf("de")===0?"de":"en";
+  var q=new URLSearchParams(location.search); if(q.get("lang"))lang=q.get("lang");
+  function setLang(l){
+    lang=l; document.documentElement.lang=l;
+    document.getElementById("lde").classList.toggle("on",l==="de");
+    document.getElementById("len").classList.toggle("on",l==="en");
+    document.querySelectorAll("[data-de]").forEach(function(e){e.hidden=(l!=="de")});
+    document.querySelectorAll("[data-en]").forEach(function(e){e.hidden=(l!=="en")});
+    document.title = l==="de" ? "Kontakt – Verge" : "Contact – Verge";
+    document.querySelectorAll("input[data-subject-de]").forEach(function(e){
+      e.value = e.getAttribute("data-subject-"+l)});
+    var sel=document.getElementById("phaseval");
+    var on=document.querySelector(".ph.on");
+    if(on) sel.value = l==="de" ? on.getAttribute("data-v") : on.getAttribute("data-ven");
+    forms.forEach(check);
   }
-  window.addEventListener("resize",resize);
-  var SPEED=0.225,SHIFT=0.009,START=0.45,t0=performance.now(),last=0;
-  function loop(now){
-    if(now-last>40){last=now;resize();var t=(now-t0)/1000;
-      gl.uniform2f(uRes,cv.width,cv.height);
-      gl.uniform1f(uTime,t*SPEED);
-      gl.uniform1f(uPh,START+t*SHIFT);
-      gl.drawArrays(gl.TRIANGLE_STRIP,0,4);}
-    requestAnimationFrame(loop);
+  document.getElementById("lde").addEventListener("click",function(){setLang("de")});
+  document.getElementById("len").addEventListener("click",function(){setLang("en")});
+
+  /* Phasen-Auswahl */
+  var phaseval=document.getElementById("phaseval");
+  document.querySelectorAll(".ph").forEach(function(b){
+    b.addEventListener("click",function(){
+      document.querySelectorAll(".ph").forEach(function(x){x.classList.remove("on")});
+      b.classList.add("on");
+      phaseval.value = lang==="de" ? b.getAttribute("data-v") : b.getAttribute("data-ven");
+      forms.forEach(check);
+    });
+  });
+
+  /* Absenden erst, wenn alles ausgefüllt ist */
+  var forms=[].slice.call(document.querySelectorAll("form"));
+  function check(f){
+    var req=f.querySelectorAll("[required]"), ok=true;
+    req.forEach(function(el){
+      if(el.type==="checkbox"){ if(!el.checked) ok=false; }
+      else if(!el.value.trim()) ok=false;
+      else if(el.type==="email" && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value)) ok=false;
+    });
+    var btn=f.querySelector(".cta"); btn.disabled=!ok;
+    var h=document.querySelector('[data-helper="'+f.getAttribute("data-form")+'"]');
+    if(h) h.style.visibility = ok ? "hidden" : "visible";
   }
-  resize();requestAnimationFrame(loop);
+  forms.forEach(function(f){
+    f.addEventListener("input",function(){check(f)});
+    f.addEventListener("change",function(){check(f)});
+    check(f);
+  });
+
+  /* Bestätigung nach dem Absenden */
+  if(location.search.indexOf("sent=1")>-1){
+    var t=document.createElement("div"); t.className="toast";
+    t.textContent = lang==="de" ? "Danke. Wir melden uns." : "Thank you. We'll be in touch.";
+    document.body.appendChild(t);
+    setTimeout(function(){t.style.transition="opacity .5s";t.style.opacity="0"},4000);
+    setTimeout(function(){t.remove()},4600);
+    history.replaceState(null,"",location.pathname);
+  }
+
+  setLang(lang);
 })();
-
 </script>
-
 </body>
 </html>
