@@ -42,7 +42,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 [hidden]{display:none!important}
 
 /* Analog-Hintergrund, Pastell-Phasen */
-.bg{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;
+.bg{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;transform:translateZ(0);will-change:background-color;contain:strict;
   background-color:#EBE4D3;animation:phases 100s linear infinite}
 .bg b{display:none}
 .bg i{position:absolute;inset:0;background-image:var(--dustink);background-size:560px 760px;opacity:.65;mix-blend-mode:multiply}
@@ -57,7 +57,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 
 /* Install-Leiste */
-.banner{position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);display:flex;align-items:center;gap:11px;padding:9px var(--pad);background:rgba(253,248,240,.92);border-bottom:1px solid rgba(47,52,58,.12)}
+.banner{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:11px;padding:9px var(--pad);background:#FBF5EB;border-bottom:1px solid rgba(47,52,58,.12)}
 .banner.off{display:none}
 .banner .x{flex:none;width:22px;height:22px;display:grid;place-items:center;color:var(--ink3);font-size:19px;line-height:1}
 .banner img{width:42px;height:42px;border-radius:11px;flex:none}
@@ -143,7 +143,7 @@ h2{font-family:var(--serif);font-weight:500;font-size:33px;line-height:1.08;marg
 /* Karten */
 .deckwrap{position:relative;margin-top:6px}
 .deckwrap.static .sticky{position:static;height:auto;padding:10px 0}
-.sticky{position:sticky;top:0;height:100svh;padding-top:var(--bh,0px);box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden}
+.sticky{position:sticky;top:0;height:100svh;contain:layout paint;padding-top:var(--bh,0px);box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden}
 .glow{position:absolute;inset:0;background:radial-gradient(58% 42% at 50% 56%,var(--ph),transparent 70%);opacity:.2;transition:background .4s;pointer-events:none}
 .phase{position:relative;font-family:var(--serif);font-size:29px;font-weight:600;color:var(--ph);transition:color .3s;text-align:center;line-height:1.1}
 .phase small{display:block;font-family:var(--sans);font-size:12px;font-weight:500;color:var(--ink2);margin-top:3px}
@@ -193,7 +193,7 @@ h2{font-family:var(--serif);font-weight:500;font-size:33px;line-height:1.08;marg
 .bandlead{font-size:15px;color:var(--ink2);margin-bottom:22px}
 
 /* Grenzen-Modul */
-.panel{border:1px solid rgba(47,52,58,.14);border-radius:20px;padding:18px 12px;background:rgba(255,255,255,.5);backdrop-filter:blur(6px);margin-bottom:14px}
+.panel{border:1px solid rgba(47,52,58,.14);border-radius:20px;padding:18px 12px;background:rgba(255,255,255,.62);margin-bottom:14px}
 .panel+.panel{margin-bottom:0}
 .panel .ttl{font-family:var(--serif);font-size:26px;font-weight:600;margin-bottom:12px}
 .panel .q{text-align:center;font-size:14px;color:var(--ink2);margin-bottom:20px}
@@ -576,8 +576,11 @@ h2{font-family:var(--serif);font-weight:500;font-size:33px;line-height:1.08;marg
   var STEP=0.55;
   function layout(){wrap.style.height=(100+STEP*100*(N-0.35))+"svh"}
   layout();addEventListener("resize",function(){layout();cardText()});
+  function r0(e){return e.offsetHeight}
   function render(){
-    var r=wrap.getBoundingClientRect(),total=r.height-innerHeight;
+    var st=wrap.firstElementChild;
+    var total=r0(wrap)-st.offsetHeight;
+    var r=wrap.getBoundingClientRect();
     var p=Math.min(Math.max(-r.top/total,0),1)*N; if(p>=N)p=N-0.001;
     var i=Math.floor(p),f=p-i,fly=f>0.6?(f-0.6)/0.4:0;
     if(i>=N-1){i=N-1;fly=0}
