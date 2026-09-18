@@ -1,1 +1,1 @@
-[{"relation":["delegate_permission/common.handle_all_urls"],"target":{"namespace":"android_app","package_name":"com.vergeapp.verge","sha256_cert_fingerprints":["HIER_FINGERPRINT_EINSETZEN"]}}]
+[{"relation":["delegate_permission/common.handle_all_urls"],"target":{"namespace":"android_app","package_name":"com.vergeapp.verge","sha256_cert_fingerprints":["8A:0B:DC:29:90:5E:38:32:B2:51:E4:91:5E:5B:AF:4C:2F:38:32:0E:8C:76:3B:86:52:97:C4:6E:D3:78:7C:48"]}}]
