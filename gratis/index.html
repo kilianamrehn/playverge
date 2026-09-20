@@ -28,6 +28,18 @@
   src:url(../fonts/cormorant-italic.woff2) format("woff2")}
 @font-face{font-family:"Inter";font-style:normal;font-weight:400 700;font-display:swap;
   src:url(../fonts/inter.woff2) format("woff2")}
+
+/* Einwilligungsleiste Meta-Pixel */
+.cc{position:fixed;left:0;right:0;bottom:0;z-index:60;background:#F9F3E9;border-top:1px solid rgba(47,52,58,.14);
+  box-shadow:0 -8px 24px rgba(47,52,58,.06);padding-top:12px;padding-bottom:calc(10px + env(safe-area-inset-bottom,0px))}
+.cc[hidden]{display:none}
+.cc .in{max-width:480px;margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+.cc h2{font-family:var(--serif);font-weight:500;font-size:21px;line-height:1.15;margin:0 0 4px;color:#2F343A}
+.cc p{margin:0 0 10px;font-size:13px;line-height:1.4;color:#6C727A}
+.cc p a{color:#2F343A;text-decoration:underline;text-underline-offset:2px}
+.cc .bt{display:flex;gap:10px}
+.cc button{flex:1;font:600 15px/1 var(--sans);height:42px;border-radius:999px;border:0;background:#2F343A;color:#F9F3E9;cursor:pointer}
+.foot .ccopen{background:none;border:0;padding:0;font:inherit;color:inherit;text-decoration:inherit;cursor:pointer}
 </style>
 <link rel="preload" as="font" type="font/woff2" href="../fonts/cormorant.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="../fonts/inter.woff2" crossorigin>
@@ -367,8 +379,18 @@ h2{font-family:var(--serif);font-weight:500;font-size:33px;line-height:1.08;marg
   <a href="mailto:info@playverge.app">info@playverge.app</a>
   <a href="https://playverge.app/privacy.html"><span data-de>Impressum &amp; Datenschutz</span><span data-en>Imprint &amp; Privacy</span></a>
   <a href="https://playverge.app/terms.html"><span data-de>Nutzungsbedingungen</span><span data-en>Terms</span></a>
+  <button type="button" class="ccopen" id="ccopen"><span data-de>Cookie-Einstellungen</span><span data-en>Cookie settings</span></button>
   <p class="c">© 2026 AmBuetioniert UG (haftungsbeschränkt)</p>
 </footer>
+
+<div class="cc" id="cc" hidden role="region" aria-label="Meta-Pixel">
+  <div class="in">
+    <h2><span data-de>Hilf uns, die Richtigen zu finden.</span><span data-en>Help us find the right people.</span></h2>
+    <p><span data-de>Wir sind ein kleines Team. Der Meta-Pixel zeigt uns, ob unsere Werbung bei Menschen wie dir ankommt. <a href="https://playverge.app/privacy.html?lang=de#meta-pixel">Details</a></span><span data-en>We are a small team. The Meta Pixel shows us whether our ads reach people like you. <a href="https://playverge.app/privacy.html?lang=en#meta-pixel-en">Details</a></span></p>
+    <div class="bt"><button type="button" id="ccno"><span data-de>Nein, danke</span><span data-en>No, thanks</span></button><button type="button" id="ccyes"><span data-de>Ja, gern</span><span data-en>Yes, sure</span></button></div>
+  </div>
+</div>
+
 
 <script>
 (function(){
@@ -661,6 +683,40 @@ h2{font-family:var(--serif);font-weight:500;font-size:33px;line-height:1.08;marg
   sc.src="https://itunes.apple.com/lookup?id="+ID+"&country=de&callback=__vergeRating";
   sc.async=true; sc.onerror=function(){};
   document.head.appendChild(sc);
+})();
+</script>
+<script>
+/* Meta-Pixel: lädt nur nach Einwilligung. Store-Tipp = Lead. */
+(function(){
+  var PIXEL_ID="1382887043825137";            /* <- Pixel-ID hier eintragen */
+  var KEY="vg_consent", MAX=180*864e5;
+  var cc=document.getElementById("cc"), loaded=false, sent=false;
+  function get(){try{var v=JSON.parse(localStorage.getItem(KEY));if(v&&Date.now()-v.t<MAX)return v.c}catch(e){}return null}
+  function put(c){try{localStorage.setItem(KEY,JSON.stringify({c:c,t:Date.now()}))}catch(e){}}
+  function pad(){document.body.style.paddingBottom=cc.hidden?"":cc.offsetHeight+"px"}
+  function load(){
+    if(loaded||!PIXEL_ID)return;loaded=true;
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
+    fbq("set","autoConfig",false,PIXEL_ID);
+    fbq("init",PIXEL_ID);
+    fbq("track","PageView");
+  }
+  function decide(c){put(c);cc.hidden=true;pad();if(c==="yes")load();}
+  document.getElementById("ccyes").addEventListener("click",function(){decide("yes")});
+  document.getElementById("ccno").addEventListener("click",function(){decide("no")});
+  document.getElementById("ccopen").addEventListener("click",function(){
+    if(get()==="yes"&&loaded){try{localStorage.removeItem(KEY)}catch(e){};location.reload();return}
+    cc.hidden=false;pad()});
+  var c=get(); if(c==="yes")load(); else if(c===null){cc.hidden=false;pad();addEventListener("resize",pad)}
+  /* Tipp auf Apple- oder Google-Play-Knopf, einmal pro Seitenaufruf, Navigation wird nicht verzögert */
+  document.addEventListener("click",function(ev){
+    var a=ev.target.closest&&ev.target.closest("a[href]"); if(!a||sent||!loaded||!window.fbq)return;
+    var h=a.href, p=h.indexOf("apps.apple.com")>-1?"ios":h.indexOf("play.google.com")>-1?"android":null;
+    if(!p)return; sent=true;
+    fbq("track","Lead",{content_name:"AUFUNS",content_category:p});
+  },true);
 })();
 </script>
 </body>
