@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="color-scheme" content="only light">
 <style>:root{color-scheme:only light}@media (prefers-color-scheme:dark){:root{color-scheme:only light}}</style>
-<title>Verge – Das Spiel für echte Begegnung</title>
+<title>Verge · Wie Wahrheit oder Pflicht, nur viel besser · Kartenspiel-App</title>
 <meta name="description" content="Wie Wahrheit oder Pflicht. Nur viel, viel besser. Ein Kartenspiel für zwei bis zehn Personen, bei dem jede Person selbst entscheidet, wie weit es geht.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://playverge.app/">
@@ -158,6 +158,10 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
 .dots i.on{background:var(--ph);transform:scale(1.35)}
 .deck{position:relative;aspect-ratio:3/4;width:auto;
   height:min(calc((100vw - 2*var(--pad) - 48px)*4/3),480px,calc(100svh - 268px - var(--bh,0px)))}
+/* Computer: kein leerer Bildschirm vor den Karten, Stapel bleibt mittig stehen */
+@media (hover:hover) and (pointer:fine){
+  .sticky{height:auto;top:max(var(--bh,0px),calc(50vh - 340px));padding-top:28px;padding-bottom:28px}
+}
 .card{position:absolute;inset:0;border-radius:22px;padding:20px 19px;display:flex;flex-direction:column;
   background-color:var(--cbg);box-shadow:0 20px 44px rgba(28,31,35,.24);color:#F2F2F2;overflow:hidden;will-change:transform}
 .card::before{content:"";position:absolute;inset:0;background:var(--blobs);pointer-events:none}
@@ -269,6 +273,9 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
 .footlinks a{color:var(--ink2);text-decoration:none;margin:0 9px}
 .foot .c{margin-top:12px;font-size:12.5px;color:var(--ink3)}
 
+@media (min-width:620px) and (max-width:1099px){
+  .revs .rev:nth-child(3){grid-column:1/-1}
+}
 @media (min-width:620px){
   .revs{grid-template-columns:1fr 1fr}
   .packs{grid-template-columns:1fr 1fr}
@@ -298,6 +305,7 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
   .bg{animation:none}.cta,.dots i,.phase,.glow,.fill,.knob{transition:none}.scrollcue svg{animation:none}
 }
 </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://playverge.app/#org", "name": "Verge", "legalName": "AmBuetioniert UG (haftungsbeschränkt)", "url": "https://playverge.app/", "logo": "https://playverge.app/icon-512.png", "email": "info@playverge.app", "sameAs": ["https://www.instagram.com/play.verge/", "https://www.tiktok.com/@playverge", "https://t.me/playverge", "https://apps.apple.com/app/id6761114559", "https://play.google.com/store/apps/details?id=com.vergeapp.verge"]}, {"@type": "WebSite", "@id": "https://playverge.app/#website", "url": "https://playverge.app/", "name": "Verge", "inLanguage": "de", "publisher": {"@id": "https://playverge.app/#org"}}, {"@type": "MobileApplication", "@id": "https://playverge.app/#app", "name": "Verge", "alternateName": "Verge – Wie Wahrheit oder Pflicht, nur viel besser", "description": "Kartenspiel-App für zwei bis zehn Personen. Wie Wahrheit oder Pflicht, nur viel besser: 850+ Karten in fünf Phasen, und eine Karte erscheint nur, wenn alle Ja gesagt haben.", "operatingSystem": "iOS, Android", "applicationCategory": "GameApplication", "applicationSubCategory": "Kartenspiel", "inLanguage": ["de", "en"], "image": "https://playverge.app/vivi/vivi-verge-jokerin.webp", "url": "https://playverge.app/", "installUrl": ["https://apps.apple.com/app/id6761114559", "https://play.google.com/store/apps/details?id=com.vergeapp.verge"], "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "publisher": {"@id": "https://playverge.app/#org"}}]}</script>
 </head>
 <body>
 <div class="bg" aria-hidden="true"><i></i></div>
@@ -601,7 +609,7 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
     document.querySelectorAll("[data-de]").forEach(function(e){e.hidden=(l!=="de")});
     document.querySelectorAll("[data-en]").forEach(function(e){e.hidden=(l!=="en")});
     document.querySelectorAll(".cnt").forEach(function(e){e.textContent=e.getAttribute("data-"+l+"-c")});
-    document.title = l==="de" ? "Verge – Das Spiel für echte Begegnung" : "Verge – The game for real encounters";
+    document.title = l==="de" ? "Verge · Wie Wahrheit oder Pflicht, nur viel besser · Kartenspiel-App" : "Verge · Like Truth or Dare, just way better · Card game app";
     fill(); labelScales(); setPhase(cur,true);
     if(window.__vergePrices)window.__vergePrices();
   }
@@ -730,7 +738,8 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
 
   if(matchMedia("(prefers-reduced-motion: reduce)").matches){return}
   var STEP=0.62;
-  function layout(){wrap.style.height=(100+STEP*100*(N-0.35))+"svh"}
+  var DESK=matchMedia("(hover:hover) and (pointer:fine)");
+  function layout(){if(DESK.matches){var st0=wrap.firstElementChild;wrap.style.height=(st0.offsetHeight+STEP*innerHeight*(N-0.35))+"px"}else{wrap.style.height=(100+STEP*100*(N-0.35))+"svh"}}
   layout(); addEventListener("resize",function(){layout();cardText()});
 
   var teased=false;
@@ -755,7 +764,8 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
     var st=wrap.firstElementChild;
     var total=r0(wrap)-st.offsetHeight;
     var r=wrap.getBoundingClientRect();
-    var p=Math.min(Math.max(-r.top/total,0),1)*N; if(p>=N)p=N-0.001;
+    var T=DESK.matches?(parseFloat(getComputedStyle(st).top)||0):0;
+    var p=Math.min(Math.max((T-r.top)/total,0),1)*N; if(p>=N)p=N-0.001;
     var i=Math.floor(p),f=p-i,fly=f>0.6?(f-0.6)/0.4:0;
     if(i>=N-1){i=N-1;fly=0}
     els.forEach(function(el,k){
