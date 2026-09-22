@@ -1,42 +1,42 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="color-scheme" content="only light">
 <style>:root{color-scheme:only light}@media (prefers-color-scheme:dark){:root{color-scheme:only light}}</style>
-<title>Verge · Wie Wahrheit oder Pflicht, nur viel besser · Kartenspiel-App</title>
-<meta name="description" content="Wie Wahrheit oder Pflicht. Nur viel, viel besser. Ein Kartenspiel für zwei bis zehn Personen, bei dem jede Person selbst entscheidet, wie weit es geht.">
-<link rel="canonical" href="https://playverge.app/">
+<title>Verge · Like Truth or Dare, just way better · Card game app</title>
+<meta name="description" content="Like Truth or Dare. Just way, way better. A card game for two to ten people where everyone decides for themselves how far it goes.">
+<link rel="canonical" href="https://playverge.app/en/">
 <link rel="alternate" hreflang="de" href="https://playverge.app/">
 <link rel="alternate" hreflang="en" href="https://playverge.app/en/">
 <link rel="alternate" hreflang="x-default" href="https://playverge.app/en/">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://playverge.app/">
-<meta property="og:title" content="Verge, das Spiel für echte Begegnung">
-<meta property="og:description" content="Wie Wahrheit oder Pflicht. Nur viel, viel besser.">
+<meta property="og:url" content="https://playverge.app/en/">
+<meta property="og:title" content="Verge, the game for real encounters">
+<meta property="og:description" content="Like Truth or Dare. Just way, way better.">
 <meta property="og:image" content="https://playverge.app/preview.jpg?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="1200">
-<meta property="og:image:alt" content="Verge. Wie Wahrheit oder Pflicht. Nur viel, viel besser.">
+<meta property="og:image:alt" content="Verge. Like Truth or Dare. Just way, way better.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Verge, das Spiel für echte Begegnung">
-<meta name="twitter:description" content="Wie Wahrheit oder Pflicht. Nur viel, viel besser.">
+<meta name="twitter:title" content="Verge, the game for real encounters">
+<meta name="twitter:description" content="Like Truth or Dare. Just way, way better.">
 <meta name="twitter:image" content="https://playverge.app/preview.jpg?v=2">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#F0DFC6">
 <style>
 @font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:400 700;font-display:swap;
-  src:url(fonts/cormorant.woff2) format("woff2")}
+  src:url(/fonts/cormorant.woff2) format("woff2")}
 @font-face{font-family:"Cormorant Garamond";font-style:italic;font-weight:400 700;font-display:swap;
-  src:url(fonts/cormorant-italic.woff2) format("woff2")}
+  src:url(/fonts/cormorant-italic.woff2) format("woff2")}
 @font-face{font-family:"Inter";font-style:normal;font-weight:400 700;font-display:swap;
-  src:url(fonts/inter.woff2) format("woff2")}
+  src:url(/fonts/inter.woff2) format("woff2")}
 </style>
-<link rel="preload" as="font" type="font/woff2" href="fonts/cormorant.woff2" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="fonts/inter.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/cormorant.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/inter.woff2" crossorigin>
 <style>
 :root{
   --pad:clamp(20px,5.5vw,34px);
@@ -604,7 +604,7 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
            : "desk";
 
   /* Sprache */
-  var lang="de";
+  var lang="en";
   function setLang(l){
     lang=l; document.documentElement.lang=l;
     document.getElementById("lde").classList.toggle("on",l==="de");
@@ -616,8 +616,8 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
     fill(); labelScales(); setPhase(cur,true);
     if(window.__vergePrices)window.__vergePrices();
   }
-  document.getElementById("lde").addEventListener("click",function(){setLang("de")});
-  document.getElementById("len").addEventListener("click",function(){location.href="/en/"});
+  document.getElementById("lde").addEventListener("click",function(){location.href="/"});
+  document.getElementById("len").addEventListener("click",function(){setLang("en")});
 
   /* Store-Knöpfe: passenden hervorheben */
   if(plat==="android"){ document.getElementById("s-ios").remove(); document.getElementById("bgo").href=AND; }
