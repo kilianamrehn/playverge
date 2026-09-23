@@ -391,6 +391,30 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
  .hero2 .btnrow{justify-content:flex-start}.hero2 .hero-p{margin-left:0}.heroimg{width:min(360px,40vw)}}
 </style>
 
+
+<style>
+/* Raster, verbindlich */
+.cards,.tiles,.dl,.packs{display:grid;grid-template-columns:1fr;gap:14px}
+@media (min-width:620px){
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .dl{grid-template-columns:repeat(2,1fr)}
+  .packs{grid-template-columns:repeat(2,1fr)}
+}
+@media (min-width:1000px){
+  .cards{grid-template-columns:repeat(3,1fr)}
+  .dl{grid-template-columns:repeat(3,1fr)}
+  .packs{grid-template-columns:repeat(3,1fr)}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+}
+.facts{display:grid;grid-template-columns:1fr;gap:16px}
+@media (min-width:620px){.facts{grid-template-columns:repeat(2,1fr);gap:20px 26px}}
+@media (min-width:1000px){.facts{grid-template-columns:repeat(4,1fr)}}
+.facts div{display:block;border-bottom:0;padding-bottom:0}
+.facts dt{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);font-weight:600;margin-bottom:4px}
+.facts dd{margin:0;font-family:var(--serif);font-size:21px;font-weight:600;line-height:1.15}
+.founder img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:22px;display:block}
+</style>
 </head><body>
 <div class="bg" aria-hidden="true"><i></i></div>
 
