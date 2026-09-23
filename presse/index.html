@@ -414,6 +414,18 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
 .facts dt{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);font-weight:600;margin-bottom:4px}
 .facts dd{margin:0;font-family:var(--serif);font-size:21px;font-weight:600;line-height:1.15}
 .founder img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:22px;display:block}
+
+.packrow{display:grid;grid-template-columns:1fr;gap:18px}
+@media (min-width:620px){.packrow{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1000px){.packrow{grid-template-columns:repeat(3,1fr)}}
+.packrow figure{margin:0;display:flex;flex-direction:column;gap:6px}
+.packrow img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:16px;display:block;background:#14181b}
+.packrow b{font-family:var(--serif);font-size:20px;font-weight:600;margin-top:6px}
+.packrow span{font-size:14px;line-height:1.45;color:var(--ink2)}
+.pdots{display:flex;gap:6px;margin-top:2px}
+.pdots i{width:8px;height:8px;border-radius:50%;display:block}
+.pdots i.off{background:transparent;box-shadow:inset 0 0 0 1px rgba(47,52,58,.28)}
+.packrow small{font-size:12.5px;color:var(--ink3);letter-spacing:.02em}
 </style>
 </head><body>
 <div class="bg" aria-hidden="true"><i></i></div>
@@ -484,7 +496,7 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
 <section class="sec wide">
   <div class="rule"></div>
   <h2>Für jede Runde das richtige Pack.</h2>
-  <div class="packrow" style="margin-top:18px"><figure><img src="img/pack-pro.jpg" alt="Pro" loading="lazy"><b>Pro</b><span>Das große Pack für jeden Anlass.</span></figure><figure><img src="img/pack-deep.jpg" alt="Deep" loading="lazy"><b>Deep</b><span>Die leisen Fragen, die lange bleiben.</span></figure><figure><img src="img/pack-zu-zweit.jpg" alt="Zu Zweit" loading="lazy"><b>Zu Zweit</b><span>Nur ihr zwei. Den Rest bestimmt ihr.</span></figure><figure><img src="img/pack-konsequenzen.jpg" alt="Konsequenzen" loading="lazy"><b>Konsequenzen</b><span>1 Aura verlieren und Skip lösen 1 Strafe aus. Ihr bestimmt, welche.</span></figure><figure><img src="img/pack-koelsche-herzlichkeit.jpg" alt="Kölsche Herzlichkeit" loading="lazy"><b>Kölsche Herzlichkeit</b><span>Warm, herzlich, nah. Wie ein Abend in deiner Lieblingskneipe.</span></figure><figure><img src="img/pack-kinky-berlin.jpg" alt="Kinky Berlin" loading="lazy"><b>Kinky Berlin</b><span>Berliner Nächte, kein Smalltalk.</span></figure></div>
+  <div class="packrow" style="margin-top:18px"><figure><img src="img/pack-pro.jpg" alt="Pro" loading="lazy"><b>Pro</b><span>Das große Pack für jeden Anlass.</span><div class="pdots"><i style="background:#2EC4B6"></i><i style="background:#3A86FF"></i><i style="background:#7B61FF"></i><i style="background:#FF6B6B"></i><i style="background:#FF3B30"></i></div><small>330 Karten</small></figure><figure><img src="img/pack-deep.jpg" alt="Deep" loading="lazy"><b>Deep</b><span>Die leisen Fragen, die lange bleiben.</span><div class="pdots"><i style="background:#2EC4B6"></i><i style="background:#3A86FF"></i><i style="background:#7B61FF"></i><i style="background:#FF6B6B"></i><i style="background:#FF3B30"></i></div><small>150 Karten</small></figure><figure><img src="img/pack-zu-zweit.jpg" alt="Zu Zweit" loading="lazy"><b>Zu Zweit</b><span>Nur ihr zwei. Den Rest bestimmt ihr.</span><div class="pdots"><i style="background:#2EC4B6"></i><i style="background:#3A86FF"></i><i style="background:#7B61FF"></i><i style="background:#FF6B6B"></i><i style="background:#FF3B30"></i></div><small>100 Karten</small></figure><figure><img src="img/pack-konsequenzen.jpg" alt="Konsequenzen" loading="lazy"><b>Konsequenzen</b><span>1 Aura verlieren und Skip lösen 1 Strafe aus. Ihr bestimmt, welche.</span><div class="pdots"><i style="background:#2EC4B6"></i><i style="background:#3A86FF"></i><i style="background:#7B61FF"></i><i style="background:#FF6B6B"></i><i style="background:#FF3B30"></i></div><small>100 Karten</small></figure><figure><img src="img/pack-koelsche-herzlichkeit.jpg" alt="Kölsche Herzlichkeit" loading="lazy"><b>Kölsche Herzlichkeit</b><span>Warm, herzlich, nah. Wie ein Abend in deiner Lieblingskneipe.</span><div class="pdots"><i style="background:#2EC4B6"></i><i style="background:#3A86FF"></i><i style="background:#7B61FF"></i><i class="off"></i><i class="off"></i></div><small>100 Karten</small></figure><figure><img src="img/pack-kinky-berlin.jpg" alt="Kinky Berlin" loading="lazy"><b>Kinky Berlin</b><span>Berliner Nächte, kein Smalltalk.</span><div class="pdots"><i class="off"></i><i class="off"></i><i class="off"></i><i style="background:#FF6B6B"></i><i style="background:#FF3B30"></i></div><small>100 Karten</small></figure></div>
 </section>
 
 <section class="sec wide">
