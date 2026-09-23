@@ -278,6 +278,10 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
   .revs .rev:nth-child(3){grid-column:1/-1}
 }
 @media (min-width:620px){
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .dl{grid-template-columns:repeat(2,1fr)}
+
   .revs{grid-template-columns:1fr 1fr}
   .packs{grid-template-columns:1fr 1fr}
   .pack .pic{width:clamp(96px,17vw,120px)}
@@ -292,6 +296,10 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
   .panel{padding:20px 18px}
   .stores{flex-direction:row;max-width:520px}
   .band{max-width:900px;margin-left:auto;margin-right:auto}
+}
+@media (min-width:1000px){
+  .cards{grid-template-columns:repeat(3,1fr)}
+  .dl{grid-template-columns:repeat(3,1fr)}
 }
 @media (min-width:1100px){
   .revs{grid-template-columns:repeat(3,1fr)}
@@ -318,7 +326,7 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
 .btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
 .small{font-size:13px;color:var(--ink3)}
 .heroimg{display:block;margin:0 auto 18px;width:min(300px,64vw);height:auto}
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px 26px;background:#F9F3E9;border:1px solid rgba(47,52,58,.10);border-radius:22px;padding:24px 22px}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:22px 26px;background:#F9F3E9;border:1px solid rgba(47,52,58,.10);border-radius:22px;padding:24px 22px}
 .facts dt{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);font-weight:600;margin-bottom:4px}
 .facts dd{margin:0;font-family:var(--serif);font-size:21px;font-weight:600;line-height:1.15}
 .facts dd small{display:block;font-family:var(--sans);font-size:12px;font-weight:400;color:var(--ink2);margin-top:2px}
@@ -329,7 +337,7 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
 .textbox p{margin:0;font-size:16px;line-height:1.62}
 .copyrow{display:flex;justify-content:flex-end;margin-top:14px}
 .copy{min-height:42px;padding:9px 18px;border-radius:999px;border:1.5px solid var(--ink);font-size:13.5px;font-weight:600}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.cards{display:grid;grid-template-columns:1fr;gap:14px}
 .story{border-radius:20px;padding:22px 20px}
 .story b{display:block;font-family:var(--serif);font-size:30px;font-weight:600;line-height:1;margin-bottom:10px}
 .story h3{font-family:var(--serif);font-weight:600;font-size:21px;line-height:1.15;margin:0 0 8px}
@@ -338,7 +346,7 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
 .dark h2{color:#F5F0EB}
 .dark h2 em{font-style:italic;color:#FF8C82}
 .dark p{color:rgba(245,240,235,.8)}
-.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:22px}
+.tiles{display:grid;grid-template-columns:1fr;gap:14px;margin-top:22px}
 .tile{border:1px solid rgba(245,240,235,.18);border-radius:18px;padding:18px}
 .tile b{display:block;font-family:var(--serif);font-size:21px;font-weight:600;margin-bottom:6px}
 .tile p{font-size:14px;line-height:1.5}
@@ -347,7 +355,7 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
 .lists ul{margin:0;padding:0;list-style:none}
 .lists li{font-size:14.5px;line-height:1.5;color:rgba(245,240,235,.88);margin-bottom:7px;padding-left:16px;position:relative}
 .lists li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.7}
-.dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.dl{display:grid;grid-template-columns:1fr;gap:14px}
 .dlcard{display:flex;flex-direction:column;gap:12px;background:#F9F3E9;border:1px solid rgba(47,52,58,.10);border-radius:20px;padding:14px;text-decoration:none;color:var(--ink)}
 .dlprev{height:170px;border-radius:14px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#EBE4D3}
 .dlprev.dark2{background:#302B25}
@@ -368,7 +376,7 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
 .packrow span{font-size:13px;color:var(--ink2);line-height:1.4;display:block}
 .srcnote{font-size:12.5px;color:var(--ink2);text-align:center;margin-top:14px}
 .founder{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;align-items:start}
-.founder img{width:100%;border-radius:22px}
+.founder img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:22px;display:block}
 .bigquote{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(26px,6.5vw,34px);line-height:1.15;margin:0 0 14px}
 .who3{font-size:16px;font-weight:600}
 .who3 span{display:block;font-weight:400;font-size:14px;color:var(--ink2)}
@@ -403,7 +411,7 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
       <p class="lead hero-p">Logos, Bilder, Texte und Fakten an einem Ort. Frei verwendbar für Artikel, Posts und Kooperationen, ohne Anmeldung.</p>
       <div class="btnrow">
         <a class="btn" href="downloads/verge-presskit.zip" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="17" height="17"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 20h16"/></svg>Komplettes Presskit laden</a>
-        <a class="btn ghost" href="downloads/pitch.zip" download>Pitch als PDF</a>
+        <a class="btn ghost" href="downloads/verge-pitch.zip" download>Pitch als PDF</a>
       </div>
       <p class="small">ZIP · 17 MB · Stand September 2026</p>
     </div>
@@ -425,8 +433,8 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
 
 <section class="sec wide">
   <div class="rule"></div>
-  <h2>Fünf Geschichten, die Verge erzählen kann.</h2>
-  <div class="cards" style="margin-top:20px"><article class="story" style="background:#DCF0EA"><b style="color:#268076">01</b><h3>Warum Consent in Partyspielen überfällig ist</h3><p>Ein Kartenspiel, das Grenzen privat abfragt, statt Mut zu erzwingen. Niemand muss vor der Gruppe Nein sagen.</p></article><article class="story" style="background:#DBE5F3"><b style="color:#3264AF">02</b><h3>Ein Fotograf und ein Koch gegen die Trinkspiel-Apps</h3><p>Eine unabhängige App aus Köln, gebaut für die Abende mit Friends, an denen es um Nähe geht und nicht ums Trinken.</p></article><article class="story" style="background:#E1DAF3"><b style="color:#5A4BAF">03</b><h3>Die App, die Handys vom Tisch holt</h3><p>Ein Handy liegt in der Mitte, alle anderen verschwinden nach dem Einstellen in der Tasche. Der Abend gehört wieder den Menschen am Tisch.</p></article><article class="story" style="background:#F7DAD6"><b style="color:#AF5550">04</b><h3>Auch für Menschen, die sich schon lange kennen</h3><p>Mit Packs wie „Zu Zweit“ und „Deep“ entdecken Paare selbst nach Jahren noch Neues aneinander. Neugier lässt sich wiederbeleben.</p></article><article class="story" style="background:#F6DCCB"><b style="color:#A5372D">05</b><h3>Sprache, die niemanden ausschließt</h3><p>Alle Karten sind geschlechtsneutral formuliert, niemand wird auf eine Rolle festgelegt. Und keine Karte arbeitet mit Druck, Häme oder Zwang.</p></article></div>
+  <h2>Sechs Geschichten, die Verge erzählen kann.</h2>
+  <div class="cards" style="margin-top:20px"><article class="story" style="background:#DCF0EA"><b style="color:#268076">01</b><h3>Warum Consent in Partyspielen überfällig ist</h3><p>Ein Kartenspiel, das Grenzen privat abfragt, statt Mut zu erzwingen. Niemand muss vor der Gruppe Nein sagen.</p></article><article class="story" style="background:#DBE5F3"><b style="color:#3264AF">02</b><h3>Ein Fotograf und ein Koch gegen die Trinkspiel-Apps</h3><p>Eine unabhängige App aus Köln, gebaut für die Abende mit Friends, an denen es um Nähe geht und nicht ums Trinken.</p></article><article class="story" style="background:#E1DAF3"><b style="color:#5A4BAF">03</b><h3>Die App, die Handys vom Tisch holt</h3><p>Ein Handy liegt in der Mitte, alle anderen verschwinden nach dem Einstellen in der Tasche. Der Abend gehört wieder den Menschen am Tisch.</p></article><article class="story" style="background:#F7DAD6"><b style="color:#AF5550">04</b><h3>Auch für Menschen, die sich schon lange kennen</h3><p>Mit Packs wie „Zu Zweit“ und „Deep“ entdecken Paare selbst nach Jahren noch Neues aneinander. Neugier lässt sich wiederbeleben.</p></article><article class="story" style="background:#F6DCCB"><b style="color:#A5372D">05</b><h3>Sprache, die niemanden ausschließt</h3><p>Alle Karten sind geschlechtsneutral formuliert, niemand wird auf eine Rolle festgelegt. Und keine Karte arbeitet mit Druck, Häme oder Zwang.</p></article><article class="story" style="background:#F1EADB"><b style="color:#8A7A55">06</b><h3>Über 850 Karten, von brav bis erotisch</h3><p>Jede Karte ist von Hand geschrieben und einsortiert. Kein Zufallsgenerator, keine Datenbank aus dem Internet.</p></article></div>
 </section>
 
 <section class="dark">
@@ -439,19 +447,19 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
     <div><h4 style="color:#7FD8CE">Gern</h4><ul><li>Echte Momente eurer Spielrunde zeigen</li><li>Den Slider zeigen: Jede Person stellt privat ein</li><li>Eure Lieblingskarte vorlesen</li><li>Den Vivi Fun Fact am Ende zeigen</li><li>Ehrlich sein, auch mit Kritik</li></ul></div>
     <div><h4 style="color:#FF8C82">Eine Bitte</h4><ul><li>Das Logo bitte nicht verändern.</li></ul></div>
   </div>
-  <div style="text-align:center;margin-top:24px"><a class="btn" style="background:#F5F0EB;color:#302B25" href="mailto:kilian@playverge.app">Kooperation anfragen</a></div>
+  <div style="text-align:center;margin-top:24px"><a class="btn" style="background:#F5F0EB;color:#302B25" href="mailto:kilian@playverge.app?subject=Kooperation%20mit%20Verge">Kooperation anfragen</a><button class="copy" data-copy="kilian@playverge.app" style="margin-left:10px;border-color:rgba(245,240,235,.5);color:#F5F0EB">Adresse kopieren</button></div>
 </section>
 
 <section class="sec wide" id="downloads">
   <div class="rule"></div>
   <h2>Nehmt, was ihr braucht.</h2>
   <p class="lead">Jedes Paket einzeln oder alles zusammen. Keine Anmeldung, keine Bedingungen.</p>
-  <div class="dl" style="margin-top:18px"><a class="dlcard" href="downloads/logo.zip" download><div class="dlprev dark2"><span class="wordmark">Verge</span></div><div class="dlmeta"><div><b>Logo</b><span>PNG, JPG · hell, dunkel, quer, hoch, Wortmarke</span></div><span class="go">Laden</span></div></a><a class="dlcard" href="downloads/vivi.zip" download><div class="dlprev"><img src="img/vivi.png" alt="Vivi" loading="lazy"></div><div class="dlmeta"><div><b>Vivi</b><span>PNG, JPG · freigestellt, auf Dunkel, vier Ausdrücke</span></div><span class="go">Laden</span></div></a><a class="dlcard" href="downloads/screenshots.zip" download><div class="dlprev" style="background:#E1DAF3"><div class="shots"><img src="img/shot-1.jpg" alt="" loading="lazy"><img src="img/shot-2.jpg" alt="" loading="lazy" style="height:166px"><img src="img/shot-3.jpg" alt="" loading="lazy"></div></div><div class="dlmeta"><div><b>Screenshots</b><span>JPG · acht Motive aus dem Spiel</span></div><span class="go">Laden</span></div></a><a class="dlcard" href="downloads/packs.zip" download><div class="dlprev"><div class="packgrid"><img src="img/pack-pro.jpg" alt="" loading="lazy"><img src="img/pack-deep.jpg" alt="" loading="lazy"><img src="img/pack-zu-zweit.jpg" alt="" loading="lazy"><img src="img/pack-konsequenzen.jpg" alt="" loading="lazy"><img src="img/pack-koelsche-herzlichkeit.jpg" alt="" loading="lazy"><img src="img/pack-kinky-berlin.jpg" alt="" loading="lazy"></div></div><div class="dlmeta"><div><b>Pack-Motive</b><span>JPG · sechs Packs, quadratisch und hochkant mit Text</span></div><span class="go">Laden</span></div></a><a class="dlcard" href="downloads/gruenderfoto.zip" download><div class="dlprev"><img src="img/kilian.jpg" alt="Kilian" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div><div class="dlmeta"><div><b>Gründerfoto</b><span>JPG · hoch, quer und quadratisch</span></div><span class="go">Laden</span></div></a><a class="dlcard" href="downloads/artikelbilder.zip" download><div class="dlprev"><img src="img/quer-dunkel.jpg" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div><div class="dlmeta"><div><b>Artikelbilder</b><span>JPG · Querformat 16:9, hell und dunkel</span></div><span class="go">Laden</span></div></a><a class="dlcard" href="downloads/pitch.zip" download><div class="dlprev" style="background:#DCD6C8"><img src="img/pitch.jpg" alt="Pitch" loading="lazy"></div><div class="dlmeta"><div><b>Pitch</b><span>PDF · drei Seiten, dunkel</span></div><span class="go">Laden</span></div></a></div>
+  <div class="dl" style="margin-top:18px"><a class="dlcard" href="downloads/verge-logo.zip" download><div class="dlprev dark2"><span class="wordmark">Verge</span></div><div class="dlmeta"><div><b>Logo</b><span>PNG, JPG · hell, dunkel, Wortmarke, Artikelbilder 16:9</span></div><span class="go">Laden</span></div></a><a class="dlcard" href="downloads/verge-vivi.zip" download><div class="dlprev"><img src="img/vivi.png" alt="Vivi" loading="lazy"></div><div class="dlmeta"><div><b>Vivi</b><span>PNG, JPG · freigestellt, auf Dunkel, vier Ausdrücke</span></div><span class="go">Laden</span></div></a><a class="dlcard" href="downloads/verge-screenshots.zip" download><div class="dlprev" style="background:#E1DAF3"><div class="shots"><img src="img/shot-1.jpg" alt="" loading="lazy"><img src="img/shot-2.jpg" alt="" loading="lazy" style="height:166px"><img src="img/shot-3.jpg" alt="" loading="lazy"></div></div><div class="dlmeta"><div><b>Screenshots</b><span>JPG · acht Motive aus dem Spiel</span></div><span class="go">Laden</span></div></a><a class="dlcard" href="downloads/verge-packs.zip" download><div class="dlprev"><div class="packgrid"><img src="img/pack-pro.jpg" alt="" loading="lazy"><img src="img/pack-deep.jpg" alt="" loading="lazy"><img src="img/pack-zu-zweit.jpg" alt="" loading="lazy"><img src="img/pack-konsequenzen.jpg" alt="" loading="lazy"><img src="img/pack-koelsche-herzlichkeit.jpg" alt="" loading="lazy"><img src="img/pack-kinky-berlin.jpg" alt="" loading="lazy"></div></div><div class="dlmeta"><div><b>Pack-Motive</b><span>JPG · sechs Packs, quadratisch und hochkant mit Text</span></div><span class="go">Laden</span></div></a><a class="dlcard" href="downloads/verge-gruenderfoto.zip" download><div class="dlprev"><img src="img/kilian.jpg" alt="Kilian" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div><div class="dlmeta"><div><b>Gründerfoto</b><span>JPG · hoch, quer und quadratisch</span></div><span class="go">Laden</span></div></a><a class="dlcard" href="downloads/verge-pitch.zip" download><div class="dlprev" style="background:#DCD6C8"><img src="img/pitch.jpg" alt="Pitch" loading="lazy"></div><div class="dlmeta"><div><b>Pitch</b><span>PDF · drei Seiten, dunkel</span></div><span class="go">Laden</span></div></a></div>
 </section>
 
 <section class="sec wide">
   <div class="rule"></div>
-  <h2>Für jede Runde das richtige Deck.</h2>
+  <h2>Für jede Runde das richtige Pack.</h2>
   <div class="packrow" style="margin-top:18px"><figure><img src="img/pack-pro.jpg" alt="Pro" loading="lazy"><b>Pro</b><span>Das große Pack für jeden Anlass.</span></figure><figure><img src="img/pack-deep.jpg" alt="Deep" loading="lazy"><b>Deep</b><span>Die leisen Fragen, die lange bleiben.</span></figure><figure><img src="img/pack-zu-zweit.jpg" alt="Zu Zweit" loading="lazy"><b>Zu Zweit</b><span>Nur ihr zwei. Den Rest bestimmt ihr.</span></figure><figure><img src="img/pack-konsequenzen.jpg" alt="Konsequenzen" loading="lazy"><b>Konsequenzen</b><span>1 Aura verlieren und Skip lösen 1 Strafe aus. Ihr bestimmt, welche.</span></figure><figure><img src="img/pack-koelsche-herzlichkeit.jpg" alt="Kölsche Herzlichkeit" loading="lazy"><b>Kölsche Herzlichkeit</b><span>Warm, herzlich, nah. Wie ein Abend in deiner Lieblingskneipe.</span></figure><figure><img src="img/pack-kinky-berlin.jpg" alt="Kinky Berlin" loading="lazy"><b>Kinky Berlin</b><span>Berliner Nächte, kein Smalltalk.</span></figure></div>
 </section>
 
@@ -479,12 +487,13 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
   <h2>Fragen, Interview oder Zugang?</h2>
   <p class="lead">Schreib uns, wir freuen uns. Pressekontakt: Kilian Amrehn.</p>
   <div class="contact">
-    <a class="mail" href="mailto:kilian@playverge.app" style="color:#F5F0EB">kilian@playverge.app</a>
+    <a class="mail" href="mailto:kilian@playverge.app?subject=Presseanfrage%20Verge" style="color:#F5F0EB">kilian@playverge.app</a>
+    <div style="margin-top:10px"><button class="copy" data-copy="kilian@playverge.app" style="border-color:rgba(245,240,235,.5);color:#F5F0EB">Adresse kopieren</button></div>
     <div class="chips">
-      <a class="chip" href="https://apps.apple.com/de/app/id6761114559">App Store</a>
-      <a class="chip" href="https://play.google.com/store/apps/details?id=com.vergeapp.verge">Google Play</a>
-      <a class="chip" href="https://www.instagram.com/play.verge/">Instagram</a>
-      <a class="chip" href="https://www.tiktok.com/@play.verge">TikTok</a>
+      <a class="chip" href="https://apps.apple.com/de/app/id6761114559" target="_blank" rel="noopener">App Store</a>
+      <a class="chip" href="https://play.google.com/store/apps/details?id=com.vergeapp.verge" target="_blank" rel="noopener">Google Play</a>
+      <a class="chip" href="https://www.instagram.com/play.verge/" target="_blank" rel="noopener">Instagram</a>
+      <a class="chip" href="https://www.tiktok.com/@play.verge" target="_blank" rel="noopener">TikTok</a>
     </div>
   </div>
 </section>
@@ -493,6 +502,7 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
 <footer class="foot wrap">
   <div class="footlinks">
     <a href="mailto:info@playverge.app">info@playverge.app</a><br>
+    <a href="/">Startseite</a>
     <a href="/contact.html">Kontakt</a>
     <a href="/privacy.html">Impressum &amp; Datenschutz</a>
     <a href="/terms.html">Nutzungsbedingungen</a>
@@ -516,6 +526,16 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
     function done(){btn.textContent='Kopiert';setTimeout(function(){btn.textContent='Text kopieren'},2000)}
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,fallback)}else{fallback()}
     function fallback(){var ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done()}catch(e){}document.body.removeChild(ta)}
+  });
+})();
+
+(function(){
+  document.querySelectorAll("button[data-copy]").forEach(function(b){
+    b.addEventListener("click",function(){
+      var t=b.getAttribute("data-copy"), done=function(){var o=b.textContent;b.textContent="Kopiert";setTimeout(function(){b.textContent=o},1600)};
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,done)}
+      else{var a=document.createElement("textarea");a.value=t;document.body.appendChild(a);a.select();try{document.execCommand("copy")}catch(e){}document.body.removeChild(a);done()}
+    });
   });
 })();
 </script>
