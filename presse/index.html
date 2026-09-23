@@ -415,13 +415,13 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
 .facts dd{margin:0;font-family:var(--serif);font-size:21px;font-weight:600;line-height:1.15}
 .founder img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:22px;display:block}
 
-.packrow{display:grid;grid-template-columns:1fr;gap:18px}
-@media (min-width:620px){.packrow{grid-template-columns:repeat(2,1fr)}}
+.packrow{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media (min-width:760px){.packrow{gap:18px}.packrow b{font-size:20px}.packrow span{font-size:14px}}
 @media (min-width:1000px){.packrow{grid-template-columns:repeat(3,1fr)}}
 .packrow figure{margin:0;display:flex;flex-direction:column;gap:6px}
 .packrow img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:16px;display:block;background:#14181b}
-.packrow b{font-family:var(--serif);font-size:20px;font-weight:600;margin-top:6px}
-.packrow span{font-size:14px;line-height:1.45;color:var(--ink2)}
+.packrow b{font-family:var(--serif);font-size:18px;font-weight:600;margin-top:6px}
+.packrow span{font-size:13px;line-height:1.4;color:var(--ink2)}
 .pdots{display:flex;gap:6px;margin-top:2px}
 .pdots i{width:8px;height:8px;border-radius:50%;display:block}
 .pdots i.off{background:transparent;box-shadow:inset 0 0 0 1px rgba(47,52,58,.28)}
