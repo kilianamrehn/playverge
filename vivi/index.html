@@ -52,6 +52,16 @@ figcaption{font-size:13px;color:var(--mute);text-align:center;margin-top:10px}
 .phases{display:flex;flex-wrap:wrap;gap:8px 14px;margin:6px 0 16px;font-size:15px}
 .phases span{display:inline-flex;align-items:center;gap:6px}
 .phases i{width:10px;height:10px;border-radius:50%;display:inline-block}
+.phaseA{margin:20px 0 22px}
+.phaseA .brk{display:grid;grid-template-columns:3fr 2fr;gap:10px;margin-bottom:7px}
+.phaseA .b{position:relative;text-align:center;font-size:clamp(9px,2.5vw,11px);font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding-bottom:9px}
+.phaseA .b::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;border:1px solid currentColor;border-bottom:0;border-radius:5px 5px 0 0;opacity:.45}
+.phaseA .b.cool{color:#9AA0A7}
+.phaseA .b.hot{color:#D9564E}
+.phaseA .bars{display:grid;grid-template-columns:repeat(5,1fr);gap:5px}
+.phaseA .bars i{height:6px;border-radius:99px;background:var(--c);display:block}
+.phaseA .names{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin-top:9px}
+.phaseA .names span{font-size:clamp(10px,3vw,13px);font-weight:600;color:var(--c);text-align:center;letter-spacing:-.01em}
 .btns{display:grid;gap:10px;margin:22px 0 8px}
 .btn{display:flex;align-items:center;justify-content:center;height:52px;border-radius:999px;text-decoration:none;font-weight:600;font-size:16px}
 .btn.d{background:var(--ink);color:#F9F3E9}
@@ -98,15 +108,18 @@ footer .c{margin-top:12px;color:var(--hint)}
 <h1>Das ist Vivi.</h1>
 <p class="sub">Die Jokerin von Verge.</p>
 <figure><img src="/vivi/vivi-verge-jokerin.webp" width="795" height="1456" alt="Vivi, die Jokerin von Verge, mit Narrenkappe, Halskrause und fünf Sternen in den Phasenfarben" fetchpriority="high"><figcaption>Vivi, die Jokerin von Verge</figcaption></figure>
-<p class="lead">Vivi ist das Gesicht von Verge. Du findest sie hier auf der Website, auf Instagram unter @play.verge und bald auch direkt in der App.</p>
+<p class="lead">Vivi ist das Gesicht von Verge. Du findest sie in der App, hier auf playverge.app und auf Instagram unter @play.verge.</p>
 <h2>Warum eine Jokerin?</h2>
-<p>Im Kartenspiel ist der Joker die Karte, die alles sein kann. Genau so ist ein Abend mit Verge: Er kann leicht bleiben oder richtig tief werden. Das entscheidet nicht Vivi, das entscheidet ihr.</p>
+<p>Im Kartenspiel ist die Jokerkarte die eine, die jede andere sein kann. Genau so ist ein Abend mit Verge: albern, ehrlich, überraschend. Keine Runde gleicht der anderen.</p>
 <h2>Die fünf Sterne</h2>
 <p>Über und unter Vivi stehen fünf Sterne, jeder in einer Phasenfarbe. Sie stehen für die fünf Phasen, durch die ein Verge-Abend gehen kann.</p>
-<div class="phases"><span><i style="background:#2EC4B6"></i>Spielerisch</span><span><i style="background:#3A86FF"></i>Persönlich</span><span><i style="background:#7B61FF"></i>Nah</span><span><i style="background:#FF6B6B"></i>Intim</span><span><i style="background:#FF3B30"></i>Enthemmt</span></div>
-<div class="tile">Spielerisch fängt es an. <b>Wie weit es geht, entscheidet ihr.</b> Eine Karte erscheint nur, wenn alle Ja gesagt haben. Kein Nein nötig, kein Erklären.</div>
+<div class="phaseA" role="img" aria-label="Die fünf Phasen von Verge: Spielerisch, Persönlich und Nah sind freundschaftlich, Intim und Enthemmt sind intim">
+  <div class="brk"><div class="b cool">freundschaftlich</div><div class="b hot">intim</div></div>
+  <div class="bars"><i style="--c:#2EC4B6"></i><i style="--c:#3A86FF"></i><i style="--c:#7B61FF"></i><i style="--c:#FF6B6B"></i><i style="--c:#FF3B30"></i></div>
+  <div class="names"><span style="--c:#2EC4B6">Spielerisch</span><span style="--c:#3A86FF">Persönlich</span><span style="--c:#7B61FF">Nah</span><span style="--c:#FF6B6B">Intim</span><span style="--c:#FF3B30">Enthemmt</span></div>
+</div>
 <h2>Was ist Verge?</h2>
-<p>Verge ist ein Kartenspiel als App, für zwei bis zehn Personen. Wie Wahrheit oder Pflicht, nur viel, viel besser. Mit 850+ Karten und einem Consent-System, bei dem jede Person selbst festlegt, wie weit sie heute gehen möchte.</p>
+<p>Verge ist ein Kartenspiel als App, für Gruppen jeder Größe. Wie Wahrheit oder Pflicht, nur viel, viel besser. 850+ Karten in acht Packs, für den Spieleabend, die WG-Party oder zu zweit. Jede Person legt still für sich fest, wie weit sie gehen möchte, und Verge zieht nur Karten, bei denen alle dabei sind.</p>
 <div class="btns"><a class="btn d" href="https://apps.apple.com/app/id6761114559">Im App Store laden</a><a class="btn l" href="https://play.google.com/store/apps/details?id=com.vergeapp.verge">Bei Google Play laden</a></div>
 <nav class="more" aria-label="Mehr von Verge"><a href="/das-fragt-man-nicht-doch-doch/"><small>Das fragt man nicht? Doch, doch.</small><span class="fit">#dasfragtmannichtdochdoch</span></a><a href="/zieh-und-frag-mich-aus/"><small>Zieh eine Karte. Dann frag mich aus.</small><span class="fit">#ziehundfragmichaus</span></a><a href="/grosser-schritt-gegen-die-maennlichkeit/"><small>Gefühle zeigen, kein Drama.</small><span class="fit">#großerschrittgegendiemännlichkeit</span></a><a href="/"><small>Die App</small><span>playverge.app</span></a></nav>
 </main>
