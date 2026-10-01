@@ -164,7 +164,7 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
   height:min(calc((100vw - 2*var(--pad) - 48px)*4/3),480px,calc(100svh - 268px - var(--bh,0px)))}
 /* Computer: kein leerer Bildschirm vor den Karten, Stapel bleibt mittig stehen */
 @media (hover:hover) and (pointer:fine){
-  .sticky{height:auto;top:max(var(--bh,0px),calc(50vh - 340px));padding-top:28px;padding-bottom:28px}
+  .sticky{height:auto;top:max(var(--bh,0px),min(calc(50vh - 340px),120px));padding-top:28px;padding-bottom:28px}
 }
 .card{position:absolute;inset:0;border-radius:22px;padding:20px 19px;display:flex;flex-direction:column;
   background-color:var(--cbg);box-shadow:0 20px 44px rgba(28,31,35,.24);color:#F2F2F2;overflow:hidden;will-change:transform}
@@ -753,7 +753,7 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
   if(matchMedia("(prefers-reduced-motion: reduce)").matches){return}
   var STEP=0.62;
   var DESK=matchMedia("(hover:hover) and (pointer:fine)");
-  function layout(){if(DESK.matches){var st0=wrap.firstElementChild;wrap.style.height=(st0.offsetHeight+STEP*innerHeight*(N-0.35))+"px"}else{wrap.style.height=(100+STEP*100*(N-0.35))+"svh"}}
+  function layout(){if(DESK.matches){var st0=wrap.firstElementChild;wrap.style.height=(st0.offsetHeight+STEP*Math.min(innerHeight,900)*(N-0.35))+"px"}else{wrap.style.height=(100+STEP*100*(N-0.35))+"svh"}}
   layout(); addEventListener("resize",function(){layout();cardText()});
 
   var teased=false;
