@@ -257,10 +257,10 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
 .prices[open] summary{border-bottom-left-radius:0;border-bottom-right-radius:0;border-bottom-color:transparent}
 .prtable{border:1px solid rgba(37,107,96,.3);border-top:0;border-radius:0 0 13px 13px;background:rgba(255,255,255,.35);
   max-height:330px;overflow:auto;-webkit-overflow-scrolling:touch}
-.prtable table{width:100%;border-collapse:collapse;font-size:11.5px;table-layout:fixed}
-.prtable th,.prtable td{padding:7px 6px;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.prtable th:nth-child(1),.prtable td:nth-child(1){width:34%}
-.prtable th:first-child,.prtable td:first-child{text-align:left;white-space:normal}
+.prtable table{width:100%;border-collapse:collapse;font-size:11px;table-layout:fixed}
+.prtable th,.prtable td{padding:7px 4px;text-align:right;white-space:normal;vertical-align:top;line-height:1.3}
+.prtable th:nth-child(1),.prtable td:nth-child(1){width:28%}
+.prtable th:first-child,.prtable td:first-child{text-align:left;white-space:normal;hyphens:auto;-webkit-hyphens:auto}
 .prtable thead th{position:sticky;top:0;background:#B6DCD0;font-size:11px;letter-spacing:.04em;color:#256B60;font-weight:600}
 .prtable tbody tr{border-top:1px solid rgba(37,107,96,.15)}
 .prtable tbody tr.me td{font-weight:600;background:rgba(37,107,96,.08)}
@@ -550,19 +550,19 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
     <dl class="facts" data-de>
       <div><dt>Kostenlos</dt><dd>Die App und das Basis-Pack.</dd></div>
       <div><dt>Verge Pro</dt><dd><b class="pr-pro">4,99 €</b> einmalig. Bleibt dir.</dd></div>
-      <div><dt>Unlimited</dt><dd><b class="pr-mon">8,99 €</b> im Monat oder <b class="pr-yr">44,99 €</b> im Jahr.</dd></div>
+      <div><dt>Unlimited</dt><dd><b class="pr-wk">2,99 €</b> pro Woche, <b class="pr-mon">8,99 €</b> im Monat oder <b class="pr-yr">34,99 €</b> im Jahr.</dd></div>
       <div><dt>Kündigen</dt><dd>Jederzeit.</dd></div>
     </dl>
     <dl class="facts" data-en>
       <div><dt>Free</dt><dd>The app and the Basic pack.</dd></div>
       <div><dt>Verge Pro</dt><dd><b class="pr-pro">4,99 €</b> one-off. Yours to keep.</dd></div>
-      <div><dt>Unlimited</dt><dd><b class="pr-mon">8,99 €</b> a month or <b class="pr-yr">44,99 €</b> a year.</dd></div>
+      <div><dt>Unlimited</dt><dd><b class="pr-wk">2,99 €</b> a week, <b class="pr-mon">8,99 €</b> a month or <b class="pr-yr">34,99 €</b> a year.</dd></div>
       <div><dt>Cancel</dt><dd>Anytime.</dd></div>
     </dl>
     <details class="prices">
       <summary><span class="prland"><span data-de>Preise für Deutschland</span><span data-en>Prices for Germany</span></span><span class="prall"><span data-de>alle Länder</span><span data-en>all countries</span></span></summary>
       <div class="prtable" id="prtable"></div>
-      <p class="prnote"><span data-de>Abgerechnet über Apple oder Google, zum jeweils im Store angezeigten Preis. Stand September 2026.</span><span data-en>Billed by Apple or Google at the price shown in the store. As of September 2026.</span></p>
+      <p class="prnote"><span data-de>Abgerechnet über Apple oder Google, zum jeweils im Store angezeigten Preis. Stand Oktober 2026.</span><span data-en>Billed by Apple or Google at the price shown in the store. As of October 2026.</span></p>
     </details>
     <div class="ctablock" data-cta-stores></div>
   </div>
@@ -800,7 +800,7 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
 
 /* Preise nach Storefront, Zeitzone als Hinweis auf das Land */
 (function(){
-  var P={"DE": ["Deutschland", "Germany", "4,99 €", "8,99 €", "44,99 €"], "AT": ["Österreich", "Austria", "4,99 €", "8,99 €", "44,99 €"], "CH": ["Schweiz", "Switzerland", "3,80 CHF", "7,00 CHF", "34,00 CHF"], "LI": ["Liechtenstein", "Liechtenstein", "4,10 CHF", "", ""], "BE": ["Belgien", "Belgium", "4,99 €", "8,99 €", "45,99 €"], "BG": ["Bulgarien", "Bulgaria", "4,99 €", "8,99 €", "44,99 €"], "DK": ["Dänemark", "Denmark", "39,00 DKK", "69,00 DKK", "355,00 DKK"], "EE": ["Estland", "Estonia", "4,99 €", "9,49 €", "46,99 €"], "FI": ["Finnland", "Finland", "5,49 €", "9,49 €", "46,99 €"], "FR": ["Frankreich", "France", "4,99 €", "8,99 €", "44,99 €"], "GR": ["Griechenland", "Greece", "4,99 €", "9,49 €", "46,99 €"], "IE": ["Irland", "Ireland", "4,99 €", "9,49 €", "46,99 €"], "IS": ["Island", "Iceland", "5,20 €", "", ""], "IT": ["Italien", "Italy", "4,99 €", "8,99 €", "45,99 €"], "HR": ["Kroatien", "Croatia", "4,99 €", "9,49 €", "46,99 €"], "LV": ["Lettland", "Latvia", "4,99 €", "8,99 €", "45,99 €"], "LT": ["Litauen", "Lithuania", "4,99 €", "8,99 €", "45,99 €"], "LU": ["Luxemburg", "Luxembourg", "4,89 €", "8,99 €", "43,99 €"], "MT": ["Malta", "Malta", "4,94 €", "", ""], "NL": ["Niederlande", "Netherlands", "4,99 €", "8,99 €", "45,99 €"], "NO": ["Norwegen", "Norway", "55,00 NOK", "105,00 NOK", "509,00 NOK"], "PL": ["Polen", "Poland", "21,99 PLN", "39,99 PLN", "194,99 PLN"], "PT": ["Portugal", "Portugal", "4,99 €", "9,49 €", "46,99 €"], "RO": ["Rumänien", "Romania", "25,99 RON", "47,99 RON", "239,99 RON"], "SE": ["Schweden", "Sweden", "55,00 SEK", "105,00 SEK", "509,00 SEK"], "SK": ["Slowakei", "Slovakia", "4,99 €", "9,49 €", "46,99 €"], "SI": ["Slowenien", "Slovenia", "", "8,99 €", "45,99 €"], "ES": ["Spanien", "Spain", "4,99 €", "8,99 €", "45,99 €"], "CZ": ["Tschechien", "Czechia", "119,99 CZK", "219,99 CZK", "1.099,99 CZK"], "HU": ["Ungarn", "Hungary", "1.890 HUF", "3.399 HUF", "16.999 HUF"], "GB": ["Vereinigtes Königreich", "United Kingdom", "4,29 £", "7,49 £", "38,99 £"], "CY": ["Zypern", "Cyprus", "4,99 €", "8,99 €", "44,99 €"]}, TZ={"Europe/Berlin": "DE", "Europe/Busingen": "DE", "Europe/Vienna": "AT", "Europe/Zurich": "CH", "Europe/Vaduz": "LI", "Europe/Brussels": "BE", "Europe/Sofia": "BG", "Europe/Copenhagen": "DK", "Europe/Tallinn": "EE", "Europe/Helsinki": "FI", "Europe/Paris": "FR", "Europe/Athens": "GR", "Europe/Dublin": "IE", "Atlantic/Reykjavik": "IS", "Europe/Rome": "IT", "Europe/Zagreb": "HR", "Europe/Riga": "LV", "Europe/Vilnius": "LT", "Europe/Luxembourg": "LU", "Europe/Malta": "MT", "Europe/Amsterdam": "NL", "Europe/Oslo": "NO", "Europe/Warsaw": "PL", "Europe/Lisbon": "PT", "Europe/Bucharest": "RO", "Europe/Stockholm": "SE", "Europe/Bratislava": "SK", "Europe/Ljubljana": "SI", "Europe/Madrid": "ES", "Europe/Prague": "CZ", "Europe/Budapest": "HU", "Europe/London": "GB", "Asia/Nicosia": "CY", "Europe/Nicosia": "CY"};
+  var P={"DE": ["Deutschland", "Germany", "4,99 €", "8,99 €", "34,99 €", "2,99 €"], "AT": ["Österreich", "Austria", "4,99 €", "8,99 €", "34,99 €", "2,99 €"], "CH": ["Schweiz", "Switzerland", "3,80 CHF", "7,00 CHF", "27,00 CHF", "2,30 CHF"], "LI": ["Liechtenstein", "Liechtenstein", "4,10 CHF", "", "", ""], "BE": ["Belgien", "Belgium", "4,99 €", "8,99 €", "35,99 €", "2,99 €"], "BG": ["Bulgarien", "Bulgaria", "4,99 €", "8,99 €", "34,99 €", "2,99 €"], "DK": ["Dänemark", "Denmark", "39,00 DKK", "69,00 DKK", "275,00 DKK", "23,00 DKK"], "EE": ["Estland", "Estonia", "4,99 €", "9,49 €", "35,99 €", "3,09 €"], "FI": ["Finnland", "Finland", "5,49 €", "9,49 €", "36,99 €", "3,19 €"], "FR": ["Frankreich", "France", "4,99 €", "8,99 €", "34,99 €", "2,99 €"], "GR": ["Griechenland", "Greece", "4,99 €", "9,49 €", "35,99 €", "3,09 €"], "IE": ["Irland", "Ireland", "4,99 €", "9,49 €", "35,99 €", "3,09 €"], "IS": ["Island", "Iceland", "5,20 €", "", "", ""], "IT": ["Italien", "Italy", "4,99 €", "8,99 €", "35,99 €", "3,09 €"], "HR": ["Kroatien", "Croatia", "4,99 €", "9,49 €", "36,99 €", "3,09 €"], "LV": ["Lettland", "Latvia", "4,99 €", "8,99 €", "35,99 €", "2,99 €"], "LT": ["Litauen", "Lithuania", "4,99 €", "8,99 €", "35,99 €", "2,99 €"], "LU": ["Luxemburg", "Luxembourg", "4,89 €", "8,99 €", "33,99 €", "2,89 €"], "MT": ["Malta", "Malta", "4,94 €", "", "", ""], "NL": ["Niederlande", "Netherlands", "4,99 €", "8,99 €", "35,99 €", "2,99 €"], "NO": ["Norwegen", "Norway", "55,00 NOK", "105,00 NOK", "395,00 NOK", "34,00 NOK"], "PL": ["Polen", "Poland", "21,99 PLN", "39,99 PLN", "159,99 PLN", "13,99 PLN"], "PT": ["Portugal", "Portugal", "4,99 €", "9,49 €", "35,99 €", "3,09 €"], "RO": ["Rumänien", "Romania", "25,99 RON", "47,99 RON", "189,99 RON", "15,99 RON"], "SE": ["Schweden", "Sweden", "55,00 SEK", "105,00 SEK", "415,00 SEK", "35,00 SEK"], "SK": ["Slowakei", "Slovakia", "4,99 €", "9,49 €", "35,99 €", "3,09 €"], "SI": ["Slowenien", "Slovenia", "", "8,99 €", "35,99 €", "3,09 €"], "ES": ["Spanien", "Spain", "4,99 €", "8,99 €", "35,99 €", "2,99 €"], "CZ": ["Tschechien", "Czechia", "119,99 CZK", "219,99 CZK", "849,99 CZK", "74,99 CZK"], "HU": ["Ungarn", "Hungary", "1.890 HUF", "3.399 HUF", "13.499 HUF", "1.190 HUF"], "GB": ["Vereinigtes Königreich", "United Kingdom", "4,29 £", "7,49 £", "29,99 £", "2,49 £"], "CY": ["Zypern", "Cyprus", "4,99 €", "8,99 €", "34,99 €", "2,99 €"]}, TZ={"Europe/Berlin": "DE", "Europe/Busingen": "DE", "Europe/Vienna": "AT", "Europe/Zurich": "CH", "Europe/Vaduz": "LI", "Europe/Brussels": "BE", "Europe/Sofia": "BG", "Europe/Copenhagen": "DK", "Europe/Tallinn": "EE", "Europe/Helsinki": "FI", "Europe/Paris": "FR", "Europe/Athens": "GR", "Europe/Dublin": "IE", "Atlantic/Reykjavik": "IS", "Europe/Rome": "IT", "Europe/Zagreb": "HR", "Europe/Riga": "LV", "Europe/Vilnius": "LT", "Europe/Luxembourg": "LU", "Europe/Malta": "MT", "Europe/Amsterdam": "NL", "Europe/Oslo": "NO", "Europe/Warsaw": "PL", "Europe/Lisbon": "PT", "Europe/Bucharest": "RO", "Europe/Stockholm": "SE", "Europe/Bratislava": "SK", "Europe/Ljubljana": "SI", "Europe/Madrid": "ES", "Europe/Prague": "CZ", "Europe/Budapest": "HU", "Europe/London": "GB", "Asia/Nicosia": "CY", "Europe/Nicosia": "CY"};
   var iso="DE";
   try{ var tz=Intl.DateTimeFormat().resolvedOptions().timeZone; if(TZ[tz]) iso=TZ[tz]; }catch(e){}
   if(!P[iso]) iso="DE";
@@ -808,15 +808,15 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
     var l=(document.documentElement.lang==="en")?1:0, d=P[iso];
     var set=function(cls,v){document.querySelectorAll(cls).forEach(function(e){
       e.textContent = v || (l? "not available":"nicht verfügbar")})};
-    set(".pr-pro",d[2]); set(".pr-mon",d[3]); set(".pr-yr",d[4]);
+    set(".pr-pro",d[2]); set(".pr-wk",d[5]); set(".pr-mon",d[3]); set(".pr-yr",d[4]);
     var lbl=document.querySelector(".prland span[data-"+(l?"en":"de")+"]");
     if(lbl) lbl.textContent=(l?"Prices · ":"Preise · ")+d[l];
-    var head=l?["Country","Pro","Monthly","Yearly"]:["Land","Pro","Monatlich","Jährlich"];
+    var head=l?["Country","Pro","Weekly","Monthly","Yearly"]:["Land","Pro","Woche","Monat","Jahr"];
     var keys=Object.keys(P).sort(function(x,y){
       if(x===iso)return -1; if(y===iso)return 1; return P[x][l].localeCompare(P[y][l])});
     var rows=keys.map(function(k){
-      var r=P[k];
-      return '<tr'+(k===iso?' class="me"':'')+'><td>'+r[l]+'</td><td>'+(r[2]||"–")+'</td><td>'+(r[3]||"–")+'</td><td>'+(r[4]||"–")+'</td></tr>';
+      var r=P[k].map(function(v,i){return i>1&&/ €$/.test(v)?v.replace(" ","\u00a0"):v});
+      return '<tr'+(k===iso?' class="me"':'')+'><td>'+r[l]+'</td><td>'+(r[2]||"–")+'</td><td>'+(r[5]||"–")+'</td><td>'+(r[3]||"–")+'</td><td>'+(r[4]||"–")+'</td></tr>';
     }).join("");
     var t=document.getElementById("prtable");
     if(t) t.innerHTML='<table><thead><tr><th>'+head.join("</th><th>")+'</th></tr></thead><tbody>'+rows+'</tbody></table>';
