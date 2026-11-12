@@ -5,8 +5,17 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="color-scheme" content="only light">
 <title>Vivi, die Jokerin von Verge</title>
-<meta name="description" content="Das ist Vivi, die Jokerin und das Gesicht von Verge. Warum eine Jokerin, was die fünf Sterne bedeuten und was Verge ist.">
 <link rel="canonical" href="https://playverge.app/vivi/">
+<link rel="alternate" hreflang="de" href="https://playverge.app/vivi/">
+<link rel="alternate" hreflang="en" href="https://playverge.app/en/vivi/">
+<link rel="alternate" hreflang="es" href="https://playverge.app/es/vivi/">
+<link rel="alternate" hreflang="fr" href="https://playverge.app/fr/vivi/">
+<link rel="alternate" hreflang="it" href="https://playverge.app/it/vivi/">
+<link rel="alternate" hreflang="pl" href="https://playverge.app/pl/vivi/">
+<link rel="alternate" hreflang="pt" href="https://playverge.app/pt/vivi/">
+<link rel="alternate" hreflang="x-default" href="https://playverge.app/en/vivi/">
+<meta property="og:locale" content="de_DE">
+<meta name="description" content="Das ist Vivi, die Jokerin und das Gesicht von Verge. Warum eine Jokerin, was die fünf Sterne bedeuten und was Verge ist.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://playverge.app/vivi/">
 <meta property="og:title" content="Vivi, die Jokerin von Verge">
@@ -17,11 +26,14 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preload" href="../fonts/cormorant.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/cormorant.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-@font-face{font-family:"Cormorant Garamond";src:url(../fonts/cormorant.woff2) format("woff2");font-weight:300 700;font-style:normal;font-display:swap}
-@font-face{font-family:"Cormorant Garamond";src:url(../fonts/cormorant-italic.woff2) format("woff2");font-weight:300 700;font-style:italic;font-display:swap}
-@font-face{font-family:"Inter";src:url(../fonts/inter.woff2) format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Cormorant Garamond";src:url(/fonts/cormorant.woff2) format("woff2");font-weight:300 700;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Cormorant Garamond";src:url(/fonts/cormorant-ext.woff2) format("woff2");font-weight:300 700;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Cormorant Garamond";src:url(/fonts/cormorant-italic.woff2) format("woff2");font-weight:300 700;font-style:italic;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Cormorant Garamond";src:url(/fonts/cormorant-italic-ext.woff2) format("woff2");font-weight:300 700;font-style:italic;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Inter";src:url(/fonts/inter.woff2) format("woff2");font-weight:100 900;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Inter";src:url(/fonts/inter-ext.woff2) format("woff2");font-weight:100 900;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 :root{color-scheme:only light;--serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;--sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;--ink:#2F343A;--mute:#6C727A;--hint:#9AA0A7;--gold:#B89968;--pad:clamp(20px,5.5vw,34px)}
 @media (prefers-color-scheme:dark){:root{color-scheme:only light}}
 *{box-sizing:border-box}
@@ -99,11 +111,22 @@ figcaption{font-size:13px;color:var(--mute);text-align:center;margin-top:10px}
 footer{padding-top:40px;padding-bottom:calc(40px + env(safe-area-inset-bottom,0px));text-align:center;font-size:13px;color:var(--mute)}
 footer a{color:var(--mute);margin:0 8px;white-space:nowrap}
 footer .c{margin-top:12px;color:var(--hint)}
+.lang{position:absolute;right:var(--pad,20px);top:24px;z-index:20;text-align:left}
+.lang>button{display:flex;align-items:center;gap:6px;padding:6px 11px 6px 12px;font:600 12px/1.2 var(--sans,"Inter",sans-serif);color:var(--ink,#2F343A);border:1px solid rgba(47,52,58,.22);border-radius:999px;background:rgba(247,235,217,.55);cursor:pointer}
+.lang>button svg{width:9px;height:6px;transition:transform .2s}
+.lang>button[aria-expanded="true"] svg{transform:rotate(180deg)}
+.lmenu{position:absolute;right:0;top:calc(100% + 8px);list-style:none;margin:0;background:var(--creme2,#F7EBD9);border:1px solid rgba(47,52,58,.14);border-radius:16px;padding:6px;min-width:148px;box-shadow:0 14px 34px rgba(47,52,58,.16)}
+.lmenu li{margin:0}
+.lmenu a{display:block;padding:9px 14px;border-radius:11px;font:400 15px/1.3 var(--sans,"Inter",sans-serif);color:var(--ink,#2F343A);text-decoration:none}
+.lmenu a:hover{background:rgba(47,52,58,.06)}
+.lmenu a[aria-current]{font-weight:600}
+.lmenu a[aria-current]::after{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--ph,#2EC4B6);margin-left:9px;vertical-align:middle}
+header{position:relative}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Vivi, die Jokerin von Verge", "url": "https://playverge.app/vivi/", "inLanguage": "de", "primaryImageOfPage": {"@type": "ImageObject", "contentUrl": "https://playverge.app/vivi/vivi-verge-jokerin.webp", "name": "Vivi, die Jokerin von Verge", "description": "Vivi ist die Jokerin und das Gesicht von Verge, dem Kartenspiel für echte Begegnung.", "width": 795, "height": 1456, "creator": {"@type": "Organization", "name": "Verge", "url": "https://playverge.app", "logo": "https://playverge.app/icon-512.png"}, "copyrightNotice": "© 2026 AmBuetioniert UG", "creditText": "Verge"}, "about": {"@type": "Thing", "name": "Vivi", "description": "Die Jokerin von Verge"}, "publisher": {"@type": "Organization", "name": "Verge", "url": "https://playverge.app", "logo": "https://playverge.app/icon-512.png"}}</script>
 </head>
 <body>
-<header class="wrap"><a class="mark" href="/">Verge</a><div class="dots" aria-hidden="true"><span style="color:#2EC4B6">★</span><span style="color:#3A86FF">★</span><span style="color:#7B61FF">★</span><span style="color:#FF6B6B">★</span><span style="color:#FF3B30">★</span></div></header>
+<header class="wrap"><a class="mark" href="/">Verge</a><div class="lang" id="lang"><button type="button" id="lbtn" aria-haspopup="true" aria-expanded="false" aria-label="Sprache: Deutsch">DE<svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="lmenu" id="lmenu" hidden><li><a href="/vivi/" lang="de" hreflang="de" aria-current="page">Deutsch</a></li><li><a href="/en/vivi/" lang="en-GB" hreflang="en-GB">English</a></li><li><a href="/es/vivi/" lang="es" hreflang="es">Español</a></li><li><a href="/fr/vivi/" lang="fr" hreflang="fr">Français</a></li><li><a href="/it/vivi/" lang="it" hreflang="it">Italiano</a></li><li><a href="/pl/vivi/" lang="pl" hreflang="pl">Polski</a></li><li><a href="/pt/vivi/" lang="pt-PT" hreflang="pt-PT">Português</a></li></ul></div><div class="dots" aria-hidden="true"><span style="color:#2EC4B6">★</span><span style="color:#3A86FF">★</span><span style="color:#7B61FF">★</span><span style="color:#FF6B6B">★</span><span style="color:#FF3B30">★</span></div></header>
 <main class="wrap">
 <h1>Das ist Vivi.</h1>
 <p class="sub">Die Jokerin von Verge.</p>
@@ -119,7 +142,7 @@ footer .c{margin-top:12px;color:var(--hint)}
   <div class="names"><span style="--c:#2EC4B6">Spielerisch</span><span style="--c:#3A86FF">Persönlich</span><span style="--c:#7B61FF">Nah</span><span style="--c:#FF6B6B">Intim</span><span style="--c:#FF3B30">Enthemmt</span></div>
 </div>
 <h2>Was ist Verge?</h2>
-<p>Verge ist ein Kartenspiel als App, für Gruppen jeder Größe. Wie Wahrheit oder Pflicht, nur viel, viel besser. 850+ Karten in acht Packs, für den Spieleabend, die WG-Party oder zu zweit. Jede Person legt still für sich fest, wie weit sie gehen möchte, und Verge zieht nur Karten, bei denen alle dabei sind.</p>
+<p>Verge ist ein Kartenspiel als App, für Gruppen jeder Größe. Wie Wahrheit oder Pflicht, nur viel, viel besser. 1.200+ Karten in acht Packs, für den Spieleabend, die WG-Party oder zu zweit. Jede Person legt still für sich fest, wie weit sie gehen möchte, und Verge zieht nur Karten, bei denen alle dabei sind.</p>
 <div class="btns"><a class="btn d" href="https://apps.apple.com/app/id6761114559">Im App Store laden</a><a class="btn l" href="https://play.google.com/store/apps/details?id=com.vergeapp.verge">Bei Google Play laden</a></div>
 <nav class="more" aria-label="Mehr von Verge"><a href="/das-fragt-man-nicht-doch-doch/"><small>Das fragt man nicht? Doch, doch.</small><span class="fit">#dasfragtmannichtdochdoch</span></a><a href="/zieh-und-frag-mich-aus/"><small>Zieh eine Karte. Dann frag mich aus.</small><span class="fit">#ziehundfragmichaus</span></a><a href="/grosser-schritt-gegen-die-maennlichkeit/"><small>Gefühle zeigen, kein Drama.</small><span class="fit">#großerschrittgegendiemännlichkeit</span></a><a href="/"><small>Die App</small><span>playverge.app</span></a></nav>
 </main>
@@ -129,6 +152,17 @@ footer .c{margin-top:12px;color:var(--hint)}
 </footer>
 <script>
 (function(){var els=document.querySelectorAll(".fit");function run(){els.forEach(function(e){e.style.fontSize="";var s=parseFloat(getComputedStyle(e).fontSize),w=e.parentElement.clientWidth-parseFloat(getComputedStyle(e.parentElement).paddingLeft)-parseFloat(getComputedStyle(e.parentElement).paddingRight);var g=0;while(e.scrollWidth>w&&s>12&&g++<60){s-=0.5;e.style.fontSize=s+"px"}})}run();if(document.fonts&&document.fonts.ready)document.fonts.ready.then(run);addEventListener("resize",run)})();
+</script>
+<script>
+(function(){var b=document.getElementById("lbtn"),m=document.getElementById("lmenu");
+  var q=new URLSearchParams(location.search),l=q.get("lang"),P={"de": "/vivi/", "en": "/en/vivi/", "es": "/es/vivi/", "fr": "/fr/vivi/", "it": "/it/vivi/", "pl": "/pl/vivi/", "pt": "/pt/vivi/"};
+  if(l&&l!=="de"&&P[l]){q.delete("lang");var r=q.toString();location.replace(P[l]+(r?"?"+r:"")+location.hash);return}
+  if(!b||!m)return;
+  function tg(o){m.hidden=!o;b.setAttribute("aria-expanded",o?"true":"false")}
+  b.addEventListener("click",function(e){e.stopPropagation();tg(m.hidden)});
+  document.addEventListener("click",function(e){if(!m.hidden&&!m.contains(e.target))tg(false)});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape")tg(false)});
+})();
 </script>
 </body>
 </html>

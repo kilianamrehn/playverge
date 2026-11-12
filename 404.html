@@ -26,9 +26,13 @@
 </script>
 <style>
 @font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:400 700;font-display:swap;
-  src:url(/fonts/cormorant.woff2) format("woff2")}
+  src:url(/fonts/cormorant.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:400 700;font-display:swap;
+  src:url(/fonts/cormorant-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:"Inter";font-style:normal;font-weight:400 700;font-display:swap;
-  src:url(/fonts/inter.woff2) format("woff2")}
+  src:url(/fonts/inter.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Inter";font-style:normal;font-weight:400 700;font-display:swap;
+  src:url(/fonts/inter-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 :root{
   --pad:clamp(20px,5.5vw,34px);
   --ink:#2F343A; --ink2:#6C727A; --ink3:#9AA0A7;
@@ -90,30 +94,35 @@ h1{font-family:var(--serif);font-weight:500;font-size:clamp(38px,10.5vw,52px);li
   <p class="lead" id="lead">Lade Verge, dann kannst du der Runde beitreten.</p>
 
   <div class="codebox" id="codebox" hidden>
-    <div class="lbl">Dein Code</div>
+    <div class="lbl" id="lbl">Dein Code</div>
     <div class="code" id="code"></div>
-    <div class="hint">Nach der Installation unter Beitreten eintippen.</div>
+    <div class="hint" id="chint">Nach der Installation unter Beitreten eintippen.</div>
   </div>
 
   <div class="stores">
     <a class="cta" href="https://apps.apple.com/app/id6761114559">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.7c0-2.5 2-3.7 2.1-3.8-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9s-2-.9-3.3-.9C6.1 7 4.5 8 3.6 9.6c-1.9 3.2-.5 8 1.3 10.6.9 1.3 1.9 2.7 3.3 2.7 1.3-.1 1.8-.9 3.4-.9s2 .9 3.4.8c1.4 0 2.3-1.3 3.2-2.6 1-1.5 1.4-2.9 1.4-3-.1 0-2.7-1-2.7-4.5zM14 5.4c.7-.8 1.2-2 1-3.2-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.9-1.1 3.1 1.2.1 2.3-.6 3-1.4z"/></svg>
-      Im App Store laden
-    </a>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.7c0-2.5 2-3.7 2.1-3.8-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9s-2-.9-3.3-.9C6.1 7 4.5 8 3.6 9.6c-1.9 3.2-.5 8 1.3 10.6.9 1.3 1.9 2.7 3.3 2.7 1.3-.1 1.8-.9 3.4-.9s2 .9 3.4.8c1.4 0 2.3-1.3 3.2-2.6 1-1.5 1.4-2.9 1.4-3-.1 0-2.7-1-2.7-4.5zM14 5.4c.7-.8 1.2-2 1-3.2-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.9-1.1 3.1 1.2.1 2.3-.6 3-1.4z"/></svg><span id="tios">Im App Store laden</span></a>
     <a class="cta ghost" href="https://play.google.com/store/apps/details?id=com.vergeapp.verge">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.4c-.3.3-.4.7-.4 1.2v16.8c0 .5.1.9.4 1.2l9.3-9.6zm10.3 10.6l2.9 3-9.5 5.4c-.7.4-1.4.4-1.9.1zm0-2l-8.5-8.5c.5-.3 1.2-.3 1.9.1l9.5 5.4zm1.3 1.3l3.4-1.9c.9-.5.9-1.4 0-1.9l-3.4-1.9-3.1 2.9z"/></svg>
-      Bei Google Play laden
-    </a>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.4c-.3.3-.4.7-.4 1.2v16.8c0 .5.1.9.4 1.2l9.3-9.6zm10.3 10.6l2.9 3-9.5 5.4c-.7.4-1.4.4-1.9.1zm0-2l-8.5-8.5c.5-.3 1.2-.3 1.9.1l9.5 5.4zm1.3 1.3l3.4-1.9c.9-.5.9-1.4 0-1.9l-3.4-1.9-3.1 2.9z"/></svg><span id="tand">Bei Google Play laden</span></a>
   </div>
 
-  <p class="note">Verge ist noch nicht in allen Ländern im Store verfügbar. Wenn die Seite leer bleibt, ist Verge dort noch nicht erhältlich.</p>
+  <p class="note" id="note">Verge ist noch nicht in allen Ländern im Store verfügbar. Wenn die Seite leer bleibt, ist Verge dort noch nicht erhältlich.</p>
 </main>
 
 <footer class="foot">
-  <a href="/">playverge.app</a>
+  <a href="/" id="home">playverge.app</a>
 </footer>
 
 <script>
+var T={"de": {"title": "Verge laden", "lead": "Lade Verge, dann kannst du der Runde beitreten.", "lbl": "Dein Code", "hint": "Nach der Installation unter Beitreten eintippen.", "ios": "Im App Store laden", "and": "Bei Google Play laden", "note": "Verge ist noch nicht in allen Ländern im Store verfügbar. Wenn die Seite leer bleibt, ist Verge dort noch nicht erhältlich.", "nf_title": "Seite nicht gefunden", "nf_lead": "Diese Adresse gibt es nicht. Hier geht es zu Verge.", "hl": "de", "home": "/"}, "en": {"title": "Get Verge", "lead": "Get Verge, then you can join the round.", "lbl": "Your code", "hint": "Once it’s installed, enter it under Join.", "ios": "Download on the App Store", "and": "Get it on Google Play", "note": "Verge isn’t in the store in every country yet. If the page stays blank, Verge isn’t available there yet.", "nf_title": "Page not found", "nf_lead": "This address doesn’t exist. This way to Verge.", "hl": "en-GB", "home": "/en/"}, "es": {"title": "Descarga Verge", "lead": "Descarga Verge y podrás unirte a la partida.", "lbl": "Tu código", "hint": "Después de instalar la app, toca Unirse y escribe el código.", "ios": "Descárgalo en el App Store", "and": "Disponible en Google Play", "note": "Verge todavía no está en la tienda de todos los países. Si la página se queda en blanco, Verge aún no está disponible allí.", "nf_title": "Página no encontrada", "nf_lead": "Esta dirección no existe. Por aquí llegas a Verge.", "hl": "es", "home": "/es/"}, "fr": {"title": "Télécharger Verge", "lead": "Télécharge Verge pour rejoindre la partie.", "lbl": "Ton code", "hint": "Après l’installation, touche Rejoindre et saisis ce code.", "ios": "Télécharger dans l’App Store", "and": "Disponible sur Google Play", "note": "Verge n’est pas encore disponible dans le store de tous les pays. Si la page reste vide, l’appli n’y est pas encore disponible.", "nf_title": "Page introuvable", "nf_lead": "Cette adresse n’existe pas. Par ici pour découvrir Verge.", "hl": "fr", "home": "/fr/"}, "it": {"title": "Scarica Verge", "lead": "Scarica Verge, poi potrai unirti alla partita.", "lbl": "Il tuo codice", "hint": "Dopo l’installazione, tocca Unisciti e inseriscilo.", "ios": "Scarica su App Store", "and": "Disponibile su Google Play", "note": "Verge non è ancora disponibile negli store di tutti i paesi. Se la pagina resta vuota, nel tuo paese Verge non c’è ancora.", "nf_title": "Pagina non trovata", "nf_lead": "Questo indirizzo non esiste. Da qui vai a Verge.", "hl": "it", "home": "/it/"}, "pl": {"title": "Pobierz Verge", "lead": "Pobierz Verge, a potem dołącz do rundy.", "lbl": "Twój kod", "hint": "Po instalacji dotknij Dołącz i wpisz kod.", "ios": "Pobierz z App Store", "and": "Pobierz z Google Play", "note": "Verge nie ma jeszcze w sklepach we wszystkich krajach. Jeśli strona pozostaje pusta, w twoim kraju Verge jeszcze nie ma.", "nf_title": "Nie znaleziono strony", "nf_lead": "Ten adres nie istnieje. Tędy przejdziesz do Verge.", "hl": "pl", "home": "/pl/"}, "pt": {"title": "Descarrega o Verge", "lead": "Descarrega o Verge e depois podes entrar na partida.", "lbl": "O teu código", "hint": "Depois de instalares, toca em Entrar e escreve o código.", "ios": "Descarregar na App Store", "and": "Disponível no Google Play", "note": "O Verge ainda não está disponível na loja em todos os países. Se a página ficar em branco, o Verge ainda não existe aí.", "nf_title": "Página não encontrada", "nf_lead": "Este endereço não existe. Por aqui chegas ao Verge.", "hl": "pt-PT", "home": "/pt/"}};
+(function(){var N=(navigator.languages&&navigator.languages.length)?navigator.languages:[navigator.language||"en"],L="en";
+  for(var i=0;i<N.length;i++){var c=String(N[i]||"").toLowerCase().slice(0,2);if(T[c]){L=c;break}}
+  var t=T[L];window.T=t;document.documentElement.lang=t.hl;document.title=t.title;
+  function x(id,v){var e=document.getElementById(id);if(e)e.textContent=v}
+  x("title",t.title);x("lead",t.lead);x("lbl",t.lbl);x("chint",t.hint);x("tios",t.ios);x("tand",t.and);x("note",t.note);
+  var h=document.getElementById("home");if(h)h.setAttribute("href",t.home);
+})();
+var T=window.T;
 (function(){
   var p = decodeURIComponent(location.pathname || "");
   var m = p.match(/^\/spiel\/([^\/?#]+)/i);
@@ -123,8 +132,8 @@ h1{font-family:var(--serif);font-weight:500;font-size:clamp(38px,10.5vw,52px);li
     document.getElementById("code").textContent = code;
     document.getElementById("codebox").hidden = false;
   } else if (!/^\/spiel(\/|$)/i.test(p) && !/^\/join\/?$/i.test(p)) {
-    document.getElementById("title").textContent = "Seite nicht gefunden";
-    document.getElementById("lead").textContent = "Diese Adresse gibt es nicht. Hier geht es zu Verge.";
+    document.getElementById("title").textContent = T.nf_title; document.title = T.nf_title;
+    document.getElementById("lead").textContent = T.nf_lead;
   }
 })();
 </script>

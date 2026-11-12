@@ -6,8 +6,17 @@
 <meta name="color-scheme" content="only light">
 <style>:root{color-scheme:only light}@media (prefers-color-scheme:dark){:root{color-scheme:only light}}</style>
 <title>Pressekit · Presse und Kooperationen · Verge</title>
-<meta name="description" content="Pressekit für Verge: Logos, Bilder, Screenshots, Texte und Fakten. Frei verwendbar für Artikel, Posts und Kooperationen.">
 <link rel="canonical" href="https://playverge.app/presse/">
+<link rel="alternate" hreflang="de" href="https://playverge.app/presse/">
+<link rel="alternate" hreflang="en" href="https://playverge.app/en/presse/">
+<link rel="alternate" hreflang="es" href="https://playverge.app/es/presse/">
+<link rel="alternate" hreflang="fr" href="https://playverge.app/fr/presse/">
+<link rel="alternate" hreflang="it" href="https://playverge.app/it/presse/">
+<link rel="alternate" hreflang="pl" href="https://playverge.app/pl/presse/">
+<link rel="alternate" hreflang="pt" href="https://playverge.app/pt/presse/">
+<link rel="alternate" hreflang="x-default" href="https://playverge.app/en/presse/">
+<meta property="og:locale" content="de_DE">
+<meta name="description" content="Pressekit für Verge: Logos, Bilder, Screenshots, Texte und Fakten. Frei verwendbar für Artikel, Posts und Kooperationen.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://playverge.app/presse/">
 <meta property="og:title" content="Pressekit · Presse und Kooperationen · Verge">
@@ -26,11 +35,17 @@
 <meta name="theme-color" content="#F0DFC6">
 <style>
 @font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:400 700;font-display:swap;
-  src:url(/fonts/cormorant.woff2) format("woff2")}
+  src:url(/fonts/cormorant.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:400 700;font-display:swap;
+  src:url(/fonts/cormorant-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:"Cormorant Garamond";font-style:italic;font-weight:400 700;font-display:swap;
-  src:url(/fonts/cormorant-italic.woff2) format("woff2")}
+  src:url(/fonts/cormorant-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Cormorant Garamond";font-style:italic;font-weight:400 700;font-display:swap;
+  src:url(/fonts/cormorant-italic-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:"Inter";font-style:normal;font-weight:400 700;font-display:swap;
-  src:url(/fonts/inter.woff2) format("woff2")}
+  src:url(/fonts/inter.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Inter";font-style:normal;font-weight:400 700;font-display:swap;
+  src:url(/fonts/inter-ext.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 </style>
 <link rel="preload" as="font" type="font/woff2" href="/fonts/cormorant.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/fonts/inter.woff2" crossorigin>
@@ -83,9 +98,16 @@ img{max-width:100%}
 .mark{display:inline-flex;flex-direction:column;align-items:center;text-decoration:none;gap:5px}
 .mark .w{font-family:var(--serif);font-weight:500;font-size:32px;line-height:1}
 .stars{display:flex;gap:7px}.stars svg{width:11px;height:11px}
-.lang{position:absolute;right:var(--pad);top:24px;display:flex;border:1px solid rgba(47,52,58,.22);border-radius:999px;overflow:hidden}
-.lang button{padding:5px 11px;font-size:12px;font-weight:600;color:var(--ink2)}
-.lang button.on{background:var(--ink);color:var(--creme2)}
+.lang{position:absolute;right:var(--pad,20px);top:24px;z-index:20;text-align:left}
+.lang>button{display:flex;align-items:center;gap:6px;padding:6px 11px 6px 12px;font:600 12px/1.2 var(--sans,"Inter",sans-serif);color:var(--ink,#2F343A);border:1px solid rgba(47,52,58,.22);border-radius:999px;background:rgba(247,235,217,.55);cursor:pointer}
+.lang>button svg{width:9px;height:6px;transition:transform .2s}
+.lang>button[aria-expanded="true"] svg{transform:rotate(180deg)}
+.lmenu{position:absolute;right:0;top:calc(100% + 8px);list-style:none;margin:0;background:var(--creme2,#F7EBD9);border:1px solid rgba(47,52,58,.14);border-radius:16px;padding:6px;min-width:148px;box-shadow:0 14px 34px rgba(47,52,58,.16)}
+.lmenu li{margin:0}
+.lmenu a{display:block;padding:9px 14px;border-radius:11px;font:400 15px/1.3 var(--sans,"Inter",sans-serif);color:var(--ink,#2F343A);text-decoration:none}
+.lmenu a:hover{background:rgba(47,52,58,.06)}
+.lmenu a[aria-current]{font-weight:600}
+.lmenu a[aria-current]::after{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--ph,#2EC4B6);margin-left:9px;vertical-align:middle}
 
 /* Hero */
 .hero{text-align:center;padding-top:6px;padding-bottom:26px}
@@ -427,7 +449,7 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
 .pdots i.off{background:transparent;box-shadow:inset 0 0 0 1px rgba(47,52,58,.28)}
 .packrow small{font-size:12.5px;color:var(--ink3);letter-spacing:.02em}
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Pressekit von Verge","url":"https://playverge.app/presse/","inLanguage":"de","description":"Logos, Bilder, Screenshots, Texte und Fakten zu Verge, frei verwendbar für Artikel, Posts und Kooperationen.","primaryImageOfPage":{"@type":"ImageObject","contentUrl":"https://playverge.app/vivi/vivi-verge-jokerin-freigestellt.webp","name":"Vivi, die Jokerin von Verge","creditText":"Verge","copyrightNotice":"© 2026 AmBuetioniert UG","creator":{"@type":"Organization","name":"Verge","url":"https://playverge.app/"}},"publisher":{"@type":"Organization","name":"Verge","url":"https://playverge.app/","logo":"https://playverge.app/icon-512.png"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Pressekit von Verge", "url": "https://playverge.app/presse/", "inLanguage": "de", "description": "Logos, Bilder, Screenshots, Texte und Fakten zu Verge, frei verwendbar für Artikel, Posts und Kooperationen.", "primaryImageOfPage": {"@type": "ImageObject", "contentUrl": "https://playverge.app/vivi/vivi-verge-jokerin-freigestellt.webp", "name": "Vivi, die Jokerin von Verge", "creditText": "Verge", "copyrightNotice": "© 2026 AmBuetioniert UG", "creator": {"@type": "Organization", "name": "Verge", "url": "https://playverge.app/"}}, "publisher": {"@type": "Organization", "name": "Verge", "url": "https://playverge.app/", "logo": "https://playverge.app/icon-512.png"}}</script>
 </head><body>
 <div class="bg" aria-hidden="true"><i></i></div>
 
@@ -435,7 +457,7 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
   <a class="mark" href="/" aria-label="Verge">
     <span class="w">Verge</span>
     <span class="stars" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="#2EC4B6" d="M12 1.6l3.1 6.9 7.5.8-5.6 5.1 1.6 7.4L12 18l-6.6 3.8 1.6-7.4L1.4 9.3l7.5-.8z"/></svg><svg viewBox="0 0 24 24"><path fill="#3A86FF" d="M12 1.6l3.1 6.9 7.5.8-5.6 5.1 1.6 7.4L12 18l-6.6 3.8 1.6-7.4L1.4 9.3l7.5-.8z"/></svg><svg viewBox="0 0 24 24"><path fill="#7B61FF" d="M12 1.6l3.1 6.9 7.5.8-5.6 5.1 1.6 7.4L12 18l-6.6 3.8 1.6-7.4L1.4 9.3l7.5-.8z"/></svg><svg viewBox="0 0 24 24"><path fill="#FF6B6B" d="M12 1.6l3.1 6.9 7.5.8-5.6 5.1 1.6 7.4L12 18l-6.6 3.8 1.6-7.4L1.4 9.3l7.5-.8z"/></svg><svg viewBox="0 0 24 24"><path fill="#FF3B30" d="M12 1.6l3.1 6.9 7.5.8-5.6 5.1 1.6 7.4L12 18l-6.6 3.8 1.6-7.4L1.4 9.3l7.5-.8z"/></svg></span>
-  </a>
+  </a><div class="lang" id="lang"><button type="button" id="lbtn" aria-haspopup="true" aria-expanded="false" aria-label="Sprache: Deutsch">DE<svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="lmenu" id="lmenu" hidden><li><a href="/presse/" lang="de" hreflang="de" aria-current="page">Deutsch</a></li><li><a href="/en/presse/" lang="en-GB" hreflang="en-GB">English</a></li><li><a href="/es/presse/" lang="es" hreflang="es">Español</a></li><li><a href="/fr/presse/" lang="fr" hreflang="fr">Français</a></li><li><a href="/it/presse/" lang="it" hreflang="it">Italiano</a></li><li><a href="/pl/presse/" lang="pl" hreflang="pl">Polski</a></li><li><a href="/pt/presse/" lang="pt-PT" hreflang="pt-PT">Português</a></li></ul></div>
 </header>
 
 <main>
@@ -447,12 +469,12 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
       <p class="claim">Wie Wahrheit oder Pflicht.<br><em>Nur viel, viel besser.</em></p>
       <p class="lead hero-p">Logos, Bilder, Texte und Fakten an einem Ort. Frei verwendbar für Artikel, Posts und Kooperationen, ohne Anmeldung.</p>
       <div class="btnrow">
-        <a class="btn" href="downloads/verge-presskit.zip" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="17" height="17"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 20h16"/></svg>Komplettes Pressekit laden</a>
-        <a class="btn ghost" href="downloads/verge-pitch.zip" download>Pitch als PDF</a>
+        <a class="btn" href="/presse/downloads/verge-presskit.zip" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="17" height="17"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 20h16"/></svg>Komplettes Pressekit laden</a>
+        <a class="btn ghost" href="/presse/downloads/verge-pitch.zip" download>Pitch als PDF</a>
       </div>
       <p class="small">ZIP · 21 MB · Stand Oktober 2026</p>
     </div>
-    <div><img class="heroimg" src="img/logo-hell.png" alt="Verge Logo mit Vivi, der Jokerin" width="700" height="1095"></div>
+    <div><img class="heroimg" src="/presse/img/logo-hell.png" alt="Verge Logo mit Vivi, der Jokerin" width="700" height="1095"></div>
   </div>
 </section>
 
@@ -491,13 +513,13 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
   <div class="rule"></div>
   <h2>Nehmt, was ihr braucht.</h2>
   <p class="lead">Jedes Paket einzeln oder alles zusammen. Keine Anmeldung, keine Bedingungen.</p>
-  <div class="dl" style="margin-top:18px"><a class="dlcard" href="downloads/verge-logo.zip" download><div class="dlprev dark2"><span class="wordmark">Verge</span></div><div class="dlmeta"><div><b>Logo</b><span>PNG, JPG · hell, dunkel, Wortmarke, Artikelbilder 16:9</span></div><span class="go">Laden</span></div></a><a class="dlcard" href="downloads/verge-vivi.zip" download><div class="dlprev"><img src="/vivi/vivi-verge-jokerin-freigestellt.webp" width="520" height="627" alt="Vivi, die Jokerin von Verge" loading="lazy"></div><div class="dlmeta"><div><b>Vivi</b><span>PNG, JPG · freigestellt, auf Dunkel, vier Ausdrücke</span></div><span class="go">Laden</span></div></a><a class="dlcard" href="downloads/verge-screenshots.zip" download><div class="dlprev" style="background:#E1DAF3"><div class="shots"><img src="img/shot-1.jpg" alt="Screenshot aus der Verge-App" loading="lazy"><img src="img/shot-2.jpg" alt="Screenshot aus der Verge-App" loading="lazy" style="height:166px"><img src="img/shot-3.jpg" alt="Screenshot aus der Verge-App" loading="lazy"></div></div><div class="dlmeta"><div><b>Screenshots</b><span>JPG · acht Motive aus dem Spiel</span></div><span class="go">Laden</span></div></a><a class="dlcard" href="downloads/verge-packs.zip" download><div class="dlprev"><div class="packgrid"><img src="img/pack-pro.jpg" alt="Kartenpack Pro von Verge" loading="lazy"><img src="img/pack-deep.jpg" alt="Kartenpack Deep von Verge" loading="lazy"><img src="img/pack-zu-zweit.jpg" alt="Kartenpack Zu Zweit von Verge" loading="lazy"><img src="img/pack-konsequenzen.jpg" alt="Kartenpack Konsequenzen von Verge" loading="lazy"><img src="img/pack-koelsche-herzlichkeit.jpg" alt="Kartenpack Kölsche Herzlichkeit von Verge" loading="lazy"><img src="img/pack-kinky-berlin.jpg" alt="Kartenpack Kinky Berlin von Verge" loading="lazy"></div></div><div class="dlmeta"><div><b>Pack-Motive</b><span>JPG · sieben Packs, quadratisch und hochkant mit Text</span></div><span class="go">Laden</span></div></a><a class="dlcard" href="downloads/verge-gruenderfoto.zip" download><div class="dlprev"><img src="img/kilian.jpg" alt="Kilian, Gründer von Verge" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div><div class="dlmeta"><div><b>Gründerfoto</b><span>JPG · hoch, quer und quadratisch</span></div><span class="go">Laden</span></div></a><a class="dlcard" href="downloads/verge-pitch.zip" download><div class="dlprev" style="background:#DCD6C8"><img src="img/pitch.jpg" alt="Titelseite des Verge-Pitch als PDF" loading="lazy"></div><div class="dlmeta"><div><b>Pitch</b><span>PDF · drei Seiten, dunkel</span></div><span class="go">Laden</span></div></a></div>
+  <div class="dl" style="margin-top:18px"><a class="dlcard" href="/presse/downloads/verge-logo.zip" download><div class="dlprev dark2"><span class="wordmark">Verge</span></div><div class="dlmeta"><div><b>Logo</b><span>PNG, JPG · hell, dunkel, Wortmarke, Artikelbilder 16:9</span></div><span class="go">Laden</span></div></a><a class="dlcard" href="/presse/downloads/verge-vivi.zip" download><div class="dlprev"><img src="/vivi/vivi-verge-jokerin-freigestellt.webp" width="520" height="627" alt="Vivi, die Jokerin von Verge" loading="lazy"></div><div class="dlmeta"><div><b>Vivi</b><span>PNG, JPG · freigestellt, auf Dunkel, vier Ausdrücke</span></div><span class="go">Laden</span></div></a><a class="dlcard" href="/presse/downloads/verge-screenshots.zip" download><div class="dlprev" style="background:#E1DAF3"><div class="shots"><img src="/presse/img/shot-1.jpg" alt="Screenshot aus der Verge-App" loading="lazy"><img src="/presse/img/shot-2.jpg" alt="Screenshot aus der Verge-App" loading="lazy" style="height:166px"><img src="/presse/img/shot-3.jpg" alt="Screenshot aus der Verge-App" loading="lazy"></div></div><div class="dlmeta"><div><b>Screenshots</b><span>JPG · acht Motive aus dem Spiel</span></div><span class="go">Laden</span></div></a><a class="dlcard" href="/presse/downloads/verge-packs.zip" download><div class="dlprev"><div class="packgrid"><img src="/presse/img/pack-pro.jpg" alt="Kartenpack Pro von Verge" loading="lazy"><img src="/presse/img/pack-deep.jpg" alt="Kartenpack Deep von Verge" loading="lazy"><img src="/presse/img/pack-zu-zweit.jpg" alt="Kartenpack Zu Zweit von Verge" loading="lazy"><img src="/presse/img/pack-konsequenzen.jpg" alt="Kartenpack Party von Verge" loading="lazy"><img src="/presse/img/pack-koelsche-herzlichkeit.jpg" alt="Kartenpack Kölsche Herzlichkeit von Verge" loading="lazy"><img src="/presse/img/pack-kinky-berlin.jpg" alt="Kartenpack Kinky Berlin von Verge" loading="lazy"></div></div><div class="dlmeta"><div><b>Pack-Motive</b><span>JPG · sieben Packs, quadratisch und hochkant mit Text</span></div><span class="go">Laden</span></div></a><a class="dlcard" href="/presse/downloads/verge-gruenderfoto.zip" download><div class="dlprev"><img src="/presse/img/kilian.jpg" alt="Kilian, Gründer von Verge" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div><div class="dlmeta"><div><b>Gründerfoto</b><span>JPG · hoch, quer und quadratisch</span></div><span class="go">Laden</span></div></a><a class="dlcard" href="/presse/downloads/verge-pitch.zip" download><div class="dlprev" style="background:#DCD6C8"><img src="/presse/img/pitch.jpg" alt="Titelseite des Verge-Pitch als PDF" loading="lazy"></div><div class="dlmeta"><div><b>Pitch</b><span>PDF · drei Seiten, dunkel</span></div><span class="go">Laden</span></div></a></div>
 </section>
 
 <section class="sec wide">
   <div class="rule"></div>
   <h2>Für jede Runde das richtige Pack.</h2>
-  <div class="packrow" style="margin-top:18px"><figure><img src="img/pack-pro.jpg" alt="Kartenpack Pro von Verge" loading="lazy"><b>Pro</b><span>Das große Pack für jeden Anlass.</span><div class="pdots"><i style="background:#2EC4B6"></i><i style="background:#3A86FF"></i><i style="background:#7B61FF"></i><i style="background:#FF6B6B"></i><i style="background:#FF3B30"></i></div><small>330 Karten</small></figure><figure><img src="img/pack-zu-zweit.jpg" alt="Kartenpack Zu Zweit von Verge" loading="lazy"><b>Zu Zweit</b><span>Nur ihr zwei. Den Rest bestimmt ihr.</span><div class="pdots"><i style="background:#2EC4B6"></i><i style="background:#3A86FF"></i><i style="background:#7B61FF"></i><i style="background:#FF6B6B"></i><i style="background:#FF3B30"></i></div><small>100 Karten</small></figure><figure><img src="img/pack-kinky-berlin.jpg" alt="Kartenpack Kinky Berlin von Verge" loading="lazy"><b>Kinky Berlin</b><span>Berliner Nächte, kein Smalltalk.</span><div class="pdots"><i class="off"></i><i class="off"></i><i class="off"></i><i style="background:#FF6B6B"></i><i style="background:#FF3B30"></i></div><small>100 Karten</small></figure><figure><img src="img/pack-konsequenzen.jpg" alt="Kartenpack Konsequenzen von Verge" loading="lazy"><b>Konsequenzen</b><span>1 Aura verlieren und Skip lösen 1 Strafe aus. Ihr bestimmt, welche.</span><div class="pdots"><i style="background:#2EC4B6"></i><i style="background:#3A86FF"></i><i style="background:#7B61FF"></i><i style="background:#FF6B6B"></i><i style="background:#FF3B30"></i></div><small>100 Karten</small></figure><figure><img src="img/pack-deep.jpg" alt="Kartenpack Deep von Verge" loading="lazy"><b>Deep</b><span>Die leisen Fragen, die lange bleiben.</span><div class="pdots"><i style="background:#2EC4B6"></i><i style="background:#3A86FF"></i><i style="background:#7B61FF"></i><i style="background:#FF6B6B"></i><i style="background:#FF3B30"></i></div><small>150 Karten</small></figure><figure><img src="img/pack-laut-gedacht.jpg" alt="Kartenpack Laut gedacht von Verge" loading="lazy"><b>Laut gedacht</b><span>Keine Aufgaben, einfache Fragen.</span><div class="pdots"><i style="background:#2EC4B6"></i><i style="background:#3A86FF"></i><i style="background:#7B61FF"></i><i style="background:#FF6B6B"></i><i style="background:#FF3B30"></i></div><small>200 Karten</small></figure><figure><img src="img/pack-koelsche-herzlichkeit.jpg" alt="Kartenpack Kölsche Herzlichkeit von Verge" loading="lazy"><b>Kölsche Herzlichkeit</b><span>Warm, herzlich, nah. Wie ein Abend in deiner Lieblingskneipe.</span><div class="pdots"><i style="background:#2EC4B6"></i><i style="background:#3A86FF"></i><i style="background:#7B61FF"></i><i class="off"></i><i class="off"></i></div><small>100 Karten</small></figure></div>
+  <div class="packrow" style="margin-top:18px"><figure><img src="/presse/img/pack-pro.jpg" alt="Kartenpack Pro von Verge" loading="lazy"><b>Pro</b><span>Das große Pack für jeden Anlass.</span><div class="pdots"><i style="background:#2EC4B6"></i><i style="background:#3A86FF"></i><i style="background:#7B61FF"></i><i style="background:#FF6B6B"></i><i style="background:#FF3B30"></i></div><small>330 Karten</small></figure><figure><img src="/presse/img/pack-zu-zweit.jpg" alt="Kartenpack Zu Zweit von Verge" loading="lazy"><b>Zu Zweit</b><span>Für Dates, Paare und Best Friends.</span><div class="pdots"><i style="background:#2EC4B6"></i><i style="background:#3A86FF"></i><i style="background:#7B61FF"></i><i style="background:#FF6B6B"></i><i style="background:#FF3B30"></i></div><small>100 Karten</small></figure><figure><img src="/presse/img/pack-kinky-berlin.jpg" alt="Kartenpack Kinky Berlin von Verge" loading="lazy"><b>Kinky Berlin</b><span>Nur Intim und Enthemmt. Direkt zur Sache.</span><div class="pdots"><i class="off"></i><i class="off"></i><i class="off"></i><i style="background:#FF6B6B"></i><i style="background:#FF3B30"></i></div><small>100 Karten</small></figure><figure><img src="/presse/img/pack-konsequenzen.jpg" alt="Kartenpack Party von Verge" loading="lazy"><b>Party</b><span>Wer Aura verliert oder skippt, kassiert eine Strafe. Welche, bestimmt ihr.</span><div class="pdots"><i style="background:#2EC4B6"></i><i style="background:#3A86FF"></i><i style="background:#7B61FF"></i><i style="background:#FF6B6B"></i><i style="background:#FF3B30"></i></div><small>100 Karten</small></figure><figure><img src="/presse/img/pack-deep.jpg" alt="Kartenpack Deep von Verge" loading="lazy"><b>Deep</b><span>Ehrlich, tief und so nah, wie ihr möchtet.</span><div class="pdots"><i style="background:#2EC4B6"></i><i style="background:#3A86FF"></i><i style="background:#7B61FF"></i><i style="background:#FF6B6B"></i><i style="background:#FF3B30"></i></div><small>150 Karten</small></figure><figure><img src="/presse/img/pack-laut-gedacht.jpg" alt="Kartenpack Nur Fragen von Verge" loading="lazy"><b>Nur Fragen</b><span>Einfache Fragen, keine Aufgaben.</span><div class="pdots"><i style="background:#2EC4B6"></i><i style="background:#3A86FF"></i><i style="background:#7B61FF"></i><i style="background:#FF6B6B"></i><i style="background:#FF3B30"></i></div><small>350 Karten</small></figure><figure><img src="/presse/img/pack-koelsche-herzlichkeit.jpg" alt="Kartenpack Kölsche Herzlichkeit von Verge" loading="lazy"><b>Kölsche Herzlichkeit</b><span>Warm, herzlich, nah. Wie ein Abend in deiner Lieblingskneipe.</span><div class="pdots"><i style="background:#2EC4B6"></i><i style="background:#3A86FF"></i><i style="background:#7B61FF"></i><i class="off"></i><i class="off"></i></div><small>100 Karten</small></figure></div>
 </section>
 
 <section class="sec wide">
@@ -509,7 +531,7 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
 <section class="sec wide">
   <div class="rule"></div>
   <div class="founder">
-    <img src="img/kilian.jpg" alt="Kilian, Gründer von Verge" loading="lazy" width="900" height="900">
+    <img src="/presse/img/kilian.jpg" alt="Kilian, Gründer von Verge" loading="lazy" width="900" height="900">
     <div>
       <div class="eyebrow">Hinter Verge</div>
       <blockquote class="bigquote">„Mut ist keine Voraussetzung für Nähe. Vertrauen schon.“</blockquote>
@@ -549,18 +571,29 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
 </footer>
 
 <script>
+var I={"copy": "Text kopieren", "copied": "Kopiert"};
+(function(){var b=document.getElementById("lbtn"),m=document.getElementById("lmenu");
+  var q=new URLSearchParams(location.search),l=q.get("lang"),P={"de": "/presse/", "en": "/en/presse/", "es": "/es/presse/", "fr": "/fr/presse/", "it": "/it/presse/", "pl": "/pl/presse/", "pt": "/pt/presse/"};
+  if(l&&l!=="de"&&P[l]){q.delete("lang");var r=q.toString();location.replace(P[l]+(r?"?"+r:"")+location.hash);return}
+  if(!b||!m)return;
+  function tg(o){m.hidden=!o;b.setAttribute("aria-expanded",o?"true":"false")}
+  b.addEventListener("click",function(e){e.stopPropagation();tg(m.hidden)});
+  document.addEventListener("click",function(e){if(!m.hidden&&!m.contains(e.target))tg(false)});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape")tg(false)});
+})();
+
 (function(){
   var tabs=document.querySelectorAll('.tab'), boxes=document.querySelectorAll('[data-box]'), btn=document.getElementById('copybtn'), cur='kurz';
   tabs.forEach(function(t){t.addEventListener('click',function(){
     cur=t.dataset.t;
     tabs.forEach(function(x){x.classList.toggle('on',x===t)});
     boxes.forEach(function(b){b.hidden=(b.dataset.box!==cur)});
-    btn.textContent='Text kopieren';
+    btn.textContent=I.copy;
   })});
   btn.addEventListener('click',function(){
     var el=document.querySelector('[data-box="'+cur+'"]');
     var txt=el.textContent.trim();
-    function done(){btn.textContent='Kopiert';setTimeout(function(){btn.textContent='Text kopieren'},2000)}
+    function done(){btn.textContent=I.copied;setTimeout(function(){btn.textContent=I.copy},2000)}
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,fallback)}else{fallback()}
     function fallback(){var ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done()}catch(e){}document.body.removeChild(ta)}
   });
@@ -569,7 +602,7 @@ h2{font-family:var(--serif);font-weight:500;font-size:clamp(29px,7.5vw,40px);lin
 (function(){
   document.querySelectorAll("button[data-copy]").forEach(function(b){
     b.addEventListener("click",function(){
-      var t=b.getAttribute("data-copy"), done=function(){var o=b.textContent;b.textContent="Kopiert";setTimeout(function(){b.textContent=o},1600)};
+      var t=b.getAttribute("data-copy"), done=function(){var o=b.textContent;b.textContent=I.copied;setTimeout(function(){b.textContent=o},1600)};
       if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,done)}
       else{var a=document.createElement("textarea");a.value=t;document.body.appendChild(a);a.select();try{document.execCommand("copy")}catch(e){}document.body.removeChild(a);done()}
     });
