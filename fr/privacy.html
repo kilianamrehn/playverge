@@ -168,7 +168,7 @@ hr{border:0;border-top:1px solid rgba(47,52,58,.14);margin:34px 0}
 
 <section id="datenschutz">
 <h1>Politique de confidentialité</h1>
-<p>Mise à jour : octobre 2026</p>
+<p>Mise à jour : novembre 2026</p>
 
 <h2>1. Responsable du traitement</h2>
 <address><strong>AmBuetioniert UG (haftungsbeschränkt)</strong><br> représentée par son gérant, Kilian Amrehn<br> Jülicher Str. 24<br> 50674 Köln<br> <a href="mailto:info@playverge.app">info@playverge.app</a></address>
@@ -213,29 +213,35 @@ hr{border:0;border-top:1px solid rgba(47,52,58,.14);margin:34px 0}
   <li><strong>Nom dans le jeu :</strong> tu saisis un nom avant de jouer. Il est enregistré dans notre base de données (Firebase Firestore) afin de pouvoir être affiché aux autres personnes qui jouent dans la même session. Le nom n’est pas transmis à des tiers en dehors de l’application.</li>
   <li><strong>Données de performance :</strong> Firebase Performance Monitoring enregistre des données techniques telles que les temps de chargement, le type d’appareil, le système d’exploitation et le pays approximatif, afin de repérer les erreurs et les lenteurs dans l’application.</li>
   <li><strong>Identifiant de l’appareil :</strong> Firebase attribue automatiquement un identifiant d’instance anonyme à chaque installation de l’application. Cet identifiant ne contient aucune information personnelle et n’est pas rattaché à ta personne.</li>
+  <li><strong>Évaluation des cartes :</strong> vous pouvez évaluer les cartes d’un pouce levé ou baissé et, si vous le souhaitez, écrire un court commentaire. Détails à la section 10.</li>
   <li><strong>Achats :</strong> voir la section 11.</li>
 </ul>
 
 <h2>9. Firebase : Google</h2>
 <p>L’application utilise Firebase, un service de Google Ireland Limited (Gordon House, Barrow Street, Dublin 4, Irlande). Composants utilisés :</p>
 <ul>
-  <li><strong>Cloud Firestore :</strong> enregistrement des sessions de jeu et des noms dans le jeu.</li>
+  <li><strong>Cloud Firestore :</strong> enregistrement des sessions de jeu, des noms dans le jeu et des évaluations de cartes.</li>
   <li><strong>Firebase Authentication :</strong> connexion anonyme de chaque installation, sans adresse e-mail ni compte.</li>
   <li><strong>Firebase Performance Monitoring :</strong> données techniques de performance de l’application.</li>
+  <li><strong>Google Cloud Translation :</strong> traduction automatique en allemand des commentaires liés à l’évaluation des cartes, afin que nous puissions les analyser. Selon ses propres indications, Google utilise les textes uniquement pour la traduction, ne les transmet pas à des tiers et ne s’en sert pas pour entraîner des modèles.</li>
 </ul>
-<p>Google Firebase peut traiter des données sur des serveurs situés dans l’UE et aux États-Unis. Le transfert vers des pays tiers repose sur des clauses contractuelles types conformément à l’art. 46, par. 2, point c), du RGPD.</p>
+<p>Notre base de données Firestore est située à Francfort-sur-le-Main (UE). D’autres composants de Firebase ainsi que la traduction des commentaires peuvent aussi traiter des données en dehors de l’UE, notamment aux États-Unis. Le transfert vers des pays tiers repose sur des clauses contractuelles types conformément à l’art. 46, par. 2, point c), du RGPD.</p>
 <p>Politique de confidentialité de Google : <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></p>
-<p>Base juridique : art. 6, par. 1, point b), du RGPD (exécution du contrat) pour le nom dans le jeu ; art. 6, par. 1, point f), du RGPD (intérêt légitime) pour les données de performance et les identifiants d’appareil.</p>
+<p>Base juridique : art. 6, par. 1, point b), du RGPD (exécution du contrat) pour le nom dans le jeu ; art. 6, par. 1, point f), du RGPD (intérêt légitime) pour les données de performance, les identifiants d’appareil, les évaluations de cartes et leur traduction.</p>
 
-<h2>10. Statistiques d’utilisation</h2>
+<h2>10. Statistiques d’utilisation et évaluation des cartes</h2>
 <p>Nous analysons les sessions de jeu à des fins statistiques afin d’améliorer le jeu. Cela comprend le déroulement de la partie sans les noms, la ville approximative et le type d’appareil, déduits l’un et l’autre de l’adresse IP, ainsi qu’un identifiant pseudonymisé de l’installation, afin de compter les parties récurrentes. L’adresse IP n’est pas enregistrée ; l’attribution de la ville a lieu sur nos propres systèmes (IP Geolocation by DB-IP). Google Cloud supprime le journal d’accès sous-jacent au bout de 7 jours. Les statistiques ne contiennent aucun nom et sont enregistrées dans Google Firebase et chez GitHub, Inc. (États-Unis, certifiée au titre de l’EU-US Data Privacy Framework).</p>
 <p>Base juridique : art. 6, par. 1, point f), du RGPD (intérêt légitime à améliorer le jeu). Tu peux t’y opposer par e-mail à <a href="mailto:info@playverge.app">info@playverge.app</a>.</p>
+<p><strong>Évaluation des cartes :</strong> sur le téléphone du jeu, vous pouvez évaluer chaque carte d’un pouce levé ou baissé et, si vous le souhaitez, écrire un commentaire de 280 caractères maximum. Nous enregistrons pour cela : l’évaluation, le commentaire, la carte, le pack, la phase, la langue de l’application, un identifiant aléatoire de la partie, le système d’exploitation (iOS ou Android), la version de l’application ainsi que la date et l’heure. À cette occasion, nous n’enregistrons ni nom, ni compte, ni identifiant d’appareil. Pendant 30 jours au plus, cet identifiant relie toutefois l’évaluation à sa partie, pour laquelle les noms saisis et la ville approximative sont enregistrés. Nous utilisons les évaluations pour voir quelles cartes plaisent et pour améliorer les cartes.</p>
+<p>Nous traduisons automatiquement en allemand les commentaires écrits dans d’autres langues (voir la section 9). Pour l’analyse, nous utilisons un dépôt privé chez GitHub, Inc. (88 Colin P Kelly Jr St, San Francisco, CA 94107, États-Unis, certifiée au titre de l’EU-US Data Privacy Framework) : un processus automatique (GitHub Actions) y regroupe les évaluations et met en cache les traductions des commentaires dans un fichier. Les résultats s’affichent sur une page de statistiques hébergée sur Firebase Hosting, accessible uniquement après connexion. L’analyse n’est consultable que par nous.</p>
+<p>Au bout de 30 jours, nous supprimons l’identifiant de la partie et ne gardons plus que le mois de la date. Une évaluation ne peut alors plus être rattachée à aucune partie, aucun appareil ni aucune ville, et nous la conservons aussi longtemps que nous l’utilisons pour améliorer les cartes. Si un commentaire contient malgré tout des informations personnelles, nous les supprimons dès que nous nous en apercevons ou que tu nous le demandes.</p>
+<p>Base juridique : art. 6, par. 1, point f), du RGPD (intérêt légitime à avoir de bonnes cartes). L’évaluation est facultative. Tu peux t’y opposer par e-mail à <a href="mailto:info@playverge.app">info@playverge.app</a>.</p>
 
 <h2>11. Achats : RevenueCat</h2>
 <p>Les achats et abonnements sont traités par Apple ou Google. Pour gérer tes déblocages, nous utilisons RevenueCat, Inc. (États-Unis). À cette fin, un identifiant anonyme de ton installation, tes achats et des données techniques de l’appareil sont traités. Le transfert vers les États-Unis repose sur des clauses contractuelles types (art. 46, par. 2, point c), du RGPD). Base juridique : art. 6, par. 1, point b), du RGPD (exécution du contrat). Politique de confidentialité de RevenueCat : <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">revenuecat.com/privacy</a></p>
 
 <h2>12. Conservation et suppression des données</h2>
-<p>Les noms dans le jeu et les données de session sont supprimés automatiquement au bout de 30 jours. Les statistiques d’utilisation ne contiennent aucun nom et sont conservées sans durée déterminée. RevenueCat et les boutiques d’applications conservent les données d’achat selon leurs propres règles. Aucun compte utilisateur n’est créé. Suppression sur demande par e-mail à <a href="mailto:info@playverge.app">info@playverge.app</a>.</p>
+<p>Les noms dans le jeu et les données de session sont supprimés automatiquement au bout de 30 jours. Les statistiques d’utilisation ne contiennent aucun nom et sont conservées sans durée déterminée. Pour les évaluations de cartes, au bout de 30 jours, nous supprimons l’identifiant de la partie et ne gardons plus que le mois de la date ; ensuite, nous conservons l’évaluation et le commentaire aussi longtemps que nous les utilisons pour améliorer les cartes (voir la section 10). RevenueCat et les boutiques d’applications conservent les données d’achat selon leurs propres règles. Aucun compte utilisateur n’est créé. Suppression sur demande par e-mail à <a href="mailto:info@playverge.app">info@playverge.app</a>.</p>
 
 <h2>13. Sécurité des données</h2>
 <p>Toutes les données sont chiffrées lors de leur transmission (HTTPS/TLS). Firebase met en œuvre, côté serveur, des mesures de sécurité conformes aux normes du secteur.</p>
@@ -244,6 +250,7 @@ hr{border:0;border-top:1px solid rgba(47,52,58,.14);margin:34px 0}
 
 <h2>14. Accès, rectification, effacement</h2>
 <p>Tu as le droit d’accès, de rectification, d’effacement et de limitation du traitement de tes données, ainsi que le droit à la portabilité des données. Tu peux retirer ton consentement à tout moment. Pour cela, écris à : <a href="mailto:info@playverge.app">info@playverge.app</a></p>
+<p>Comme nous fonctionnons sans compte, nous ne pouvons te rattacher une évaluation de carte que si tu nous indiques quel commentaire tu as écrit et à peu près quand. Avec ces informations, nous le retrouvons, puis nous le supprimons ou en retirons les informations personnelles. Nous ne pouvons rattacher à personne les évaluations sans commentaire, et nous ne pouvons donc pas non plus les supprimer individuellement (art. 11 du RGPD).</p>
 <p>Tu as en outre le droit d’introduire une réclamation auprès de l’autorité de contrôle compétente. En Rhénanie-du-Nord-Westphalie : Landesbeauftragte für Datenschutz und Informationsfreiheit NRW (LDI NRW), <a href="https://www.ldi.nrw.de" target="_blank" rel="noopener">ldi.nrw.de</a>.</p>
 
 <h2>15. Modifications</h2>

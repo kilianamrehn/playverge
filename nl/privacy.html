@@ -168,7 +168,7 @@ hr{border:0;border-top:1px solid rgba(47,52,58,.14);margin:34px 0}
 
 <section id="datenschutz">
 <h1>Privacyverklaring</h1>
-<p>Laatst bijgewerkt: oktober 2026</p>
+<p>Laatst bijgewerkt: november 2026</p>
 
 <h2>1. Verwerkingsverantwoordelijke</h2>
 <address><strong>AmBuetioniert UG (haftungsbeschränkt)</strong><br> vertegenwoordigd door directeur Kilian Amrehn<br> Jülicher Str. 24<br> 50674 Köln<br> <a href="mailto:info@playverge.app">info@playverge.app</a></address>
@@ -213,29 +213,35 @@ hr{border:0;border-top:1px solid rgba(47,52,58,.14);margin:34px 0}
   <li><strong>Spelersnaam:</strong> Je vult voor het spel een naam in. Die wordt in onze database (Firebase Firestore) opgeslagen, zodat hij aan de andere spelers in dezelfde sessie kan worden getoond. De naam wordt niet doorgegeven aan derden buiten de app.</li>
   <li><strong>Prestatiegegevens:</strong> Firebase Performance Monitoring registreert technische gegevens zoals laadtijden, type apparaat, besturingssysteem en het land bij benadering, om fouten en trage plekken in de app te vinden.</li>
   <li><strong>Apparaat-ID:</strong> Firebase kent automatisch een anonieme instantie-ID toe aan elke installatie van de app. Deze ID bevat geen persoonlijke informatie en is niet aan jou als persoon gekoppeld.</li>
+  <li><strong>Kaartbeoordeling:</strong> Jullie kunnen kaarten beoordelen met een duim omhoog of omlaag en vrijwillig een korte opmerking schrijven. Details in paragraaf 10.</li>
   <li><strong>Aankopen:</strong> zie paragraaf 11.</li>
 </ul>
 
 <h2>9. Firebase: Google</h2>
 <p>De app gebruikt Firebase, een dienst van Google Ireland Limited (Gordon House, Barrow Street, Dublin 4, Ierland). Gebruikte onderdelen:</p>
 <ul>
-  <li><strong>Cloud Firestore:</strong> opslag van spelsessies en spelersnamen.</li>
+  <li><strong>Cloud Firestore:</strong> opslag van spelsessies, spelersnamen en kaartbeoordelingen.</li>
   <li><strong>Firebase Authentication:</strong> anonieme aanmelding van elke installatie, zonder e-mailadres of account.</li>
   <li><strong>Firebase Performance Monitoring:</strong> technische prestatiegegevens van de app.</li>
+  <li><strong>Google Cloud Translation:</strong> machinale vertaling naar het Duits van opmerkingen bij kaartbeoordelingen, zodat we ze kunnen analyseren. Google gebruikt de teksten naar eigen zeggen alleen voor de vertaling, geeft ze niet door aan derden en traint er geen modellen mee.</li>
 </ul>
-<p>Google Firebase kan gegevens verwerken op servers in de EU en de VS. De doorgifte naar derde landen gebeurt op basis van standaardcontractbepalingen volgens art. 46 lid 2 sub c AVG.</p>
+<p>Onze Firestore-database staat in Frankfurt am Main (EU). Andere Firebase-onderdelen en de vertaling van de opmerkingen kunnen gegevens ook buiten de EU verwerken, met name in de VS. De doorgifte naar derde landen gebeurt op basis van standaardcontractbepalingen volgens art. 46 lid 2 sub c AVG.</p>
 <p>Privacyverklaring van Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></p>
-<p>Rechtsgrond: art. 6 lid 1 sub b AVG (uitvoering van de overeenkomst) voor de spelersnaam; art. 6 lid 1 sub f AVG (gerechtvaardigd belang) voor prestatiegegevens en apparaat-ID’s.</p>
+<p>Rechtsgrond: art. 6 lid 1 sub b AVG (uitvoering van de overeenkomst) voor de spelersnaam; art. 6 lid 1 sub f AVG (gerechtvaardigd belang) voor prestatiegegevens, apparaat-ID’s, kaartbeoordelingen en de vertaling daarvan.</p>
 
-<h2>10. Gebruiksstatistieken</h2>
+<h2>10. Gebruiksstatistieken en kaartbeoordeling</h2>
 <p>We analyseren de spelsessies statistisch om het spel te verbeteren. Daaronder vallen het spelverloop zonder namen, de stad bij benadering en het type apparaat, telkens afgeleid uit het IP-adres, en een gepseudonimiseerde ID van de installatie om terugkerend spelen te tellen. Het IP-adres wordt niet opgeslagen; de koppeling aan steden gebeurt op onze eigen systemen (IP-Geolocation by DB-IP). Het onderliggende toegangslogboek verwijdert Google Cloud na 7 dagen. De statistieken bevatten geen namen en worden opgeslagen in Google Firebase en bij GitHub, Inc. (VS, gecertificeerd volgens het EU-US Data Privacy Framework).</p>
 <p>Rechtsgrond: art. 6 lid 1 sub f AVG (gerechtvaardigd belang bij het verbeteren van het spel). Je kunt hiertegen bezwaar maken door te mailen naar <a href="mailto:info@playverge.app">info@playverge.app</a>.</p>
+<p><strong>Kaartbeoordeling:</strong> Op de speltelefoon kunnen jullie elke kaart beoordelen met een duim omhoog of omlaag en vrijwillig een opmerking van maximaal 280 tekens schrijven. Daarvoor slaan we op: de beoordeling, de opmerking, de kaart, het pack, de fase, de taal van de app, een willekeurige ID van de spelronde, het besturingssysteem (iOS of Android), de appversie en het tijdstip. Namen, accounts en apparaat-ID’s slaan we daarbij niet op. Via deze ID is een beoordeling wel maximaal 30 dagen aan de spelronde gekoppeld, en bij die ronde zijn de ingevoerde namen en de stad bij benadering opgeslagen. We gebruiken de beoordelingen om te zien welke kaarten in de smaak vallen en om kaarten te verbeteren.</p>
+<p>Opmerkingen in andere talen vertalen we machinaal naar het Duits (zie paragraaf 9). Voor de analyse gebruiken we een privérepository bij GitHub, Inc. (88 Colin P Kelly Jr St, San Francisco, CA 94107, VS, gecertificeerd volgens het EU-US Data Privacy Framework): daar vat een automatisch proces (GitHub Actions) de beoordelingen samen en slaat het de vertalingen van de opmerkingen tijdelijk op in een bestand. De resultaten staan op een statistiekpagina op Firebase Hosting die alleen na inloggen toegankelijk is. Alleen wij zien de analyse.</p>
+<p>Na 30 dagen verwijderen we de ID van de spelronde en bewaren we van het tijdstip alleen nog de maand. Daarna is een beoordeling niet meer te koppelen aan een ronde, een apparaat of een stad, en bewaren we de beoordeling zolang we die gebruiken om de kaarten te verbeteren. Bevat een opmerking toch persoonlijke gegevens, dan verwijderen we die zodra we dat merken of je ons erom vraagt.</p>
+<p>Rechtsgrond: art. 6 lid 1 sub f AVG (gerechtvaardigd belang bij goede kaarten). Beoordelen is vrijwillig. Je kunt hiertegen bezwaar maken door te mailen naar <a href="mailto:info@playverge.app">info@playverge.app</a>.</p>
 
 <h2>11. Aankopen: RevenueCat</h2>
 <p>Aankopen en abonnementen worden afgehandeld door Apple of Google. Voor het beheer van je ontgrendelingen gebruiken we RevenueCat, Inc. (VS). Daarbij worden een anonieme ID van je installatie, je aankopen en technische apparaatgegevens verwerkt. De doorgifte naar de VS gebeurt op basis van standaardcontractbepalingen (art. 46 lid 2 sub c AVG). Rechtsgrond: art. 6 lid 1 sub b AVG (uitvoering van de overeenkomst). Privacyverklaring van RevenueCat: <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">revenuecat.com/privacy</a></p>
 
 <h2>12. Opslag en verwijdering van gegevens</h2>
-<p>Spelersnamen en sessiegegevens worden na 30 dagen automatisch verwijderd. De gebruiksstatistieken bevatten geen namen en worden zonder vaste termijn bewaard. Aankoopgegevens worden door RevenueCat en de app stores bewaard volgens hun eigen regels. Er wordt geen gebruikersaccount aangemaakt. Verwijdering op verzoek per e-mail aan <a href="mailto:info@playverge.app">info@playverge.app</a>.</p>
+<p>Spelersnamen en sessiegegevens worden na 30 dagen automatisch verwijderd. De gebruiksstatistieken bevatten geen namen en worden zonder vaste termijn bewaard. Bij kaartbeoordelingen verwijderen we na 30 dagen de ID van de spelronde en houden we van het tijdstip alleen de maand over; daarna bewaren we beoordeling en opmerking zolang we ze gebruiken om de kaarten te verbeteren (zie paragraaf 10). Aankoopgegevens worden door RevenueCat en de app stores bewaard volgens hun eigen regels. Er wordt geen gebruikersaccount aangemaakt. Verwijdering op verzoek per e-mail aan <a href="mailto:info@playverge.app">info@playverge.app</a>.</p>
 
 <h2>13. Gegevensbeveiliging</h2>
 <p>Alle gegevens worden bij de overdracht versleuteld (HTTPS/TLS). Firebase gebruikt beveiligingsmaatregelen aan de serverkant volgens de standaard in de branche.</p>
@@ -244,6 +250,7 @@ hr{border:0;border-top:1px solid rgba(47,52,58,.14);margin:34px 0}
 
 <h2>14. Inzage, rectificatie, verwijdering</h2>
 <p>Je hebt het recht op inzage, rectificatie, verwijdering en beperking van de verwerking van je gegevens, en het recht op overdraagbaarheid van gegevens. Je kunt je toestemming altijd intrekken. Neem daarvoor contact op met: <a href="mailto:info@playverge.app">info@playverge.app</a></p>
+<p>Omdat we zonder account werken, kunnen we een kaartbeoordeling alleen aan jou koppelen als je ons vertelt welke opmerking je hebt geschreven en ongeveer wanneer. Met die gegevens zoeken we de opmerking op en verwijderen we die of halen we de persoonlijke gegevens eruit. Beoordelingen zonder opmerking kunnen we aan niemand koppelen en daarom ook niet afzonderlijk verwijderen (art. 11 AVG).</p>
 <p>Je hebt daarnaast het recht om een klacht in te dienen bij de bevoegde toezichthoudende autoriteit. In Noordrijn-Westfalen: Landesbeauftragte für Datenschutz und Informationsfreiheit NRW (LDI NRW), <a href="https://www.ldi.nrw.de" target="_blank" rel="noopener">ldi.nrw.de</a>.</p>
 
 <h2>15. Wijzigingen</h2>

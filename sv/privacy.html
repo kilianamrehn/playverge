@@ -168,7 +168,7 @@ hr{border:0;border-top:1px solid rgba(47,52,58,.14);margin:34px 0}
 
 <section id="datenschutz">
 <h1>Integritetspolicy</h1>
-<p>Senast uppdaterad: oktober 2026</p>
+<p>Senast uppdaterad: november 2026</p>
 
 <h2>1. Personuppgiftsansvarig</h2>
 <address><strong>AmBuetioniert UG (haftungsbeschränkt)</strong><br> företrädd av VD Kilian Amrehn<br> Jülicher Str. 24<br> 50674 Köln<br> <a href="mailto:info@playverge.app">info@playverge.app</a></address>
@@ -213,29 +213,35 @@ hr{border:0;border-top:1px solid rgba(47,52,58,.14);margin:34px 0}
   <li><strong>Spelarnamn:</strong> Du skriver in ett namn före spelet. Namnet sparas i vår databas (Firebase Firestore) så att det kan visas för andra spelare i samma session. Namnet överförs inte till tredje part utanför appen.</li>
   <li><strong>Prestandadata:</strong> Firebase Performance Monitoring registrerar tekniska uppgifter som laddningstider, enhetstyp, operativsystem och ungefärligt land, för att hitta fel och långsamma ställen i appen.</li>
   <li><strong>Enhets-id:</strong> Firebase tilldelar automatiskt ett anonymt instans-id till varje installation av appen. Id:t innehåller inga personliga uppgifter och är inte kopplat till dig som person.</li>
+  <li><strong>Betygsättning av kort:</strong> Ni kan betygsätta kort med tummen upp eller ner och frivilligt skriva en kortfattad kommentar. Mer om detta i avsnitt 10.</li>
   <li><strong>Köp:</strong> se avsnitt 11.</li>
 </ul>
 
 <h2>9. Firebase (Google)</h2>
 <p>Appen använder Firebase, en tjänst från Google Ireland Limited (Gordon House, Barrow Street, Dublin 4, Irland). Komponenter som används:</p>
 <ul>
-  <li><strong>Cloud Firestore:</strong> lagring av spelsessioner och spelarnamn.</li>
+  <li><strong>Cloud Firestore:</strong> lagring av spelsessioner, spelarnamn och betyg på kort.</li>
   <li><strong>Firebase Authentication:</strong> anonym inloggning för varje installation, utan e-postadress eller konto.</li>
   <li><strong>Firebase Performance Monitoring:</strong> appens tekniska prestandadata.</li>
+  <li><strong>Google Cloud Translation:</strong> maskinöversättning till tyska av kommentarer till betygen på kort, så att vi kan analysera dem. Enligt egen uppgift använder Google texterna bara för översättningen, lämnar inte ut dem till tredje part och tränar inga modeller med dem.</li>
 </ul>
-<p>Google Firebase kan behandla uppgifter på servrar inom EU och i USA. Överföringen till tredjeländer sker på grundval av standardavtalsklausuler enligt art. 46.2 c GDPR.</p>
+<p>Vår Firestore-databas finns i Frankfurt am Main (EU). Andra Firebase-komponenter och översättningen av kommentarerna kan även behandla uppgifter utanför EU, särskilt i USA. Överföringen till tredjeländer sker på grundval av standardavtalsklausuler enligt art. 46.2 c GDPR.</p>
 <p>Googles integritetspolicy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></p>
-<p>Rättslig grund: art. 6.1 b GDPR (fullgörande av avtal) för spelarnamnet; art. 6.1 f GDPR (berättigat intresse) för prestandadata och enhets-id.</p>
+<p>Rättslig grund: art. 6.1 b GDPR (fullgörande av avtal) för spelarnamnet; art. 6.1 f GDPR (berättigat intresse) för prestandadata, enhets-id, betyg på kort och översättningen av dem.</p>
 
-<h2>10. Användningsstatistik</h2>
+<h2>10. Användningsstatistik och betygsättning av kort</h2>
 <p>Vi analyserar spelsessionerna statistiskt för att förbättra spelet. Det omfattar spelförloppet utan namn, ungefärlig stad och typ av enhet, båda härledda från IP-adressen, samt ett pseudonymiserat id för installationen, så att vi kan räkna återkommande spelande. IP-adressen sparas inte, och kopplingen till stad görs i våra egna system (IP Geolocation by DB-IP). Den underliggande åtkomstloggen raderas av Google Cloud efter 7 dagar. Statistiken innehåller inga namn och lagras i Google Firebase och hos GitHub, Inc. (USA, certifierat enligt EU-US Data Privacy Framework).</p>
 <p>Rättslig grund: art. 6.1 f GDPR (berättigat intresse av att förbättra spelet). Du kan invända mot analysen genom att mejla till <a href="mailto:info@playverge.app">info@playverge.app</a>.</p>
+<p><strong>Betygsättning av kort:</strong> På spelmobilen kan ni betygsätta varje kort med tummen upp eller ner och frivilligt skriva en kommentar på upp till 280 tecken. Vi sparar då: betyget, kommentaren, kortet, paketet, fasen, appens språk, ett slumpmässigt id för spelrundan, operativsystemet (iOS eller Android), appversionen och tidpunkten. Namn, konton och enhets-id sparar vi inte i det sammanhanget. Via detta id är ett betyg dock kopplat till spelrundan i upp till 30 dagar, och för rundan sparas de inskrivna namnen och den ungefärliga staden. Vi använder betygen för att se vilka kort som uppskattas och för att förbättra korten.</p>
+<p>Kommentarer på andra språk maskinöversätter vi till tyska (se avsnitt 9). För analysen använder vi ett privat repository hos GitHub, Inc. (88 Colin P Kelly Jr St, San Francisco, CA 94107, USA, certifierat enligt EU-US Data Privacy Framework): där sammanställer en automatisk process (GitHub Actions) betygen och mellanlagrar översättningarna av kommentarerna i en fil. Resultaten visas på en statistiksida på Firebase Hosting som bara går att nå efter inloggning. Analysen ser bara vi.</p>
+<p>Efter 30 dagar tar vi bort spelrundans id och sparar bara månaden av tidpunkten. Därefter går ett betyg inte längre att koppla till någon runda, någon enhet eller någon stad, och vi sparar det så länge vi använder det för att förbättra korten. Om en kommentar ändå innehåller personliga uppgifter tar vi bort dem så snart vi märker det eller du ber oss om det.</p>
+<p>Rättslig grund: art. 6.1 f GDPR (berättigat intresse av bra kort). Betygsättningen är frivillig. Du kan invända genom att mejla till <a href="mailto:info@playverge.app">info@playverge.app</a>.</p>
 
 <h2>11. Köp via RevenueCat</h2>
 <p>Köp och prenumerationer hanteras av Apple respektive Google. För att hantera det du har låst upp använder vi RevenueCat, Inc. (USA). Då behandlas ett anonymt id för din installation, dina köp och tekniska enhetsuppgifter. Överföringen till USA sker på grundval av standardavtalsklausuler (art. 46.2 c GDPR). Rättslig grund: art. 6.1 b GDPR (fullgörande av avtal). RevenueCats integritetspolicy: <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">revenuecat.com/privacy</a></p>
 
 <h2>12. Lagring och radering av uppgifter</h2>
-<p>Spelarnamn och sessionsdata raderas automatiskt efter 30 dagar. Användningsstatistiken innehåller inga namn och sparas utan fast tidsgräns. Köpuppgifter lagras av RevenueCat och appbutikerna enligt deras egna regler. Inget användarkonto skapas. Radering på begäran via mejl till <a href="mailto:info@playverge.app">info@playverge.app</a>.</p>
+<p>Spelarnamn och sessionsdata raderas automatiskt efter 30 dagar. Användningsstatistiken innehåller inga namn och sparas utan fast tidsgräns. För betyg på kort tar vi bort spelrundans id efter 30 dagar och behåller bara månaden av tidpunkten; därefter sparar vi betyg och kommentar så länge vi använder dem för att förbättra korten (se avsnitt 10). Köpuppgifter lagras av RevenueCat och appbutikerna enligt deras egna regler. Inget användarkonto skapas. Radering på begäran via mejl till <a href="mailto:info@playverge.app">info@playverge.app</a>.</p>
 
 <h2>13. Datasäkerhet</h2>
 <p>Alla uppgifter krypteras vid överföring (HTTPS/TLS). Firebase använder säkerhetsåtgärder på serversidan enligt branschstandard.</p>
@@ -244,6 +250,7 @@ hr{border:0;border-top:1px solid rgba(47,52,58,.14);margin:34px 0}
 
 <h2>14. Tillgång, rättelse, radering</h2>
 <p>Du har rätt till tillgång, rättelse, radering och begränsning av behandlingen av dina uppgifter samt rätt till dataportabilitet. Du kan när som helst återkalla ditt samtycke. Vänd dig i så fall till: <a href="mailto:info@playverge.app">info@playverge.app</a></p>
+<p>Eftersom vi arbetar utan konton kan vi bara koppla ett betyg på ett kort till dig om du berättar vilken kommentar du skrev och ungefär när. Med de uppgifterna letar vi upp kommentaren och raderar den eller tar bort personliga uppgifter ur den. Betyg utan kommentar kan vi inte koppla till någon person och kan därför inte heller radera dem ett och ett (art. 11 GDPR).</p>
 <p>Du har också rätt att lämna in klagomål till behörig tillsynsmyndighet. I Nordrhein-Westfalen: Landesbeauftragte für Datenschutz und Informationsfreiheit NRW (LDI NRW), <a href="https://www.ldi.nrw.de" target="_blank" rel="noopener">ldi.nrw.de</a>.</p>
 
 <h2>15. Ändringar</h2>

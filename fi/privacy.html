@@ -168,7 +168,7 @@ hr{border:0;border-top:1px solid rgba(47,52,58,.14);margin:34px 0}
 
 <section id="datenschutz">
 <h1>Tietosuojaseloste</h1>
-<p>Päivitetty: lokakuu 2026</p>
+<p>Päivitetty: marraskuu 2026</p>
 
 <h2>1. Rekisterinpitäjä</h2>
 <address><strong>AmBuetioniert UG (haftungsbeschränkt)</strong><br> jota edustaa toimitusjohtaja Kilian Amrehn<br> Jülicher Str. 24<br> 50674 Köln<br> <a href="mailto:info@playverge.app">info@playverge.app</a></address>
@@ -213,29 +213,35 @@ hr{border:0;border-top:1px solid rgba(47,52,58,.14);margin:34px 0}
   <li><strong>Pelaajan nimi:</strong> Annat nimen ennen peliä. Se tallennetaan tietokantaamme (Firebase Firestore), jotta se voidaan näyttää muille saman pelikerran pelaajille. Nimeä ei välitetä sovelluksen ulkopuolisille kolmansille osapuolille.</li>
   <li><strong>Suorituskykytiedot:</strong> Firebase Performance Monitoring kerää teknisiä tietoja, kuten latausajat, laitetyypin, käyttöjärjestelmän ja likimääräisen maan, jotta löydämme sovelluksen virheet ja hitaat kohdat.</li>
   <li><strong>Laitetunniste:</strong> Firebase antaa automaattisesti jokaiselle sovelluksen asennukselle nimettömän instanssitunnisteen. Tunniste ei sisällä henkilökohtaisia tietoja, eikä sitä ole yhdistetty sinuun.</li>
+  <li><strong>Korttien arviointi:</strong> Voitte arvioida kortteja peukulla ylös tai alas ja halutessanne kirjoittaa lyhyen kommentin. Lisätietoja kohdassa 10.</li>
   <li><strong>Ostot:</strong> ks. kohta 11.</li>
 </ul>
 
 <h2>9. Firebase (Google)</h2>
 <p>Sovellus käyttää Firebasea, joka on Google Ireland Limitedin (Gordon House, Barrow Street, Dublin 4, Irlanti) palvelu. Käytetyt osat:</p>
 <ul>
-  <li><strong>Cloud Firestore:</strong> Pelikertojen ja pelaajien nimien tallennus.</li>
+  <li><strong>Cloud Firestore:</strong> Pelikertojen, pelaajien nimien ja korttiarvioiden tallennus.</li>
   <li><strong>Firebase Authentication:</strong> jokaisen asennuksen nimetön kirjautuminen ilman sähköpostiosoitetta tai tiliä.</li>
   <li><strong>Firebase Performance Monitoring:</strong> sovelluksen tekniset suorituskykytiedot.</li>
+  <li><strong>Google Cloud Translation:</strong> korttiarvioiden kommenttien konekääntäminen saksaksi, jotta voimme analysoida niitä. Googlen oman ilmoituksen mukaan se käyttää tekstejä vain kääntämiseen, ei luovuta niitä kolmansille osapuolille eikä kouluta niillä malleja.</li>
 </ul>
-<p>Google Firebase voi käsitellä tietoja palvelimilla EU:ssa ja Yhdysvalloissa. Tietojen siirto kolmansiin maihin perustuu tietosuoja-asetuksen 46 artiklan 2 kohdan c alakohdan mukaisiin vakiosopimuslausekkeisiin.</p>
+<p>Firestore-tietokantamme sijaitsee Frankfurt am Mainissa (EU). Muut Firebasen osat ja kommenttien kääntäminen voivat käsitellä tietoja myös EU:n ulkopuolella, erityisesti Yhdysvalloissa. Tietojen siirto kolmansiin maihin perustuu tietosuoja-asetuksen 46 artiklan 2 kohdan c alakohdan mukaisiin vakiosopimuslausekkeisiin.</p>
 <p>Googlen tietosuojakäytäntö: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></p>
-<p>Oikeusperuste: tietosuoja-asetuksen 6 artiklan 1 kohdan b alakohta (sopimuksen täytäntöönpano) pelaajan nimen osalta; tietosuoja-asetuksen 6 artiklan 1 kohdan f alakohta (oikeutettu etu) suorituskykytietojen ja laitetunnisteiden osalta.</p>
+<p>Oikeusperuste: tietosuoja-asetuksen 6 artiklan 1 kohdan b alakohta (sopimuksen täytäntöönpano) pelaajan nimen osalta; tietosuoja-asetuksen 6 artiklan 1 kohdan f alakohta (oikeutettu etu) suorituskykytietojen, laitetunnisteiden, korttiarvioiden ja niiden käännösten osalta.</p>
 
-<h2>10. Käyttötilastot</h2>
+<h2>10. Käyttötilastot ja korttien arviointi</h2>
 <p>Analysoimme pelikertoja tilastollisesti parantaaksemme peliä. Tähän kuuluvat pelin kulku ilman nimiä, likimääräinen kaupunki ja laitetyyppi, jotka molemmat päätellään IP-osoitteesta, sekä asennuksen pseudonymisoitu tunniste, jonka avulla lasketaan toistuva pelaaminen. IP-osoitetta ei tallenneta, ja kaupunki määritetään omissa järjestelmissämme (IP-Geolocation by DB-IP). Google Cloud poistaa taustalla olevan käyttölokin 7 päivän kuluttua. Tilastot eivät sisällä nimiä, ja ne tallennetaan Google Firebaseen ja GitHub, Inc:lle (USA, sertifioitu EU:n ja Yhdysvaltojen välisen tietosuojakehyksen mukaisesti).</p>
 <p>Oikeusperuste: tietosuoja-asetuksen 6 artiklan 1 kohdan f alakohta (oikeutettu etu parantaa peliä). Voit vastustaa käsittelyä lähettämällä sähköpostia osoitteeseen <a href="mailto:info@playverge.app">info@playverge.app</a>.</p>
+<p><strong>Korttien arviointi:</strong> Pelipuhelimella voitte arvioida jokaisen kortin peukulla ylös tai alas ja halutessanne kirjoittaa enintään 280 merkin kommentin. Tallennamme tällöin seuraavat tiedot: arvio, kommentti, kortti, pakka, vaihe, sovelluksen kieli, pelikierroksen satunnainen tunniste, käyttöjärjestelmä (iOS tai Android), sovelluksen versio ja ajankohta. Nimiä, tilejä tai laitetunnisteita emme tallenna arvioiden yhteydessä. Tämän tunnisteen kautta arvio on kuitenkin enintään 30 päivän ajan yhteydessä pelikierrokseen, ja kierrokselle on tallennettu syötetyt nimet ja likimääräinen kaupunki. Käytämme arvioita nähdäksemme, mistä korteista pidetään, ja parantaaksemme kortteja.</p>
+<p>Muunkieliset kommentit konekäännämme saksaksi (ks. kohta 9). Analyysiin käytämme yksityistä repositoriota GitHub, Inc:n palvelussa (88 Colin P Kelly Jr St, San Francisco, CA 94107, USA, sertifioitu EU:n ja Yhdysvaltojen välisen tietosuojakehyksen mukaisesti): siellä automaattinen prosessi (GitHub Actions) koostaa arviot ja tallentaa kommenttien käännökset välimuistiin tiedostoon. Tulokset näkyvät Firebase Hostingissa olevalla tilastosivulla, jolle pääsee vain kirjautumalla. Analyysin näemme vain me.</p>
+<p>30 päivän kuluttua poistamme pelikierroksen tunnisteen ja säilytämme ajankohdasta vain kuukauden. Sen jälkeen arviota ei voi enää yhdistää mihinkään kierrokseen, laitteeseen tai kaupunkiin, ja säilytämme sitä niin kauan kuin käytämme sitä korttien parantamiseen. Jos kommentti sisältää silti henkilökohtaisia tietoja, poistamme ne heti, kun huomaamme sen tai pyydät sitä meiltä.</p>
+<p>Oikeusperuste: tietosuoja-asetuksen 6 artiklan 1 kohdan f alakohta (oikeutettu etu saada hyviä kortteja). Arviointi on vapaaehtoista. Voit vastustaa käsittelyä lähettämällä sähköpostia osoitteeseen <a href="mailto:info@playverge.app">info@playverge.app</a>.</p>
 
 <h2>11. Ostot: RevenueCat</h2>
 <p>Ostot ja tilaukset hoitaa Apple tai Google. Avattujen sisältöjesi hallintaan käytämme RevenueCat, Inc:n (USA) palvelua. Tällöin käsitellään asennuksesi nimetöntä tunnistetta, ostojasi ja laitteen teknisiä tietoja. Tietojen siirto Yhdysvaltoihin perustuu vakiosopimuslausekkeisiin (tietosuoja-asetuksen 46 artiklan 2 kohdan c alakohta). Oikeusperuste: tietosuoja-asetuksen 6 artiklan 1 kohdan b alakohta (sopimuksen täytäntöönpano). RevenueCatin tietosuojakäytäntö: <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">revenuecat.com/privacy</a></p>
 
 <h2>12. Tietojen säilytys ja poistaminen</h2>
-<p>Pelaajien nimet ja pelikertojen tiedot poistetaan automaattisesti 30 päivän kuluttua. Käyttötilastot eivät sisällä nimiä, ja niitä säilytetään ilman kiinteää määräaikaa. Ostotietoja säilyttävät RevenueCat ja sovelluskaupat omien käytäntöjensä mukaisesti. Käyttäjätiliä ei luoda. Tiedot poistetaan pyynnöstä, jonka voit lähettää sähköpostitse osoitteeseen <a href="mailto:info@playverge.app">info@playverge.app</a>.</p>
+<p>Pelaajien nimet ja pelikertojen tiedot poistetaan automaattisesti 30 päivän kuluttua. Käyttötilastot eivät sisällä nimiä, ja niitä säilytetään ilman kiinteää määräaikaa. Korttiarvioista poistamme pelikierroksen tunnisteen 30 päivän kuluttua ja jätämme ajankohdasta vain kuukauden; sen jälkeen säilytämme arvion ja kommentin niin kauan kuin käytämme niitä korttien parantamiseen (ks. kohta 10). Ostotietoja säilyttävät RevenueCat ja sovelluskaupat omien käytäntöjensä mukaisesti. Käyttäjätiliä ei luoda. Tiedot poistetaan pyynnöstä, jonka voit lähettää sähköpostitse osoitteeseen <a href="mailto:info@playverge.app">info@playverge.app</a>.</p>
 
 <h2>13. Tietoturva</h2>
 <p>Kaikki tiedot salataan siirron aikana (HTTPS/TLS). Firebase käyttää palvelinpuolella alan standardien mukaisia turvatoimia.</p>
@@ -244,6 +250,7 @@ hr{border:0;border-top:1px solid rgba(47,52,58,.14);margin:34px 0}
 
 <h2>14. Pääsy tietoihin, oikaisu ja poistaminen</h2>
 <p>Sinulla on oikeus saada pääsy tietoihisi, oikaista ja poistaa ne ja rajoittaa niiden käsittelyä sekä oikeus siirtää tiedot järjestelmästä toiseen. Voit peruuttaa suostumuksesi milloin tahansa. Ota tätä varten yhteyttä: <a href="mailto:info@playverge.app">info@playverge.app</a></p>
+<p>Koska toimimme ilman käyttäjätilejä, voimme yhdistää korttiarvion sinuun vain, jos kerrot meille, minkä kommentin kirjoitit ja suunnilleen milloin. Näiden tietojen avulla etsimme kommentin ja joko poistamme sen tai poistamme siitä henkilökohtaiset tiedot. Arvioita, joissa ei ole kommenttia, emme voi yhdistää kehenkään, joten emme voi myöskään poistaa niitä yksitellen (tietosuoja-asetuksen 11 artikla).</p>
 <p>Sinulla on lisäksi oikeus tehdä valitus toimivaltaiselle valvontaviranomaiselle. Nordrhein-Westfalenissa: Landesbeauftragte für Datenschutz und Informationsfreiheit NRW (LDI NRW), <a href="https://www.ldi.nrw.de" target="_blank" rel="noopener">ldi.nrw.de</a>.</p>
 
 <h2>15. Muutokset</h2>

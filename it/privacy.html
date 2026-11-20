@@ -168,7 +168,7 @@ hr{border:0;border-top:1px solid rgba(47,52,58,.14);margin:34px 0}
 
 <section id="datenschutz">
 <h1>Informativa sulla privacy</h1>
-<p>Ultimo aggiornamento: ottobre 2026</p>
+<p>Ultimo aggiornamento: novembre 2026</p>
 
 <h2>1. Titolare del trattamento</h2>
 <address><strong>AmBuetioniert UG (haftungsbeschränkt)</strong><br> rappresentata dall’amministratore Kilian Amrehn<br> Jülicher Str. 24<br> 50674 Köln<br> <a href="mailto:info@playverge.app">info@playverge.app</a></address>
@@ -213,29 +213,35 @@ hr{border:0;border-top:1px solid rgba(47,52,58,.14);margin:34px 0}
   <li><strong>Nome in gioco:</strong> prima della partita inserisci un nome. Il nome viene salvato nel nostro database (Firebase Firestore), così da poter essere mostrato alle altre persone nella stessa sessione. Il nome non viene trasmesso a terzi al di fuori dell’app.</li>
   <li><strong>Dati sulle prestazioni:</strong> Firebase Performance Monitoring registra dati tecnici come tempi di caricamento, tipo di dispositivo, sistema operativo e paese approssimativo, per individuare errori e punti lenti nell’app.</li>
   <li><strong>ID del dispositivo:</strong> Firebase assegna automaticamente un ID di istanza anonimo a ogni installazione dell’app. Questo ID non contiene informazioni personali e non è collegato alla tua persona.</li>
+  <li><strong>Valutazione delle carte:</strong> potete valutare le carte con un pollice in su o in giù e, se volete, scrivere un breve commento. Dettagli nella sezione 10.</li>
   <li><strong>Acquisti:</strong> vedi sezione 11.</li>
 </ul>
 
 <h2>9. Firebase (Google)</h2>
 <p>L’app utilizza Firebase, un servizio di Google Ireland Limited (Gordon House, Barrow Street, Dublin 4, Irlanda). Componenti utilizzati:</p>
 <ul>
-  <li><strong>Cloud Firestore:</strong> memorizzazione delle sessioni di gioco e dei nomi in gioco.</li>
+  <li><strong>Cloud Firestore:</strong> memorizzazione delle sessioni di gioco, dei nomi in gioco e delle valutazioni delle carte.</li>
   <li><strong>Firebase Authentication:</strong> accesso anonimo per ogni installazione, senza indirizzo email né account.</li>
   <li><strong>Firebase Performance Monitoring:</strong> dati tecnici sulle prestazioni dell’app.</li>
+  <li><strong>Google Cloud Translation:</strong> traduzione automatica in tedesco dei commenti alle valutazioni delle carte, così da poterli analizzare. Secondo quanto dichiara, Google usa i testi solo per la traduzione, non li trasmette a terzi e non li usa per addestrare modelli.</li>
 </ul>
-<p>Google Firebase può trattare dati su server situati nell’UE e negli Stati Uniti. Il trasferimento verso paesi terzi avviene sulla base di clausole contrattuali tipo ai sensi dell’art. 46, par. 2, lett. c), del GDPR.</p>
+<p>Il nostro database Firestore si trova a Francoforte sul Meno (UE). Altri componenti di Firebase e la traduzione dei commenti possono trattare dati anche al di fuori dell’UE, in particolare negli Stati Uniti. Il trasferimento verso paesi terzi avviene sulla base di clausole contrattuali tipo ai sensi dell’art. 46, par. 2, lett. c), del GDPR.</p>
 <p>Informativa sulla privacy di Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></p>
-<p>Base giuridica: art. 6, par. 1, lett. b), del GDPR (esecuzione del contratto) per il nome in gioco; art. 6, par. 1, lett. f), del GDPR (legittimo interesse) per i dati sulle prestazioni e gli ID dei dispositivi.</p>
+<p>Base giuridica: art. 6, par. 1, lett. b), del GDPR (esecuzione del contratto) per il nome in gioco; art. 6, par. 1, lett. f), del GDPR (legittimo interesse) per i dati sulle prestazioni, gli ID dei dispositivi, le valutazioni delle carte e la loro traduzione.</p>
 
-<h2>10. Statistiche di utilizzo</h2>
+<h2>10. Statistiche di utilizzo e valutazione delle carte</h2>
 <p>Analizziamo statisticamente le sessioni di gioco per migliorare il gioco. Rientrano in queste analisi lo svolgimento della partita senza nomi, la città approssimativa e il tipo di dispositivo, entrambi ricavati dall’indirizzo IP, nonché un identificativo pseudonimizzato dell’installazione, per contare l’utilizzo ricorrente. L’indirizzo IP non viene memorizzato; l’attribuzione della città avviene sui nostri sistemi (IP-Geolocation by DB-IP). Google Cloud cancella dopo 7 giorni il registro degli accessi su cui si basa. Le statistiche non contengono nomi e sono conservate in Google Firebase e presso GitHub, Inc. (USA, certificata ai sensi dell’EU-U.S. Data Privacy Framework).</p>
 <p>Base giuridica: art. 6, par. 1, lett. f), del GDPR (legittimo interesse a migliorare il gioco). Puoi opporti al trattamento scrivendo a <a href="mailto:info@playverge.app">info@playverge.app</a>.</p>
+<p><strong>Valutazione delle carte:</strong> sul telefono del gioco potete valutare ogni carta con un pollice in su o in giù e, se volete, scrivere un commento di massimo 280 caratteri. A questo scopo memorizziamo: la valutazione, il commento, la carta, il mazzo, la fase, la lingua dell’app, un identificativo casuale della partita, il sistema operativo (iOS o Android), la versione dell’app, la data e l’ora. In questo caso non memorizziamo nomi, account né ID dei dispositivi. Per un massimo di 30 giorni, però, questo identificativo collega la valutazione alla sua partita, per la quale vengono memorizzati i nomi in gioco e la città approssimativa. Usiamo le valutazioni per capire quali carte piacciono e per migliorare le carte.</p>
+<p>I commenti in altre lingue li traduciamo automaticamente in tedesco (vedi sezione 9). Per l’analisi usiamo un repository privato presso GitHub, Inc. (88 Colin P Kelly Jr St, San Francisco, CA 94107, USA, certificata ai sensi dell’EU-U.S. Data Privacy Framework): lì un processo automatico (GitHub Actions) riepiloga le valutazioni e salva temporaneamente in un file le traduzioni dei commenti. I risultati compaiono su una pagina di statistiche su Firebase Hosting, accessibile solo dopo aver effettuato l’accesso. L’analisi è visibile solo a noi.</p>
+<p>Dopo 30 giorni rimuoviamo l’identificativo della partita e di data e ora conserviamo solo il mese. Da quel momento una valutazione non può più essere ricondotta a nessuna partita, a nessun dispositivo e a nessuna città, e la conserviamo finché la usiamo per migliorare le carte. Se un commento contiene comunque dati personali, li rimuoviamo non appena ce ne accorgiamo o ce lo chiedi.</p>
+<p>Base giuridica: art. 6, par. 1, lett. f), del GDPR (legittimo interesse ad avere buone carte). La valutazione è facoltativa. Puoi opporti scrivendo a <a href="mailto:info@playverge.app">info@playverge.app</a>.</p>
 
 <h2>11. Acquisti: RevenueCat</h2>
 <p>Acquisti e abbonamenti sono gestiti da Apple o da Google. Per gestire i tuoi sblocchi utilizziamo RevenueCat, Inc. (USA). Vengono trattati un identificativo anonimo della tua installazione, i tuoi acquisti e dati tecnici del dispositivo. Il trasferimento verso gli Stati Uniti avviene sulla base di clausole contrattuali tipo (art. 46, par. 2, lett. c), del GDPR). Base giuridica: art. 6, par. 1, lett. b), del GDPR (esecuzione del contratto). Informativa sulla privacy di RevenueCat: <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">revenuecat.com/privacy</a></p>
 
 <h2>12. Conservazione e cancellazione dei dati</h2>
-<p>I nomi in gioco e i dati delle sessioni vengono cancellati automaticamente dopo 30 giorni. Le statistiche di utilizzo non contengono nomi e sono conservate senza un termine fisso. I dati di acquisto sono conservati da RevenueCat e dagli app store secondo le rispettive regole. Non viene creato alcun account utente. Cancellazione su richiesta via email a <a href="mailto:info@playverge.app">info@playverge.app</a>.</p>
+<p>I nomi in gioco e i dati delle sessioni vengono cancellati automaticamente dopo 30 giorni. Le statistiche di utilizzo non contengono nomi e sono conservate senza un termine fisso. Per le valutazioni delle carte, dopo 30 giorni rimuoviamo l’identificativo della partita e di data e ora teniamo solo il mese; in seguito conserviamo valutazione e commento finché li usiamo per migliorare le carte (vedi sezione 10). I dati di acquisto sono conservati da RevenueCat e dagli app store secondo le rispettive regole. Non viene creato alcun account utente. Cancellazione su richiesta via email a <a href="mailto:info@playverge.app">info@playverge.app</a>.</p>
 
 <h2>13. Sicurezza dei dati</h2>
 <p>Tutti i dati vengono cifrati durante la trasmissione (HTTPS/TLS). Firebase adotta misure di sicurezza lato server conformi agli standard del settore.</p>
@@ -244,6 +250,7 @@ hr{border:0;border-top:1px solid rgba(47,52,58,.14);margin:34px 0}
 
 <h2>14. Accesso, rettifica, cancellazione</h2>
 <p>Hai il diritto di accesso, di rettifica, di cancellazione e di limitazione del trattamento dei tuoi dati, nonché il diritto alla portabilità dei dati. Puoi revocare il consenso in qualsiasi momento. Per farlo scrivi a: <a href="mailto:info@playverge.app">info@playverge.app</a></p>
+<p>Poiché lavoriamo senza account, possiamo ricondurre a te una valutazione di una carta solo se ci dici quale commento hai scritto e più o meno quando. Con queste informazioni lo cerchiamo e lo cancelliamo oppure ne rimuoviamo i dati personali. Non possiamo ricondurre a nessuna persona le valutazioni senza commento, quindi non possiamo nemmeno cancellarle singolarmente (art. 11 del GDPR).</p>
 <p>Hai inoltre il diritto di proporre reclamo all’autorità di controllo competente. In Renania Settentrionale-Vestfalia: Landesbeauftragte für Datenschutz und Informationsfreiheit NRW (LDI NRW), <a href="https://www.ldi.nrw.de" target="_blank" rel="noopener">ldi.nrw.de</a>.</p>
 
 <h2>15. Modifiche</h2>

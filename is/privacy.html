@@ -168,7 +168,7 @@ hr{border:0;border-top:1px solid rgba(47,52,58,.14);margin:34px 0}
 
 <section id="datenschutz">
 <h1>Persónuverndarstefna</h1>
-<p>Síðast uppfært: október 2026</p>
+<p>Síðast uppfært: nóvember 2026</p>
 
 <h2>1. Ábyrgðaraðili</h2>
 <address><strong>AmBuetioniert UG (haftungsbeschränkt)</strong><br> framkvæmdastjórinn Kilian Amrehn fer með fyrirsvar<br> Jülicher Str. 24<br> 50674 Köln<br> <a href="mailto:info@playverge.app">info@playverge.app</a></address>
@@ -213,29 +213,35 @@ hr{border:0;border-top:1px solid rgba(47,52,58,.14);margin:34px 0}
   <li><strong>Nafn í leiknum:</strong> Þú slærð inn nafn áður en leikurinn hefst. Það er vistað í gagnagrunni okkar (Firebase Firestore) svo hægt sé að sýna það hinum í sömu lotu. Nafninu er ekki miðlað til þriðju aðila utan appsins.</li>
   <li><strong>Afkastagögn:</strong> Firebase Performance Monitoring skráir tæknileg gögn eins og hleðslutíma, tegund tækis, stýrikerfi og áætlað land til að finna villur og hæga staði í appinu.</li>
   <li><strong>Tækjaauðkenni:</strong> Firebase úthlutar sjálfkrafa nafnlausu tilviksauðkenni fyrir hverja uppsetningu appsins. Þetta auðkenni inniheldur engar persónulegar upplýsingar og er ekki tengt þér sem einstaklingi.</li>
+  <li><strong>Mat á spilum:</strong> Þið getið metið spil með þumli upp eða niður og skrifað stutta athugasemd ef þið viljið. Nánar í 10. kafla.</li>
   <li><strong>Kaup:</strong> sjá 11. kafla.</li>
 </ul>
 
 <h2>9. Firebase: Google</h2>
 <p>Appið notar Firebase, þjónustu frá Google Ireland Limited (Gordon House, Barrow Street, Dublin 4, Írlandi). Íhlutir sem eru notaðir:</p>
 <ul>
-  <li><strong>Cloud Firestore:</strong> vistun leiklotna og nafna í leiknum.</li>
+  <li><strong>Cloud Firestore:</strong> vistun leiklotna, nafna í leiknum og mats á spilum.</li>
   <li><strong>Firebase Authentication:</strong> nafnlaus innskráning hverrar uppsetningar, án netfangs eða aðgangs.</li>
   <li><strong>Firebase Performance Monitoring:</strong> tæknileg afkastagögn appsins.</li>
+  <li><strong>Google Cloud Translation:</strong> vélþýðing athugasemda við mat á spilum yfir á þýsku svo við getum greint þær. Að eigin sögn notar Google textana eingöngu til þýðingarinnar, miðlar þeim ekki til þriðju aðila og þjálfar engin líkön með þeim.</li>
 </ul>
-<p>Google Firebase getur unnið gögn á netþjónum innan ESB og í Bandaríkjunum. Miðlun til þriðju landa byggir á stöðluðum samningsákvæðum skv. c-lið 2. mgr. 46. gr. GDPR.</p>
+<p>Firestore-gagnagrunnurinn okkar er í Frankfurt am Main (ESB). Aðrir íhlutir Firebase og þýðing athugasemdanna geta einnig unnið gögn utan ESB, einkum í Bandaríkjunum. Miðlun til þriðju landa byggir á stöðluðum samningsákvæðum skv. c-lið 2. mgr. 46. gr. GDPR.</p>
 <p>Persónuverndarstefna Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></p>
-<p>Lagagrundvöllur: b-liður 1. mgr. 6. gr. GDPR (efndir samnings) fyrir nafn í leiknum; f-liður 1. mgr. 6. gr. GDPR (lögmætir hagsmunir) fyrir afkastagögn og tækjaauðkenni.</p>
+<p>Lagagrundvöllur: b-liður 1. mgr. 6. gr. GDPR (efndir samnings) fyrir nafn í leiknum; f-liður 1. mgr. 6. gr. GDPR (lögmætir hagsmunir) fyrir afkastagögn, tækjaauðkenni, mat á spilum og þýðingu athugasemdanna.</p>
 
-<h2>10. Notkunartölfræði</h2>
+<h2>10. Notkunartölfræði og mat á spilum</h2>
 <p>Við greinum leiklotur tölfræðilega til að bæta leikinn. Þar undir falla gangur leiksins án nafna, áætluð borg og tegund tækis, hvort tveggja leitt af IP-tölunni, auk gerviauðkennis uppsetningarinnar til að telja endurtekna spilun. IP-talan er ekki vistuð; borgin er fundin í okkar eigin kerfum (IP-Geolocation by DB-IP). Google Cloud eyðir undirliggjandi aðgangsskrá eftir 7 daga. Tölfræðin inniheldur engin nöfn og er vistuð í Google Firebase og hjá GitHub, Inc. (Bandaríkjunum, með vottun samkvæmt EU-US Data Privacy Framework).</p>
 <p>Lagagrundvöllur: f-liður 1. mgr. 6. gr. GDPR (lögmætir hagsmunir af því að bæta leikinn). Þú getur andmælt vinnslunni með tölvupósti á <a href="mailto:info@playverge.app">info@playverge.app</a>.</p>
+<p><strong>Mat á spilum:</strong> Á spilasímanum getið þið metið hvert spil með þumli upp eða niður og skrifað athugasemd, allt að 280 stafi, ef þið viljið. Við vistum þá: matið, athugasemdina, spilið, pakkann, þrepið, tungumál appsins, handahófskennt auðkenni umferðarinnar, stýrikerfið (iOS eða Android), útgáfu appsins og tímasetninguna. Nöfn, aðganga og tækjaauðkenni vistum við ekki í þessu samhengi. Í allt að 30 daga tengir þetta auðkenni matið þó við umferðina, og fyrir umferðina eru vistuð nöfnin sem slegin voru inn og áætluð borg. Við notum matið til að sjá hvaða spil falla í kramið og til að bæta spilin.</p>
+<p>Athugasemdir á öðrum tungumálum vélþýðum við yfir á þýsku (sjá 9. kafla). Við greininguna notum við lokaða kóðageymslu (repository) hjá GitHub, Inc. (88 Colin P Kelly Jr St, San Francisco, CA 94107, Bandaríkjunum, með vottun samkvæmt EU-US Data Privacy Framework): þar tekur sjálfvirkt ferli (GitHub Actions) matið saman og vistar þýðingar athugasemdanna tímabundið í skrá. Niðurstöðurnar birtast á tölfræðisíðu hjá Firebase Hosting sem aðeins er aðgengileg eftir innskráningu. Aðeins við sjáum niðurstöðurnar.</p>
+<p>Eftir 30 daga fjarlægjum við auðkenni umferðarinnar og styttum tímasetninguna niður í mánuð. Eftir það er ekki lengur hægt að tengja matið við neina umferð, neitt tæki eða neina borg, og við geymum það eins lengi og við notum það til að bæta spilin. Ef athugasemd inniheldur samt persónulegar upplýsingar fjarlægjum við þær um leið og við tökum eftir því eða þú biður okkur um það.</p>
+<p>Lagagrundvöllur: f-liður 1. mgr. 6. gr. GDPR (lögmætir hagsmunir af góðum spilum). Matið er valfrjálst. Þú getur andmælt með tölvupósti á <a href="mailto:info@playverge.app">info@playverge.app</a>.</p>
 
 <h2>11. Kaup: RevenueCat</h2>
 <p>Apple eða Google sjá um kaup og áskriftir. Til að halda utan um það sem þú hefur opnað notum við RevenueCat, Inc. (Bandaríkjunum). Við það er unnið með nafnlaust auðkenni uppsetningarinnar þinnar, kaupin þín og tæknileg gögn um tækið. Miðlun til Bandaríkjanna byggir á stöðluðum samningsákvæðum (c-liður 2. mgr. 46. gr. GDPR). Lagagrundvöllur: b-liður 1. mgr. 6. gr. GDPR (efndir samnings). Persónuverndarstefna RevenueCat: <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">revenuecat.com/privacy</a></p>
 
 <h2>12. Varðveisla og eyðing gagna</h2>
-<p>Nöfnum í leiknum og gögnum um lotur er eytt sjálfkrafa eftir 30 daga. Notkunartölfræðin inniheldur engin nöfn og er geymd án fasts tímamarks. RevenueCat og app-verslanirnar geyma kaupgögn samkvæmt eigin reglum. Enginn notendaaðgangur er stofnaður. Eyðing að beiðni með tölvupósti á <a href="mailto:info@playverge.app">info@playverge.app</a>.</p>
+<p>Nöfnum í leiknum og gögnum um lotur er eytt sjálfkrafa eftir 30 daga. Notkunartölfræðin inniheldur engin nöfn og er geymd án fasts tímamarks. Hvað varðar mat á spilum fjarlægjum við auðkenni umferðarinnar eftir 30 daga og styttum tímasetninguna niður í mánuð; eftir það geymum við matið og athugasemdina eins lengi og við notum þau til að bæta spilin (sjá 10. kafla). RevenueCat og app-verslanirnar geyma kaupgögn samkvæmt eigin reglum. Enginn notendaaðgangur er stofnaður. Eyðing að beiðni með tölvupósti á <a href="mailto:info@playverge.app">info@playverge.app</a>.</p>
 
 <h2>13. Gagnaöryggi</h2>
 <p>Öll gögn eru dulkóðuð í flutningi (HTTPS/TLS). Firebase beitir öryggisráðstöfunum á netþjónum samkvæmt viðurkenndum stöðlum í greininni.</p>
@@ -244,6 +250,7 @@ hr{border:0;border-top:1px solid rgba(47,52,58,.14);margin:34px 0}
 
 <h2>14. Aðgangur, leiðrétting, eyðing</h2>
 <p>Þú átt rétt á aðgangi að gögnunum þínum, leiðréttingu þeirra, eyðingu og takmörkun á vinnslu þeirra, auk réttar til að flytja eigin gögn. Þú getur afturkallað samþykki þitt hvenær sem er. Hafðu þá samband við: <a href="mailto:info@playverge.app">info@playverge.app</a></p>
+<p>Þar sem við vinnum án aðganga getum við aðeins tengt mat á spili við þig ef þú segir okkur hvaða athugasemd þú skrifaðir og um það bil hvenær. Með þessum upplýsingum finnum við athugasemdina og eyðum henni eða fjarlægjum persónulegar upplýsingar úr henni. Mat án athugasemdar getum við ekki tengt við neinn einstakling og getum því ekki heldur eytt hverju mati fyrir sig (11. gr. GDPR).</p>
 <p>Þú átt einnig rétt á að leggja fram kvörtun hjá viðkomandi eftirlitsstjórnvaldi. Í Norðurrín-Vestfalíu: Landesbeauftragte für Datenschutz und Informationsfreiheit NRW (LDI NRW), <a href="https://www.ldi.nrw.de" target="_blank" rel="noopener">ldi.nrw.de</a>.</p>
 
 <h2>15. Breytingar</h2>

@@ -167,7 +167,7 @@ hr{border:0;border-top:1px solid rgba(47,52,58,.14);margin:34px 0}
 
 <section id="datenschutz">
 <h1>Privacy Policy</h1>
-<p>Last updated: October 2026</p>
+<p>Last updated: November 2026</p>
 
 <h2>1. Controller</h2>
 <address><strong>AmBuetioniert UG (haftungsbeschraenkt)</strong><br> represented by its Managing Director Kilian Amrehn<br> Juelicher Str. 24<br> 50674 Cologne, Germany<br> <a href="mailto:info@playverge.app">info@playverge.app</a></address>
@@ -212,29 +212,35 @@ hr{border:0;border-top:1px solid rgba(47,52,58,.14);margin:34px 0}
   <li><strong>Player name:</strong> Before a game, you enter a name. This is stored in our database (Firebase Firestore) so it can be displayed to other players in the same session. The name is not shared with any third party outside the app.</li>
   <li><strong>Performance data:</strong> Firebase Performance Monitoring collects technical data such as loading times, device type, operating system and approximate country to find errors and slow spots in the app.</li>
   <li><strong>Device ID:</strong> Firebase automatically assigns an anonymous instance ID to each app installation. This ID contains no personal information and is not linked to your identity.</li>
+  <li><strong>Card ratings:</strong> You can rate cards with a thumbs up or thumbs down and, if you like, write a short comment. Details in section 10.</li>
   <li><strong>Purchases:</strong> see section 11.</li>
 </ul>
 
 <h2>9. Firebase – Google</h2>
 <p>The app uses Firebase, a service provided by Google Ireland Limited (Gordon House, Barrow Street, Dublin 4, Ireland). Components used:</p>
 <ul>
-  <li><strong>Cloud Firestore:</strong> Storage of game sessions and player names.</li>
+  <li><strong>Cloud Firestore:</strong> Storage of game sessions, player names and card ratings.</li>
   <li><strong>Firebase Authentication:</strong> anonymous sign-in for each installation, without an email address or account.</li>
   <li><strong>Firebase Performance Monitoring:</strong> technical performance data of the app.</li>
+  <li><strong>Google Cloud Translation:</strong> machine translation of card rating comments into German so that we can analyse them. According to Google, it uses the texts only for the translation, does not pass them on to third parties and does not use them to train models.</li>
 </ul>
-<p>Google Firebase may process data on servers in the EU and the USA. Transfers to third countries are based on Standard Contractual Clauses pursuant to Art. 46 para. 2 lit. c GDPR.</p>
+<p>Our Firestore database is located in Frankfurt am Main (EU). Other Firebase components and the translation of comments may also process data outside the EU, in particular in the USA. Transfers to third countries are based on Standard Contractual Clauses pursuant to Art. 46 para. 2 lit. c GDPR.</p>
 <p>Google Privacy Policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></p>
-<p>Legal basis: Art. 6 para. 1 lit. b GDPR (contract performance) for player names; Art. 6 para. 1 lit. f GDPR (legitimate interest) for performance data and device IDs.</p>
+<p>Legal basis: Art. 6 para. 1 lit. b GDPR (contract performance) for player names; Art. 6 para. 1 lit. f GDPR (legitimate interest) for performance data, device IDs, card ratings and their translation.</p>
 
-<h2>10. Usage Statistics</h2>
+<h2>10. Usage Statistics and Card Ratings</h2>
 <p>We analyse game sessions statistically to improve the game. This covers game progress without names, the approximate city and device type, both derived from the IP address, and a pseudonymised identifier of the installation to count returning play. The IP address is not stored; the city lookup runs on our own systems (IP Geolocation by DB-IP). Google Cloud deletes the underlying access log after 7 days. The statistics contain no names and are stored in Google Firebase and at GitHub, Inc. (USA, certified under the EU-U.S. Data Privacy Framework).</p>
 <p>Legal basis: Art. 6 para. 1 lit. f GDPR (legitimate interest in improving the game). You can object by emailing <a href="mailto:info@playverge.app">info@playverge.app</a>.</p>
+<p><strong>Card ratings:</strong> On the game phone, you can rate any card with a thumbs up or thumbs down and, if you like, write a comment of up to 280 characters. For this, we store: the rating, the comment, the card, the pack, the phase, the app language, a random identifier for the game round, the operating system (iOS or Android), the app version and the date and time. We do not store names, accounts or device IDs with the ratings. However, for up to 30 days this identifier links a rating to its game round, and the names entered and the approximate city are stored for that round. We use the ratings to see which cards go down well and to improve cards.</p>
+<p>We machine-translate comments in other languages into German (see section 9). For the analysis, we use a private repository at GitHub, Inc. (88 Colin P Kelly Jr St, San Francisco, CA 94107, USA, certified under the EU-U.S. Data Privacy Framework): there, an automated process (GitHub Actions) summarises the ratings and caches the translations of the comments in a file. The results are shown on a statistics page on Firebase Hosting that can only be accessed after logging in. The analysis is only visible to us.</p>
+<p>After 30 days, we remove the game round identifier and keep only the month of the date. After that, a rating can no longer be linked to any round, device or city, and we keep it for as long as we use it to improve the cards. If a comment still contains personal details, we remove them as soon as we notice or you ask us to.</p>
+<p>Legal basis: Art. 6 para. 1 lit. f GDPR (legitimate interest in good cards). Rating is voluntary. You can object by emailing <a href="mailto:info@playverge.app">info@playverge.app</a>.</p>
 
 <h2>11. Purchases – RevenueCat</h2>
 <p>Purchases and subscriptions are handled by Apple or Google. To manage your unlocks we use RevenueCat, Inc. (USA). This involves an anonymous identifier of your installation, your purchases and technical device data. Transfers to the USA are based on Standard Contractual Clauses (Art. 46 para. 2 lit. c GDPR). Legal basis: Art. 6 para. 1 lit. b GDPR (contract performance). RevenueCat privacy policy: <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">revenuecat.com/privacy</a></p>
 
 <h2>12. Data Retention and Deletion</h2>
-<p>Player names and session data are deleted automatically after 30 days. Usage statistics contain no names and are kept without a fixed deadline. Purchase data is stored by RevenueCat and the app stores according to their own rules. No user account is created. Deletion on request by emailing <a href="mailto:info@playverge.app">info@playverge.app</a>.</p>
+<p>Player names and session data are deleted automatically after 30 days. Usage statistics contain no names and are kept without a fixed deadline. For card ratings, we remove the game round identifier after 30 days and keep only the month of the date; after that, we keep the rating and comment for as long as we use them to improve the cards (see section 10). Purchase data is stored by RevenueCat and the app stores according to their own rules. No user account is created. Deletion on request by emailing <a href="mailto:info@playverge.app">info@playverge.app</a>.</p>
 
 <h2>13. Data Security</h2>
 <p>All data is encrypted in transit (HTTPS/TLS). Firebase applies server-side security measures in line with industry standards.</p>
@@ -243,6 +249,7 @@ hr{border:0;border-top:1px solid rgba(47,52,58,.14);margin:34px 0}
 
 <h2>14. Access, Rectification, Erasure</h2>
 <p>You have the right to access, rectification, erasure and restriction of processing of your personal data, as well as the right to data portability. You may withdraw your consent at any time. Contact us at: <a href="mailto:info@playverge.app">info@playverge.app</a></p>
+<p>As we work without accounts, we can only link a card rating to you if you tell us which comment you wrote and roughly when. With this information, we find it and delete it or remove personal details from it. We cannot link ratings without a comment to any person and therefore cannot delete them individually either (Art. 11 GDPR).</p>
 <p>You also have the right to lodge a complaint with the competent supervisory authority. In North Rhine-Westphalia: Landesbeauftragte für Datenschutz und Informationsfreiheit NRW (LDI NRW), <a href="https://www.ldi.nrw.de" target="_blank" rel="noopener">ldi.nrw.de</a>.</p>
 
 <h2>15. Changes</h2>
