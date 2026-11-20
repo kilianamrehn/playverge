@@ -25,6 +25,12 @@
 <link rel="alternate" hreflang="it" href="https://playverge.app/it/app/">
 <link rel="alternate" hreflang="pl" href="https://playverge.app/pl/app/">
 <link rel="alternate" hreflang="pt" href="https://playverge.app/pt/app/">
+<link rel="alternate" hreflang="nl" href="https://playverge.app/nl/app/">
+<link rel="alternate" hreflang="sv" href="https://playverge.app/sv/app/">
+<link rel="alternate" hreflang="da" href="https://playverge.app/da/app/">
+<link rel="alternate" hreflang="nb" href="https://playverge.app/no/app/">
+<link rel="alternate" hreflang="fi" href="https://playverge.app/fi/app/">
+<link rel="alternate" hreflang="is" href="https://playverge.app/is/app/">
 <link rel="alternate" hreflang="x-default" href="https://playverge.app/en/app/">
 <meta property="og:locale" content="pl_PL">
 <meta property="og:title" content="Miesiąc Verge Unlimited">
@@ -324,7 +330,7 @@ h2{font-family:var(--serif);font-weight:500;font-size:33px;line-height:1.08;marg
       <svg viewBox="0 0 24 24"><path fill="#FF3B30" d="M12 1.6l3.1 6.9 7.5.8-5.6 5.1 1.6 7.4L12 18l-6.6 3.8 1.6-7.4L1.4 9.3l7.5-.8z"/></svg>
     </span>
   </a>
-  <div class="lang" id="lang"><button type="button" id="lbtn" aria-haspopup="true" aria-expanded="false" aria-label="Język: Polski">PL<svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="lmenu" id="lmenu" hidden><li><a href="/app/" lang="de" hreflang="de">Deutsch</a></li><li><a href="/en/app/" lang="en-GB" hreflang="en-GB">English</a></li><li><a href="/es/app/" lang="es" hreflang="es">Español</a></li><li><a href="/fr/app/" lang="fr" hreflang="fr">Français</a></li><li><a href="/it/app/" lang="it" hreflang="it">Italiano</a></li><li><a href="/pl/app/" lang="pl" hreflang="pl" aria-current="page">Polski</a></li><li><a href="/pt/app/" lang="pt-PT" hreflang="pt-PT">Português</a></li></ul></div>
+  <div class="lang" id="lang"><button type="button" id="lbtn" aria-haspopup="true" aria-expanded="false" aria-label="Język: Polski">PL<svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="lmenu" id="lmenu" hidden><li><a href="/app/" lang="de" hreflang="de">Deutsch</a></li><li><a href="/da/app/" lang="da" hreflang="da">Dansk</a></li><li><a href="/en/app/" lang="en-GB" hreflang="en-GB">English</a></li><li><a href="/es/app/" lang="es" hreflang="es">Español</a></li><li><a href="/fr/app/" lang="fr" hreflang="fr">Français</a></li><li><a href="/is/app/" lang="is" hreflang="is">Íslenska</a></li><li><a href="/it/app/" lang="it" hreflang="it">Italiano</a></li><li><a href="/nl/app/" lang="nl" hreflang="nl">Nederlands</a></li><li><a href="/no/app/" lang="nb" hreflang="nb">Norsk</a></li><li><a href="/pl/app/" lang="pl" hreflang="pl" aria-current="page">Polski</a></li><li><a href="/pt/app/" lang="pt-PT" hreflang="pt-PT">Português</a></li><li><a href="/fi/app/" lang="fi" hreflang="fi">Suomi</a></li><li><a href="/sv/app/" lang="sv" hreflang="sv">Svenska</a></li></ul></div>
 </header>
 
 <main>
@@ -513,7 +519,7 @@ var I={"lang": "pl", "hlang": "pl", "L": {"ios": ["Odbierz miesiąc za darmo", "
   var lang=I.lang;
   var q=new URLSearchParams(location.search);
 (function(){var b=document.getElementById("lbtn"),m=document.getElementById("lmenu");
-  var q=new URLSearchParams(location.search),l=q.get("lang"),P={"de": "/app/", "en": "/en/app/", "es": "/es/app/", "fr": "/fr/app/", "it": "/it/app/", "pl": "/pl/app/", "pt": "/pt/app/"};
+  var q=new URLSearchParams(location.search),l=q.get("lang"),P={"de": "/app/", "en": "/en/app/", "es": "/es/app/", "fr": "/fr/app/", "it": "/it/app/", "pl": "/pl/app/", "pt": "/pt/app/", "nl": "/nl/app/", "sv": "/sv/app/", "da": "/da/app/", "nb": "/no/app/", "no": "/no/app/", "nn": "/no/app/", "fi": "/fi/app/", "is": "/is/app/"};
   if(l&&l!=="pl"&&P[l]){q.delete("lang");var r=q.toString();location.replace(P[l]+(r?"?"+r:"")+location.hash);return}
   if(!b||!m)return;
   function tg(o){m.hidden=!o;b.setAttribute("aria-expanded",o?"true":"false")}

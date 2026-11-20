@@ -25,6 +25,12 @@
 <link rel="alternate" hreflang="it" href="https://playverge.app/it/code/">
 <link rel="alternate" hreflang="pl" href="https://playverge.app/pl/code/">
 <link rel="alternate" hreflang="pt" href="https://playverge.app/pt/code/">
+<link rel="alternate" hreflang="nl" href="https://playverge.app/nl/code/">
+<link rel="alternate" hreflang="sv" href="https://playverge.app/sv/code/">
+<link rel="alternate" hreflang="da" href="https://playverge.app/da/code/">
+<link rel="alternate" hreflang="nb" href="https://playverge.app/no/code/">
+<link rel="alternate" hreflang="fi" href="https://playverge.app/fi/code/">
+<link rel="alternate" hreflang="is" href="https://playverge.app/is/code/">
 <link rel="alternate" hreflang="x-default" href="https://playverge.app/en/code/">
 <meta property="og:locale" content="it_IT">
 <meta property="og:title" content="Un mese di Verge Unlimited">
@@ -324,7 +330,7 @@ h2{font-family:var(--serif);font-weight:500;font-size:33px;line-height:1.08;marg
       <svg viewBox="0 0 24 24"><path fill="#FF3B30" d="M12 1.6l3.1 6.9 7.5.8-5.6 5.1 1.6 7.4L12 18l-6.6 3.8 1.6-7.4L1.4 9.3l7.5-.8z"/></svg>
     </span>
   </a>
-  <div class="lang" id="lang"><button type="button" id="lbtn" aria-haspopup="true" aria-expanded="false" aria-label="Lingua: Italiano">IT<svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="lmenu" id="lmenu" hidden><li><a href="/code/" lang="de" hreflang="de">Deutsch</a></li><li><a href="/en/code/" lang="en-GB" hreflang="en-GB">English</a></li><li><a href="/es/code/" lang="es" hreflang="es">Español</a></li><li><a href="/fr/code/" lang="fr" hreflang="fr">Français</a></li><li><a href="/it/code/" lang="it" hreflang="it" aria-current="page">Italiano</a></li><li><a href="/pl/code/" lang="pl" hreflang="pl">Polski</a></li><li><a href="/pt/code/" lang="pt-PT" hreflang="pt-PT">Português</a></li></ul></div>
+  <div class="lang" id="lang"><button type="button" id="lbtn" aria-haspopup="true" aria-expanded="false" aria-label="Lingua: Italiano">IT<svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="lmenu" id="lmenu" hidden><li><a href="/code/" lang="de" hreflang="de">Deutsch</a></li><li><a href="/da/code/" lang="da" hreflang="da">Dansk</a></li><li><a href="/en/code/" lang="en-GB" hreflang="en-GB">English</a></li><li><a href="/es/code/" lang="es" hreflang="es">Español</a></li><li><a href="/fr/code/" lang="fr" hreflang="fr">Français</a></li><li><a href="/is/code/" lang="is" hreflang="is">Íslenska</a></li><li><a href="/it/code/" lang="it" hreflang="it" aria-current="page">Italiano</a></li><li><a href="/nl/code/" lang="nl" hreflang="nl">Nederlands</a></li><li><a href="/no/code/" lang="nb" hreflang="nb">Norsk</a></li><li><a href="/pl/code/" lang="pl" hreflang="pl">Polski</a></li><li><a href="/pt/code/" lang="pt-PT" hreflang="pt-PT">Português</a></li><li><a href="/fi/code/" lang="fi" hreflang="fi">Suomi</a></li><li><a href="/sv/code/" lang="sv" hreflang="sv">Svenska</a></li></ul></div>
 </header>
 
 <main>
@@ -513,7 +519,7 @@ var I={"lang": "it", "hlang": "it", "L": {"ios": ["Ottieni un mese gratis", "Bas
   var lang=I.lang;
   var q=new URLSearchParams(location.search);
 (function(){var b=document.getElementById("lbtn"),m=document.getElementById("lmenu");
-  var q=new URLSearchParams(location.search),l=q.get("lang"),P={"de": "/code/", "en": "/en/code/", "es": "/es/code/", "fr": "/fr/code/", "it": "/it/code/", "pl": "/pl/code/", "pt": "/pt/code/"};
+  var q=new URLSearchParams(location.search),l=q.get("lang"),P={"de": "/code/", "en": "/en/code/", "es": "/es/code/", "fr": "/fr/code/", "it": "/it/code/", "pl": "/pl/code/", "pt": "/pt/code/", "nl": "/nl/code/", "sv": "/sv/code/", "da": "/da/code/", "nb": "/no/code/", "no": "/no/code/", "nn": "/no/code/", "fi": "/fi/code/", "is": "/is/code/"};
   if(l&&l!=="it"&&P[l]){q.delete("lang");var r=q.toString();location.replace(P[l]+(r?"?"+r:"")+location.hash);return}
   if(!b||!m)return;
   function tg(o){m.hidden=!o;b.setAttribute("aria-expanded",o?"true":"false")}

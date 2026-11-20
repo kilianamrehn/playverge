@@ -25,6 +25,12 @@
 <link rel="alternate" hreflang="it" href="https://playverge.app/it/dreifrei/">
 <link rel="alternate" hreflang="pl" href="https://playverge.app/pl/dreifrei/">
 <link rel="alternate" hreflang="pt" href="https://playverge.app/pt/dreifrei/">
+<link rel="alternate" hreflang="nl" href="https://playverge.app/nl/dreifrei/">
+<link rel="alternate" hreflang="sv" href="https://playverge.app/sv/dreifrei/">
+<link rel="alternate" hreflang="da" href="https://playverge.app/da/dreifrei/">
+<link rel="alternate" hreflang="nb" href="https://playverge.app/no/dreifrei/">
+<link rel="alternate" hreflang="fi" href="https://playverge.app/fi/dreifrei/">
+<link rel="alternate" hreflang="is" href="https://playverge.app/is/dreifrei/">
 <link rel="alternate" hreflang="x-default" href="https://playverge.app/en/dreifrei/">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:title" content="Trois mois de Verge Unlimited">
@@ -324,7 +330,7 @@ h2{font-family:var(--serif);font-weight:500;font-size:33px;line-height:1.08;marg
       <svg viewBox="0 0 24 24"><path fill="#FF3B30" d="M12 1.6l3.1 6.9 7.5.8-5.6 5.1 1.6 7.4L12 18l-6.6 3.8 1.6-7.4L1.4 9.3l7.5-.8z"/></svg>
     </span>
   </a>
-  <div class="lang" id="lang"><button type="button" id="lbtn" aria-haspopup="true" aria-expanded="false" aria-label="Langue: Français">FR<svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="lmenu" id="lmenu" hidden><li><a href="/dreifrei/" lang="de" hreflang="de">Deutsch</a></li><li><a href="/en/dreifrei/" lang="en-GB" hreflang="en-GB">English</a></li><li><a href="/es/dreifrei/" lang="es" hreflang="es">Español</a></li><li><a href="/fr/dreifrei/" lang="fr" hreflang="fr" aria-current="page">Français</a></li><li><a href="/it/dreifrei/" lang="it" hreflang="it">Italiano</a></li><li><a href="/pl/dreifrei/" lang="pl" hreflang="pl">Polski</a></li><li><a href="/pt/dreifrei/" lang="pt-PT" hreflang="pt-PT">Português</a></li></ul></div>
+  <div class="lang" id="lang"><button type="button" id="lbtn" aria-haspopup="true" aria-expanded="false" aria-label="Langue: Français">FR<svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="lmenu" id="lmenu" hidden><li><a href="/dreifrei/" lang="de" hreflang="de">Deutsch</a></li><li><a href="/da/dreifrei/" lang="da" hreflang="da">Dansk</a></li><li><a href="/en/dreifrei/" lang="en-GB" hreflang="en-GB">English</a></li><li><a href="/es/dreifrei/" lang="es" hreflang="es">Español</a></li><li><a href="/fr/dreifrei/" lang="fr" hreflang="fr" aria-current="page">Français</a></li><li><a href="/is/dreifrei/" lang="is" hreflang="is">Íslenska</a></li><li><a href="/it/dreifrei/" lang="it" hreflang="it">Italiano</a></li><li><a href="/nl/dreifrei/" lang="nl" hreflang="nl">Nederlands</a></li><li><a href="/no/dreifrei/" lang="nb" hreflang="nb">Norsk</a></li><li><a href="/pl/dreifrei/" lang="pl" hreflang="pl">Polski</a></li><li><a href="/pt/dreifrei/" lang="pt-PT" hreflang="pt-PT">Português</a></li><li><a href="/fi/dreifrei/" lang="fi" hreflang="fi">Suomi</a></li><li><a href="/sv/dreifrei/" lang="sv" hreflang="sv">Svenska</a></li></ul></div>
 </header>
 
 <main>
@@ -513,7 +519,7 @@ var I={"lang": "fr", "hlang": "fr", "L": {"ios": ["Obtenir trois mois gratuits",
   var lang=I.lang;
   var q=new URLSearchParams(location.search);
 (function(){var b=document.getElementById("lbtn"),m=document.getElementById("lmenu");
-  var q=new URLSearchParams(location.search),l=q.get("lang"),P={"de": "/dreifrei/", "en": "/en/dreifrei/", "es": "/es/dreifrei/", "fr": "/fr/dreifrei/", "it": "/it/dreifrei/", "pl": "/pl/dreifrei/", "pt": "/pt/dreifrei/"};
+  var q=new URLSearchParams(location.search),l=q.get("lang"),P={"de": "/dreifrei/", "en": "/en/dreifrei/", "es": "/es/dreifrei/", "fr": "/fr/dreifrei/", "it": "/it/dreifrei/", "pl": "/pl/dreifrei/", "pt": "/pt/dreifrei/", "nl": "/nl/dreifrei/", "sv": "/sv/dreifrei/", "da": "/da/dreifrei/", "nb": "/no/dreifrei/", "no": "/no/dreifrei/", "nn": "/no/dreifrei/", "fi": "/fi/dreifrei/", "is": "/is/dreifrei/"};
   if(l&&l!=="fr"&&P[l]){q.delete("lang");var r=q.toString();location.replace(P[l]+(r?"?"+r:"")+location.hash);return}
   if(!b||!m)return;
   function tg(o){m.hidden=!o;b.setAttribute("aria-expanded",o?"true":"false")}
